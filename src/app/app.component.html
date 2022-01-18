@@ -1,13 +1,49 @@
 <mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
+  <span class="title">MovieSite - P4</span>
+  <button class="toggleMenuButton" mat-icon-button (click)="opened=!opened">
+    <mat-icon *ngIf="!opened">
+      <!-- if sidenav closed show menu icon -->
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="opened">
+      <!-- if sidenav opened show close icon -->
+      close
+    </mat-icon>
   </button>
-  <span>My App</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
+  <button class="toolbar-Button">Menu 1</button>
+  <button class="toolbar-Button">Menu 2</button>
+  <button class="toolbar-Button">Menu 3</button>
+  <button class="toolbar-Button">Menu 4</button>
+  <button class="toolbar-Button">Menu 5</button>
 </mat-toolbar>
+
+<!-- Sidenav and main content start -->
+<mat-sidenav-container>
+
+  <!-- sidenav START -->
+  <mat-sidenav mode="side" [(opened)]="opened">
+    <button class="sidenav-Button">Menu 1</button>
+    <button class="sidenav-Button">Menu 2</button>
+    <button class="sidenav-Button">Menu 3</button>
+    <button class="sidenav-Button">Menu 4</button>
+    <button class="sidenav-Button">Menu 5</button>
+  </mat-sidenav>
+  <!-- sidenav END -->
+
+  <!-- main content START-->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+
+    <footer class="footer">
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </footer>
+    
+  </mat-sidenav-content>
+  <!-- main content END -->
+
+</mat-sidenav-container>
+<!-- sidenav and main content END -->

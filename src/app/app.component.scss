@@ -1,0 +1,117 @@
+/* :host is a pseudo-class selector that applies styles in the element that hosts the component. */
+:host {
+    /* Font */
+    --PrimaryFontColor: rgb(255, 255, 255);
+    --SecondaryFontColor: rgb(188, 32, 33);
+
+    /* Background */
+    --PrimaryBackgroundColor: #000000;
+    --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
+
+    /* Menu */
+    --PrimaryMenuColor: #777;
+    --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
+}
+
+/* Mat toolbar on top */
+mat-toolbar {
+    background-color: var(--PrimaryBackgroundColor);
+    color: var(--PrimaryFontColor);
+    height: 50px;
+    .title {
+        color: var(--SecondaryFontColor);
+        margin-right: 5px;
+    }
+    .toggleMenuButton {
+        color: var(--SecondaryFontColor);
+    }
+
+    .toolbar-Button {
+        width: 199px;
+        max-width: 199px;
+        height: 50px;
+        background-color: var(--PrimaryBackgroundColor);
+        color: var(--PrimaryMenuColor);
+        transition: all 0.4s;
+        border: none;
+        &:hover {
+            color: var(--MenuOnHoverColor);
+            background-color: var(--PrimaryBackgroundColor);
+            background-image: var(--MenuOnHoverColor);
+        }
+        &:active {
+            background-color: var(--PrimaryBackgroundColor);
+            background-image: var(--MenuOnHoverColor);
+        }
+    }
+}
+/* Mat sidenav container and all elements inside the container as sidenav etc...*/
+mat-sidenav-container {
+    height: calc(100% - 50px); // -50px because the top toolbar har 50px height
+    width: calc(100%);
+    background-color: var(--PrimaryBackgroundColor);
+    background-image: var(--PrimaryBackgroundImage);
+
+    /* The nav on the side */
+    mat-sidenav {
+        width: 200px;
+        background-color: var(--PrimaryBackgroundColor);
+        color: var(--PrimaryFontColor);
+        // border-right: 1px solid red;
+
+        .toggleMenuButton {
+            border: 0;
+            background-color: var(--PrimaryBackgroundColor);
+            color: var(--SecondaryFontColor);
+        }
+        .sidenav-Button {
+            min-width: 199px;
+            max-width: 199px;
+            height: 50px;
+            background-color: var(--PrimaryBackgroundColor);
+            color: var(--PrimaryMenuColor);
+            transition: all 0.4s;
+            border: none;
+            &:hover {
+                color: var(--MenuOnHoverColor);
+                background-color: var(--PrimaryBackgroundColor);
+                background-image: var(--MenuOnHoverColor);
+            }
+            &:active {
+                background-color: var(--PrimaryBackgroundColor);
+                background-image: var(--MenuOnHoverColor);
+            }
+        }
+    }
+    mat-sidenav-content {
+        color: var(--PrimaryFontColor);
+
+        /* Footer in the sidenav-content */
+        .footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background: rgba(119, 119, 119, 0.15);
+
+            ul {
+                color: #777;
+                list-style-type: none;
+                li{
+                    display: inline;
+                    padding: 20px;
+                }
+
+                /* Links on the Footer */
+                a {
+                    color: #777;
+                    transition: all 0.4s;
+                    &:hover {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
