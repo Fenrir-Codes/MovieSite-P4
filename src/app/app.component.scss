@@ -115,3 +115,16 @@ mat-sidenav-container {
         }
     }
 }
+
+
+
+@media only screen and (min-width: 800px) {
+    .toggleMenuButton{
+        display: none;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .toolbar-Button{
+        display: none;
+    }
+}
