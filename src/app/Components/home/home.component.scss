@@ -1,5 +1,5 @@
 .home-container{
-    margin: 15px;
+    margin: 10px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -8,7 +8,7 @@
 
     .movie-card {
         border-radius: 5px;
-        margin: 10px;
+        margin: 5px;
         min-height: 400px;
         max-width: 200px;
         transition:all .2s;
@@ -19,7 +19,7 @@
           opacity: .8;
         }
         &:hover{
-          transform: scale(1.05);
+          transform: scale(1.04);
           .movieImage{
             opacity: 1;
           }
