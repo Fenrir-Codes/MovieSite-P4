@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HomeComponent } from '../app/Components/home/home.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from '../app/Components/home/home.component';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-
+    MatProgressSpinnerModule,
+    
 
     
 
