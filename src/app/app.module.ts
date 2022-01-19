@@ -9,6 +9,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HomeComponent } from '../app/Components/home/home.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from "ngx-spinner";
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatButtonModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    
+    NgxSpinnerModule,
+    MatCardModule,
 
     
 

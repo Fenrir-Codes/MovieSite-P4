@@ -1,7 +1,33 @@
 <div class="home-container">
-    
-    <mat-spinner class="spinner" [color]="color" *ngIf="!isLoaded"></mat-spinner>
 
-    
+  <!-- <mat-spinner class="spinner" [color]="color" *ngIf="!isLoaded"></mat-spinner> -->
+  <!-- NGX-Spinner START -->
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#af0000" type="square-jelly-box" [fullScreen]="false"
+    *ngIf="!isLoaded">
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner>
+  <!-- NGX-Spinner END -->
+
+  <div class="movecards" *ngFor="let display of movieList">
+    <mat-card class="movie-card">
+      <!--   <mat-card-title>{{ display.title }}</mat-card-title> -->
+      <img class="movieImage" *ngIf="display?.image != null" mat-card-image src="./assets/{{display.image}}"
+        alt="{{display.title}}"> <!-- movie covers -->
+      <img class="movieImage" *ngIf="display.image === null" mat-card-image src="./assets/noimage.jpg"
+        alt="no cover provided"> <!-- if there is no image -->
+      <mat-card-content>
+        <mat-card-subtitle>{{ display.genre }}</mat-card-subtitle> <!-- title of the movie -->
+        <mat-card-subtitle>{{ display.duration }}</mat-card-subtitle> <!-- Genre of the movie -->
+        <mat-card-subtitle>
+          <span class="fa fa-star" *ngFor="let display of ratingArray; index as i"></span>
+          <span class="fa fa-star checked" *ngFor="let display of ratingArray; index as i"></span>
+          {{ display.rating }}
+        </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+
 </div>
-

@@ -4,5 +4,32 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    
+
+
+    .movie-card {
+        border-radius: 5px;
+        margin: 10px;
+        min-height: 400px;
+        max-width: 200px;
+        transition:all .2s;
+        background-color: #d7e1ec;
+        .movieImage{
+          max-height: 330px;
+          max-width: 230px;
+          opacity: .8;
+        }
+        &:hover{
+          transform: scale(1.05);
+          .movieImage{
+            opacity: 1;
+          }
+        }
+        .checked {
+            color: orange;
+        }
+        .unchecked-last{
+            margin-right: 5px;
+        }
+    }
 }
+
