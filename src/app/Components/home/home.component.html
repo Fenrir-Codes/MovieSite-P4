@@ -10,7 +10,6 @@
 
   <div class="movecards" *ngFor="let display of movieList">
     <mat-card class="movie-card">
-      <!--   <mat-card-title>{{ display.title }}</mat-card-title> -->
       <img class="movieImage" *ngIf="display?.image != null" mat-card-image src="./assets/{{display.image}}"
         alt="{{display.title}}"> <!-- movie covers -->
       <img class="movieImage" *ngIf="display.image === null" mat-card-image src="./assets/noimage.jpg"
@@ -21,9 +20,18 @@
         <mat-card-subtitle>
           <span class="fa fa-star" *ngFor="let display of ratingArray; index as i"></span>
           <span class="fa fa-star checked" *ngFor="let display of ratingArray; index as i"></span>
-          {{ display.rating }}
+          {{ display.rating }} <span>/ 10</span>
         </mat-card-subtitle>
       </mat-card-content>
+
+      <!-- overview panel can be small description here but i set just buttons i think -->
+      <mat-card-content class="overview">
+        <mat-card-actions>
+          <button mat-button>Details</button>
+          <button mat-button>Buy</button>
+        </mat-card-actions>
+      </mat-card-content>
+
     </mat-card>
   </div>
 

@@ -1,3 +1,4 @@
+import { state, style, transition, trigger, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
 import { NgxSpinnerService } from 'ngx-spinner';     //https://www.npmjs.com/package/ngx-spinner
@@ -20,64 +21,78 @@ export class HomeComponent implements OnInit {
   movieList: any;
 
 
-
   //example movie array used to demonstrate card
   exampleMovie = [
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie',
+      'description': 'this is a fucking movie bro',
       "genre": 'Action / Adventure',
       "duration": '96 Min',
-      "rating": '5'
+      "rating": 6.5
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 2',
       "genre": 'XXX',
       "duration": '106 Min',
-      "rating": '5'
+      "rating": 5.6
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 3',
       "genre": 'Adventure',
       "duration": '196 Min',
-      "rating": '4'
+      "rating": 4.7
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 4',
       "genre": 'Drama',
       "duration": '136 Min',
-      "rating": '4'
+      "rating": 4.1
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 5',
       "genre": 'Action / Adventure',
       "duration": '96 Min',
-      "rating": '3'
+      "rating": 3.9
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 6',
       "genre": 'Sci-Fi / Action',
       "duration": '115 Min',
-      "rating": '2'
+      "rating": 2.5
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 7',
       "genre": 'Documentary',
       "duration": '76 Min',
-      "rating": '4'
+      "rating": 4.0
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 8',
       "genre": 'Shortfilm',
       "duration": '6 Min',
-      "rating": '1'
+      "rating": 9.2
+    },
+    {
+      "image": 'noimage.jpg',
+      "title": 'Example Movie 8',
+      "genre": 'Shortfilm',
+      "duration": '6 Min',
+      "rating": 9.2
+    },
+    {
+      "image": 'noimage.jpg',
+      "title": 'Example Movie 8',
+      "genre": 'Shortfilm',
+      "duration": '6 Min',
+      "rating": 9.2
     },
   ];
   

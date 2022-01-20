@@ -1,0 +1,6 @@
+Spinner: //https://www.npmjs.com/package/ngx-spinner
+
+Rating: 
+
+Material: ng add @angular/material
+
