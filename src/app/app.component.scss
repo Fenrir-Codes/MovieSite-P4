@@ -1,130 +1,215 @@
 /* :host is a pseudo-class selector that applies styles in the element that hosts the component. */
 :host {
-    /* Font */
-    --PrimaryFontColor: rgb(255, 255, 255);
-    --SecondaryFontColor: rgb(188, 32, 33);
+  /* Font */
+  --PrimaryFontColor: rgb(255, 255, 255);
+  --SecondaryFontColor: rgb(188, 32, 33);
 
-    /* Background */
-    --PrimaryBackgroundColor: #000000;
-    --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
+  /* Background */
+  --PrimaryBackgroundColor: #000000;
+  --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
 
-    /* Menu */
-    --PrimaryMenuColor: #777;
-    --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
+  /* Menu */
+  --PrimaryMenuColor: #777;
+  --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
+
+  /* seach box */
+  --SearchBox-BGColor: rgba(37, 37, 37);
+  --SearchTextColor: rgba(144, 144, 144);
 }
 
 /* Mat toolbar on top */
 mat-toolbar {
-    background-color: var(--PrimaryBackgroundColor);
-    color: var(--PrimaryFontColor);
+  background-color: var(--PrimaryBackgroundColor);
+  color: var(--PrimaryFontColor);
+  height: 50px;
+
+  .title {
+    color: var(--SecondaryFontColor);
+    margin-right: 5px;
+  }
+
+  .toggleMenuButton {
+    color: var(--SecondaryFontColor);
+  }
+
+  .toolbar-Button {
+    margin-right: 5px;
+    width: 199px;
+    max-width: 100px;
     height: 50px;
-    .title {
-        color: var(--SecondaryFontColor);
-        margin-right: 5px;
-    }
-    .toggleMenuButton {
-        color: var(--SecondaryFontColor);
+    background-color: var(--PrimaryBackgroundColor);
+    color: var(--PrimaryMenuColor);
+    transition: all 0.4s;
+    border: none;
+
+    &:hover {
+      color: var(--MenuOnHoverColor);
+      background-color: var(--PrimaryBackgroundColor);
+      background-image: var(--MenuOnHoverColor);
     }
 
-    .toolbar-Button {
-        width: 199px;
-        max-width: 199px;
-        height: 50px;
-        background-color: var(--PrimaryBackgroundColor);
-        color: var(--PrimaryMenuColor);
-        transition: all 0.4s;
-        border: none;
-        &:hover {
-            color: var(--MenuOnHoverColor);
-            background-color: var(--PrimaryBackgroundColor);
-            background-image: var(--MenuOnHoverColor);
-        }
-        &:active {
-            background-color: var(--PrimaryBackgroundColor);
-            background-image: var(--MenuOnHoverColor);
-        }
+    &:active {
+      background-color: var(--PrimaryBackgroundColor);
+      background-image: var(--MenuOnHoverColor);
     }
+  }
+
+  .search-wrapper {
+    position: absolute;
+    right: 125px;
+    max-height: 50px;
+    min-height: 50px;
+    margin-top: 15px;
+
+
+    .search-box {
+      justify-content: center;
+      align-items: center;
+      margin-right: 5px;
+
+      /* searchbox */
+      .searchInput {
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        padding: 6px 16px;
+        color: var(--SearchTextColor);
+        background-color: var(--SearchBox-BGColor);
+        max-width: 200px;
+        max-height: 30px;
+        font-size: 12px;
+        line-height: 35px;
+
+      }
+    }
+
+  }
+  .genre-wrapper{
+    position: absolute;
+    right: 20px;
+    max-height: 50px;
+    min-height: 50px;
+    margin-top: 15px;
+
+    .genre-box{
+      justify-content: center;
+      align-items: center; 
+
+      select{
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        min-height: 30px;
+        max-height: 30px;
+        max-width: 200px;
+        color: var(--SearchTextColor);
+        background-color: var(--SearchBox-BGColor);
+
+
+      }
+
+
+    }
+  }
 }
+
 /* Mat sidenav container and all elements inside the container as sidenav etc...*/
 mat-sidenav-container {
-    height: calc(100% - 50px); // -50px because the top toolbar har 50px height
-    width: calc(100%);
+  height: calc(100% - 50px); // -50px because the top toolbar har 50px height
+  width: calc(100%);
+  background-color: var(--PrimaryBackgroundColor);
+  background-image: var(--PrimaryBackgroundImage);
+
+  /* The nav on the side */
+  mat-sidenav {
+    width: 200px;
     background-color: var(--PrimaryBackgroundColor);
-    background-image: var(--PrimaryBackgroundImage);
+    color: var(--PrimaryFontColor);
+    // border-right: 1px solid red;
 
-    /* The nav on the side */
-    mat-sidenav {
-        width: 200px;
+    .toggleMenuButton {
+      border: 0;
+      background-color: var(--PrimaryBackgroundColor);
+      color: var(--SecondaryFontColor);
+    }
+
+    .sidenav-Button {
+      min-width: 199px;
+      max-width: 199px;
+      height: 50px;
+      background-color: var(--PrimaryBackgroundColor);
+      color: var(--PrimaryMenuColor);
+      transition: all 0.4s;
+      border: none;
+
+      &:hover {
+        color: var(--MenuOnHoverColor);
         background-color: var(--PrimaryBackgroundColor);
-        color: var(--PrimaryFontColor);
-        // border-right: 1px solid red;
+        background-image: var(--MenuOnHoverColor);
+      }
 
-        .toggleMenuButton {
-            border: 0;
-            background-color: var(--PrimaryBackgroundColor);
-            color: var(--SecondaryFontColor);
-        }
-        .sidenav-Button {
-            min-width: 199px;
-            max-width: 199px;
-            height: 50px;
-            background-color: var(--PrimaryBackgroundColor);
-            color: var(--PrimaryMenuColor);
-            transition: all 0.4s;
-            border: none;
-            &:hover {
-                color: var(--MenuOnHoverColor);
-                background-color: var(--PrimaryBackgroundColor);
-                background-image: var(--MenuOnHoverColor);
-            }
-            &:active {
-                background-color: var(--PrimaryBackgroundColor);
-                background-image: var(--MenuOnHoverColor);
-            }
-        }
+      &:active {
+        background-color: var(--PrimaryBackgroundColor);
+        background-image: var(--MenuOnHoverColor);
+      }
     }
-    mat-sidenav-content {
-        color: var(--PrimaryFontColor);
+  }
 
-        /* Footer in the sidenav-content */
-        .footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            height: 50px;
-            background: rgba(119, 119, 119, 0.15);
+  mat-sidenav-content {
+    color: var(--PrimaryFontColor);
 
-            ul {
-                color: #777;
-                list-style-type: none;
-                li{
-                    display: inline;
-                    padding: 20px;
-                }
+    /* Footer in the sidenav-content */
+    .footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      background: rgba(119, 119, 119, 0.15);
 
-                /* Links on the Footer */
-                a {
-                    color: #777;
-                    transition: all 0.4s;
-                    &:hover {
-                        color: #fff;
-                        text-decoration: none;
-                    }
-                }
-            }
+      ul {
+        color: #777;
+        list-style-type: none;
+
+        li {
+          display: inline;
+          padding: 20px;
         }
+
+        /* Links on the Footer */
+        a {
+          color: #777;
+          transition: all 0.4s;
+
+          &:hover {
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+      }
     }
+  }
 }
 
 
+/* if display size bigger than 800px */
+@media only screen and (min-width: 950px) {
+  .toggleMenuButton {
+    display: none;
+  }
 
-@media only screen and (min-width: 800px) {
-    .toggleMenuButton{
-        display: none;
-    }
 }
-@media only screen and (max-width: 800px) {
-    .toolbar-Button{
-        display: none;
-    }
+
+/* if the screen size is less than 800px */
+@media only screen and (max-width: 950px) {
+  .toolbar-Button {
+    display: none;
+  }
+
+  .search-wrapper {
+    display: none;
+  }
+
+  .genre-wrapper {
+    display: none;
+  }
 }
