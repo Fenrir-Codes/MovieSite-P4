@@ -54,9 +54,33 @@ mat-toolbar {
     }
   }
 
+  .toolbar-Button-Login {
+    position: absolute;
+    right: 0px;
+    margin-right: 5px;
+    width: 199px;
+    max-width: 100px;
+    height: 50px;
+    background-color: var(--PrimaryBackgroundColor);
+    color: var(--PrimaryMenuColor);
+    transition: all 0.4s;
+    border: none;
+
+    &:hover {
+      color: var(--MenuOnHoverColor);
+      background-color: var(--PrimaryBackgroundColor);
+      background-image: var(--MenuOnHoverColor);
+    }
+
+    &:active {
+      background-color: var(--PrimaryBackgroundColor);
+      background-image: var(--MenuOnHoverColor);
+    }
+  }
+
   .search-wrapper {
     position: absolute;
-    right: 125px;
+    right: 220px;
     max-height: 50px;
     min-height: 50px;
     margin-top: 15px;
@@ -84,23 +108,24 @@ mat-toolbar {
     }
 
   }
-  .genre-wrapper{
+
+  .genre-wrapper {
     position: absolute;
-    right: 20px;
+    right: 115px;
     max-height: 50px;
     min-height: 50px;
     margin-top: 15px;
 
-    .genre-box{
+    .genre-box {
       justify-content: center;
-      align-items: center; 
+      align-items: center;
 
-      select{
+      select {
         border: none;
         outline: none;
         border-radius: 5px;
-        min-height: 30px;
-        max-height: 30px;
+        min-height: 29px;
+        max-height: 29px;
         max-width: 200px;
         color: var(--SearchTextColor);
         background-color: var(--SearchBox-BGColor);
@@ -202,6 +227,10 @@ mat-sidenav-container {
 /* if the screen size is less than 800px */
 @media only screen and (max-width: 950px) {
   .toolbar-Button {
+    display: none;
+  }
+
+  .toolbar-Button-Login {
     display: none;
   }
 

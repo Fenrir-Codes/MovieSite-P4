@@ -14,8 +14,8 @@ export class AppComponent {
   title = 'MovieSite'; // title of the page
   opened: boolean = false; //variable for opening and closing the sidenav (boolean)
 
-  search = new FormControl();
-  genres = new FormControl();
+  searchForm:any;
+  genreForm:any;
   listOfGenres: string[] = ['Category','Action', 'Adventure', 'Comedy', 'XXX', 'Documentary', 'Sci-fi'];
 
   constructor() {}

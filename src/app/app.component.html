@@ -10,24 +10,25 @@
       close
     </mat-icon>
   </button>
-  <button class="toolbar-Button">Home</button>
+  <button class="toolbar-Button" routerLink="Home">Home</button>
   <button class="toolbar-Button">Movies</button>
   <button class="toolbar-Button">Menu 3</button>
   <button class="toolbar-Button">Menu 4</button>
-  <button class="toolbar-Button">Login</button>
+  <button class="toolbar-Button-Login" routerLink="Login">Login</button>
 
   <div class="search-wrapper">
     <div class="search-box">
-      <input class="searchInput" type="search" placeholder="Search..." formControlName="search" />
+      <input class="searchInput" type="search" placeholder="Search..." />
     </div>
   </div>
   <div class="genre-wrapper">
     <div class="genre-box">
-        <select formControlName="Genre">
+        <select>
             <option *ngFor="let genre of listOfGenres" [value]="genre">{{genre}}</option>
         </select>
     </div>
   </div>
+
 </mat-toolbar>
 
 <!-- Sidenav and main content start -->

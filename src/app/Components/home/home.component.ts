@@ -1,7 +1,7 @@
 import { state, style, transition, trigger, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {ThemePalette} from '@angular/material/core';
+import { ThemePalette } from '@angular/material/core';
 import { NgxSpinnerService } from 'ngx-spinner';     //https://www.npmjs.com/package/ngx-spinner
 
 
@@ -20,9 +20,6 @@ export class HomeComponent implements OnInit {
   starCount = 5;
   ratingArray: boolean [] = [false,false,false,false,false];  // true = filled star / false = enmpty star
   movieList: any;
-
-
-  genres = new FormControl();
   listOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'XXX', 'Documentary', 'Sci-fi'];
   
 
@@ -108,16 +105,11 @@ export class HomeComponent implements OnInit {
 
     this.movieList = this.exampleMovie;
     
-
-    console.log(this.movieList);
-    
     if (this.movieList !=null)
     {
       this.isLoaded = true;
       
     }
-
-    console.log(this.genres);
   }
 
 }
