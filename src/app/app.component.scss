@@ -32,10 +32,20 @@ mat-toolbar {
     color: var(--SecondaryFontColor);
   }
 
-  .toolbar-Button {
+  mat-icon {
+    width: 30px;
+    height: 30px;
     margin-right: 5px;
-    width: 199px;
-    max-width: 100px;
+  }
+
+  .toolbar-Button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    margin-right: 5px;
+    max-width: 120px;
     height: 50px;
     background-color: var(--PrimaryBackgroundColor);
     color: var(--PrimaryMenuColor);
@@ -57,9 +67,41 @@ mat-toolbar {
   .toolbar-Button-Login {
     position: absolute;
     right: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
     margin-right: 5px;
-    width: 199px;
-    max-width: 100px;
+    max-width: 120px;
+    height: 50px;
+    background-color: var(--PrimaryBackgroundColor);
+    color: var(--PrimaryMenuColor);
+    transition: all 0.4s;
+    border: none;
+
+    &:hover {
+      color: var(--MenuOnHoverColor);
+      background-color: var(--PrimaryBackgroundColor);
+      background-image: var(--MenuOnHoverColor);
+    }
+
+    &:active {
+      background-color: var(--PrimaryBackgroundColor);
+      background-image: var(--MenuOnHoverColor);
+    }
+  }
+
+  .toolbar-Button-Logout {
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    margin-right: 5px;
+    max-width: 120px;
     height: 50px;
     background-color: var(--PrimaryBackgroundColor);
     color: var(--PrimaryMenuColor);
@@ -80,7 +122,7 @@ mat-toolbar {
 
   .search-wrapper {
     position: absolute;
-    right: 220px;
+    right: 250px;
     max-height: 50px;
     min-height: 50px;
     margin-top: 15px;
@@ -111,7 +153,7 @@ mat-toolbar {
 
   .genre-wrapper {
     position: absolute;
-    right: 115px;
+    right: 150px;
     max-height: 50px;
     min-height: 50px;
     margin-top: 15px;
