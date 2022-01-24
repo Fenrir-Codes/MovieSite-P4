@@ -155,7 +155,6 @@ mat-toolbar {
     min-height: 50px;
     margin-top: 15px;
 
-
     .search-box {
       justify-content: center;
       align-items: center;
@@ -173,10 +172,8 @@ mat-toolbar {
         max-height: 30px;
         font-size: 12px;
         line-height: 35px;
-
       }
     }
-
   }
 
   .genre-wrapper {
@@ -199,11 +196,7 @@ mat-toolbar {
         max-width: 200px;
         color: var(--SearchTextColor);
         background-color: var(--SearchBox-BGColor);
-
-
       }
-
-
     }
   }
 }
@@ -285,18 +278,27 @@ mat-sidenav-container {
   }
 }
 
-
-/* if display size bigger than 800px */
+/* if display size bigger than 800px show the hamburger menu icon */
 @media only screen and (min-width: 800px) {
   .toggleMenuButton {
     display: none;
   }
-
 }
 
+/* if the screen size is less than 800px do not show the menu button on top toolbar*/
+@media only screen and (max-width: 800px) {
+  #homeButton,
+  #movieButton,
+  #emptyButton,
+  #loginButton,
+  #logoutButton,
+  #settingsButton {
+    display: none;
+  }
+}
 
-@media only screen and (max-width: 750px) {
-
+/* if the screen size is less than 1060px do not show the search input and category select on top toolbar */
+@media only screen and (max-width: 1060px) {
   .search-wrapper {
     display: none;
   }
@@ -304,23 +306,4 @@ mat-sidenav-container {
   .genre-wrapper {
     display: none;
   }
-}
-
-/* if the screen size is less than 800px */
-@media only screen and (max-width: 800px) {
-  #toolbar-Button {
-    display: none;
-  }
-
-  .toolbar-Button-Login {
-    display: none;
-  }
-  .toolbar-Button-Logout{
-    display: none;
-  }
-  #settingsButton{
-    display: none;
-  }
-
-
 }
