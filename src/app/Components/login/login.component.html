@@ -1,4 +1,38 @@
 <div class="container">
+    <mat-card class="card">
+        <mat-card-title>MovieSite Login</mat-card-title><br>
+        <mat-card-content>
+            <form [formGroup]="loginForm">
+                <p>
+                    <mat-form-field>
+                        <input type="Email" matInput placeholder="E-mail" formControlName="Email">
+                    </mat-form-field>
+                   <!--  <input type="text" matInput placeholder="E-Mail" formControlName="Email"> -->
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input type="Password" matInput placeholder="Password" formControlName="Password">
+                    </mat-form-field>
+                    <!-- <input type="password" matInput placeholder="Password" formControlName="Password"> -->
+                </p>
 
-<p>login works</p>
+                <p *ngIf="loginForm.controls.Email.errors?.pattern" class="error">
+                    {{ emailError }}
+                </p>
+                <p *ngIf="error" class="error">
+                    {{ errormessage }}
+                </p>
+                <br>
+
+                <div class="button-container">
+                    <button class="button" type="submit" mat-raised-button [disabled]="!loginForm.valid"
+                        (click)="login(loginForm.get('Email').value, loginForm.get('Password').value)">Login</button>
+                </div><br>
+
+                <p>Har du ikke en konto? <a class="link" routerLink="/Register">Register one</a>.</p>
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+
 </div>

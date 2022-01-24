@@ -17,6 +17,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from './Components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, LoginComponent],
@@ -36,6 +40,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatChipsModule,
     MatSelectModule,
     ReactiveFormsModule,
+    HttpClientModule,
+
+
+
+    
+
 
 
   ],
