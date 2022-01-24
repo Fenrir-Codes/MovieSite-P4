@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { sanitizeIdentifier } from '@angular/compiler';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -12,6 +13,11 @@ import { sanitizeIdentifier } from '@angular/compiler';
 export class AppComponent {
   title = 'MovieSite'; // title of the page
   opened: boolean = false; //variable for opening and closing the sidenav (boolean)
+  loginStatus: boolean = false;
+
+  searchForm:any;
+  genreForm:any;
+  listOfGenres: string[] = ['Category','Action', 'Adventure', 'Comedy', 'XXX', 'Documentary', 'Sci-fi'];
 
   constructor() {}
 

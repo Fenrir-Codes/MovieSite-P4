@@ -1,6 +1,7 @@
 import { state, style, transition, trigger, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import {ThemePalette} from '@angular/material/core';
+import { FormControl } from '@angular/forms';
+import { ThemePalette } from '@angular/material/core';
 import { NgxSpinnerService } from 'ngx-spinner';     //https://www.npmjs.com/package/ngx-spinner
 
 
@@ -19,12 +20,13 @@ export class HomeComponent implements OnInit {
   starCount = 5;
   ratingArray: boolean [] = [false,false,false,false,false];  // true = filled star / false = enmpty star
   movieList: any;
-
+  listOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'XXX', 'Documentary', 'Sci-fi'];
+  
 
   //example movie array used to demonstrate card
   exampleMovie = [
     {
-      "image": 'noimage.jpg',
+      "image": 'druk.jpg',
       "title": 'Example Movie',
       'description': 'this is a fucking movie bro',
       "genre": 'Action / Adventure',
@@ -32,7 +34,7 @@ export class HomeComponent implements OnInit {
       "rating": 6.5
     },
     {
-      "image": 'noimage.jpg',
+      "image": 'air.jpg',
       "title": 'Example Movie 2',
       "genre": 'XXX',
       "duration": '106 Min',
@@ -103,16 +105,11 @@ export class HomeComponent implements OnInit {
 
     this.movieList = this.exampleMovie;
     
-
-    console.log(this.movieList);
-    
     if (this.movieList !=null)
     {
       this.isLoaded = true;
       
     }
-
-
   }
 
 }

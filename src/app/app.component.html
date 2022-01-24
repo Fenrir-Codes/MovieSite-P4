@@ -1,6 +1,6 @@
 <mat-toolbar>
   <span class="title">MovieSite - P4</span>
-  <button class="toggleMenuButton" mat-icon-button (click)="opened=!opened">
+  <button class="toggleMenuButton" mat-icon-button (click)="opened = !opened">
     <mat-icon *ngIf="!opened">
       <!-- if sidenav closed show menu icon -->
       menu
@@ -10,23 +10,39 @@
       close
     </mat-icon>
   </button>
-  <button class="toolbar-Button">Menu 1</button>
-  <button class="toolbar-Button">Menu 2</button>
-  <button class="toolbar-Button">Menu 3</button>
-  <button class="toolbar-Button">Menu 4</button>
-  <button class="toolbar-Button">Menu 5</button>
+  <button class="toolbar-Button" routerLink="Home"><mat-icon class="icon">home</mat-icon>Home</button>
+  <button class="toolbar-Button"><mat-icon>movie</mat-icon>Movies</button>
+  <button class="toolbar-Button"><mat-icon class="icon">home</mat-icon>...</button>
+  <button class="toolbar-Button"><mat-icon>settings</mat-icon>Settings</button>
+  <button class="toolbar-Button-Login" routerLink="Login" *ngIf="!loginStatus"><mat-icon class="icon">login</mat-icon>Login</button>
+  <button class="toolbar-Button-Logout" mat-button *ngIf="loginStatus">
+    <mat-icon class="icon">logout</mat-icon>Logout
+  </button>
+
+  <div class="search-wrapper">
+    <div class="search-box">
+      <input class="searchInput" type="search" placeholder="Search..." />
+    </div>
+  </div>
+  <div class="genre-wrapper">
+    <div class="genre-box">
+        <select>
+            <option *ngFor="let genre of listOfGenres" [value]="genre">{{genre}}</option>
+        </select>
+    </div>
+  </div>
+
 </mat-toolbar>
 
 <!-- Sidenav and main content start -->
 <mat-sidenav-container>
-
   <!-- sidenav START -->
   <mat-sidenav mode="side" [(opened)]="opened">
-    <button class="sidenav-Button">Menu 1</button>
-    <button class="sidenav-Button">Menu 2</button>
+    <button class="sidenav-Button">Home</button>
+    <button class="sidenav-Button">Movies</button>
     <button class="sidenav-Button">Menu 3</button>
     <button class="sidenav-Button">Menu 4</button>
-    <button class="sidenav-Button">Menu 5</button>
+    <button class="sidenav-Button">Login</button>
   </mat-sidenav>
   <!-- sidenav END -->
 
@@ -41,9 +57,7 @@
         <li><a href="#">Contact Us</a></li>
       </ul>
     </footer>
-    
   </mat-sidenav-content>
   <!-- main content END -->
-
 </mat-sidenav-container>
 <!-- sidenav and main content END -->
