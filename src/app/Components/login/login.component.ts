@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   userError: string = 'User not found!';
   loginForm: any;
   user: any;
+  hide = true;
 
   constructor(private fb: FormBuilder,
     private service: SharedService,
@@ -45,6 +46,16 @@ export class LoginComponent implements OnInit {
     //console.log(Email, Password);
     this.service.login(Email, Password).subscribe((response) => {
     console.log(response);
+    this.user = response;
+    
+    if (this.user === true){
+      alert('You are now logged in to MovieSite')
+
+    }
+    else {
+      alert('Wrong credentials!')
+    }
+
     
     });
   }

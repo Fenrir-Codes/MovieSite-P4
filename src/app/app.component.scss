@@ -26,7 +26,8 @@ mat-toolbar {
 
   .title {
     color: var(--SecondaryFontColor);
-    margin-right: 5px;
+    margin-right: 10px;
+    cursor: pointer;
   }
 
   .toggleMenuButton {
