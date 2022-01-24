@@ -3,6 +3,7 @@
   /* Font */
   --PrimaryFontColor: rgb(255, 255, 255);
   --SecondaryFontColor: rgb(188, 32, 33);
+  --GreenFontColor: green;
 
   /* Background */
   --PrimaryBackgroundColor: #000000;
@@ -90,6 +91,9 @@ mat-toolbar {
       background-color: var(--PrimaryBackgroundColor);
       background-image: var(--MenuOnHoverColor);
     }
+    .icon {
+      color: var(--GreenFontColor);
+    }
   }
 
   .toolbar-Button-Logout {
@@ -118,6 +122,9 @@ mat-toolbar {
       background-color: var(--PrimaryBackgroundColor);
       background-image: var(--MenuOnHoverColor);
     }
+    .icon {
+      color: var(--SecondaryFontColor);
+    }
   }
 
   .toolbar-Button-Settings {
@@ -140,6 +147,7 @@ mat-toolbar {
       color: var(--MenuOnHoverColor);
       background-color: var(--PrimaryBackgroundColor);
       background-image: var(--MenuOnHoverColor);
+
     }
 
     &:active {
@@ -289,7 +297,7 @@ mat-sidenav-container {
 @media only screen and (max-width: 750px) {
   #homeButton,
   #movieButton,
-  #emptyButton,
+  #watchButton,
   #loginButton,
   #logoutButton,
   #settingsButton {

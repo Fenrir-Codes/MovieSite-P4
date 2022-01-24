@@ -1,5 +1,8 @@
+<!-- top toolbar -->
 <mat-toolbar>
+  <!-- title on top toolbar -->
   <span class="title">MovieSite - P4</span>
+
   <button class="toggleMenuButton" mat-icon-button (click)="opened = !opened">
     <mat-icon *ngIf="!opened">
       <!-- if sidenav closed show menu icon -->
@@ -10,29 +13,50 @@
       close
     </mat-icon>
   </button>
-  <button id="homeButton" class="toolbar-Button" routerLink="Home"><mat-icon class="icon">home</mat-icon>Home</button>
-  <button id="movieButton" class="toolbar-Button"><mat-icon>movie</mat-icon>Movies</button>
-  <button id="emptyButton" class="toolbar-Button"><mat-icon class="icon">home</mat-icon>Watch</button>
-  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="loginStatus"><mat-icon>settings</mat-icon>Settings</button>
-  <button id="loginButton" class="toolbar-Button-Login" routerLink="Login" *ngIf="!loginStatus"><mat-icon class="icon">login</mat-icon>Login</button>
+  <!-- home button -->
+  <button id="homeButton" class="toolbar-Button" routerLink="Home">
+    <mat-icon class="icon">home</mat-icon>Home
+  </button>
+  <!-- movie button -->
+  <button id="movieButton" class="toolbar-Button">
+    <mat-icon class="icon">movie</mat-icon>Movies
+  </button>
+  <!-- watch button -->
+  <button id="watchButton" class="toolbar-Button">
+    <mat-icon class="icon">home
+    </mat-icon>Watch
+  </button>
+  <!-- settings button -->
+  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="loginStatus">
+    <mat-icon class="settings-icon">dashboard</mat-icon>Settings
+  </button>
+  <!-- login button -->
+  <button id="loginButton" class="toolbar-Button-Login" routerLink="Login" *ngIf="!loginStatus">
+    <mat-icon id="login-icon" class="icon">power_settings_new</mat-icon>Login
+  </button>
+  <!-- logout button -->
   <button id="logoutButton" class="toolbar-Button-Logout" mat-button *ngIf="loginStatus">
-    <mat-icon class="icon">logout</mat-icon>Logout
+    <mat-icon id="logout-icon" class="icon">power_settings_new</mat-icon>Logout
   </button>
 
+  <!-- search wrapper -->
   <div class="search-wrapper">
     <div class="search-box">
       <input class="searchInput" type="search" placeholder="Search..." />
     </div>
   </div>
+  <!-- genre wrapper -->
   <div class="genre-wrapper">
     <div class="genre-box">
-        <select>
-            <option *ngFor="let genre of listOfGenres" [value]="genre">{{genre}}</option>
-        </select>
+      <select>
+        <option *ngFor="let genre of listOfGenres" [value]="genre">{{genre}}</option>
+      </select>
     </div>
   </div>
 
 </mat-toolbar>
+<!-- top toolbar END -->
+
 
 <!-- Sidenav and main content start -->
 <mat-sidenav-container>
@@ -48,8 +72,9 @@
 
   <!-- main content START-->
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <router-outlet></router-outlet> <!-- rendering components -->
 
+    <!-- footer -->
     <footer class="footer">
       <ul>
         <li><a href="#">Help Center</a></li>
@@ -57,6 +82,7 @@
         <li><a href="#">Contact Us</a></li>
       </ul>
     </footer>
+    <!-- footer END -->
   </mat-sidenav-content>
   <!-- main content END -->
 </mat-sidenav-container>
