@@ -13,7 +13,7 @@ import { FormControl } from '@angular/forms';
 export class AppComponent {
   title = 'MovieSite'; // title of the page
   opened: boolean = false; //variable for opening and closing the sidenav (boolean)
-  loginStatus: boolean = false;
+  loginStatus: boolean = true;
 
   searchForm:any;
   genreForm:any;

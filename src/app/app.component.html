@@ -10,12 +10,12 @@
       close
     </mat-icon>
   </button>
-  <button class="toolbar-Button" routerLink="Home"><mat-icon class="icon">home</mat-icon>Home</button>
-  <button class="toolbar-Button"><mat-icon>movie</mat-icon>Movies</button>
-  <button class="toolbar-Button"><mat-icon class="icon">home</mat-icon>...</button>
-  <button class="toolbar-Button"><mat-icon>settings</mat-icon>Settings</button>
-  <button class="toolbar-Button-Login" routerLink="Login" *ngIf="!loginStatus"><mat-icon class="icon">login</mat-icon>Login</button>
-  <button class="toolbar-Button-Logout" mat-button *ngIf="loginStatus">
+  <button id="homeButton" class="toolbar-Button" routerLink="Home"><mat-icon class="icon">home</mat-icon>Home</button>
+  <button id="movieButton" class="toolbar-Button"><mat-icon>movie</mat-icon>Movies</button>
+  <button id="homeButton" class="toolbar-Button"><mat-icon class="icon">home</mat-icon>...</button>
+  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="loginStatus"><mat-icon>settings</mat-icon>Settings</button>
+  <button id="loginButton" class="toolbar-Button-Login" routerLink="Login" *ngIf="!loginStatus"><mat-icon class="icon">login</mat-icon>Login</button>
+  <button id="logoutButton" class="toolbar-Button-Logout" mat-button *ngIf="loginStatus">
     <mat-icon class="icon">logout</mat-icon>Logout
   </button>
 
@@ -41,7 +41,7 @@
     <button class="sidenav-Button">Home</button>
     <button class="sidenav-Button">Movies</button>
     <button class="sidenav-Button">Menu 3</button>
-    <button class="sidenav-Button">Menu 4</button>
+    <button class="sidenav-Button">Settings</button>
     <button class="sidenav-Button">Login</button>
   </mat-sidenav>
   <!-- sidenav END -->
