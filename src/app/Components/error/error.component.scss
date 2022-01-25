@@ -1,0 +1,59 @@
+/* :host is a pseudo-class selector that applies styles in the element that hosts the component. */
+:host {
+    /* Font */
+    --PrimaryFontColor: rgb(255, 255, 255);
+    --SecondaryFontColor: rgb(188, 32, 33);
+  
+    /* Background */
+    --PrimaryBackgroundColor: #000000;
+    --SecondaryBackgroundColor: #d7e1ec;
+    --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
+  
+    /* Menu */
+    --PrimaryMenuColor: #777;
+    --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
+  
+    /* seach box */
+    --SearchBox-BGColor: rgba(37, 37, 37);
+    --SearchTextColor: rgba(144, 144, 144);
+  }
+  
+
+
+/* Container for the 404 error box */
+.error-container {
+    display: flex;
+    height: calc(100% - 85px);
+    max-height: calc(100% - 85px);
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Settings for the box and text itself */
+  .txt-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 280px;
+    border-radius: 15px;
+    backdrop-filter: blur(30px);
+    background-image: var(--PrimaryBackgroundImage);
+  }
+  
+  h1 {
+    display: flex;
+    justify-content: center;
+    color: var(--SecondaryFontColor);
+    font-size: 128px;
+    font-weight: 800;
+  }
+  
+  p {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    font-weight: 800;
+    margin-top: 10px;
+  }

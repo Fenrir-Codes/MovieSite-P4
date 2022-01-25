@@ -1,22 +1,17 @@
 <div class="container">
-  <mat-card class="card">
-    <mat-card-title>MovieSite Login</mat-card-title><br>
-    <mat-card-content>
-      <form [formGroup]="loginForm">
-        <p>
-          <mat-form-field>
-            <input type="Email" matInput placeholder="E-mail" formControlName="Email">
-          </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field>
-            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="Password">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide">
-              <mat-icon class="hide-icon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </mat-form-field>
-        </p>
+
+  <div class="card">
+    <div class="title"> Login </div>
+    <div class="content">
+      <form class="form" [formGroup]="loginForm">
+
+        <div class="form-field">
+          <input type="Email" placeholder="E-mail" formControlName="Email">
+        </div>
+
+        <div class="form-field">
+          <input type="Password" placeholder="Password" formControlName="Password">
+        </div>
 
         <p *ngIf="loginForm.controls.Email.errors?.pattern" class="error">
           {{ emailError }}
@@ -34,7 +29,8 @@
         <p>Har du ikke en konto? <a class="link" routerLink="/Register">Register one</a>.</p>
 
       </form>
-    </mat-card-content>
-  </mat-card>
+    </div>
+
+  </div>
 
 </div>
