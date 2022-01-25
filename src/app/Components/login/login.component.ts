@@ -4,6 +4,7 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 import { Authservice } from 'src/app/Back-END/Services/Storage-Crypting/Auth-Service';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { Router } from '@angular/router';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 
 @Component({
@@ -45,15 +46,21 @@ export class LoginComponent implements OnInit {
   login(Email: string, Password: string) {
     //console.log(Email, Password);
     this.service.login(Email, Password).subscribe((response) => {
-    console.log(response);
+    //console.log(response);
     this.user = response;
+    console.log('userlog:' , this.user);
     
-    if (this.user === true){
-      alert('You are now logged in to MovieSite')
+    
+    if (this.user != null){
+      this.Authservice.enCryptKey('token', response)
+      this.DataService.changeLoginStatus(true);
 
     }
-    else {
-      alert('Wrong credentials!')
+    if (this.user === null) {
+      //console.log("log on failed login:  ", this.user);
+      this.DataService.changeLoginStatus(false);
+      this.error = true;
+      this.errormessage;
     }
 
     

@@ -5,6 +5,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProfile } from 'src/app/Interfaces/IProfile';
+import { HttpErrorResponse } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
