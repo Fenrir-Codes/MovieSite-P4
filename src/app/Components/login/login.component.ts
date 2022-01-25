@@ -46,25 +46,38 @@ export class LoginComponent implements OnInit {
   login(Email: string, Password: string) {
     //console.log(Email, Password);
     this.service.login(Email, Password).subscribe((response) => {
-    //console.log(response);
-    this.user = response;
-    console.log('userlog:' , this.user);
-    
-    
-    if (this.user != null){
-      this.Authservice.enCryptKey('token', response)
-      this.DataService.changeLoginStatus(true);
+      //console.log(response);
+      this.user = response;
 
-    }
-    if (this.user === null) {
-      //console.log("log on failed login:  ", this.user);
-      this.DataService.changeLoginStatus(false);
-      this.error = true;
-      this.errormessage;
-    }
+      if (this.user != null) {
+        this.Authservice.enCryptKey('token', response)
+        this.DataService.changeLoginStatus(true);
+        this.user = this.Authservice.deCryptKey();
 
-    
+        if (this.user.role === 1) {
+          this.DataService.changeUserStatus(false);
+          this.DataService.changeAdminStatus(true);
+          this.Router.navigate(['/Home']);
+        }
+        else {
+          this.DataService.changeAdminStatus(false)
+          this.DataService.changeUserStatus(true);
+          this.Router.navigate(['/Home']);
+
+
+        };
+
+      }
+
+      if (this.user === null) {
+        //console.log("log on failed login:  ", this.user);
+        this.DataService.changeLoginStatus(false);
+        this.error = true;
+        this.errormessage;
+      }
+
     });
+
   }
 
 

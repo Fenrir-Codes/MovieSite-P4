@@ -26,16 +26,21 @@
     <mat-icon class="icon">home
     </mat-icon>Watch
   </button>
-  <!-- settings button -->
-  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="loginStatus">
+
+  <!-- settings buttons ADminj router or user route -->
+  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isAdmin" routerLink="Admin"> <!-- if admin -->
     <mat-icon class="settings-icon">dashboard</mat-icon>Settings
   </button>
+  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isUser" routerLink="Profile"> <!-- if user -->
+    <mat-icon class="settings-icon">dashboard</mat-icon>Settings
+  </button>
+
   <!-- login button -->
   <button id="loginButton" class="toolbar-Button-Login" routerLink="Login" *ngIf="!loginStatus">
     <mat-icon id="login-icon" class="icon">power_settings_new</mat-icon>Login
   </button>
   <!-- logout button -->
-  <button id="logoutButton" class="toolbar-Button-Logout" mat-button *ngIf="loginStatus">
+  <button id="logoutButton" class="toolbar-Button-Logout" mat-button *ngIf="loginStatus" (click)="logOut()">
     <mat-icon id="logout-icon" class="icon">power_settings_new</mat-icon>Logout
   </button>
 

@@ -1,8 +1,6 @@
-import { state, style, transition, trigger, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
 import { NgxSpinnerService } from 'ngx-spinner';     //https://www.npmjs.com/package/ngx-spinner
+import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service'; /* sharedservice is our API service */
 
 
 @Component({
@@ -10,6 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';     //https://www.npmjs.com/pac
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
   // color variable binded to the default angular material spinner NOT USED
   //color: ThemePalette = 'warn';
@@ -19,7 +18,33 @@ export class HomeComponent implements OnInit {
   movieList: any;
   rating: any;
   listOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'XXX', 'Documentary', 'Sci-fi'];
-  
+
+  constructor(private spinner: NgxSpinnerService, private service: SharedService) { }
+
+  ngOnInit(): void {
+     //this line shoud to be here to initialize the custom spinner -> NgxSpinnerService
+    this.spinner.show();
+
+    /* getting all the movies function */
+    this.service.getAllMoviesListed().subscribe(result => {
+      this.movieList = result;
+
+      /* if the movieList array is not null or empty isLoaded boolean set to true , or if null set to false and loading screen show up*/
+      if (this.movieList != null) {
+        this.isLoaded = true;
+
+      }
+      else {
+        this.isLoaded = false;
+
+      }
+
+
+    })
+
+
+  }
+
   //example movie array used to demonstrate card
   exampleMovie = [
     {
@@ -29,85 +54,8 @@ export class HomeComponent implements OnInit {
       "genre": 'Action / Adventure',
       "duration": '96 Min',
       "rating": 6
-    },
-    {
-      "image": 'air.jpg',
-      "title": 'Example Movie 2',
-      "genre": 'XXX',
-      "duration": '106 Min',
-      "rating": 5
-    },
-    {
-      "image": 'noimage.jpg',
-      "title": 'Example Movie 3',
-      "genre": 'Adventure',
-      "duration": '196 Min',
-      "rating": 2
-    },
-    {
-      "image": 'noimage.jpg',
-      "title": 'Example Movie 4',
-      "genre": 'Drama',
-      "duration": '136 Min',
-      "rating": 4
-    },
-    {
-      "image": 'noimage.jpg',
-      "title": 'Example Movie 5',
-      "genre": 'Action / Adventure',
-      "duration": '96 Min',
-      "rating": 3
-    },
-    {
-      "image": 'noimage.jpg',
-      "title": 'Example Movie 6',
-      "genre": 'Sci-Fi / Action',
-      "duration": '115 Min',
-      "rating": 2
-    },
-    {
-      "image": 'noimage.jpg',
-      "title": 'Example Movie 7',
-      "genre": 'Documentary',
-      "duration": '76 Min',
-      "rating": 4
-    },
-    {
-      "image": 'noimage.jpg',
-      "title": 'Example Movie 8',
-      "genre": 'Shortfilm',
-      "duration": '6 Min',
-      "rating": 9
-    },
-    {
-      "image": 'noimage.jpg',
-      "title": 'Example Movie 8',
-      "genre": 'Shortfilm',
-      "duration": '6 Min',
-      "rating": 7
-    },
-    {
-      "image": 'noimage.jpg',
-      "title": 'Example Movie 8',
-      "genre": 'Shortfilm',
-      "duration": '6 Min',
-      "rating": 9
-    },
-  ];
-  
-  constructor(private spinner: NgxSpinnerService) { }
-
-  ngOnInit(): void {
-    this.spinner.show(); //this line shoud to be here to initialize the custom spinner -> NgxSpinnerService
-
-    this.movieList = this.exampleMovie;
-    
-    if (this.movieList !=null)
-    {
-      this.isLoaded = true;
-      
-      
     }
-  }
+
+  ];
 
 }
