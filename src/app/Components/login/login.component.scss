@@ -18,6 +18,7 @@
   --SearchTextColor: rgba(144, 144, 144);
 }
 
+/* default  container */
 .container {
   display: flex;
   height: calc(100% - 85px);
@@ -26,6 +27,7 @@
   justify-content: center;
   align-items: center;
 
+  /* the card settings */
   .card {
     animation: animatezoom 0.5s;
     width: 400px;
@@ -35,14 +37,17 @@
     box-shadow: 0px 0px 15px 4px var(--SecondaryFontColor);
     border: 1px solid var(--SecondaryFontColor);
 
+    /* card content container */
     .content {
       width: 300px;
     }
 
+    /* form field contains the input fields (Email and Password field) */
     .form-field {
       margin: 20px 0px 20px 0px;
       width: 300px;
 
+      /* input field email */
       input[type="Email"] {
         width: 100%;
         padding: 8px 2px;
@@ -53,6 +58,7 @@
         background-color: transparent;
       }
 
+      /* input field password */
       input[type="Password"] {
         width: 100%;
         padding: 8px 2px;
@@ -65,6 +71,7 @@
     }
   }
 
+  /* card's title  (Login) */
   .title {
     width: 100%;
     font-size: 25px;
@@ -73,17 +80,19 @@
     border-radius: 10px 10px 0px 0px;
     padding-bottom: 18px;
     color: var(--SecondaryFontColor);
-
   }
 
+  /* card content container */
   .content,
   p {
     padding: 0px;
     width: 100%;
     display: flex;
+    margin: auto;
     justify-content: center;
     color: var(--SecondaryFontColor);
 
+    /* Link on card (Register one) */
     .link {
       text-decoration: none;
       margin-left: 10px;
@@ -98,10 +107,9 @@
         color: #00ff0d;
       }
     }
-
-    margin: auto;
   }
 
+  /* Error message container */
   .error {
     padding: 5px 0px 5px 0px;
     width: 100%;
@@ -109,12 +117,14 @@
     background-color: red;
   }
 
+  /* button container (Login button) */
   .button-container {
     padding: 8px 2px;
     width: 100%;
     display: flex;
     justify-content: flex-start;
 
+    /* Login button settings */
     .button {
       box-sizing: border-box;
       cursor: pointer;
