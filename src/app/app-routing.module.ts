@@ -5,16 +5,11 @@ import { AdminComponent } from './Components/admin/admin.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { LoginComponent } from './Components/login/login.component';
 import { ProfileComponent } from './Components/profile/profile.component';
-import { CanActivate } from "@angular/router";
-import { Authservice } from './Back-END/Services/Storage-Crypting/Auth-Service';
-import { DataService } from './Back-END/Services/DataService/data.service';
-import { AppComponent } from './app.component';
-
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Login', component: LoginComponent },
-  { path: 'Admin', component: AdminComponent },
+  { path: 'Admin', component: AdminComponent},
   { path: 'Profile', component: ProfileComponent },
 
 
