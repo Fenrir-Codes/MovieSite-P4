@@ -5,7 +5,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProfile } from 'src/app/Interfaces/IProfile';
-import { HttpErrorResponse } from '@angular/common/http';
+import { IMovie } from 'src/app/Interfaces/IMovie';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,7 +20,7 @@ export class SharedService {
   /* home URL: */
   readonly ApiUrl = 'https://localhost:44371/api/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /* login function */
   login(Email: string, Password: string): Observable<IProfile[]> {
@@ -29,4 +29,14 @@ export class SharedService {
       httpOptions
     );
   }
+
+  /* get all the movies from the database listed */
+  getAllMoviesListed(): Observable<IMovie[]> {
+    /* Getting all movies to show on home */
+    return this.http.get<IMovie[]>(this.ApiUrl + 'Movies');
+  }
+
+
+
+
 }

@@ -19,12 +19,14 @@ import { LoginComponent } from './Components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './Components/error/error.component';
+import { AdminComponent } from './Components/admin/admin.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, ErrorComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, ErrorComponent, AdminComponent, ProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
