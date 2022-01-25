@@ -1,23 +1,27 @@
+<!-- container Start -->
 <div class="container">
-  <mat-card class="card">
-    <mat-card-title>MovieSite Login</mat-card-title><br>
-    <mat-card-content>
-      <form [formGroup]="loginForm">
-        <p>
-          <mat-form-field>
-            <input type="Email" matInput placeholder="E-mail" formControlName="Email">
-          </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field>
-            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="Password">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide">
-              <mat-icon class="hide-icon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </mat-form-field>
-        </p>
 
+  <!-- card Start -->
+  <div class="card">
+    <!-- title on the card -->
+    <div class="title"> Login </div>
+
+    <!-- content container in the card START -->
+    <div class="content">
+      <!-- form START -->
+      <form class="form" [formGroup]="loginForm">
+
+        <!-- email input field -->
+        <div class="form-field">
+          <input type="Email" placeholder="E-mail" formControlName="Email">
+        </div>
+
+        <!-- password input field -->
+        <div class="form-field">
+          <input type="Password" placeholder="Password" formControlName="Password">
+        </div>
+
+        <!-- ERROR messages container -->
         <p *ngIf="loginForm.controls.Email.errors?.pattern" class="error">
           {{ emailError }}
         </p>
@@ -26,15 +30,22 @@
         </p>
         <br>
 
+        <!-- button container in the card -->
         <div class="button-container">
           <button class="button" type="submit" mat-raised-button [disabled]="!loginForm.valid"
             (click)="login(loginForm.get('Email').value, loginForm.get('Password').value)">Login</button>
         </div><br>
 
+        <!-- link -->
         <p>Har du ikke en konto? <a class="link" routerLink="/Register">Register one</a>.</p>
 
       </form>
-    </mat-card-content>
-  </mat-card>
+      <!-- form END -->
 
+    </div>
+    <!-- content container in the card END -->
+
+  </div>
+  <!-- card END -->
 </div>
+<!-- container END -->

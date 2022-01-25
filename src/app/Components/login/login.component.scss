@@ -18,61 +18,63 @@
   --SearchTextColor: rgba(144, 144, 144);
 }
 
-
+/* default  container */
 .container {
   display: flex;
-  max-width: 100%;
   height: calc(100% - 85px);
   max-height: calc(100% - 85px);
-  width: 100%;
   padding: 10px;
   justify-content: center;
   align-items: center;
 
+  /* the card settings */
   .card {
-    animation: animatezoom .5s;
-    width: 25%;
+    animation: animatezoom 0.5s;
+    width: 400px;
     align-items: center;
     border-radius: 10px 10px 10px 10px;
-    background-color:white;
+    background-image: var(--MenuOnHoverColor);
     box-shadow: 0px 0px 15px 4px var(--SecondaryFontColor);
     border: 1px solid var(--SecondaryFontColor);
-    //background-image: linear-gradient(315deg, #3A6073 40%, #16222A 95%);
 
-    .mat-form-field {
-      width: 100%;
-      min-width: 300px;
+    /* card content container */
+    .content {
+      width: 300px;
+    }
 
-      input[type=Email] {
+    /* form field contains the input fields (Email and Password field) */
+    .form-field {
+      margin: 20px 0px 20px 0px;
+      width: 300px;
+
+      /* input field email */
+      input[type="Email"] {
         width: 100%;
-        padding: 8px 8px;
+        padding: 8px 2px;
         color: var(--SecondaryFontColor);
-
+        border: none;
+        border-bottom: 1px solid var(--SecondaryFontColor);
+        outline: none;
+        background-color: transparent;
       }
 
-      input[type=Password] {
+      /* input field password */
+      input[type="Password"] {
         width: 100%;
-        padding: 8px 8px;
+        padding: 8px 2px;
         color: var(--SecondaryFontColor);
-
+        border: none;
+        border-bottom: 1px solid var(--SecondaryFontColor);
+        outline: none;
+        background-color: transparent;
       }
-
-      .mat-icon-button {
-        width: 30px;
-        height: 30px;
-        .hide-icon{
-          min-width: 30px;
-          min-height: 30px;
-          color: var(--SecondaryFontColor);
-
-        }
-      }
-
     }
   }
 
-  mat-card-title {
+  /* card's title  (Login) */
+  .title {
     width: 100%;
+    font-size: 25px;
     text-align: center;
     padding-top: 18px;
     border-radius: 10px 10px 0px 0px;
@@ -80,13 +82,17 @@
     color: var(--SecondaryFontColor);
   }
 
-  mat-card-content,
+  /* card content container */
+  .content,
   p {
     padding: 0px;
-    width: 320px;
+    width: 100%;
     display: flex;
+    margin: auto;
     justify-content: center;
+    color: var(--SecondaryFontColor);
 
+    /* Link on card (Register one) */
     .link {
       text-decoration: none;
       margin-left: 10px;
@@ -101,23 +107,26 @@
         color: #00ff0d;
       }
     }
-
-    margin: auto;
-
   }
 
+  /* Error message container */
   .error {
-    padding: 10px;
-    width: 300px;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
     color: white;
     background-color: red;
   }
 
+  /* button container (Login button) */
   .button-container {
+    padding: 8px 2px;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
 
+    /* Login button settings */
     .button {
+      box-sizing: border-box;
       cursor: pointer;
       font-size: 18px;
       width: 100%;
@@ -127,18 +136,53 @@
         background-color: #00ff0d;
       }
     }
-
   }
 
   /* zoom animation */
   @keyframes animatezoom {
     from {
-      transform: scale(0)
+      transform: scale(0);
     }
 
     to {
-      transform: scale(1)
+      transform: scale(1);
     }
   }
+}
 
+/* if the screen size is less than 600px do not show the search input and category select on top toolbar */
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+
+    .card {
+      animation: animatezoom 0.5s;
+      width: 100%;
+      padding: 20px;
+
+      .content {
+        display: block;
+        width: auto;
+
+        .form {
+          width: 200px;
+        }
+      }
+
+      .form-field {
+        margin: 10px 0px 10px 0px;
+        width: 200px;
+      }
+      .button-container {
+        width: 200px;
+      }
+      p {
+        width: 200px;
+      }
+    }
+  }
 }
