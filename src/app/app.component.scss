@@ -3,6 +3,7 @@
   /* Font */
   --PrimaryFontColor: rgb(255, 255, 255);
   --SecondaryFontColor: rgb(188, 32, 33);
+  --GreenFontColor: green;
 
   /* Background */
   --PrimaryBackgroundColor: #000000;
@@ -25,7 +26,8 @@ mat-toolbar {
 
   .title {
     color: var(--SecondaryFontColor);
-    margin-right: 5px;
+    margin-right: 10px;
+    cursor: pointer;
   }
 
   .toggleMenuButton {
@@ -90,6 +92,9 @@ mat-toolbar {
       background-color: var(--PrimaryBackgroundColor);
       background-image: var(--MenuOnHoverColor);
     }
+    .icon {
+      color: var(--GreenFontColor);
+    }
   }
 
   .toolbar-Button-Logout {
@@ -118,15 +123,46 @@ mat-toolbar {
       background-color: var(--PrimaryBackgroundColor);
       background-image: var(--MenuOnHoverColor);
     }
+    .icon {
+      color: var(--SecondaryFontColor);
+    }
+  }
+
+  .toolbar-Button-Settings {
+    position: absolute;
+    right: 120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    margin-right: 5px;
+    max-width: 120px;
+    height: 50px;
+    background-color: var(--PrimaryBackgroundColor);
+    color: var(--PrimaryMenuColor);
+    transition: all 0.4s;
+    border: none;
+
+    &:hover {
+      color: var(--MenuOnHoverColor);
+      background-color: var(--PrimaryBackgroundColor);
+      background-image: var(--MenuOnHoverColor);
+
+    }
+
+    &:active {
+      background-color: var(--PrimaryBackgroundColor);
+      background-image: var(--MenuOnHoverColor);
+    }
   }
 
   .search-wrapper {
     position: absolute;
-    right: 250px;
+    right: 360px;
     max-height: 50px;
     min-height: 50px;
     margin-top: 15px;
-
 
     .search-box {
       justify-content: center;
@@ -145,15 +181,13 @@ mat-toolbar {
         max-height: 30px;
         font-size: 12px;
         line-height: 35px;
-
       }
     }
-
   }
 
   .genre-wrapper {
     position: absolute;
-    right: 150px;
+    right: 260px;
     max-height: 50px;
     min-height: 50px;
     margin-top: 15px;
@@ -171,11 +205,7 @@ mat-toolbar {
         max-width: 200px;
         color: var(--SearchTextColor);
         background-color: var(--SearchBox-BGColor);
-
-
       }
-
-
     }
   }
 }
@@ -257,25 +287,27 @@ mat-sidenav-container {
   }
 }
 
-
-/* if display size bigger than 800px */
-@media only screen and (min-width: 950px) {
+/* if display size bigger than 800px show the hamburger menu icon */
+@media only screen and (min-width: 750px) {
   .toggleMenuButton {
     display: none;
   }
-
 }
 
-/* if the screen size is less than 800px */
-@media only screen and (max-width: 950px) {
-  .toolbar-Button {
+/* if the screen size is less than 790px do not show the menu button on top toolbar*/
+@media only screen and (max-width: 750px) {
+  #homeButton,
+  #movieButton,
+  #watchButton,
+  #loginButton,
+  #logoutButton,
+  #settingsButton {
     display: none;
   }
+}
 
-  .toolbar-Button-Login {
-    display: none;
-  }
-
+/* if the screen size is less than 1060px do not show the search input and category select on top toolbar */
+@media only screen and (max-width: 1060px) {
   .search-wrapper {
     display: none;
   }

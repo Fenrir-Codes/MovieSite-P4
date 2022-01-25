@@ -1,6 +1,6 @@
 import { state, style, transition, trigger, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { NgxSpinnerService } from 'ngx-spinner';     //https://www.npmjs.com/package/ngx-spinner
 
@@ -16,13 +16,10 @@ export class HomeComponent implements OnInit {
 
   //boolean for check if the content loaded
   isLoaded: Boolean = false;
-  rating = 0;
-  starCount = 5;
-  ratingArray: boolean [] = [false,false,false,false,false];  // true = filled star / false = enmpty star
   movieList: any;
+  rating: any;
   listOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'XXX', 'Documentary', 'Sci-fi'];
   
-
   //example movie array used to demonstrate card
   exampleMovie = [
     {
@@ -31,70 +28,70 @@ export class HomeComponent implements OnInit {
       'description': 'this is a fucking movie bro',
       "genre": 'Action / Adventure',
       "duration": '96 Min',
-      "rating": 6.5
+      "rating": 6
     },
     {
       "image": 'air.jpg',
       "title": 'Example Movie 2',
       "genre": 'XXX',
       "duration": '106 Min',
-      "rating": 5.6
+      "rating": 5
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 3',
       "genre": 'Adventure',
       "duration": '196 Min',
-      "rating": 4.7
+      "rating": 2
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 4',
       "genre": 'Drama',
       "duration": '136 Min',
-      "rating": 4.1
+      "rating": 4
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 5',
       "genre": 'Action / Adventure',
       "duration": '96 Min',
-      "rating": 3.9
+      "rating": 3
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 6',
       "genre": 'Sci-Fi / Action',
       "duration": '115 Min',
-      "rating": 2.5
+      "rating": 2
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 7',
       "genre": 'Documentary',
       "duration": '76 Min',
-      "rating": 4.0
+      "rating": 4
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 8',
       "genre": 'Shortfilm',
       "duration": '6 Min',
-      "rating": 9.2
+      "rating": 9
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 8',
       "genre": 'Shortfilm',
       "duration": '6 Min',
-      "rating": 9.2
+      "rating": 7
     },
     {
       "image": 'noimage.jpg',
       "title": 'Example Movie 8',
       "genre": 'Shortfilm',
       "duration": '6 Min',
-      "rating": 9.2
+      "rating": 9
     },
   ];
   
@@ -108,6 +105,7 @@ export class HomeComponent implements OnInit {
     if (this.movieList !=null)
     {
       this.isLoaded = true;
+      
       
     }
   }

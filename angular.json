@@ -20,6 +20,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "secure-web-storage",
+              "crypto-js"
+            ],    
             "outputPath": "dist/movie-site",
             "index": "src/index.html",
             "main": "src/main.ts",

@@ -18,9 +18,11 @@
         <mat-card-subtitle>{{ display.genre }}</mat-card-subtitle> <!-- title of the movie -->
         <mat-card-subtitle>{{ display.duration }}</mat-card-subtitle> <!-- Genre of the movie -->
         <mat-card-subtitle>
-          <span class="fa fa-star" *ngFor="let display of ratingArray; index as i"></span>
-          <span class="fa fa-star checked" *ngFor="let display of ratingArray; index as i"></span>
-          {{ display.rating }} <span>/ 10</span>
+        <!-- <div class="stars">
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star checked"></span>
+          </div> -->
+         Rating: {{ display.rating }} <span>/ 10</span>
         </mat-card-subtitle>
       </mat-card-content>
 

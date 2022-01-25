@@ -1,23 +1,144 @@
 /* :host is a pseudo-class selector that applies styles in the element that hosts the component. */
 :host {
-    /* Font */
-    --PrimaryFontColor: rgb(255, 255, 255);
-    --SecondaryFontColor: rgb(188, 32, 33);
-  
-    /* Background */
-    --PrimaryBackgroundColor: #000000;
-    --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
-  
-    /* Menu */
-    --PrimaryMenuColor: #777;
-    --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
-  
-    /* seach box */
-    --SearchBox-BGColor: rgba(37, 37, 37);
-    --SearchTextColor: rgba(144, 144, 144);
+  /* Font */
+  --PrimaryFontColor: rgb(255, 255, 255);
+  --SecondaryFontColor: rgb(188, 32, 33);
+
+  /* Background */
+  --PrimaryBackgroundColor: #000000;
+  --SecondaryBackgroundColor: #d7e1ec;
+  --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
+
+  /* Menu */
+  --PrimaryMenuColor: #777;
+  --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
+
+  /* seach box */
+  --SearchBox-BGColor: rgba(37, 37, 37);
+  --SearchTextColor: rgba(144, 144, 144);
 }
 
 
+.container {
+  display: flex;
+  max-width: 100%;
+  height: calc(100% - 85px);
+  max-height: calc(100% - 85px);
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
 
-  
-  
+  .card {
+    animation: animatezoom .5s;
+    width: 25%;
+    align-items: center;
+    border-radius: 10px 10px 10px 10px;
+    background-color:white;
+    box-shadow: 0px 0px 15px 4px var(--SecondaryFontColor);
+    border: 1px solid var(--SecondaryFontColor);
+    //background-image: linear-gradient(315deg, #3A6073 40%, #16222A 95%);
+
+    .mat-form-field {
+      width: 100%;
+      min-width: 300px;
+
+      input[type=Email] {
+        width: 100%;
+        padding: 8px 8px;
+        color: var(--SecondaryFontColor);
+
+      }
+
+      input[type=Password] {
+        width: 100%;
+        padding: 8px 8px;
+        color: var(--SecondaryFontColor);
+
+      }
+
+      .mat-icon-button {
+        width: 30px;
+        height: 30px;
+        .hide-icon{
+          min-width: 30px;
+          min-height: 30px;
+          color: var(--SecondaryFontColor);
+
+        }
+      }
+
+    }
+  }
+
+  mat-card-title {
+    width: 100%;
+    text-align: center;
+    padding-top: 18px;
+    border-radius: 10px 10px 0px 0px;
+    padding-bottom: 18px;
+    color: var(--SecondaryFontColor);
+  }
+
+  mat-card-content,
+  p {
+    padding: 0px;
+    width: 320px;
+    display: flex;
+    justify-content: center;
+
+    .link {
+      text-decoration: none;
+      margin-left: 10px;
+      color: #009908;
+
+      &:visited {
+        text-decoration: none;
+        color: #009908;
+      }
+
+      &:hover {
+        color: #00ff0d;
+      }
+    }
+
+    margin: auto;
+
+  }
+
+  .error {
+    padding: 10px;
+    width: 300px;
+    color: white;
+    background-color: red;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-start;
+
+    .button {
+      cursor: pointer;
+      font-size: 18px;
+      width: 100%;
+      background-color: #009908;
+
+      &:hover:enabled {
+        background-color: #00ff0d;
+      }
+    }
+
+  }
+
+  /* zoom animation */
+  @keyframes animatezoom {
+    from {
+      transform: scale(0)
+    }
+
+    to {
+      transform: scale(1)
+    }
+  }
+
+}
