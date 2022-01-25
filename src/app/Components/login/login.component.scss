@@ -130,10 +130,10 @@
       cursor: pointer;
       font-size: 18px;
       width: 100%;
-      background-color: var(--SecondaryFontColor);
+      background-color:var(--SecondaryFontColor);
 
       &:hover:enabled {
-        background-color: #ff3a3a;
+        background-color: #fa2e2e;
       }
     }
   }
