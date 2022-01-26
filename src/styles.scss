@@ -14,9 +14,15 @@
     /* seach box */
     --SearchBox-BGColor: rgba(37, 37, 37);
     --SearchTextColor: rgba(144, 144, 144);
+
+    --GuarmonFontStyle: 'Cormorant Garamond', serif;
+    
   }
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: var(--PrimaryBackgroundColor); }
+*{
+  font-family: var(--GuarmonFontStyle);
+}
+html, body { height: 100%; font-family: var(--GuarmonFontStyle); }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: var(--PrimaryBackgroundColor);
+  font-family: var(--GuarmonFontStyle); }
 

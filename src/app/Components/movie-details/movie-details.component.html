@@ -1,0 +1,11 @@
+<div class="container" *ngFor="let display of currentMovie">
+    <div class="moviecontainer">
+        <img class="movieImage" *ngIf="display?.image != null" mat-card-image src="./assets/{{display.image}}"
+            alt="{{display.title}}"> <!-- movie covers -->
+        <img class="movieImage" *ngIf="display.image === null" mat-card-image src="./assets/noimage.jpg"
+            alt="no cover provided"> <!-- if there is no image -->
+    </div>
+    <div class="info-container">
+        <p>{{display.description}}</p>
+    </div>
+</div>

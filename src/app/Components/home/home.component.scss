@@ -10,6 +10,10 @@
   /* Menu */
   --PrimaryMenuColor: #777;
   --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
+
+  --GuarmonFontStyle: 'Cormorant Garamond', serif;
+
+
 }
 
 .home-container {
@@ -19,22 +23,25 @@
   align-items: center;
   justify-content: center;
 
-
   .movie-card {
     position: relative;
     overflow: hidden;
     border-radius: 5px;
-    margin: 5px 10px 10px 10px;
-    min-height: 300px;
-    max-width: 200px;
-    transition: all .2s;
+    border: 1px solid red;
+    margin: 10px 10px 10px 10px;
+    min-height: 420px;
+    max-height: 420px;
+    width: 250px;
+    max-width: 400px;
+    transition: all 0.2s;
     background-color: #d7e1ec;
+    //box-shadow: 0px 0px 5px 4px var(--SecondaryFontColor);
     cursor: pointer;
 
     .movieImage {
-      max-height: 330px;
-      max-width: 230px;
-      opacity: .8;
+      height: 412px;
+      max-width: 400px;
+      opacity: 0.8;
     }
 
     &:hover {
@@ -56,24 +63,36 @@
     /* overview panel */
     .overview {
       position: absolute;
-      display: flex;
       left: 0;
       right: 0;
       bottom: 0;
-      transform: translateY(100%);
-      min-height: 140px;
-      max-height: 140px;
+      padding: 10px;
+      transform: translateY(85%);
+      min-height: 300px;
+      max-height: 300px;
       transition: transform 0.3s ease-in;
-      background-image: linear-gradient(to bottom, #3d3d3d 0, #000 100%);
-      color: white;
+      background-image: var(--PrimaryBackgroundImage);
       justify-content: center;
       border-radius: 5px;
 
+      &:hover {
+        transform: translate(0);
+      }
+
+      mat-card-subtitle {
+        color: white;
+      }
+
+      .icon-description{
+        margin-right: 5px;
+       
+      }
 
     }
+    
   }
 
-  .movie-card:hover .overview {
+  /*   .movie-card:hover .overview {
     transform: translate(0);
-  }
+  } */
 }

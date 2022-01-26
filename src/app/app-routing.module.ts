@@ -4,6 +4,7 @@ import { HomeComponent } from 'src/app/Components/home/home.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { LoginComponent } from './Components/login/login.component';
+import { MovieDetailsComponent } from './Components/movie-details/movie-details.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'Login', component: LoginComponent },
   { path: 'Admin', component: AdminComponent},
   { path: 'Profile', component: ProfileComponent },
+  { path: 'MovieDetails', component: MovieDetailsComponent},
 
 
   { path: 'Error', component: ErrorComponent },
