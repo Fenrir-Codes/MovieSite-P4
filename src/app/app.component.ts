@@ -16,6 +16,7 @@ export class AppComponent {
   loginStatus: boolean = false;
   isAdmin: boolean = false;
   isUser: boolean = false;
+  searchtext: string = '';
   user: any;
 
   searchForm: any;
@@ -101,4 +102,12 @@ export class AppComponent {
     this.DataService.changeAdminStatus(false); // admin status set to false
     this.Router.navigate(['/Home']); // navigate back to Home
   }
+
+   //passing text string to home component
+   searchMovie(event: any) {
+    //console.log(event);
+    this.DataService.setSearchString(event);
+  }
+
+  
 }

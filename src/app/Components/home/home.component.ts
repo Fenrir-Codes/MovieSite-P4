@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   //boolean for check if the content loaded
   isLoaded: Boolean = false;
   movieList: any;
+  searchText: any;
   rating: any;
   listOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'XXX', 'Documentary', 'Sci-fi'];
 
@@ -30,6 +31,10 @@ export class HomeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    //this is observable is checking the search filter #text coming from app component,
+    //and setting it equal to seachText string on this component
+    this.DataService.currentSearchString.subscribe((text) => (this.searchText = text));
+
     //this line shoud to be here to initialize the custom spinner -> NgxSpinnerService
     this.spinner.show();
 

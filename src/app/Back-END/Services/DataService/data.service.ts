@@ -22,7 +22,7 @@ export class DataService {
     currenUserId = this.userId.asObservable();
 
     private searchString = new BehaviorSubject<string>('');
-    currentString = this.searchString.asObservable();
+    currentSearchString = this.searchString.asObservable();
 
     private avatar = new BehaviorSubject<string>('');
     currentUser = this.avatar.asObservable();

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-movie-details',
@@ -13,7 +14,8 @@ export class MovieDetailsComponent implements OnInit {
 
   constructor(
     private service: SharedService, /* shared API service call */
-    private DataService: DataService /* this is the dataservice call */
+    private DataService: DataService, /* this is the dataservice call */
+    private sanitizer : DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +31,9 @@ export class MovieDetailsComponent implements OnInit {
   getMovieDetails() {
     this.service.getMovieById(this.movieId).subscribe(result => {
       this.currentMovie = result;
-      //console.log(this.currentMovie);
+      console.log(this.currentMovie);
+
+
 
 
     });

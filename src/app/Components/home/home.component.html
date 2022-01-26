@@ -8,7 +8,7 @@
   </ngx-spinner>
   <!-- NGX-Spinner END -->
 
-  <div class="movecards" *ngFor="let display of movieList">
+  <div class="movecards" *ngFor="let display of movieList | filter:searchText">
     <mat-card class="movie-card" (click)="movieCardClicked(display.movieId)">
       <img class="movieImage" *ngIf="display?.image != null" mat-card-image src="./assets/{{display.image}}"
         alt="{{display.title}}"> <!-- movie covers -->
