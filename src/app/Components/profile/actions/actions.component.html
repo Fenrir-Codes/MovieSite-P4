@@ -1,0 +1,69 @@
+<div class="container">
+
+    <mat-card class="card">
+
+        <mat-card-title>Update your profile {{user?.firstname}}</mat-card-title>
+        <div id="message">
+            {{message}}
+        </div>
+        <mat-card-content>
+            <form [formGroup]="updateForm">
+                <div class="topbox">
+                    <p>
+                        <mat-form-field>
+                            <input type="Email" matInput placeholder="E-mail" formControlName="Email">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Your new password" formControlName="Password">
+                        </mat-form-field>
+                    </p>
+
+                </div>
+                <div class="middlebox">
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Firstname" formControlName="Firstname">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Lastname" formControlName="Lastname">
+                        </mat-form-field>
+                    </p>
+                </div>
+                <div class="bottombox">
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Address" formControlName="Address">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Phone" formControlName="Phone">
+                        </mat-form-field>
+                    </p>
+
+                </div>
+
+                <div class="button-container">
+                    <p>
+                        <button class="button-update" type="submit" mat-raised-button [disabled]="!updateForm.valid"
+                            (click)="update(user.profileId, updateForm.value)">Update Profile</button>
+                    </p>
+                    <p>
+                        <button class="button-delete" type="submit" mat-raised-button
+                            (click)="delete(user.profileId)" [disabled]="!checked">Delete
+                            Profile</button>
+                    </p>
+
+                </div>
+                <p>
+                    <mat-checkbox class="checkbox" (change)="checkOK($event.checked)">I want to delete my account.</mat-checkbox>
+                </p>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+</div>

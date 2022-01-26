@@ -8,30 +8,22 @@
   </ngx-spinner>
   <!-- NGX-Spinner END -->
 
-  <div class="movecards" *ngFor="let display of movieList">
-    <mat-card class="movie-card">
+  <div class="movecards" *ngFor="let display of movieList | filter:searchText">
+    <mat-card class="movie-card" (click)="movieCardClicked(display.movieId)">
       <img class="movieImage" *ngIf="display?.image != null" mat-card-image src="./assets/{{display.image}}"
         alt="{{display.title}}"> <!-- movie covers -->
       <img class="movieImage" *ngIf="display.image === null" mat-card-image src="./assets/noimage.jpg"
         alt="no cover provided"> <!-- if there is no image -->
-      <mat-card-content>
-        <mat-card-subtitle>{{ display.genre }}</mat-card-subtitle> <!-- title of the movie -->
-        <mat-card-subtitle>{{ display.duration }}</mat-card-subtitle> <!-- Genre of the movie -->
-        <mat-card-subtitle>
-        <!-- <div class="stars">
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star checked"></span>
-          </div> -->
-         Rating: {{ display.rating }} <span>/ 10</span>
-        </mat-card-subtitle>
-      </mat-card-content>
 
       <!-- overview panel can be small description here but i set just buttons i think -->
       <mat-card-content class="overview">
-        <mat-card-actions>
-          <button mat-button>Details</button>
-          <button mat-button>Buy</button>
-        </mat-card-actions>
+        <mat-card-subtitle>
+          <mat-icon class="icon-description">description</mat-icon></mat-card-subtitle>
+
+         <mat-card-subtitle>{{ display.genre }}</mat-card-subtitle> <!-- title of the movie -->
+         <mat-card-subtitle>{{ display.duration }}</mat-card-subtitle> <!-- Genre of the movie -->
+
+        <mat-card-subtitle>{{ display.description }}</mat-card-subtitle> <!-- Genre of the movie -->
       </mat-card-content>
 
     </mat-card>

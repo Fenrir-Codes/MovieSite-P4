@@ -21,12 +21,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './Components/error/error.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { MovieDetailsComponent } from './Components/movie-details/movie-details.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';  //npm i ng2-search-filter --force
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, ErrorComponent, AdminComponent, ProfileComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, ErrorComponent, AdminComponent, ProfileComponent, MovieDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,6 +46,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
     MatSelectModule,
     ReactiveFormsModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
 
 
 

@@ -36,6 +36,11 @@ export class SharedService {
     return this.http.get<IMovie[]>(this.ApiUrl + 'Movies');
   }
 
+  /* get by id function */
+  getMovieById(id: number): Observable<IMovie[]> {
+    return this.http.get<IMovie[]>(this.ApiUrl + 'Movies/' + id);
+  }
+
 
 
 

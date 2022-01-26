@@ -47,7 +47,7 @@
   <!-- search wrapper -->
   <div class="search-wrapper">
     <div class="search-box">
-      <input class="searchInput" type="search" placeholder="Search..." />
+      <input class="searchInput" type="search" #text placeholder="Search..." (keydown)="searchMovie(text.value)" />
     </div>
   </div>
   <!-- genre wrapper -->

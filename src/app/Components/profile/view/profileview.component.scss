@@ -1,0 +1,68 @@
+.container {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+
+  mat-card-title {
+    width: 100%;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    color: burlywood;
+    background-color: #3A6073;
+
+  }
+
+  mat-card-content {
+    p {
+      margin-right: 20px;
+    }
+  }
+}
+
+.infobox {
+  font-weight: bold;
+
+}
+
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+
+  .button-update {
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: burlywood;
+    background-color: #3A6073;
+
+    &:hover:enabled {
+      color: white;
+      background-color: #00b126;
+    }
+  }
+
+  .button-delete {
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: burlywood;
+    background-color: #3A6073;
+
+    &:hover:enabled {
+      color: white;
+      background-color: #b10000;
+    }
+  }
+}

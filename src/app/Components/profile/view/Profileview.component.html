@@ -1,0 +1,31 @@
+<div class="container">
+
+  <mat-card class="card">
+
+    <mat-card-title>{{user?.firstname}} {{user?.lastname}}'s profile</mat-card-title>
+
+    <mat-card-content>
+
+      <div class="infobox">
+        <p>
+          Password: {{user?.password}}
+        </p>
+        <p>
+          Address: {{user?.address}}
+        </p>
+        <p>
+          E-Mail: {{user?.email}}
+        </p>
+        <p>
+          Phone: {{user?.phone}}
+        </p>
+      </div>
+      <div class="desc-box">
+        <p>
+          Your small description: Some Info could be show here if database profile changes.
+        </p>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

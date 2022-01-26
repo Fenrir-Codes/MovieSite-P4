@@ -4,3 +4,4 @@ Rating:
 
 Material: ng add @angular/material
 
+//npm i ng2-search-filter --force
