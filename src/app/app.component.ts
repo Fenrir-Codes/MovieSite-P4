@@ -107,6 +107,7 @@ export class AppComponent {
    searchMovie(event: any) {
     //console.log(event);
     this.DataService.setSearchString(event);
+
   }
 
   

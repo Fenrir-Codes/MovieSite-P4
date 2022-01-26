@@ -17,13 +17,15 @@
 
       <!-- overview panel can be small description here but i set just buttons i think -->
       <mat-card-content class="overview">
-        <mat-card-subtitle>
-          <mat-icon class="icon-description">description</mat-icon></mat-card-subtitle>
+        <mat-card-subtitle class="overviewTopLine">
+          <mat-icon class="icon-description">description</mat-icon>Info
+        </mat-card-subtitle>
 
-         <mat-card-subtitle>{{ display.genre }}</mat-card-subtitle> <!-- title of the movie -->
-         <mat-card-subtitle>{{ display.duration }}</mat-card-subtitle> <!-- Genre of the movie -->
+        <mat-card-subtitle class="overviewPanel">{{ display.genre }}</mat-card-subtitle> <!-- title of the movie -->
+        <mat-card-subtitle class="overviewPanel">{{ display.duration }}</mat-card-subtitle> <!-- Genre of the movie -->
 
-        <mat-card-subtitle>{{ display.description }}</mat-card-subtitle> <!-- Genre of the movie -->
+        <mat-card-subtitle class="overviewPanel">{{ display.description }}</mat-card-subtitle>
+        <!-- Genre of the movie -->
       </mat-card-content>
 
     </mat-card>

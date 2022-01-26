@@ -23,12 +23,12 @@ export class HomeComponent implements OnInit {
   listOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'XXX', 'Documentary', 'Sci-fi'];
 
   constructor(
-    private spinner: NgxSpinnerService, 
-    private service: SharedService, 
+    private spinner: NgxSpinnerService,
+    private service: SharedService,
     private DataService: DataService,
     private Router: Router
 
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     //this is observable is checking the search filter #text coming from app component,
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     /* getting all the movies function */
     this.service.getAllMoviesListed().subscribe(result => {
       this.movieList = result;
-      
+
       /* if the movieList array is not null or empty isLoaded boolean set to true , or if null set to false and loading screen show up*/
       if (this.movieList != null) {
         this.isLoaded = true;
@@ -60,9 +60,9 @@ export class HomeComponent implements OnInit {
 
   movieCardClicked(id: any) {
     //console.log(id);
-    this.DataService.setMovieId(id); 
+    this.DataService.setMovieId(id);
     this.Router.navigate(['/MovieDetails']);
-    
+
   }
 
   //example movie array used to demonstrate card

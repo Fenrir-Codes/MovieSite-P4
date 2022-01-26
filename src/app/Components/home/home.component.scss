@@ -11,9 +11,7 @@
   --PrimaryMenuColor: #777;
   --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
 
-  --GuarmonFontStyle: 'Cormorant Garamond', serif;
-
-
+  --GuarmonFontStyle: "Cormorant Garamond", serif;
 }
 
 .home-container {
@@ -34,7 +32,7 @@
     width: 250px;
     max-width: 400px;
     transition: all 0.2s;
-    background-color: #d7e1ec;
+    background-color: black;
     //box-shadow: 0px 0px 5px 4px var(--SecondaryFontColor);
     cursor: pointer;
 
@@ -66,14 +64,14 @@
       left: 0;
       right: 0;
       bottom: 0;
-      padding: 10px;
-      transform: translateY(85%);
-      min-height: 300px;
-      max-height: 300px;
-      transition: transform 0.3s ease-in;
-      background-image: var(--PrimaryBackgroundImage);
-      justify-content: center;
       border-radius: 5px;
+      transform: translateY(90%);
+      min-height: 452px;
+      max-height: 452px;
+      transition: transform 0.3s ease-in;
+      background: linear-gradient(to right top, rgba(0, 0, 0, 1), rgba(26, 26, 26, 0.5));
+      justify-content: center;
+
 
       &:hover {
         transform: translate(0);
@@ -83,13 +81,23 @@
         color: white;
       }
 
-      .icon-description{
-        margin-right: 5px;
-       
+      .overviewTopLine {
+        display: flex;
+        border-radius: 5px 5px 0px 0px;
+        padding:12px 0px 12px 0px;
+        background-color:var(--SecondaryFontColor);
+        font-size: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+      .overviewPanel {
+        padding: 0px 10px 0px 10px;
       }
 
+      .icon-description {
+        margin-right: 5px;
+      }
     }
-    
   }
 
   /*   .movie-card:hover .overview {
