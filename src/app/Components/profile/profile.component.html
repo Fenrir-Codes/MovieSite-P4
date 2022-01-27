@@ -33,7 +33,7 @@
                        (click)="openDialog(user?.profileId)">Update Profile</button>
                        <!--  (click)="update(user.profileId, updateForm.value)" -->
 
-                    <button class="button-delete" type="submit" mat-raised-button (click)="delete(user.profileId)"
+                    <button class="button-delete" type="submit" mat-raised-button (click)="deleteProfile(user.profileId)"
                         [disabled]="!checked">Delete
                         Profile</button>
                 </div>

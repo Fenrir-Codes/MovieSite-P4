@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit {
   }
 
   //delete the profile
-  delete(id: any) {
+  deleteProfile(id: any) {
     this.service.deleteUser(id).subscribe((res) => {
       this.message = 'Your profile deleted successfully! You wil be not able to log in!';
       setTimeout(() => {
