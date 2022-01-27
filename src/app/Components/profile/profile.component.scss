@@ -7,7 +7,9 @@
 
     /* Background */
     --PrimaryBackgroundColor: #000000;
+    --SecondariBackgroundColor: white;
     --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
+    --ProfileCardBGColor: rgb(223, 223, 223);
 
     /* Menu */
     --PrimaryMenuColor: #777;
@@ -16,6 +18,8 @@
     /* seach box */
     --SearchBox-BGColor: rgba(37, 37, 37);
     --SearchTextColor: rgba(144, 144, 144);
+
+    --NiceRedBlackGradientColors: rgb(188,32,33) linear-gradient(0deg, rgba(188,32,33,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 /* profile container */
@@ -50,15 +54,20 @@
 
             .topbox {
                 align-items: center;
+                height: 100%;
                 justify-content: center;
                 margin: 10px;
+                border-radius: 10px;
+                background-color: var(--ProfileCardBGColor);
+                box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.5);
+               // border: 1px solid red;
 
                 /* profile picture box */
                 .profilePicture {
                     max-width: 300px;
                     margin: 10px;
                     //border: 1px solid red; //just for see the borders if we need to see it uder development
-                    border-right: 1px solid red; //just for see the borders if we need to see it uder development
+                    //border-right: 1px solid red; //just for see the borders if we need to see it uder development
                     border-radius: 5px;
                     border-radius: 50%;
 
@@ -67,6 +76,8 @@
                         margin: 20px;
                         max-width: 300px;
                         border-radius: 50%;
+                        border-right: 1px solid red;
+
                     }
                 }
 
@@ -79,6 +90,7 @@
                     margin: 10px;
                     font-weight: bold;
                     font-size: 18px;
+                    background-color: var(--SecondariBackgroundColor);
 
                     p {
                         margin: 10px;
@@ -133,10 +145,13 @@
                 .desc-box {
                     height: 100%;
                     min-width: 30%;
+                    max-width: 98%;
                     max-height: 100%;
+                    background-color: var(--ProfileCardBGColor);
+                    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.5);
                     //margin: 10px;
                     //border: 1px solid red;
-                    //border-radius: 5px;
+                    border-radius: 10px;
 
                     p {
                         margin: 10px;
