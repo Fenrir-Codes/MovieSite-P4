@@ -36,7 +36,7 @@ export class AppComponent {
     private service: SharedService,
     private Router: Router,
     private Authservice: Authservice
-  ) {}
+  ) { }
   private removeKeyToken: Subscription;
 
   ngOnInit(): void {
@@ -82,16 +82,25 @@ export class AppComponent {
         this.isUser = false;
       }
 
-      /* set intervall to 30 minutes = 1800000 milliseconds 
-       this function removes the user token from session storage after 30 minutes, so the user have to log in again
-      if the user just closing the browser the session storage will remove the key automatically.*/
-      this.removeKeyToken = interval(1800000).subscribe(() => {
-        this.Authservice.removeToken(), (this.loginStatus = false);
-        this.isAdmin = false;
-        this.isUser = false;
-        this.Router.navigate(['/Home']);
-      });
     }
+
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+
+    /* set intervall to 30 minutes = 1800000 milliseconds,  3600000 = 1 hour
+    this function removes the user token from session storage after 60 minutes, so the user have to log in again
+    if the user just closing the browser the session storage will remove the key automatically.*/
+    this.removeKeyToken = interval(3600000).subscribe(() => {
+      this.Authservice.removeToken(), (this.loginStatus = false);
+      this.isAdmin = false;
+      this.isUser = false;
+      this.Router.navigate(['/Home']);
+    });
+
+
   }
 
   /* log out function */
@@ -103,12 +112,12 @@ export class AppComponent {
     this.Router.navigate(['/Home']); // navigate back to Home
   }
 
-   //passing text string to home component
-   searchMovie(event: any) {
+  //passing text string to home component
+  searchMovie(event: any) {
     //console.log(event);
     this.DataService.setSearchString(event);
 
   }
 
-  
+
 }

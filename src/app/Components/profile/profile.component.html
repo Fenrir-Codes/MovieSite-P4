@@ -1,1 +1,44 @@
-<p>profile works!</p>
+<div class="container" id="container">
+
+    <div class="title">{{user?.firstname}} {{user?.lastname}}'s profile</div>
+
+    <div class="card">
+
+        <div class="content" id="content">
+
+            <div class="topbox" id="topbox">
+
+                <div class="profilePicture" id="profilePicture">
+                    <img class="avatar" id="avatar" src="./assets/{{user?.image}}" alt="">
+                </div>
+
+                <div class="infobox" id="infobox">
+                    <p>
+                        Password: {{user?.password}}
+                    </p>
+                    <p>
+                        Address: {{user?.address}}
+                    </p>
+                    <p>
+                        E-Mail: {{user?.email}}
+                    </p>
+                    <p>
+                        Phone: {{user?.phone}}
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="bottom-box" id="bottombox">
+
+                <div class="desc-box" id="desc-box">
+                    <p>
+                        Your small description: Some Info could be show here if database profile changes.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>

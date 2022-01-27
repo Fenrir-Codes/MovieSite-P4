@@ -41,6 +41,22 @@ export class SharedService {
     return this.http.get<IMovie[]>(this.ApiUrl + 'Movies/' + id);
   }
 
+  getUserById(id: number): Observable<IProfile[]> {
+    return this.http.get<IProfile[]>(this.ApiUrl + 'Profiles/' + id);
+  }
+
+
+  //update function
+  updateUser(id: number, body: any): Observable<IProfile[]> {
+    return this.http.put<IProfile[]>(this.ApiUrl + `Profiles/${id}`, body, httpOptions);
+  }
+
+  /* delete functions */
+  deleteUser(id: number) {
+    return this.http.delete(
+    this.ApiUrl + `Profiles/${id}`);
+  }
+
 
 
 

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HomeComponent } from '../app/Components/home/home.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -23,12 +24,22 @@ import { AdminComponent } from './Components/admin/admin.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { MovieDetailsComponent } from './Components/movie-details/movie-details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';  //npm i ng2-search-filter --force
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, ErrorComponent, AdminComponent, ProfileComponent, MovieDetailsComponent],
+  declarations: [AppComponent,
+     HomeComponent,
+     LoginComponent, 
+     ErrorComponent, 
+     AdminComponent, 
+     MovieDetailsComponent,
+     ProfileComponent,
+    
+    
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,8 +58,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';  //npm i ng2-search-fil
     ReactiveFormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-
-
+    MatTabsModule,
+    MatCheckboxModule,
 
     
 
