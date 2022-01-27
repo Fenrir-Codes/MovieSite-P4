@@ -25,6 +25,8 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { MovieDetailsComponent } from './Components/movie-details/movie-details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';  //npm i ng2-search-filter --force
 import { MatTabsModule } from '@angular/material/tabs';
+import { UpdateProfileComponent } from './Components/profile/update-profile/update-profile.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -37,6 +39,7 @@ import { MatTabsModule } from '@angular/material/tabs';
      AdminComponent, 
      MovieDetailsComponent,
      ProfileComponent,
+     UpdateProfileComponent,
     
     
     ],
@@ -60,6 +63,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     Ng2SearchPipeModule,
     MatTabsModule,
     MatCheckboxModule,
+    MatDialogModule,
 
     
 

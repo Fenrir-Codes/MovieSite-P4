@@ -27,13 +27,26 @@
                     </p>
                 </div>
 
+                <div class="button-container">
+              <!--       [disabled]="!updateForm.valid" saved this here ,no functionality it has now--> 
+                    <button class="button-update" type="submit" mat-raised-button 
+                       (click)="openDialog(user?.profileId)">Update Profile</button>
+                       <!--  (click)="update(user.profileId, updateForm.value)" -->
+
+                    <button class="button-delete" type="submit" mat-raised-button (click)="delete(user.profileId)"
+                        [disabled]="!checked">Delete
+                        Profile</button>
+                </div>
+                
+                <mat-checkbox class="checkbox" (change)="checkOK($event.checked)">I want to delete my account.</mat-checkbox>
+
             </div>
 
             <div class="bottom-box" id="bottombox">
 
                 <div class="desc-box" id="desc-box">
                     <p>
-                        Your small description: Some Info could be show here if database profile changes.
+                        {{user?.selfIntro}}
                     </p>
                 </div>
 
