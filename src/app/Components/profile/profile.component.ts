@@ -17,7 +17,8 @@ export class ProfileComponent implements OnInit {
   user: any;
   userId: any;
   updateForm: any;
-  message: any;
+  message: string = '';
+  showMessage: boolean = false;
   checked: boolean = false;
 
   constructor(
@@ -61,6 +62,7 @@ export class ProfileComponent implements OnInit {
 
   //update profile
   update(id: number, body: any) {
+    this.showMessage = true;
     this.service.updateUser(id, body).subscribe((res) => {
       this.message = this.user.firstname + "'s profile successfully updated.";
       setTimeout((message) => {
@@ -72,8 +74,9 @@ export class ProfileComponent implements OnInit {
 
   //delete the profile
   deleteProfile(id: any) {
+    this.showMessage = true;
     this.service.deleteUser(id).subscribe((res) => {
-      this.message = 'Your profile deleted successfully! You wil be not able to log in!';
+      this.message = 'Your profile removed successfully!';
       setTimeout(() => {
         this.DataService.changeLoginStatus(false);
         this.Authservice.removeToken();

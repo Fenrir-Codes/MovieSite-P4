@@ -28,17 +28,16 @@
                 </div>
 
                 <div class="button-container">
-              <!--       [disabled]="!updateForm.valid" saved this here ,no functionality it has now--> 
-                    <button class="button-update" type="submit" mat-raised-button 
-                       (click)="openDialog(user?.profileId)">Update Profile</button>
-                       <!--  (click)="update(user.profileId, updateForm.value)" -->
+                    <button class="button-update" type="submit" mat-raised-button
+                        (click)="openDialog(user?.profileId)">Update Profile</button>
 
-                    <button class="button-delete" type="submit" mat-raised-button (click)="deleteProfile(user.profileId)"
-                        [disabled]="!checked">Delete
+                    <button class="button-delete" type="submit" mat-raised-button
+                        (click)="deleteProfile(user.profileId)" [disabled]="!checked">Delete
                         Profile</button>
                 </div>
-                
-                <mat-checkbox class="checkbox" (change)="checkOK($event.checked)">I want to delete my account.</mat-checkbox>
+
+                <mat-checkbox class="checkbox" (change)="checkOK($event.checked)">I want to delete my account.
+                </mat-checkbox>
 
             </div>
 
