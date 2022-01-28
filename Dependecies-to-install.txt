@@ -5,3 +5,5 @@ Rating:
 Material: ng add @angular/material
 
 //npm i ng2-search-filter --force
+
+powershell : set-ExecutionPolicy RemoteSigned -Scope CurrentUser -> neet to be able to run ng commands
