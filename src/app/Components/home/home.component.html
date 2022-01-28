@@ -21,11 +21,16 @@
           <mat-icon class="icon-description">description</mat-icon>Info
         </mat-card-subtitle>
 
-        <mat-card-subtitle class="overviewPanel">{{ display.genre }}</mat-card-subtitle> <!-- title of the movie -->
-        <mat-card-subtitle class="overviewPanel">{{ display.duration }}</mat-card-subtitle> <!-- Genre of the movie -->
-
+        <mat-card-subtitle class="overviewPanel">Genre: {{ display.genre }}</mat-card-subtitle>
+        <mat-card-subtitle class="overviewPanel">Length: {{ display.duration }}</mat-card-subtitle>
+        <mat-card-subtitle class="overviewPanel">Rating:
+          <ng-rating-bar class="stars"
+           [value]="display.rating" [ratingCount]="10" [disabled]="true" colorDefault="gray"[styles]="styles">
+          </ng-rating-bar>
+        </mat-card-subtitle>
         <mat-card-subtitle class="overviewPanel">{{ display.description }}</mat-card-subtitle>
-        <!-- Genre of the movie -->
+
+
       </mat-card-content>
 
     </mat-card>

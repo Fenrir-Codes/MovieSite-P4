@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';     //https://www.npmjs.com/package/ngx-spinner
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service'; /* sharedservice is our API service */
-
+import { ThemePalette } from "@angular/material/core";
 
 @Component({
   selector: 'app-home',
@@ -17,10 +17,13 @@ export class HomeComponent implements OnInit {
 
   //boolean for check if the content loaded
   isLoaded: Boolean = false;
-  movieList: any;
-  searchText: any;
-  rating: any;
+  movieList = [];
+  searchText: string = '';
   listOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'XXX', 'Documentary', 'Sci-fi'];
+  //custom styles fort the rating stars
+  styles = {
+    "fontSize": "25px"
+  }
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -52,9 +55,7 @@ export class HomeComponent implements OnInit {
 
       }
 
-
-    })
-
+    });
 
   }
 

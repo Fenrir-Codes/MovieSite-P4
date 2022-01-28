@@ -74,7 +74,6 @@
       background: linear-gradient(to right top, rgba(0, 0, 0, 1), rgba(26, 26, 26, 0.5));
       justify-content: center;
 
-
       &:hover {
         transform: translate(0);
       }
@@ -86,8 +85,8 @@
       .overviewTopLine {
         display: flex;
         border-radius: 5px 5px 0px 0px;
-        padding:12px 0px 12px 0px;
-        background-color:var(--SecondaryFontColor);
+        padding: 12px 0px 12px 0px;
+        background-color: var(--SecondaryFontColor);
         font-size: 20px;
         align-items: center;
         justify-content: center;

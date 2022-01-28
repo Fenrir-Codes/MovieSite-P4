@@ -27,6 +27,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';  //npm i ng2-search-fil
 import { MatTabsModule } from '@angular/material/tabs';
 import { UpdateProfileComponent } from './Components/profile/update-profile/update-profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgRatingBarModule } from 'ng-rating-bar';
 
 
 
@@ -64,8 +66,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTabsModule,
     MatCheckboxModule,
     MatDialogModule,
-
-    
+    NgRatingBarModule,
 
 
 

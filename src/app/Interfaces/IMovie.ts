@@ -7,6 +7,7 @@ export interface IMovie{
     country?: string,
     genre?: string,
     duration?: Date,
+    rating?: number,
     releaseDate?: Date,
     image?:string
 
