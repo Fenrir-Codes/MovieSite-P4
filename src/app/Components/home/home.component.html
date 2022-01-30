@@ -1,19 +1,20 @@
 <div class="home-container">
-
   <!-- <mat-spinner class="spinner" [color]="color" *ngIf="!isLoaded"></mat-spinner> -->
   <!-- NGX-Spinner START -->
   <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#af0000" type="square-jelly-box" [fullScreen]="false"
     *ngIf="!isLoaded">
-    <p style="color: white"> Loading... </p>
+    <p style="color: white">Loading...</p>
   </ngx-spinner>
   <!-- NGX-Spinner END -->
 
-  <div class="movecards" *ngFor="let display of movieList | filter:searchText">
+  <div class="movecards" *ngFor="let display of movieList | filter: searchText">
     <mat-card class="movie-card" (click)="movieCardClicked(display.movieId)">
-      <img class="movieImage" *ngIf="display?.image != null" mat-card-image src="./assets/{{display.image}}"
-        alt="{{display.title}}"> <!-- movie covers -->
+      <img class="movieImage" *ngIf="display?.image != null" mat-card-image src="./assets/{{ display.image }}"
+        alt="{{ display.title }}" />
+      <!-- movie covers -->
       <img class="movieImage" *ngIf="display.image === null" mat-card-image src="./assets/noimage.jpg"
-        alt="no cover provided"> <!-- if there is no image -->
+        alt="no cover provided" />
+      <!-- if there is no image -->
 
       <!-- overview panel can be small description here but i set just buttons i think -->
       <mat-card-content class="overview">
@@ -23,20 +24,17 @@
 
         <mat-card-subtitle class="overviewPanel">Genre: {{ display.genre }}</mat-card-subtitle>
         <mat-card-subtitle class="overviewPanel">Length: {{ display.duration }}</mat-card-subtitle>
+        
         <mat-card-subtitle class="overviewPanel">Rating:
-          <ng-rating-bar class="stars"
-           [value]="display.rating" [ratingCount]="10" [disabled]="true" colorDefault="gray"[styles]="styles">
+          <ng-rating-bar class="stars" [value]="display.rating" [ratingCount]="10" [disabled]="true" colorDefault="gray"
+            [styles]="styles">
           </ng-rating-bar>
         </mat-card-subtitle>
-        <mat-card-subtitle class="overviewPanel">{{ display.description }}</mat-card-subtitle>
 
-
+        <mat-card-subtitle class="overviewPanel">{{
+          display.description
+        }}</mat-card-subtitle>
       </mat-card-content>
-
     </mat-card>
   </div>
-
-
-
-
 </div>
