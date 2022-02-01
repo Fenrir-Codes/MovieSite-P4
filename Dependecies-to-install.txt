@@ -1,7 +1,15 @@
-Spinner: //https://www.npmjs.com/package/ngx-spinner
+Spinner: //https://www.npmjs.com/package/ngx-spinner  
+npm i ngx-spinner --force
 
-Rating: 
+Material modules: ng add @angular/material
 
-Material: ng add @angular/material
+search filter moduile: npm i ng2-search-filter --force
 
-//npm i ng2-search-filter --force
+powershell : set-ExecutionPolicy RemoteSigned -Scope CurrentUser -> neet to be able to run ng commands
+
+star rating module: npm i ng-rating-bar --force
+
+
+
+video Jp: https://www.uwatchfree.fo/mixdrop.php?mid=l5ifzszpqz5v
+https://mixdrop.me/movies/jurassic-park/
