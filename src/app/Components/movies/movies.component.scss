@@ -19,12 +19,14 @@
     width: 100%;
   } */
   
-  .home-container {
+  .movie-container {
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin: auto;
+    width: 80%;
   
     .movie-card {
       position: relative;
