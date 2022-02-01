@@ -48,6 +48,11 @@ export class SliderComponent implements OnInit {
     image: './assets/dune.jpg',
     thumbImage: './assets/dune.jpg',
     alt: 'alt of image',
+  },
+  {
+    image: './assets/jp.jpg',
+    thumbImage: './assets/jp.jpg',
+    alt: 'alt of image',
   }]
   
   ngOnInit(): void {
