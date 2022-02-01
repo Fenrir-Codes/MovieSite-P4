@@ -1,7 +1,7 @@
 <!-- top toolbar -->
 <mat-toolbar>
   <!-- title on top toolbar -->
-  <span class="title" routerLink="Home" style="font-family: Megrim;">MovieSite - P4</span>
+  <span class="title" routerLink="Home" style="font-family: Megrim;">MovieSite - < P/4 ></span>
 
   <button class="toggleMenuButton" mat-icon-button (click)="opened = !opened">
     <mat-icon *ngIf="!opened">
@@ -18,7 +18,7 @@
     <mat-icon class="icon">home</mat-icon>Home
   </button>
   <!-- movie button -->
-  <button id="movieButton" class="toolbar-Button">
+  <button id="movieButton" class="toolbar-Button" routerLink="Movies">
     <mat-icon class="icon">movie</mat-icon>Movies
   </button>
   <!-- watch button -->
