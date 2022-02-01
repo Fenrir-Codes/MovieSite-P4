@@ -9,3 +9,7 @@ powershell : set-ExecutionPolicy RemoteSigned -Scope CurrentUser -> neet to be a
 
 star rating module: npm i ng-rating-bar --force
 
+
+
+video Jp: https://www.uwatchfree.fo/mixdrop.php?mid=l5ifzszpqz5v
+https://mixdrop.me/movies/jurassic-park/

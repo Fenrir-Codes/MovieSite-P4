@@ -17,8 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from './Components/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './Components/error/error.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { ProfileComponent } from './Components/profile/profile.component';
@@ -29,6 +29,10 @@ import { UpdateProfileComponent } from './Components/profile/update-profile/upda
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgRatingBarModule } from 'ng-rating-bar';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { SliderComponent } from './Components/slider/slider.component';
+import { MoviesComponent } from './Components/movies/movies.component';
+
 
 
 
@@ -36,14 +40,16 @@ import { NgRatingBarModule } from 'ng-rating-bar';
 @NgModule({
   declarations: [AppComponent,
      HomeComponent,
-     LoginComponent,
-     ErrorComponent,
-     AdminComponent,
+     LoginComponent, 
+     ErrorComponent, 
+     AdminComponent, 
      MovieDetailsComponent,
      ProfileComponent,
      UpdateProfileComponent,
-
-
+     SliderComponent,
+     MoviesComponent,
+    
+    
     ],
   imports: [
     BrowserModule,
@@ -67,8 +73,7 @@ import { NgRatingBarModule } from 'ng-rating-bar';
     MatCheckboxModule,
     MatDialogModule,
     NgRatingBarModule,
-
-
+    NgImageSliderModule
 
   ],
   providers: [],

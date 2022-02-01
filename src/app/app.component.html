@@ -14,11 +14,11 @@
     </mat-icon>
   </button>
   <!-- home button -->
-  <button id="homeButton" class="toolbar-Button" routerLink="Home">
+  <button id="homeButton" class="toolbar-Button"routerLink="/Home">
     <mat-icon class="icon">home</mat-icon>Home
   </button>
   <!-- movie button -->
-  <button id="movieButton" class="toolbar-Button">
+  <button id="movieButton" class="toolbar-Button" routerLink="/Movies">
     <mat-icon class="icon">movie</mat-icon>Movies
   </button>
   <!-- watch button -->
@@ -28,10 +28,12 @@
   </button>
 
   <!-- settings buttons ADminj router or user route -->
-  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isAdmin" routerLink="Admin"> <!-- if admin -->
+  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isAdmin" routerLink="Admin">
+    <!-- if admin -->
     <mat-icon class="settings-icon">dashboard</mat-icon>Settings
   </button>
-  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isUser" routerLink="Profile"> <!-- if user -->
+  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isUser" routerLink="Profile">
+    <!-- if user -->
     <mat-icon class="settings-icon">dashboard</mat-icon>Settings
   </button>
 
@@ -85,7 +87,8 @@
         <li><a href="#">Help Center</a></li>
         <li><a href="#">Terms of Service</a></li>
         <li><a href="#">Contact Us</a></li>
-        <em class="CopyR">Copyright &copy; 2022, The Monster Under The Bed. All Rights To Scare Unsuspecting Children Reserved.</em>
+        <em class="CopyR">Copyright &copy; 2022, The Monster Under The Bed. All Rights To Scare Unsuspecting Children
+          Reserved.</em>
       </ul>
     </footer>
     <!-- footer END -->

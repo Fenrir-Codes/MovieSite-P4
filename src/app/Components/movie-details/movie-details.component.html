@@ -8,10 +8,10 @@
     <div class="info-container">
         <p>{{display.description}}</p>
     </div>
+    <div class="info-container" *ngFor="let display of directorData">
+        <p>Directed by: <span>{{display.firstname}} {{display.lastname}}</span></p>
 
-    <video width="800" height="400" controls>
-        <source src="./assets/Videos/{{display.videoUrl}}" type="video/mp4">
+    </div>
 
-        Your browser does not support HTML video.
-      </video>
+      <iframe width="560" height="315" src="//mixdrop.co/e/qlge93nkioq1k4" frameborder="0" allowfullscreen></iframe>
 </div>
