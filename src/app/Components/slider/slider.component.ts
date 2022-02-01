@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service'; /* sharedservice is our API service */
 import { IMovie } from 'src/app/Interfaces/IMovie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-slider',
@@ -14,7 +15,7 @@ export class SliderComponent implements OnInit {
     alt:''
   }];
 
-  constructor(private service: SharedService) { }
+  constructor(private service: SharedService, private router: Router) { }
 
   //slider test array
   imageObject = [{
@@ -61,4 +62,8 @@ export class SliderComponent implements OnInit {
     }) */
   }
 
+  clickOnThumbnail(event){
+    console.log(event);
+    
+  }
 }
