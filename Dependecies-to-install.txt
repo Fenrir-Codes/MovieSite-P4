@@ -9,6 +9,8 @@ powershell : set-ExecutionPolicy RemoteSigned -Scope CurrentUser -> neet to be a
 
 star rating module: npm i ng-rating-bar --force
 
+ng-slider : https://www.npmjs.com/package/ng-image-slider  : npm i ng-image-slider --force
+
 
 
 video Jp: https://www.uwatchfree.fo/mixdrop.php?mid=l5ifzszpqz5v
