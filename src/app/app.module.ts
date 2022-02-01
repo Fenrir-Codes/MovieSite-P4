@@ -29,6 +29,10 @@ import { UpdateProfileComponent } from './Components/profile/update-profile/upda
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgRatingBarModule } from 'ng-rating-bar';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { SliderComponent } from './Components/slider/slider.component';
+import { MoviesComponent } from './Components/movies/movies.component';
+
 
 
 
@@ -42,6 +46,8 @@ import { NgRatingBarModule } from 'ng-rating-bar';
      MovieDetailsComponent,
      ProfileComponent,
      UpdateProfileComponent,
+     SliderComponent,
+     MoviesComponent,
     
     
     ],
@@ -67,8 +73,7 @@ import { NgRatingBarModule } from 'ng-rating-bar';
     MatCheckboxModule,
     MatDialogModule,
     NgRatingBarModule,
-
-
+    NgImageSliderModule
 
   ],
   providers: [],

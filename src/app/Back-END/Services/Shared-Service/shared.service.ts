@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProfile } from 'src/app/Interfaces/IProfile';
 import { IMovie } from 'src/app/Interfaces/IMovie';
+import { IDirector } from 'src/app/Interfaces/IDirector';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -38,13 +39,16 @@ export class SharedService {
 
   /* get by id function */
   getMovieById(id: number): Observable<IMovie[]> {
-    return this.http.get<IMovie[]>(this.ApiUrl + 'Movies/' + id);
+    return this.http.get<IMovie[]>(this.ApiUrl + 'Movies/' + id, httpOptions);
   }
 
   getUserById(id: number): Observable<IProfile[]> {
-    return this.http.get<IProfile[]>(this.ApiUrl + 'Profiles/' + id);
+    return this.http.get<IProfile[]>(this.ApiUrl + 'Profiles/' + id, httpOptions);
   }
 
+  getDirectorByDirectorId(id: number): Observable<IDirector[]> {
+    return this.http.get<IDirector[]>(this.ApiUrl + 'Directors/' + id, httpOptions);
+  }
 
   //update function
   updateUser(id: number, body: any): Observable<IProfile[]> {

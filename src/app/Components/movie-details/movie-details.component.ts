@@ -9,13 +9,14 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-  currentMovie = [];
+  currentMovie: any;
+  directorData = [];
   movieId: any;
 
   constructor(
     private service: SharedService, /* shared API service call */
     private DataService: DataService, /* this is the dataservice call */
-    private sanitizer : DomSanitizer
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -31,17 +32,23 @@ export class MovieDetailsComponent implements OnInit {
   getMovieDetails() {
     this.service.getMovieById(this.movieId).subscribe(result => {
       this.currentMovie = result;
-      console.log(this.currentMovie);
+
+      /* if currentMovie not null */
+      if (this.currentMovie != null) {
+        /* call getDirectorByDirectorId function to get the director for the movie from director table */
+        this.service.getDirectorByDirectorId(this.currentMovie[0].directorId).subscribe(dirResult => {
+          /* filling up the directorData array with results of dirResult data */
+          for (let i = 0; i < dirResult.length; i++) {
+            this.directorData.push(dirResult[i])
+            //console.log(this.directorData);         
+          }
+
+        });
+      }
+    })
 
 
-
-
-    });
-
-  }
-
-
-
+  };
 
 }
 
