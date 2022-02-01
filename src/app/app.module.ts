@@ -40,16 +40,16 @@ import { MoviesComponent } from './Components/movies/movies.component';
 @NgModule({
   declarations: [AppComponent,
      HomeComponent,
-     LoginComponent, 
-     ErrorComponent, 
-     AdminComponent, 
+     LoginComponent,
+     ErrorComponent,
+     AdminComponent,
      MovieDetailsComponent,
      ProfileComponent,
      UpdateProfileComponent,
      SliderComponent,
      MoviesComponent,
-    
-    
+
+
     ],
   imports: [
     BrowserModule,
