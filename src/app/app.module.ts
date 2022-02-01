@@ -17,8 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from './Components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './Components/error/error.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { ProfileComponent } from './Components/profile/profile.component';
@@ -36,14 +36,14 @@ import { NgRatingBarModule } from 'ng-rating-bar';
 @NgModule({
   declarations: [AppComponent,
      HomeComponent,
-     LoginComponent, 
-     ErrorComponent, 
-     AdminComponent, 
+     LoginComponent,
+     ErrorComponent,
+     AdminComponent,
      MovieDetailsComponent,
      ProfileComponent,
      UpdateProfileComponent,
-    
-    
+
+
     ],
   imports: [
     BrowserModule,
