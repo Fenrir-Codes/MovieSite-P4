@@ -55,6 +55,10 @@ export class MovieDetailsComponent implements OnInit {
 
   };
 
+  openWindow(){
+    window.open(this.currentMovie[0].videoUrl)
+  }
+
 }
 
 

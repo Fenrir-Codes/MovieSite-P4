@@ -11,7 +11,7 @@ export interface IMovie{
     releaseDate?: Date,
     image?:string
     videoUrl?: string,
-    thumbImage: string,
+    thumbImage?: string,
     alt: string,
 
 }
