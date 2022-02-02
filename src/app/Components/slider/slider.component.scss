@@ -1,5 +1,6 @@
 .slider-container{
     width: 100%;
+    margin: auto;
     display: block;
     justify-content: center;
     text-align: center;
@@ -10,9 +11,10 @@
     }
 
     .slider-ontop{
+        width: 65%;
         margin: auto;
-        width: 80%;
-    
+        justify-content: center;
+        text-align: center;
     }
 
 }
