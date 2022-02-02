@@ -1,13 +1,21 @@
-<div class="slider-container">
+<div class="slider-container" #container [ngStyle]="{width: 100+'%'}">
+  <div class="recent">
+    <p>Recent movies:</p>
+  </div>
   <div class="slider-ontop">
-    <ng-image-slider class="slider"
-    [images]="imageObject" 
-    [imageSize]="{width: 250,height: 300, space:1}" 
-    [infinite]="true"
-    [manageImageRatio]="true"
-    [autoSlide]="3"
-    [showArrow]="true"
-    [slideImage]="1"
-    ></ng-image-slider>
+    <ng-image-slider class="slider" [images]="imageObject" [imagePopup]="false"
+      [imageSize]="{width: 250,height: 300, space:1}" (imageClick)="clickOnThumbnail($event)" [infinite]="true"
+      [manageImageRatio]="true" [autoSlide]="3" [showArrow]="false" [slideImage]="1"></ng-image-slider>
   </div>
 </div>
+
+<!--[imagePopup]=true/false -> no click event on images 
+    [imageSize]="{width: 250,height: 300, space:1}" -> sizing image
+    [infinite]="true/false" -> loop images
+    [manageImageRatio]="true/false" -> auto manage image sizes
+    [autoSlide]="number" delay in sec
+    [showArrow]="true/false" -> show or not the arrows on slider
+    [slideImage]="number" -> how mani images should slide at one
+    [images]="source array"
+
+-->
