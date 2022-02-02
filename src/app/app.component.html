@@ -14,11 +14,11 @@
     </mat-icon>
   </button>
   <!-- home button -->
-  <button id="homeButton" class="toolbar-Button"routerLink="/Home">
+  <button id="homeButton" class="toolbar-Button" routerLink="Home">
     <mat-icon class="icon">home</mat-icon>Home
   </button>
   <!-- movie button -->
-  <button id="movieButton" class="toolbar-Button" routerLink="/Movies">
+  <button id="movieButton" class="toolbar-Button" routerLink="Movies">
     <mat-icon class="icon">movie</mat-icon>Movies
   </button>
   <!-- watch button -->
@@ -69,11 +69,14 @@
 <mat-sidenav-container>
   <!-- sidenav START -->
   <mat-sidenav mode="side" [(opened)]="opened">
-    <button class="sidenav-Button">Home</button>
-    <button class="sidenav-Button">Movies</button>
+    <button class="sidenav-Button" routerLink="Home">Home</button>
+    <button class="sidenav-Button" routerLink="Movies">Movies</button>
     <button class="sidenav-Button">Menu 3</button>
     <button class="sidenav-Button">Settings</button>
-    <button class="sidenav-Button">Login</button>
+    <button class="sidenav-Button" routerLink="Login" *ngIf="!loginStatus">Login</button>
+    <button class="sidenav-Button" *ngIf="loginStatus" (click)="logOut()">Logout
+    </button>
+
   </mat-sidenav>
   <!-- sidenav END -->
 
