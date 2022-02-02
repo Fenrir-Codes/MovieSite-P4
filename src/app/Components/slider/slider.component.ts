@@ -19,20 +19,26 @@ export class SliderComponent implements OnInit {
 
 
   ngOnInit(): void {
+    //on initalizaton this page, we vcalling the getmovieByDate method
     this.service.getMovieByDate().subscribe(results => {
+      //the recentMovies array filled up with the results
       this.recentMovies = results;
-      console.log(this.recentMovies);
+     // console.log(this.recentMovies);
 
+     //checking if the recentMovies has some data
       if (this.recentMovies != null) {
+        //if it har so load the slider
         this.isLoaded = true
       }
       else {
+        //if recentMovies returns Null , has no data the slider is remain hidden
         this.isLoaded = false
       }
 
     });
   }
 
+  //not used yet
   clickOnThumbnail(event) {
     console.log(event);
 
