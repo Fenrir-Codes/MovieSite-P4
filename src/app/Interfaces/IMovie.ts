@@ -10,7 +10,8 @@ export interface IMovie{
     rating?: number,
     releaseDate?: Date,
     image?:string
-    thumbImage: string,
+    videoUrl?: string,
+    thumbImage?: string,
     alt: string,
 
 }

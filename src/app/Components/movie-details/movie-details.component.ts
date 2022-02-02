@@ -12,6 +12,7 @@ export class MovieDetailsComponent implements OnInit {
   currentMovie: any;
   directorData = [];
   movieId: any;
+  isPaid: boolean = false;
 
   constructor(
     private service: SharedService, /* shared API service call */
@@ -20,6 +21,8 @@ export class MovieDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.isPaid = true; // ----> test boolean for video container
     /* setting the movieId same as id we passing between components via data service */
     this.DataService.currentId.subscribe((id) => (this.movieId = id));
 
@@ -32,6 +35,8 @@ export class MovieDetailsComponent implements OnInit {
   getMovieDetails() {
     this.service.getMovieById(this.movieId).subscribe(result => {
       this.currentMovie = result;
+      console.log(this.currentMovie);
+      
 
       /* if currentMovie not null */
       if (this.currentMovie != null) {
@@ -49,6 +54,10 @@ export class MovieDetailsComponent implements OnInit {
 
 
   };
+
+  openWindow(){
+    window.open(this.currentMovie[0].videoUrl)
+  }
 
 }
 

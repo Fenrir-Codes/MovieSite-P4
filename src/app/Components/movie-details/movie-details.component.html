@@ -1,17 +1,27 @@
-<div class="container" *ngFor="let display of currentMovie">
+<div class="details-container" *ngFor="let display of currentMovie">
+
     <div class="moviecontainer">
         <img class="movieImage" *ngIf="display?.image != null" mat-card-image src="./assets/{{display.image}}"
             alt="{{display.title}}"> <!-- movie covers -->
         <img class="movieImage" *ngIf="display.image === null" mat-card-image src="./assets/noimage.jpg"
             alt="no cover provided"> <!-- if there is no image -->
     </div>
+
     <div class="info-container">
+
         <p>{{display.description}}</p>
-    </div>
-    <div class="info-container" *ngFor="let display of directorData">
-        <p>Directed by: <span>{{display.firstname}} {{display.lastname}}</span></p>
+        
+        <div class="directorName-container" *ngFor="let display of directorData">
+            <p class="directortext">Directed by: <span>{{display.firstname}} {{display.lastname}}</span></p>
+        </div>
+
+        <div class="video-container">
+            <button mat-raised-button class="button-watch" *ngIf="isPaid" (click)="openWindow()">Watch Online</button>
+            <button mat-raised-button class="button-watch" *ngIf="!isPaid">Buy Movie</button>
+        </div>
 
     </div>
 
-      <iframe width="560" height="315" src="//mixdrop.co/e/qlge93nkioq1k4" frameborder="0" allowfullscreen></iframe>
+
+    <!-- <iframe width="560" height="315" src="//mixdrop.co/e/qlge93nkioq1k4" frameborder="0" allowfullscreen></iframe> -->
 </div>

@@ -9,61 +9,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
-  movieImageObjects: IMovie[]= [{
-    image:'.assets/',
-    thumbImage: '',
-    alt:''
-  }];
 
-  constructor(private service: SharedService, private router: Router) { }
+  recentMovies: IMovie[];
+  isLoaded: Boolean = false;
 
-  //slider test array
-  imageObject = [{
-    image: './assets/air.jpg',
-    thumbImage: './assets/air.jpg',
-    alt: 'alt of image',
-  },
-  {
-    image: './assets/catchme.jpg',
-    thumbImage: './assets/catchme.jpg',
-    alt: 'alt of image',
-  }
-  ,
-  {
-    image: './assets/ince.jpg',
-    thumbImage: './assets/ince.jpg',
-    alt: 'alt of image',
-  }
-  ,
-  {
-    image: './assets/ghost.jpg',
-    thumbImage: './assets/ghost.jpg',
-    alt: 'alt of image',
-  },
-  {
-    image: './assets/free.jpg',
-    thumbImage: './assets/free.jpg',
-    alt: 'alt of image',
-  } ,
-  {
-    image: './assets/dune.jpg',
-    thumbImage: './assets/dune.jpg',
-    alt: 'alt of image',
-  },
-  {
-    image: './assets/jp.jpg',
-    thumbImage: './assets/jp.jpg',
-    alt: 'alt of image',
-  }]
-  
+  constructor(
+    private service: SharedService,
+    private router: Router) { }
+
+
   ngOnInit(): void {
-/*     this.service.getAllMoviesListed().subscribe(result => {
-      this.movieImageObjects = result;
-    }) */
+    this.service.getMovieByDate().subscribe(results => {
+      this.recentMovies = results;
+      console.log(this.recentMovies);
+
+      if (this.recentMovies != null) {
+        this.isLoaded = true
+      }
+      else {
+        this.isLoaded = false
+      }
+
+    });
   }
 
-  clickOnThumbnail(event){
+  clickOnThumbnail(event) {
     console.log(event);
-    
+
   }
 }
