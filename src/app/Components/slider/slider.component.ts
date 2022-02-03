@@ -10,22 +10,21 @@ import { Router } from '@angular/router';
 })
 export class SliderComponent implements OnInit {
 
-  recentMovies: IMovie[];
+  recentMovies: any;
+
   isLoaded: Boolean = false;
 
   constructor(
-    private service: SharedService,
-    private router: Router) { }
-
+    private service: SharedService, private router: Router) { }
 
   ngOnInit(): void {
     //on initalizaton this page, we calling the getmovieByDate method
     this.service.getMovieByDate().subscribe(results => {
       //the recentMovies array filled up with the results
       this.recentMovies = results;
-     // console.log(this.recentMovies);
+       //console.log(this.recentMovies);
 
-     //checking if the recentMovies has some data
+      //checking if the recentMovies has some data
       if (this.recentMovies != null) {
         //if it har so load the slider
         this.isLoaded = true
@@ -36,11 +35,14 @@ export class SliderComponent implements OnInit {
       }
 
     });
+
   }
 
   //not used yet
   clickOnThumbnail(event) {
     console.log(event);
+    //this.router.navigate(["/MovieDetails"])
 
   }
+
 }
