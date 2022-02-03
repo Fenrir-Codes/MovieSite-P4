@@ -13,7 +13,6 @@ import { LocalService} from 'src/app/Back-END/Services/Storage-Crypting/local.se
 export class SliderComponent implements OnInit {
 
   recentMovies = [];
-
   isLoaded: Boolean = false;
 
   constructor(
@@ -24,7 +23,6 @@ export class SliderComponent implements OnInit {
     this.service.getMovieByDate().subscribe(results => {
       //the recentMovies array filled up with the results
       this.recentMovies = results;
-      this.localService.setJsonValue('newlyAddedMovies', this.recentMovies)
        //console.log(this.recentMovies);
 
       //checking if the recentMovies has some data
@@ -41,15 +39,9 @@ export class SliderComponent implements OnInit {
 
   }
 
-  //not used yet
   clickOnThumbnail(event) {
-/*     console.log(event);
-    var movie = this.localService.getJsonValue('newlyAddedMovies')
-    console.log(movie);
-
-    this.DataService.setMovieId(movie[0].movieId) */
     this.router.navigate(['/Movies']);
-
+    
   }
 
 }

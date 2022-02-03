@@ -1,17 +1,14 @@
-<div class="slider-container" #container [ngStyle]="{width: 100+'%'}" *ngIf="isLoaded">
+<div class="slider-container" #container *ngIf="isLoaded">
   <div class="recent"><br>
     <p>Newly added movies:</p>
     <br>
   </div>
 
   <div class="slider-ontop">
-    <ng-image-slider class="slider" [images]="recentMovies" [imagePopup]="false"
-      (imageClick)="clickOnThumbnail($event)" [imageSize]="{width: 250,height: 300, space:1}" [infinite]="true"
-      [manageImageRatio]="true" [autoSlide]="3" [showArrow]="false" [slideImage]="1"></ng-image-slider>
+    <ng-image-slider class="slider" [images]="recentMovies" [imagePopup]="false" (imageClick)="clickOnThumbnail($event)"
+      [imageSize]="{width: 250,height: 300, space:1}" [infinite]="true" [manageImageRatio]="true" [autoSlide]="3"
+      [showArrow]="false" [slideImage]="1"></ng-image-slider>
   </div>
-
-
-</div>
 
 <!-- (imageClick)="clickOnThumbnail($event)" -->
 

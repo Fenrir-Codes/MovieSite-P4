@@ -35,8 +35,7 @@ export class MovieDetailsComponent implements OnInit {
   getMovieDetails() {
     this.service.getMovieById(this.movieId).subscribe(result => {
       this.currentMovie = result;
-      console.log(this.currentMovie);
-      
+      //console.log(this.currentMovie);
 
       /* if currentMovie not null */
       if (this.currentMovie != null) {
@@ -55,7 +54,7 @@ export class MovieDetailsComponent implements OnInit {
 
   };
 
-  openWindow(){
+  openWindow() {
     window.open(this.currentMovie[0].videoUrl)
   }
 
