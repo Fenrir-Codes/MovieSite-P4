@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
-import { Authservice } from 'src/app/Back-END/Services/Storage-Crypting/Auth-Service';
+import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { Router } from '@angular/router';
-import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 
 @Component({
@@ -25,7 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private service: SharedService,
     private Router: Router,
-    private Authservice: Authservice,
+    private tokenService: Tokenservice,
     private DataService: DataService) { }
 
   ngOnInit(): void {
@@ -50,9 +49,9 @@ export class LoginComponent implements OnInit {
       this.user = response;
 
       if (this.user != null) {
-        this.Authservice.enCryptKey('token', response)
+        this.tokenService.enCryptKey('userToken', response)
         this.DataService.changeLoginStatus(true);
-        this.user = this.Authservice.deCryptKey();
+        this.user = this.tokenService.getUserToken();
 
         if (this.user.role === 1) {
           this.DataService.changeUserStatus(false);
