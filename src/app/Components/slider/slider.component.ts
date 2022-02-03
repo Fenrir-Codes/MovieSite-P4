@@ -18,7 +18,7 @@ export class SliderComponent implements OnInit {
     private service: SharedService, private router: Router) { }
 
   ngOnInit(): void {
-    //on initalizaton this page, we vcalling the getmovieByDate method
+    //on initalizaton this page, we calling the getmovieByDate method
     this.service.getMovieByDate().subscribe(results => {
       //the recentMovies array filled up with the results
       this.recentMovies = results;

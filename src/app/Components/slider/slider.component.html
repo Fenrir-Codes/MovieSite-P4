@@ -1,4 +1,4 @@
-<div class="slider-container" #container [ngStyle]="{width: 100+'%'}" *ngIf="isLoaded">
+<div class="slider-container" #container *ngIf="isLoaded">
   <div class="recent"><br>
     <p>Newly added movies:</p>
     <br>
@@ -15,7 +15,7 @@
 
 <!-- (imageClick)="clickOnThumbnail($event)" -->
 
-<!--[imagePopup]=true/false -> no click event on images 
+<!--[imagePopup]=true/false -> no click event on images
     [imageSize]="{width: 250,height: 300, space:1}" -> sizing image
     [infinite]="true/false" -> loop images
     [manageImageRatio]="true/false" -> auto manage image sizes
