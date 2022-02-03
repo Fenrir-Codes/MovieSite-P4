@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SliderComponent implements OnInit {
 
-  recentMovies: any;
+  recentMovies = [];
 
   isLoaded: Boolean = false;
 
