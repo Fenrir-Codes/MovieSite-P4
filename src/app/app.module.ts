@@ -32,6 +32,9 @@ import { NgRatingBarModule } from 'ng-rating-bar';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { SliderComponent } from './Components/slider/slider.component';
 import { MoviesComponent } from './Components/movies/movies.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDividerModule } from '@angular/material/divider';
+import { CreateuserComponent } from './Components/admin/createuser/createuser.component';
 
 
 
@@ -48,6 +51,7 @@ import { MoviesComponent } from './Components/movies/movies.component';
      UpdateProfileComponent,
      SliderComponent,
      MoviesComponent,
+     CreateuserComponent,
     
     
     ],
@@ -74,6 +78,8 @@ import { MoviesComponent } from './Components/movies/movies.component';
     MatDialogModule,
     NgRatingBarModule,
     NgImageSliderModule,
+    MatTooltipModule,
+    MatDividerModule,
 
   ],
   providers: [],

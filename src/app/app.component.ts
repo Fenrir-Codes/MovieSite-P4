@@ -21,15 +21,7 @@ export class AppComponent {
 
   searchForm: any;
   genreForm: any;
-  listOfGenres: string[] = [
-    'Category',
-    'Action',
-    'Adventure',
-    'Comedy',
-    'XXX',
-    'Documentary',
-    'Sci-fi',
-  ];
+  listOfGenres: string[] = ['Action', 'Adventure','Drama','Crime', 'Horror', 'Komedy', 'Sci-Fi', 'Family', 'Documentary','Cartoon','Anime','Animation'];
 
   constructor(
     private DataService: DataService,

@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
         if (this.user.role === 1) {
           this.DataService.changeUserStatus(false);
           this.DataService.changeAdminStatus(true);
+         //window.open('Admin', "_blank");
           this.Router.navigate(['/Admin']);
         }
         else {

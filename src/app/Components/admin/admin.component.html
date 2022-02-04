@@ -1,1 +1,36 @@
-<p>admin works!</p>
+<mat-drawer-container class="drawer-container">
+    <mat-drawer mode="side" opened class="drawer-sidemenu">
+        <!-- home button -->
+        <button mat-flat-button matTooltip="Admin Home" matTooltipPosition="right" matTooltipClass="tooltip-color">
+            <mat-icon class="adminpage-icon">home</mat-icon>
+        </button>
+        <!-- users button -->
+        <button mat-flat-button matTooltip="Users" matTooltipPosition="right" matTooltipClass="tooltip-color">
+            <mat-icon class="adminpage-icon" alt="Users">group</mat-icon>
+        </button>
+        <!-- movies button -->
+        <button mat-flat-button matTooltip="Movies" matTooltipPosition="right" matTooltipClass="tooltip-color">
+            <mat-icon class="adminpage-icon">theaters</mat-icon>
+        </button>
+        <!-- add user -->
+        <button mat-flat-button matTooltip="Add user" matTooltipPosition="right" matTooltipClass="tooltip-color"
+         routerLink="CreateUser">
+            <mat-icon class="adminpage-icon">person_add</mat-icon>
+        </button>
+        <!-- add movie -->
+        <button mat-flat-button matTooltip="Add movie" matTooltipPosition="right" matTooltipClass="tooltip-color">
+            <mat-icon class="adminpage-icon">add</mat-icon>
+        </button>
+
+    </mat-drawer>
+
+    <!-- contet drawer main -->
+    <mat-drawer-content class="drawer-main">
+        <!-- content drawer container -->
+        <div class="drawer-main-content">
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-drawer-content>
+
+</mat-drawer-container>
