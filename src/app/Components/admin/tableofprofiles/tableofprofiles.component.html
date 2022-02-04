@@ -1,0 +1,65 @@
+<div class="container" >
+    <mat-spinner class="spinner" *ngIf="!isLoaded"></mat-spinner>
+    <div class="table-container">
+      <table mat-table [dataSource]="profileList" class="mat-table">
+  
+        <!-- Id Column -->
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef> Id.</th>
+          <td mat-cell *matCellDef="let display"> {{display.profileId}} </td>
+        </ng-container>
+  
+        <!-- image column -->
+        <ng-container matColumnDef="Image">
+          <th mat-header-cell *matHeaderCellDef> Avatar. </th>
+          <td mat-cell *matCellDef="let display"> <img src="./assets/{{display.image}}" alt=""> </td>
+        </ng-container>
+  
+        <!-- Firstname Column -->
+        <ng-container matColumnDef="Firstname">
+          <th mat-header-cell *matHeaderCellDef> Firstname</th>
+          <td mat-cell *matCellDef="let display"> {{display.firstname}} </td>
+        </ng-container>
+  
+        <!-- Lastname Column -->
+        <ng-container matColumnDef="Lastname">
+          <th mat-header-cell *matHeaderCellDef> Lastname </th>
+          <td mat-cell *matCellDef="let display"> {{display.lastname}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="Address">
+          <th mat-header-cell *matHeaderCellDef> Address </th>
+          <td mat-cell *matCellDef="let display"> {{display.address}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="Phone">
+          <th mat-header-cell *matHeaderCellDef> Phone </th>
+          <td mat-cell *matCellDef="let display"> {{display.phone}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="E-mail">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let display"> {{display.email}} </td>
+        </ng-container>
+<!--   
+        <ng-container matColumnDef="Update">
+          <th mat-header-cell *matHeaderCellDef> Update </th>
+          <td mat-cell *matCellDef="let display">
+            <button class="button-update" type="submit" mat-raised-button 
+            (click)="openDialog(display.profileId)"><mat-icon>edit</mat-icon>Update</button> </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="Delete">
+          <th mat-header-cell *matHeaderCellDef> Remove </th>
+          <td mat-cell *matCellDef="let display">
+            <button class="button-delete" type="submit" mat-raised-button 
+            (click)="deleteUser(display.profileId)"><mat-icon>delete_forever</mat-icon>Delete</button> </td>
+        </ng-container> -->
+  
+        <tr mat-header-row *matHeaderRowDef="tableHeaderColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: tableHeaderColumns;"></tr>
+  
+      </table>
+  
+    </div>
+  </div>

@@ -35,6 +35,9 @@ import { MoviesComponent } from './Components/movies/movies.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
 import { CreateuserComponent } from './Components/admin/createuser/createuser.component';
+import { CreatemovieComponent } from './Components/admin/createmovie/createmovie.component';
+import { TableofprofilesComponent } from './Components/admin/tableofprofiles/tableofprofiles.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -52,6 +55,8 @@ import { CreateuserComponent } from './Components/admin/createuser/createuser.co
      SliderComponent,
      MoviesComponent,
      CreateuserComponent,
+     CreatemovieComponent,
+     TableofprofilesComponent,
     
     
     ],
@@ -80,6 +85,7 @@ import { CreateuserComponent } from './Components/admin/createuser/createuser.co
     NgImageSliderModule,
     MatTooltipModule,
     MatDividerModule,
+    MatTableModule,
 
   ],
   providers: [],

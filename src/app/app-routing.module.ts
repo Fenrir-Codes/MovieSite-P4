@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from 'src/app/Components/home/home.component';
 import { AdminComponent } from './Components/admin/admin.component';
+import { CreatemovieComponent } from './Components/admin/createmovie/createmovie.component';
 import { CreateuserComponent } from './Components/admin/createuser/createuser.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'Login', component: LoginComponent },
   { path: 'Admin', component: AdminComponent, 
     children: [
-    { path: 'CreateUser', component: CreateuserComponent}] 
+    { path: 'CreateUser', component: CreateuserComponent},
+    { path: 'CreateMovie', component: CreatemovieComponent}]
   },
   { path: 'Profile', component: ProfileComponent },
   { path: 'MovieDetails', component: MovieDetailsComponent},

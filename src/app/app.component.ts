@@ -66,6 +66,7 @@ export class AppComponent {
         this.loginStatus = true;
         this.isUser = true;
         this.isAdmin = false;
+        this.Router.navigate(['Home']);
       }
       /* if the person's role is 1 ,which means ADMIN */
       if (this.user.role == 1) {

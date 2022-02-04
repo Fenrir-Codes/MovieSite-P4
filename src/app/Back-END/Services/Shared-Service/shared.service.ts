@@ -47,6 +47,11 @@ export class SharedService {
     return this.http.get<IMovie[]>(this.ApiUrl + 'Movies/mostRecentMovies', httpOptions);
   }
 
+  getAllUsers(): Observable<IProfile[]> {
+    /* Getting all users*/
+    return this.http.get<IProfile[]>(this.ApiUrl + 'Profiles');
+  }
+  
   getUserById(id: number): Observable<IProfile[]> {
     return this.http.get<IProfile[]>(this.ApiUrl + 'Profiles/' + id, httpOptions);
   }
