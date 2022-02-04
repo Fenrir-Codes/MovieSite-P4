@@ -10,6 +10,18 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 export class TableofprofilesComponent implements OnInit {
   isLoaded:boolean = false;
   profileList: IProfile[] = [];
+
+  tableHeaderColumns: string[] = [
+    'Id',
+    'Image',
+    'Firstname',
+    'Lastname',
+    'Address',
+    'Phone',
+    'E-mail',
+    'Update',
+    'Delete'
+  ]
   
   constructor(private service: SharedService) { }
 
@@ -23,7 +35,7 @@ export class TableofprofilesComponent implements OnInit {
       if (this.profileList != null) {
         this.isLoaded = true;
       }
-      //console.log(this.profileList);
+      console.log(this.profileList);
     });
   }
 

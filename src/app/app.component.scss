@@ -92,6 +92,7 @@ mat-toolbar {
       background-color: var(--PrimaryBackgroundColor);
       background-image: var(--MenuOnHoverColor);
     }
+
     .icon {
       color: var(--GreenFontColor);
     }
@@ -123,6 +124,7 @@ mat-toolbar {
       background-color: var(--PrimaryBackgroundColor);
       background-image: var(--MenuOnHoverColor);
     }
+
     .icon {
       color: var(--SecondaryFontColor);
     }
@@ -258,7 +260,7 @@ mat-sidenav-container {
     justify-content: center;
     margin: auto;
 
-    .router-content{
+    .router-content {
       width: 75%;
     }
 
@@ -280,10 +282,10 @@ mat-sidenav-container {
           padding: 0px 20px 0px 0px;
         }
 
-        .CopyR{
+        .CopyR {
           margin-top: 5px;
           position: absolute;
-          right: 220px;
+          right: 250px;
         }
 
         /* Links on the Footer */
@@ -309,11 +311,12 @@ mat-sidenav-container {
     display: none;
 
   }
-  
+
 }
 
 /* if the screen size is less than 790px do not show the menu button on top toolbar*/
 @media only screen and (max-width: 750px) {
+
   #homeButton,
   #movieButton,
   #watchButton,
@@ -333,27 +336,28 @@ mat-sidenav-container {
   .genre-wrapper {
     display: none;
   }
-  #router-content{
+
+  #router-content {
     width: 100%;
   }
 
-  #footer{
+  #footer {
     width: auto;
     height: auto;
     display: flex;
 
-    ul{
+    ul {
       display: flex;
 
       li {
-        padding:  5px;
+        padding: 5px;
       }
 
-      .CopyR{
+      .CopyR {
         display: none;
-    
+
       }
-      
+
     }
 
   }

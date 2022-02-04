@@ -1,25 +1,27 @@
 <mat-drawer-container class="drawer-container">
     <mat-drawer mode="side" opened class="drawer-sidemenu">
         <!-- home button -->
-        <button mat-flat-button matTooltip="Admin Home" matTooltipPosition="right" matTooltipClass="tooltip-color">
+        <button mat-flat-button matTooltip="Admin Home" matTooltipPosition="left" matTooltipClass="tooltip-color"
+            routerLink="AdminHome">
             <mat-icon class="adminpage-icon">home</mat-icon>
         </button>
         <!-- users button -->
-        <button mat-flat-button matTooltip="List Users" matTooltipPosition="right" matTooltipClass="tooltip-color">
+        <button mat-flat-button matTooltip="List Users" matTooltipPosition="left" matTooltipClass="tooltip-color"
+            routerLink="ListProfiles">
             <mat-icon class="adminpage-icon" alt="Users">group</mat-icon>
         </button>
         <!-- movies button -->
-        <button mat-flat-button matTooltip="List Movies" matTooltipPosition="right" matTooltipClass="tooltip-color">
+        <button mat-flat-button matTooltip="List Movies" matTooltipPosition="left" matTooltipClass="tooltip-color">
             <mat-icon class="adminpage-icon">theaters</mat-icon>
         </button>
         <!-- add user -->
-        <button mat-flat-button matTooltip="Add user" matTooltipPosition="right" matTooltipClass="tooltip-color"
-         routerLink="CreateUser">
+        <button mat-flat-button matTooltip="Add user" matTooltipPosition="left" matTooltipClass="tooltip-color"
+            routerLink="CreateUser">
             <mat-icon class="adminpage-icon">person_add</mat-icon>
         </button>
         <!-- add movie -->
-        <button mat-flat-button matTooltip="Add movie" matTooltipPosition="right" matTooltipClass="tooltip-color"
-        routerLink="CreateMovie">
+        <button mat-flat-button matTooltip="Add movie" matTooltipPosition="left" matTooltipClass="tooltip-color"
+            routerLink="CreateMovie">
             <mat-icon class="adminpage-icon">add</mat-icon>
         </button>
 
