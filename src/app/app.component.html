@@ -34,7 +34,7 @@
   </button>
   <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isUser" routerLink="Profile">
     <!-- if user -->
-    <mat-icon class="settings-icon">dashboard</mat-icon>Settings
+    <mat-icon class="settings-icon">person</mat-icon>Profile
   </button>
 
   <!-- login button -->
@@ -82,9 +82,9 @@
 
   <!-- main content START-->
   <mat-sidenav-content>
-    <router-outlet></router-outlet> <!-- rendering components -->
-
-    <!-- footer -->
+    <div class="router-content" id="router-content">
+      <router-outlet></router-outlet> <!-- rendering components -->
+       <!-- footer -->
     <footer class="footer" id="footer">
       <ul>
         <li><a href="#">Help Center</a></li>
@@ -95,6 +95,9 @@
       </ul>
     </footer>
     <!-- footer END -->
+    </div>
+
+   
   </mat-sidenav-content>
   <!-- main content END -->
 </mat-sidenav-container>

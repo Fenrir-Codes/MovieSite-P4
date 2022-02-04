@@ -32,6 +32,13 @@ import { NgRatingBarModule } from 'ng-rating-bar';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { SliderComponent } from './Components/slider/slider.component';
 import { MoviesComponent } from './Components/movies/movies.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDividerModule } from '@angular/material/divider';
+import { CreateuserComponent } from './Components/admin/Actions/createuser/createuser.component';
+import { CreatemovieComponent } from './Components/admin/Actions/createmovie/createmovie.component';
+import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofiles/tableofprofiles.component';
+import { MatTableModule } from '@angular/material/table';
+import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
 
 
 
@@ -40,16 +47,20 @@ import { MoviesComponent } from './Components/movies/movies.component';
 @NgModule({
   declarations: [AppComponent,
      HomeComponent,
-     LoginComponent,
-     ErrorComponent,
-     AdminComponent,
+     LoginComponent, 
+     ErrorComponent, 
+     AdminComponent, 
      MovieDetailsComponent,
      ProfileComponent,
      UpdateProfileComponent,
      SliderComponent,
      MoviesComponent,
-
-
+     CreateuserComponent,
+     CreatemovieComponent,
+     TableofprofilesComponent,
+     AdminhomeComponent,
+    
+    
     ],
   imports: [
     BrowserModule,
@@ -73,7 +84,10 @@ import { MoviesComponent } from './Components/movies/movies.component';
     MatCheckboxModule,
     MatDialogModule,
     NgRatingBarModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    MatTooltipModule,
+    MatDividerModule,
+    MatTableModule,
 
   ],
   providers: [],

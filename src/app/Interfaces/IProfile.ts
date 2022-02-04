@@ -7,6 +7,6 @@ export interface IProfile {
     address?: string,
     phone?: number,
     selfintro?: string,
-    role?: number,
-    image?: string
+    image?: string,
+    role?: number
 }

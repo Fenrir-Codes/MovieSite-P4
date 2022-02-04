@@ -3,16 +3,34 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from 'src/app/Components/home/home.component';
 import { MoviesComponent } from 'src/app/Components/movies/movies.component';
 import { AdminComponent } from './Components/admin/admin.component';
+import { CreatemovieComponent } from './Components/admin/Actions/createmovie/createmovie.component';
+import { CreateuserComponent } from './Components/admin/Actions/createuser/createuser.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MovieDetailsComponent } from './Components/movie-details/movie-details.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
+import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofiles/tableofprofiles.component';
+
+/* {path: <base-path>, component: <component>, outlet: <target_outlet_name>}  alternative router outlet, not used yet*/
+
+
+/* children is a child component of a component ex: admin component has a chils
+as createuser component. used for: the child component should show up in its parent component window*/
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Movies', component: MoviesComponent },
   { path: 'Login', component: LoginComponent },
-  { path: 'Admin', component: AdminComponent},
+  { path: 'Admin', component: AdminComponent, 
+    children: [
+      { path: '', redirectTo: 'AdminHome', pathMatch: 'full' }, 
+      { path: 'AdminHome', component: AdminhomeComponent},
+      { path: 'CreateUser', component: CreateuserComponent},
+      { path: 'CreateMovie', component: CreatemovieComponent},
+      { path: 'ListProfiles', component: TableofprofilesComponent},
+    ]
+  },
   { path: 'Profile', component: ProfileComponent },
   { path: 'MovieDetails', component: MovieDetailsComponent},
   { path: 'Movies', component: MoviesComponent},
