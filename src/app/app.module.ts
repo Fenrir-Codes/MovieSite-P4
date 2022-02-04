@@ -73,7 +73,7 @@ import { MoviesComponent } from './Components/movies/movies.component';
     MatCheckboxModule,
     MatDialogModule,
     NgRatingBarModule,
-    NgImageSliderModule
+    NgImageSliderModule,
 
   ],
   providers: [],

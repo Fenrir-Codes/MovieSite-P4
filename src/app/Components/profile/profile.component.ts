@@ -1,4 +1,4 @@
-import { Authservice } from 'src/app/Back-END/Services/Storage-Crypting/Auth-Service';
+import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
@@ -26,12 +26,12 @@ export class ProfileComponent implements OnInit {
     private service: SharedService,
     private Router: Router,
     private DataService: DataService,
-    private Authservice: Authservice,
+    private tokenService: Tokenservice,
     public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
-    this.user = this.Authservice.deCryptKey(); //getting the profileId from token
+    this.user = this.tokenService.getUserToken(); //getting the profileId from token
     this.userId = this.user.profileId; // setting the id
 
     //make a new form with user values
@@ -79,7 +79,7 @@ export class ProfileComponent implements OnInit {
       this.message = 'Your profile removed successfully!';
       setTimeout(() => {
         this.DataService.changeLoginStatus(false);
-        this.Authservice.removeToken();
+        this.tokenService.removeToken();
         this.Router.navigate(['/Home']);
       }, 3000);
     });
@@ -103,7 +103,7 @@ export class ProfileComponent implements OnInit {
         panelClass: 'custom-dialog-container',
       });
 
-      this.Authservice.setUserToken('userToken', this.user);
+      this.tokenService.setUserToken('userToken', this.user);
     });
   }
 

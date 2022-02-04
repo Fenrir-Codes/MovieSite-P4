@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Authservice } from 'src/app/Back-END/Services/Storage-Crypting/Auth-Service';
+import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -25,7 +25,7 @@ export class UpdateProfileComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private service: SharedService,
     private DataService: DataService,
-    private Authservice: Authservice,
+    private tokenService: Tokenservice,
     public dialogRef: MatDialog,
     private Router: Router
   ) { }
@@ -48,7 +48,7 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   getUserFullInfo() {
-    this.user = this.Authservice.getUserToken();
+    this.user = this.tokenService.getUserToken();
   }
 
   updateUser(id: number, body: any) {
@@ -57,7 +57,7 @@ export class UpdateProfileComponent implements OnInit {
       setTimeout(() => {
         document.getElementById('message').classList.add('hidden');
         //this.DataService.setUpdateSuccess(true);
-        this.Authservice.removeItem();
+        this.tokenService.removeUserToken();
         this.dialogRef.closeAll();
 
       }, 3000);
@@ -66,7 +66,7 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   cancel() {
-    this.Authservice.removeItem();
+    this.tokenService.removeUserToken();
   }
 
 }

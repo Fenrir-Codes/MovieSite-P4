@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service'; /* sharedservice is our API service */
 import { IMovie } from 'src/app/Interfaces/IMovie';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
+import { LocalService} from 'src/app/Back-END/Services/Storage-Crypting/local.service';
 
 @Component({
   selector: 'app-slider',
@@ -10,12 +12,11 @@ import { Router } from '@angular/router';
 })
 export class SliderComponent implements OnInit {
 
-  recentMovies: any;
-
+  recentMovies = [];
   isLoaded: Boolean = false;
 
   constructor(
-    private service: SharedService, private router: Router) { }
+    private service: SharedService, private router: Router, private localService: LocalService, private DataService: DataService) { }
 
   ngOnInit(): void {
     //on initalizaton this page, we calling the getmovieByDate method
@@ -38,11 +39,9 @@ export class SliderComponent implements OnInit {
 
   }
 
-  //not used yet
   clickOnThumbnail(event) {
-    console.log(event);
-    //this.router.navigate(["/MovieDetails"])
-
+    this.router.navigate(['/Movies']);
+    
   }
 
 }

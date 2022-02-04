@@ -254,6 +254,13 @@ mat-sidenav-container {
 
   mat-sidenav-content {
     color: var(--PrimaryFontColor);
+    display: flex;
+    justify-content: center;
+    margin: auto;
+
+    .router-content{
+      width: 75%;
+    }
 
     /* Footer in the sidenav-content */
     .footer {
@@ -276,7 +283,7 @@ mat-sidenav-container {
         .CopyR{
           margin-top: 5px;
           position: absolute;
-          right: 50px;
+          right: 220px;
         }
 
         /* Links on the Footer */
@@ -325,6 +332,9 @@ mat-sidenav-container {
 
   .genre-wrapper {
     display: none;
+  }
+  #router-content{
+    width: 100%;
   }
 
   #footer{
