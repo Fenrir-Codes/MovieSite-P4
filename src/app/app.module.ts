@@ -32,6 +32,9 @@ import { NgRatingBarModule } from 'ng-rating-bar';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { SliderComponent } from './Components/slider/slider.component';
 import { MoviesComponent } from './Components/movies/movies.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDividerModule } from '@angular/material/divider';
+import { CreateuserComponent } from './Components/admin/createuser/createuser.component';
 
 
 
@@ -40,16 +43,17 @@ import { MoviesComponent } from './Components/movies/movies.component';
 @NgModule({
   declarations: [AppComponent,
      HomeComponent,
-     LoginComponent,
-     ErrorComponent,
-     AdminComponent,
+     LoginComponent, 
+     ErrorComponent, 
+     AdminComponent, 
      MovieDetailsComponent,
      ProfileComponent,
      UpdateProfileComponent,
      SliderComponent,
      MoviesComponent,
-
-
+     CreateuserComponent,
+    
+    
     ],
   imports: [
     BrowserModule,
@@ -74,6 +78,8 @@ import { MoviesComponent } from './Components/movies/movies.component';
     MatDialogModule,
     NgRatingBarModule,
     NgImageSliderModule,
+    MatTooltipModule,
+    MatDividerModule,
 
   ],
   providers: [],

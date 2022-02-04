@@ -43,7 +43,7 @@
         width: 100%;
         height: calc(100% - 55px);
         border-radius: 0px 0px 0px 0px;
-        background-color: transparent;
+        background-color: var(--SecondaryFontColor);
 
         /* content box in the card */
         .content {
@@ -57,7 +57,7 @@
                 margin: 10px;
                 border-radius: 10px;
                 background-color: var(--SecondaryBackgroundColor);
-                box-shadow: 10px 10px 10px -5px var(--SecondaryFontColor);
+                box-shadow: 10px 10px 10px -5px black;
                 border: 1px solid var(--SecondaryFontColor);
 
                 /* profile picture box */
@@ -117,7 +117,6 @@
 
                     /*   delete button */
                     .button-delete {
-                        cursor: pointer;
                         font-size: 18px;
                         color: var(--SecondaryBackgroundColor);
                         box-shadow: 2px 2px 3px 0px #000000;
@@ -125,6 +124,7 @@
                         transition: all 0.4s;
 
                         &:hover:enabled {
+                            cursor: pointer;
                             color: white;
                             background: linear-gradient(to bottom, #e20000 5%, #b10000 100%);
                             background-color: #b10000;
@@ -148,7 +148,7 @@
                     max-width: 98%;
                     max-height: 100%;
                     background-color: var(--SecondaryBackgroundColor);
-                    box-shadow: 10px 10px 10px -5px var(--SecondaryFontColor);
+                    box-shadow: 10px 10px 10px -5px black;
                     margin: 10px;
                     border: 1px solid var(--SecondaryFontColor);
                     border-radius: 10px;
