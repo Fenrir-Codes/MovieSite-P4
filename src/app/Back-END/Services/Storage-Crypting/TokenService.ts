@@ -18,6 +18,14 @@ export class Tokenservice {
     return this.LocalService.setJsonValue(userToken, value);
   }
 
+  setUserUpdateToken(userUpdateToken: string, value: any) {
+    return this.LocalService.setJsonValue(userUpdateToken, value);
+  }
+
+  removeUserUpdateToken(){
+    return this.LocalService.removeItem('userUpdateToken')
+  }
+
   // this can remove one token i use it to remove KEY userToken from storage
   removeUserToken(){
     return this.LocalService.removeItem('userToken')
@@ -25,6 +33,10 @@ export class Tokenservice {
 
   getUserToken() {
     return this.LocalService.getJsonValue('userToken');
+  }
+
+  getUserUpdateToken() {
+    return this.LocalService.getJsonValue('userUpdateToken');
   }
 
   /*this function read the 'token' value from the session storage  */

@@ -48,7 +48,8 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   getUserFullInfo() {
-    this.user = this.tokenService.getUserToken();
+    this.user = this.tokenService.getUserToken();// this one is getting the token from login token
+    this.tokenService.setUserUpdateToken('userUpdateToken', this.user) // this one is setting a new token for update
   }
 
   updateUser(id: number, body: any) {
@@ -57,7 +58,7 @@ export class UpdateProfileComponent implements OnInit {
       setTimeout(() => {
         document.getElementById('message').classList.add('hidden');
         //this.DataService.setUpdateSuccess(true);
-        this.tokenService.removeUserToken();
+        this.tokenService.removeUserUpdateToken();
         this.dialogRef.closeAll();
 
       }, 3000);
@@ -66,7 +67,7 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   cancel() {
-    this.tokenService.removeUserToken();
+    this.tokenService.removeUserUpdateToken();
   }
 
 }
