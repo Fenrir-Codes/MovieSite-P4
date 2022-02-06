@@ -19,6 +19,7 @@
 }
 
 
+
 .container {
   min-width: 100%;
   display: flex;
@@ -31,8 +32,8 @@
     color: white;
     font-size: 28px;
     text-align: center;
-    background-color:var(--SecondaryFontColor);
-    
+    background-color: var(--SecondaryFontColor);
+
   }
 
 
@@ -66,7 +67,6 @@ table {
 
   img {
     max-width: 50px;
-    border-radius: 50%;
     padding-top: 5px;
   }
 

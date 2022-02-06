@@ -11,6 +11,7 @@ import { MoviesComponent } from './Components/movies/movies.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
 import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofiles/tableofprofiles.component';
+import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
 
 /* {path: <base-path>, component: <component>, outlet: <target_outlet_name>}  alternative router outlet, not used yet*/
 
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'CreateUser', component: CreateuserComponent},
       { path: 'CreateMovie', component: CreatemovieComponent},
       { path: 'ListProfiles', component: TableofprofilesComponent},
+      { path: 'ListMovies', component: TableofmoviesComponent},
     ]
   },
   { path: 'Profile', component: ProfileComponent },

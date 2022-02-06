@@ -4,7 +4,7 @@
     <br>
   </div>
 
-  <div class="slider-ontop">
+  <div class="slider-ontop" *ngIf="isLoaded">
     <ng-image-slider class="slider" [images]="recentMovies" [imagePopup]="false" (imageClick)="clickOnThumbnail($event)"
       [imageSize]="{width: 250,height: 300, space:1}" [infinite]="true" [manageImageRatio]="true" [autoSlide]="3"
       [showArrow]="false" [slideImage]="1"></ng-image-slider>

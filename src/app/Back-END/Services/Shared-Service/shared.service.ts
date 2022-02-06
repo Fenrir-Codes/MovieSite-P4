@@ -71,6 +71,10 @@ export class SharedService {
       this.ApiUrl + `Profiles/${id}`);
   }
 
+  deleteMovie(id: number) {
+    return this.http.delete(this.ApiUrl + `Movies/${id}`);
+  }
+
 
 
 
