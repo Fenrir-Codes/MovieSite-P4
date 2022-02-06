@@ -39,6 +39,7 @@ import { CreatemovieComponent } from './Components/admin/Actions/createmovie/cre
 import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofiles/tableofprofiles.component';
 import { MatTableModule } from '@angular/material/table';
 import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
+import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
 
 
 
@@ -59,6 +60,7 @@ import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.compo
      CreatemovieComponent,
      TableofprofilesComponent,
      AdminhomeComponent,
+     TableofmoviesComponent,
     
     
     ],
