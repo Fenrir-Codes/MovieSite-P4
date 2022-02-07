@@ -3,7 +3,16 @@
     <div class="title">Wellcome back {{user?.firstname}}</div>
 
     <div class="content">
-        <p>Admin home</p>
+
+        <div class="boxusers">
+            <span> Registered users: </span> {{profileList?.length}}
+        </div>
+
+        <div class="boxmovies">
+            <span> Movies in database: </span> {{movieList?.length}}
+        </div>
+        
     </div>
+
 
 </div>
