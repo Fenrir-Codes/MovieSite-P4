@@ -1,0 +1,56 @@
+<div class="container">
+
+    <mat-card class="card">
+
+      <mat-card-title>Register account</mat-card-title>
+        {{message}}
+        <mat-card-content>
+            <form [formGroup]="registerForm">
+                <div class="topbox">
+                    <p>
+                        <mat-form-field>
+                            <input type="Email" matInput placeholder="E-mail" formControlName="Email">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Password" formControlName="Password">
+                        </mat-form-field>
+                    </p>
+
+                </div>
+                <div class="middlebox">
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Firstname" formControlName="Firstname">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Lastname" formControlName="Lastname">
+                        </mat-form-field>
+                    </p>
+                </div>
+                <div class="bottombox">
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Address" formControlName="Address">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Phone" formControlName="Phone">
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="button-container">
+                    <button class="button" type="submit" mat-raised-button [disabled]="!registerForm.valid"
+                       (click)="registerUser(registerForm.value)">Register</button>
+                </div>
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+</div>

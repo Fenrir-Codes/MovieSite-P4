@@ -20,7 +20,8 @@ export class TableofprofilesComponent implements OnInit {
     'Phone',
     'E-mail',
     'Update',
-    'Delete'
+    'Delete',
+    'Role',
   ]
   
   constructor(private service: SharedService) { }

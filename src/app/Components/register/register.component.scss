@@ -1,0 +1,92 @@
+.container {
+    margin: 10px 0px 10px 10px;
+  
+    align-items: center;
+    border-radius: 10px;
+    position: absolute;
+    top: 45%;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+  
+  .card {
+    animation: animatezoom .5s;
+    width: 100%;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  mat-card {
+    padding: 10;
+    text-align: center;
+  
+  }
+  
+  mat-card-title {
+    width: 100%;
+    padding-top: 18px;
+    border-radius: 10px 10px 0px 0px;
+    padding-bottom: 18px;
+    color: burlywood;
+    background-color: #3A6073;
+  }
+  
+  mat-card-content {
+    p {
+      margin-right: 20px;
+    }
+  }
+  
+  .topbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  
+  .middlebox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bottombox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+  
+    .button {
+      cursor: pointer;
+      font-size: 18px;
+      color: white;
+      background-color: #3A6073;
+  
+      &:hover:enabled {
+        color: black;
+        background-color: #00ff0d;
+      }
+    }
+  }
+  
+  /* zoom animation */
+  @keyframes animatezoom {
+    from {
+      transform: scale(0)
+    }
+  
+    to {
+      transform: scale(1)
+    }
+  }
+  
