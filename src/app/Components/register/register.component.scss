@@ -113,10 +113,16 @@
         cursor: pointer;
         font-size: 18px;
         width: 100%;
+        color: white;
         background-color: var(--SecondaryFontColor);
 
+        &:enabled {
+          color: white;
+          background-color: green;
+        }
         &:hover:enabled {
-          background-color: #fa2e2e;
+          color: white;
+          background-color: rgb(0, 201, 0);
         }
       }
     }
