@@ -3,7 +3,7 @@
   <div class="title">List of Registered Users</div>
 
   <mat-spinner class="spinner" *ngIf="!isLoaded"></mat-spinner>
-  
+
   <div class="table-container">
     <table mat-table [dataSource]="profileList" class="mat-table">
 
@@ -11,6 +11,11 @@
       <ng-container matColumnDef="Id">
         <th mat-header-cell *matHeaderCellDef> Id.</th>
         <td mat-cell *matCellDef="let display" class="imageloaded"> {{display.profileId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Role">
+        <th mat-header-cell *matHeaderCellDef> Role </th>
+        <td mat-cell *matCellDef="let display"> {{ display.role }} </td>
       </ng-container>
 
       <!-- image column -->

@@ -1,3 +1,4 @@
+import { TableofprofilesComponent } from './../Tables/tableofprofiles/tableofprofiles.component';
 import { Component, OnInit } from '@angular/core';
 import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
@@ -11,6 +12,8 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 export class AdminhomeComponent implements OnInit {
   user: any;
   userId: any;
+  profileList:any
+  movieList: any;
 
   constructor(
     private DataService: DataService,
@@ -21,6 +24,9 @@ export class AdminhomeComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.tokenService.getUserToken(); //getting the profileId from token
     this.userId = this.user.profileId; // setting the id
+    this.getAllUsers();
+    this.getAllMovies();
+
   }
 
   getUserFullInfo() {
@@ -31,6 +37,20 @@ export class AdminhomeComponent implements OnInit {
       this.user = data;
       console.log(this.user);
 
+    });
+  }
+
+  getAllUsers() {
+    this.service.getAllUsers().subscribe((res) => {
+      this.profileList = res;
+     
+    });
+  }
+
+  getAllMovies(){
+    this.service.getAllMoviesListed().subscribe(res =>{
+      this.movieList = res; 
+      
     });
   }
 

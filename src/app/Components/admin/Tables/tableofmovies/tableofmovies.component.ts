@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { IMovie } from 'src/app/Interfaces/IMovie';
 
@@ -11,8 +12,7 @@ export class TableofmoviesComponent implements OnInit {
   isLoaded: boolean = false;
   message: any;
   tableHeaderColumns: string[] = ['Id', 'Image', 'Title','Language','Country','Genre','Duration','Releasedate','Actions'];
-  movieList: IMovie[] = [];
-
+  movieList: IMovie[];
 
   constructor(private service : SharedService) { }
 
@@ -41,9 +41,6 @@ export class TableofmoviesComponent implements OnInit {
       
     });
     //console.log(id);
-    
-
-    
   }
 
 }

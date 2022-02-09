@@ -40,6 +40,7 @@ import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofi
 import { MatTableModule } from '@angular/material/table';
 import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
 import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 
 
@@ -61,6 +62,7 @@ import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/
      TableofprofilesComponent,
      AdminhomeComponent,
      TableofmoviesComponent,
+     RegisterComponent,
     
     
     ],
