@@ -21,7 +21,7 @@
 /* default  container */
 .container {
   display: flex;
-  height: calc(100% - 85px);
+  height: calc(100% - 90px);
   max-height: calc(100% - 85px);
   padding: 10px;
   justify-content: center;
@@ -44,29 +44,33 @@
 
     /* form field contains the input fields (Email and Password field) */
     .form-field {
-      margin: 20px 0px 20px 0px;
+      margin: 0px 0px 20px 0px;
       width: 300px;
 
       /* input field email */
       input[type="Email"] {
-        width: 100%;
-        padding: 8px 2px;
+        width: 90%;
+        font-size: 16px;
+        padding: 8px 15px;
         color: var(--SecondaryFontColor);
-        border: none;
-        border-bottom: 1px solid var(--SecondaryFontColor);
+        border: 1px solid var(--SecondaryFontColor);
+       // border-bottom: 1px solid var(--SecondaryFontColor);
         outline: none;
-        background-color: transparent;
+        border-radius: 5px;
+       // background-color: transparent;
       }
 
       /* input field password */
       input[type="Password"] {
-        width: 100%;
-        padding: 8px 2px;
+        width: 90%;
+        font-size: 16px;
+        padding: 8px 15px;
         color: var(--SecondaryFontColor);
-        border: none;
-        border-bottom: 1px solid var(--SecondaryFontColor);
+        border: 1px solid var(--SecondaryFontColor);
+        //border-bottom: 1px solid var(--SecondaryFontColor);
         outline: none;
-        background-color: transparent;
+        border-radius: 5px;
+       // background-color: transparent;
       }
     }
   }

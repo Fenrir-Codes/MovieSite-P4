@@ -1,47 +1,47 @@
 <div class="container">
 
-    <mat-card class="card">
+    <div class="card">
 
-      <mat-card-title>Register account</mat-card-title>
+      <div class="title">Register account</div>
         {{message}}
-        <mat-card-content>
+        
+        <div class="content">
             <form [formGroup]="registerForm">
+
                 <div class="topbox">
-                    <p>
-                        <mat-form-field>
-                            <input type="Email" matInput placeholder="E-mail" formControlName="Email">
-                        </mat-form-field>
-                    </p>
-                    <p>
-                        <mat-form-field>
-                            <input type="text" matInput placeholder="Password" formControlName="Password">
-                        </mat-form-field>
-                    </p>
+
+                    <div class="form-field">
+                        <input type="text" matInput placeholder="E-mail" formControlName="Email">
+                    </div>
+
+                    <div class="form-field">
+                        <input type="text" matInput placeholder="Password" formControlName="Password">
+                    </div>
 
                 </div>
+
                 <div class="middlebox">
-                    <p>
-                        <mat-form-field>
-                            <input type="text" matInput placeholder="Firstname" formControlName="Firstname">
-                        </mat-form-field>
-                    </p>
-                    <p>
-                        <mat-form-field>
-                            <input type="text" matInput placeholder="Lastname" formControlName="Lastname">
-                        </mat-form-field>
-                    </p>
+
+                    <div class="form-field">
+                        <input type="text" matInput placeholder="Firstname" formControlName="Firstname">
+                    </div>
+
+                    <div class="form-field">
+                        <input type="text" matInput placeholder="Lastname" formControlName="Lastname">
+                    </div>
+
                 </div>
+
                 <div class="bottombox">
-                    <p>
-                        <mat-form-field>
-                            <input type="text" matInput placeholder="Address" formControlName="Address">
-                        </mat-form-field>
-                    </p>
-                    <p>
-                        <mat-form-field>
-                            <input type="text" matInput placeholder="Phone" formControlName="Phone">
-                        </mat-form-field>
-                    </p>
+
+                    <div class="form-field">
+                        <input type="text" matInput placeholder="Address" formControlName="Address">
+                    </div>
+
+                    <div class="form-field">
+                        <input type="text" matInput placeholder="Phone" formControlName="Phone">
+                    </div>
+
                 </div>
 
                 <div class="button-container">
@@ -50,7 +50,9 @@
                 </div>
 
             </form>
-        </mat-card-content>
-    </mat-card>
+
+        </div>
+
+    </div>
 
 </div>

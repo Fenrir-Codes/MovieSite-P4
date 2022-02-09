@@ -1,92 +1,160 @@
+/* :host is a pseudo-class selector that applies styles in the element that hosts the component. */
+:host {
+  /* Font */
+  --PrimaryFontColor: rgb(255, 255, 255);
+  --SecondaryFontColor: rgb(188, 32, 33);
+
+  /* Background */
+  --PrimaryBackgroundColor: #000000;
+  --SecondaryBackgroundColor: #d7e1ec;
+  --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
+
+  /* Menu */
+  --PrimaryMenuColor: #777;
+  --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
+
+  /* seach box */
+  --SearchBox-BGColor: rgba(37, 37, 37);
+  --SearchTextColor: rgba(144, 144, 144);
+}
+
+/* default  container */
 .container {
-    margin: 10px 0px 10px 10px;
-  
-    align-items: center;
-    border-radius: 10px;
-    position: absolute;
-    top: 45%;
-    right: 50%;
-    transform: translate(50%, -50%);
-  }
-  
+  display: flex;
+  height: calc(100% - 90px);
+  max-height: calc(100% - 85px);
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+
+  /* the card settings */
   .card {
-    animation: animatezoom .5s;
-    width: 100%;
+    animation: animatezoom 0.5s;
+    width: 400px;
     align-items: center;
-    border-radius: 10px;
-  }
-  
-  mat-card {
-    padding: 10;
-    text-align: center;
-  
-  }
-  
-  mat-card-title {
-    width: 100%;
-    padding-top: 18px;
-    border-radius: 10px 10px 0px 0px;
-    padding-bottom: 18px;
-    color: burlywood;
-    background-color: #3A6073;
-  }
-  
-  mat-card-content {
-    p {
-      margin-right: 20px;
+    border-radius: 10px 10px 10px 10px;
+    background-image: var(--MenuOnHoverColor);
+    box-shadow: 0px 0px 15px 4px var(--SecondaryFontColor);
+    border: 1px solid var(--SecondaryFontColor);
+
+    /* card content container */
+    .content {
+      width: 300px;
     }
-  }
-  
-  .topbox {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  
-  }
-  
-  .middlebox {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .bottombox {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .button-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 20px;
-  
-    .button {
-      cursor: pointer;
-      font-size: 18px;
-      color: white;
-      background-color: #3A6073;
-  
-      &:hover:enabled {
-        color: black;
-        background-color: #00ff0d;
+
+    /* form field contains the input fields (Email and Password field) */
+    .form-field {
+      margin: 20px 0px 20px 0px;
+      width: 300px;
+
+      /* input field email */
+      input[type="text"] {
+        width: 90%;
+        font-size: 16px;
+        padding: 10px 15px;
+        color: var(--SecondaryFontColor);
+        border: 1px solid var(--SecondaryFontColor);
+        border-radius: 5px;
+        outline: none;
       }
     }
   }
-  
+
+  /* card's title  (Login) */
+  .title {
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 18px;
+    border-radius: 10px 10px 0px 0px;
+    padding-bottom: 18px;
+    color: var(--SecondaryFontColor);
+  }
+
+  /* card content container */
+  .content,
+
+  p {
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    color: var(--SecondaryFontColor);
+
+  }
+
+  /* button container */
+  .button-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+
+    /* Register button settings */
+    .button {
+      box-sizing: border-box;
+      cursor: pointer;
+      font-size: 18px;
+      width: 100%;
+      background-color:var(--SecondaryFontColor);
+
+      &:hover:enabled {
+        background-color: #fa2e2e;
+      }
+    }
+  }
+
   /* zoom animation */
   @keyframes animatezoom {
     from {
-      transform: scale(0)
+      transform: scale(0);
     }
-  
+
     to {
-      transform: scale(1)
+      transform: scale(1);
     }
   }
-  
+}
+
+/* if the screen size is less than 600px do not show the search input and category select on top toolbar */
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+
+    .card {
+      animation: animatezoom 0.5s;
+      width: auto;
+      padding: 20px;
+
+      .content {
+        display: block;
+        width: auto;
+
+        .form {
+          width: 200px;
+        }
+      }
+
+      .form-field {
+        margin: 10px 0px 10px 0px;
+        width: 200px;
+
+        input[type="text"] {
+          width: 170px;
+        }
+      }
+      .button-container {
+        width: 200px;
+      }
+      p {
+        width: 200px;
+      }
+    }
+  }
+}
