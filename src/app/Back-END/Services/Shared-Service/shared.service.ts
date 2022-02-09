@@ -92,4 +92,6 @@ export class SharedService {
   deleteMovie(id: number) {
     return this.http.delete(this.ApiUrl + `Movies/${id}`);
   }
+
+  
 }

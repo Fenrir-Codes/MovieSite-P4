@@ -4,8 +4,6 @@
 
         <div class="title">Register account</div>
 
-        <p class="message"> {{message}} </p>
-
         <div class="content">
 
             <form [formGroup]="registerForm">
@@ -56,6 +54,8 @@
                     </div>
 
                 </div>
+
+                <p class="message" *ngIf="showMessage"> {{message}} </p>
 
                 <div class="button-container">
                     <button class="button" type="submit" mat-raised-button [disabled]="!registerForm.valid"

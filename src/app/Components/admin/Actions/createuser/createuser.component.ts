@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 })
 export class CreateuserComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private service: SharedService) {}
+  constructor(private fb: FormBuilder, private service: SharedService,  public dialog: MatDialog) {}
   createForm: any;
   message: any;
 
@@ -32,6 +33,11 @@ export class CreateuserComponent implements OnInit {
   }
 
   createUser(body: any){
-    alert('Do not touch! :D :D not done YET!')
+   this.service.createNewUser(body).subscribe(res => {
+    console.log(res); 
+    /* if res != null should return a message user created */
+    
+   });
+
   }
 }

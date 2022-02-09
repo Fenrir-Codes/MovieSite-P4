@@ -36,11 +36,12 @@ export class TableofmoviesComponent implements OnInit {
   deleteMovie(id:any){
     this.service.deleteMovie(id).subscribe(res =>{
       this.message = res;
+
+      /* if res == null should show success message */
       console.log(this.message);
       this.ngOnInit(); // refreshing the list calling oninit again.
       
     });
-    //console.log(id);
   }
 
 }
