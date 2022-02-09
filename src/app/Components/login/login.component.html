@@ -8,27 +8,21 @@
 
     <!-- content container in the card START -->
     <div class="content">
+
       <!-- form START -->
       <form class="form" [formGroup]="loginForm">
 
         <!-- email input field -->
-        <div class="form-field">
+        <div class="form-field-Email">
           <input type="Email" placeholder="E-mail" formControlName="Email">
+          <span *ngIf="loginForm.controls.Email.errors" class="error">E-Mail required!</span>
         </div>
 
         <!-- password input field -->
-        <div class="form-field">
+        <div class="form-field-Password">
           <input type="Password" placeholder="Password" formControlName="Password">
+          <span *ngIf="loginForm.controls.Password.errors" class="error">Password required!</span>
         </div>
-
-        <!-- ERROR messages container -->
-        <p *ngIf="loginForm.controls.Email.errors?.pattern" class="error">
-          {{ emailError }}
-        </p>
-        <p *ngIf="error" class="error">
-          {{ errormessage }}
-        </p>
-        <br>
 
         <!-- button container in the card -->
         <div class="button-container">

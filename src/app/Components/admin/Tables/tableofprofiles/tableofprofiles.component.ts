@@ -13,6 +13,7 @@ export class TableofprofilesComponent implements OnInit {
 
   tableHeaderColumns: string[] = [
     'Id',
+    'Role',
     'Image',
     'Firstname',
     'Lastname',
@@ -21,7 +22,6 @@ export class TableofprofilesComponent implements OnInit {
     'E-mail',
     'Update',
     'Delete',
-    'Role',
   ]
   
   constructor(private service: SharedService) { }
