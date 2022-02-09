@@ -1,3 +1,8 @@
+<div *ngIf="!isLoaded">
+  <mat-spinner class="spinner" style="margin:0 auto;"></mat-spinner> 
+  <p style="color: white">Loading...</p>
+</div>
+
 <div class="slider-container" #container *ngIf="isLoaded">
   <div class="recent"><br>
     <p>Newly added movies:</p>
