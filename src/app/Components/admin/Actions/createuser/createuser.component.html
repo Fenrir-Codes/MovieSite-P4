@@ -5,60 +5,72 @@
     <div class="content">
 
         <form [formGroup]="createForm">
-            
+
             <div class="topbox">
-                <p>
-                    <mat-form-field>
-                        <input type="Email" matInput placeholder="E-mail" formControlName="Email">
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Password" formControlName="Password">
-                    </mat-form-field>
-                </p>
+
+                <div class="form-field">
+                    <input type="text" matInput placeholder="E-mail" formControlName="Email">
+                    <span *ngIf="createForm.controls.Email.errors.required" class="error">E-Mail required!</span>
+                    <span *ngIf="createForm.controls.Email.errors?.pattern" class="error">Wrong Email pattern!</span>
+                </div>
+
+                <div class="form-field">
+                    <input type="text" matInput placeholder="Password" formControlName="Password">
+                    <span *ngIf="createForm.controls.Password.errors.required" class="error">Password required!</span>
+                    <span *ngIf="createForm.controls.Password.errors.minlength" class="error">Min. length is 4.</span>
+                </div>
+
 
             </div>
+
             <div class="middlebox">
-                <p>
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Firstname" formControlName="Firstname">
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Lastname" formControlName="Lastname">
-                    </mat-form-field>
-                </p>
+
+                <div class="form-field">
+                    <input type="text" matInput placeholder="Firstname" formControlName="Firstname">
+                    <span *ngIf="createForm.controls.Firstname.errors.required" class="error">Firstname required!</span>
+                </div>
+
+                <div class="form-field">
+                    <input type="text" matInput placeholder="Lastname" formControlName="Lastname">
+                    <span *ngIf="createForm.controls.Lastname.errors.required" class="error">Lastname required!</span>
+                </div>
+
             </div>
+
             <div class="bottombox">
-                <p>
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Address" formControlName="Address">
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Phone" formControlName="Phone">
-                    </mat-form-field>
-                </p>
+
+                <div class="form-field">
+                    <input type="text" matInput placeholder="Address" formControlName="Address">
+                    <span *ngIf="createForm.controls.Address.errors.required" class="error">Address required!</span>
+                </div>
+
+                <div class="form-field">
+                    <input type="text" matInput placeholder="Phone" formControlName="Phone">
+                    <span *ngIf="createForm.controls.Phone.errors.required" class="error">Phone required!</span>
+                    <span *ngIf="createForm.controls.Phone.errors?.minlength" class="error"> Min. Length is
+                        8!</span>
+                    <span *ngIf="createForm.controls.Phone.errors?.maxlength" class="error"> Max. Length is
+                        8!</span>
+                    <span *ngIf="createForm.controls.Phone.errors?.pattern" class="error"> Use numbers please.
+                    </span>
+                </div>
+
             </div>
+
             <div class="rolebox">
-                <p>
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Image Ex.: profile.jpg" formControlName="Image">
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field>
-                        <mat-label>Select role</mat-label>
-                        <mat-select name="role" formControlName="Role">
-                            <mat-option *ngFor="let display of roles" [value]="display.role">
-                                {{display.value}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </p>
+
+                <div class="form-field">
+                    <input type="text" matInput placeholder="Default: profile.jpg" formControlName="Image">
+                </div>
+
+                <div class="form-field">
+                    <select class="select" name="role" formControlName="Role">
+                        <option *ngFor="let display of roles; let i = index" [value]="display.role" [selected]="i==0">
+                            {{display.value}}
+                        </option>
+                    </select>
+                </div>
+
             </div>
 
             <div class="button-container">

@@ -11,36 +11,35 @@ import { IMovie } from 'src/app/Interfaces/IMovie';
 export class TableofmoviesComponent implements OnInit {
   isLoaded: boolean = false;
   message: any;
-  tableHeaderColumns: string[] = ['Id', 'Image', 'Title','Language','Country','Genre','Duration','Releasedate','Actions'];
+  tableHeaderColumns: string[] = ['Id', 'Image', 'Title', 'Language', 'Country', 'Genre', 'Duration', 'Releasedate', 'Actions'];
   movieList: IMovie[];
 
-  constructor(private service : SharedService) { }
+  constructor(private service: SharedService) { }
 
   ngOnInit(): void {
     this.getAllMovies();
   }
 
-  getAllMovies(){
-    this.service.getAllMoviesListed().subscribe(res =>{
-      this.movieList = res; 
-      if (this.movieList != null)
-      {
+  getAllMovies() {
+    this.service.getAllMoviesListed().subscribe(res => {
+      this.movieList = res;
+      if (this.movieList != null) {
         this.isLoaded = true;
       }
       //console.log(this.movieList);
-       
-      
+
+
     });
   }
 
-  deleteMovie(id:any){
-    this.service.deleteMovie(id).subscribe(res =>{
+  deleteMovie(id: any) {
+    this.service.deleteMovie(id).subscribe(res => {
       this.message = res;
 
       /* if res == null should show success message */
       console.log(this.message);
       this.ngOnInit(); // refreshing the list calling oninit again.
-      
+
     });
   }
 

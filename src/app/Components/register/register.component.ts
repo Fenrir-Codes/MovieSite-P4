@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
       Phone: new FormControl(null,
         [Validators.required,
         Validators.minLength(8),
+        Validators.maxLength(8),
         Validators.pattern('[- +()0-9]+')]),
       Image: new FormControl('profile.jpg'),
       Role: new FormControl(0),
