@@ -4,6 +4,7 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 
 
 @Component({
@@ -42,14 +43,13 @@ export class LoginComponent implements OnInit {
 
     setTimeout(() => {
       this.service.login(Email, Password).subscribe((response) => {
-        //console.log(response);
         this.user = response;
-  
+
         if (this.user != null) {
           this.tokenService.enCryptKey('userToken', response)
           this.DataService.changeLoginStatus(true);
           this.user = this.tokenService.getUserToken();
-  
+
           if (this.user.role === 1) {
             this.DataService.changeUserStatus(false);
             this.DataService.changeAdminStatus(true);
@@ -60,12 +60,12 @@ export class LoginComponent implements OnInit {
             this.DataService.changeAdminStatus(false)
             this.DataService.changeUserStatus(true);
             this.Router.navigate(['/Home']);
-  
-  
+
+
           };
-  
+
         }
-  
+
         if (this.user === null) {
           //console.log("log on failed login:  ", this.user);
           this.DataService.changeLoginStatus(false);
@@ -74,14 +74,14 @@ export class LoginComponent implements OnInit {
             this.errormessage;
             this.error = false;
           }, 3000);
-  
+
         }
-  
+
       });
       this.loggingIn = false;
 
     }, 1500);
-    
+
   }
 
 

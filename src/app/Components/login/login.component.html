@@ -24,17 +24,18 @@
           <input type="Password" placeholder="Password" formControlName="Password">
           <span *ngIf="loginForm.controls.Password.errors?.required" class="error">Password required!</span>
           <span *ngIf="loginForm.controls.Password.errors?.minlength" class="error">Password required!</span>
-          
+
           <span class="errorMessage" *ngIf="error">
             {{errormessage}}
           </span>
         </div>
 
+        <!-- logging in animarion DualRing.gif showing up if loggingIn = true -->
         <div class="loadinganim" *ngIf="loggingIn">
           <img class="dualRing" src="assets/DualRing.gif" alt="">
         </div>
 
-        <!-- button container in the card -->
+        <!-- button container in the card  showing up if loggingIn = false -->
         <div class="button-container" *ngIf="!loggingIn">
           <button class="button" type="submit" mat-raised-button [disabled]="!loginForm.valid"
             (click)="login(loginForm.get('Email').value, loginForm.get('Password').value)">Login</button>

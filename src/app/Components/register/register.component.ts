@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 })
 export class RegisterComponent implements OnInit {
   registerForm: any;
-  showMessage : boolean = false;
+  registerPressed: boolean = false;
+  showMessage: boolean = false;
   message: any;
 
   constructor(private fb: FormBuilder,
@@ -43,13 +45,17 @@ export class RegisterComponent implements OnInit {
 
   registerUser(body: any) {
     //console.log('log of body on register page: ',body);
-    this.service.createNewUser(body).subscribe(res => {
-      this.showMessage = true;
-      this.message = 'Registered successfully. Returning to Login page.';
-    });
-    this.registerForm.reset();
+    this.registerPressed = true;
     setTimeout(() => {
+      this.service.createNewUser(body).subscribe(res => {
+        this.showMessage = true;
+        this.message = 'Registered successfully. Returning to Login page.';
+      });
+      
+      this.registerForm.reset();
       this.Router.navigate(['/Login']);
+      this.registerPressed = false;
+
     }, 3000);
 
   }
