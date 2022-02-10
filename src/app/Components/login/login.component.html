@@ -30,8 +30,12 @@
           </span>
         </div>
 
+        <div class="loadinganim" *ngIf="loggingIn">
+          <img class="dualRing" src="assets/DualRing.gif" alt="">
+        </div>
+
         <!-- button container in the card -->
-        <div class="button-container">
+        <div class="button-container" *ngIf="!loggingIn">
           <button class="button" type="submit" mat-raised-button [disabled]="!loginForm.valid"
             (click)="login(loginForm.get('Email').value, loginForm.get('Password').value)">Login</button>
         </div><br>

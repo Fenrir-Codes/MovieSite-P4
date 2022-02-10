@@ -41,6 +41,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
 import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -92,6 +93,7 @@ import { RegisterComponent } from './Components/register/register.component';
     MatTooltipModule,
     MatDividerModule,
     MatTableModule,
+    MatPaginatorModule,
 
   ],
   providers: [],
