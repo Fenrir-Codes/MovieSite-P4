@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class TableofprofilesComponent implements OnInit {
   isLoaded:boolean = false;
+  filter: string = '';
   profileList: IProfile[] = [];
 
   tableHeaderColumns: string[] = [
@@ -48,6 +49,13 @@ export class TableofprofilesComponent implements OnInit {
       this.ngOnInit();      
     });
     
+  }
+
+  
+  applyFilter(event: any) {
+    //console.log(event);
+    this.filter = event;
+
   }
 
 }

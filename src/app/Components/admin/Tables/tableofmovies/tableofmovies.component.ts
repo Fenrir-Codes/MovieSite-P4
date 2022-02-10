@@ -10,9 +10,10 @@ import { IMovie } from 'src/app/Interfaces/IMovie';
 })
 export class TableofmoviesComponent implements OnInit {
   isLoaded: boolean = false;
+  filter: string = '';
   message: any;
+  movieList: IMovie[] = [];
   tableHeaderColumns: string[] = ['Id', 'Image', 'Title', 'Language', 'Country', 'Genre', 'Duration', 'Releasedate', 'Actions'];
-  movieList: IMovie[];
 
   constructor(private service: SharedService) { }
 
@@ -41,6 +42,12 @@ export class TableofmoviesComponent implements OnInit {
       this.ngOnInit(); // refreshing the list calling oninit again.
 
     });
+  }
+
+  applyFilter(event: any) {
+    //console.log(event);
+    this.filter = event;
+
   }
 
 }

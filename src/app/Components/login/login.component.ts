@@ -26,12 +26,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      Email: new FormControl(null ,[ Validators.required,
-        Validators.required,
-        Validators.email,
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+      Email: new FormControl(null, [Validators.required,
+      Validators.required,
+      Validators.email,
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
       ]),
-      Password: new FormControl(null, [ Validators.required, Validators.minLength(1)]),
+      Password: new FormControl(null, [Validators.required, Validators.minLength(1)]),
     })
 
   }
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         if (this.user.role === 1) {
           this.DataService.changeUserStatus(false);
           this.DataService.changeAdminStatus(true);
-         //window.open('Admin', "_blank");
+          //window.open('Admin', "_blank");
           this.Router.navigate(['/Admin']);
         }
         else {
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
           this.errormessage;
           this.error = false;
         }, 3000);
-  
+
 
       }
 
