@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IProfile } from 'src/app/Interfaces/IProfile';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { MatDialog } from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-tableofprofiles',
@@ -26,9 +27,10 @@ export class TableofprofilesComponent implements OnInit {
     'Delete',
   ]
   
-  constructor(private service: SharedService, private dialog: MatDialog) { }
+  constructor(private service: SharedService, private dialog: MatDialog, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.getAllUsers();
   }
 

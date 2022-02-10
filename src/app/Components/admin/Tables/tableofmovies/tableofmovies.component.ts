@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { IMovie } from 'src/app/Interfaces/IMovie';
 
@@ -15,9 +16,10 @@ export class TableofmoviesComponent implements OnInit {
   movieList: IMovie[] = [];
   tableHeaderColumns: string[] = ['Id', 'Image', 'Title', 'Language', 'Country', 'Genre', 'Duration', 'Releasedate', 'Actions'];
 
-  constructor(private service: SharedService) { }
+  constructor(private service: SharedService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.getAllMovies();
   }
 

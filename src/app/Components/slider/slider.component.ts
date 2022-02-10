@@ -4,6 +4,7 @@ import { IMovie } from 'src/app/Interfaces/IMovie';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { LocalService} from 'src/app/Back-END/Services/Storage-Crypting/local.service';
+import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-slider',
@@ -16,9 +17,14 @@ export class SliderComponent implements OnInit {
   isLoaded: Boolean = false;
 
   constructor(
-    private service: SharedService, private router: Router, private localService: LocalService, private DataService: DataService) { }
+    private service: SharedService, 
+    private router: Router, 
+    private localService: LocalService, 
+    private DataService: DataService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     //on initalizaton this page, we vcalling the getmovieByDate method
     this.service.getMovieByDate().subscribe(results => {
       //the recentMovies array filled up with the results
