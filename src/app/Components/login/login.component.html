@@ -15,13 +15,19 @@
         <!-- email input field -->
         <div class="form-field-Email">
           <input type="Email" placeholder="E-mail" formControlName="Email">
-          <span *ngIf="loginForm.controls.Email.errors" class="error">E-Mail required!</span>
+          <span *ngIf="loginForm.controls.Email.errors?.required" class="error">E-Mail required!</span>
+          <span *ngIf="loginForm.controls.Email.errors?.pattern" class="error">Wrong Email pattern!</span>
         </div>
 
         <!-- password input field -->
         <div class="form-field-Password">
           <input type="Password" placeholder="Password" formControlName="Password">
-          <span *ngIf="loginForm.controls.Password.errors" class="error">Password required!</span>
+          <span *ngIf="loginForm.controls.Password.errors?.required" class="error">Password required!</span>
+          <span *ngIf="loginForm.controls.Password.errors?.minlength" class="error">Password required!</span>
+          
+          <span class="errorMessage" *ngIf="error">
+            {{errormessage}}
+          </span>
         </div>
 
         <!-- button container in the card -->
