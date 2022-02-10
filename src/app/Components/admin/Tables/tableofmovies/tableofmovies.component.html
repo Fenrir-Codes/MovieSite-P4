@@ -1,16 +1,21 @@
 <div class="container">
 
-  <mat-spinner class="spinner" *ngIf="!isLoaded"></mat-spinner>
+    <!-- NGX-Spinner START -->
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#af0000" type="square-jelly-box" [fullScreen]="false"
+    *ngIf="!isLoaded">
+    <p style="color: white">Loading...</p>
+  </ngx-spinner>
+  <!-- NGX-Spinner END -->
 
   <div class="title">List of Movies</div>
 
-  <div class="table-container">
+  <div class="table-container" *ngIf="isLoaded">
 
     <div class="filter">
       <input class="filterInput" type="search" #text placeholder="Filter..." (keydown)="applyFilter(text.value)" />
     </div>
 
-    <table mat-table [dataSource]="movieList | filter: filter" class="mat-table">
+    <table mat-table [dataSource]="movieList | filter: filter" class="mat-table">     
 
       <!-- Id Column -->
       <ng-container matColumnDef="Id">

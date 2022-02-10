@@ -1,14 +1,21 @@
 <div class="container">
 
+  <!-- NGX-Spinner START -->
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#af0000" type="square-jelly-box" [fullScreen]="false"
+    *ngIf="!isLoaded">
+    <p style="color: white">Loading...</p>
+  </ngx-spinner>
+  <!-- NGX-Spinner END -->
+
   <div class="title">List of Registered Users</div>
 
-  <mat-spinner class="spinner" *ngIf="!isLoaded"></mat-spinner>
-
-  <div class="table-container">
+  <div class="table-container" *ngIf="isLoaded">
 
     <div class="filter">
       <input class="filterInput" type="search" #text placeholder="Filter..." (keydown)="applyFilter(text.value)" />
     </div>
+
+    <mat-spinner class="spinner" *ngIf="!isLoaded"></mat-spinner>
 
     <table mat-table [dataSource]="profileList | filter: filter" class="mat-table">
 
