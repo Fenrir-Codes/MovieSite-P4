@@ -5,7 +5,12 @@
   <mat-spinner class="spinner" *ngIf="!isLoaded"></mat-spinner>
 
   <div class="table-container">
-    <table mat-table [dataSource]="profileList" class="mat-table">
+
+    <div class="filter">
+      <input class="filterInput" type="search" #text placeholder="Filter..." (keydown)="applyFilter(text.value)" />
+    </div>
+
+    <table mat-table [dataSource]="profileList | filter: filter" class="mat-table">
 
       <!-- Id Column -->
       <ng-container matColumnDef="Id">

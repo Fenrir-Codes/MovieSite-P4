@@ -25,6 +25,19 @@
   flex-direction: column;
   background-color: #d7e1ec;
 
+  .filter{
+    width: 100%;
+
+    .filterInput{
+      padding: 8px 8px;
+      width: 100%;
+      outline: none;
+      font-size: 18px;
+      border: none;
+      border-bottom: 1px solid red;
+    }
+  }
+
   .title {
     width: 100%;
     padding-top: 30px;
