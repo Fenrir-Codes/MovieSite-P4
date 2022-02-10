@@ -37,16 +37,27 @@
     box-shadow: 0px 0px 15px 4px var(--SecondaryFontColor);
     border: 1px solid var(--SecondaryFontColor);
 
+    /* card's title*/
+    .title {
+      width: 100%;
+      font-size: 25px;
+      text-align: center;
+      padding-top: 18px;
+      border-radius: 10px 10px 0px 0px;
+      padding-bottom: 18px;
+      color: var(--SecondaryFontColor);
+    }
+
+    .message {
+      padding: 5px 0px 5px 0px;
+      width: 100%;
+      color: white;
+      background-color: rgb(0, 255, 42);
+    }
+
     /* card content container */
     .content {
       width: 300px;
-
-      .message {
-        padding: 5px 0px 5px 0px;
-        width: 100%;
-        color: white;
-        background-color: rgb(0, 255, 42);
-      }
 
       /* form field contains the input fields (Email and Password field) */
       .form-field {
@@ -75,17 +86,6 @@
           outline: none;
         }
       }
-    }
-
-    /* card's title  (Login) */
-    .title {
-      width: 100%;
-      font-size: 25px;
-      text-align: center;
-      padding-top: 18px;
-      border-radius: 10px 10px 0px 0px;
-      padding-bottom: 18px;
-      color: var(--SecondaryFontColor);
     }
 
     /* card content container */

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProfile } from 'src/app/Interfaces/IProfile';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tableofprofiles',
@@ -24,7 +25,7 @@ export class TableofprofilesComponent implements OnInit {
     'Delete',
   ]
   
-  constructor(private service: SharedService) { }
+  constructor(private service: SharedService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getAllUsers();
@@ -36,8 +37,17 @@ export class TableofprofilesComponent implements OnInit {
       if (this.profileList != null) {
         this.isLoaded = true;
       }
-      console.log(this.profileList);
+      //console.log(this.profileList);
     });
+  }
+
+  deleteUser(id: number){
+    //console.log(id);
+     this.service.deleteUser(id).subscribe(res => {
+      console.log(res);
+      this.ngOnInit();      
+    });
+    
   }
 
 }

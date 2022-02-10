@@ -36,9 +36,52 @@
     }
 
     .content {
-        margin-top: 10%;
+        padding: 0px;
+        width: 100%;
+        display: flex;
+        margin: auto;
+        justify-content: center;
+
         p {
             margin-right: 20px;
+        }
+
+        .form-field {
+            margin: 20px 0px 20px 0px;
+            height: 30px;
+            width: 300px;
+
+            /* input field text */
+            input[type="text"] {
+                width: 80%;
+                font-size: 16px;
+                padding: 10px 15px;
+                color: var(--SecondaryFontColor);
+                border: 1px solid var(--SecondaryFontColor);
+                border-radius: 5px;
+                outline: none;
+                margin-right: 30px;
+            }
+
+            input[type="password"] {
+                width: 90%;
+                font-size: 16px;
+                padding: 10px 15px;
+                color: var(--SecondaryFontColor);
+                border: 1px solid var(--SecondaryFontColor);
+                border-radius: 5px;
+                outline: none;
+            }
+
+            .select{
+                width: 90%;
+                font-size: 16px;
+                padding: 10px 15px;
+                color: var(--SecondaryFontColor);
+                border: 1px solid var(--SecondaryFontColor);
+                border-radius: 5px;
+                outline: none;
+            }
         }
 
         .topbox {
@@ -47,51 +90,49 @@
             align-items: center;
             justify-content: center;
         }
-    
+
         .middlebox {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
         }
-    
+
         .bottombox {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
         }
-    
+
         .rolebox {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
         }
-    
+
         .button-container {
             display: flex;
-            flex-direction: row;
-            align-items: center;
             justify-content: center;
-            padding-bottom: 20px;
+            width: 20%;
+            padding-top: 20px;
+            margin: auto;
 
             .button-update {
+                width: 100%;
                 cursor: pointer;
                 font-size: 18px;
                 color: var(--SecondaryBackgroundColor);
                 background: linear-gradient(to bottom, #858585 5%, #000000 100%);
                 transition: all 0.4s;
-            
+
                 &:hover:enabled {
-                  color: white;
-                  background: linear-gradient(to bottom, #00cf2d 5%, #00b126 100%);
-                  background-color: #00b126;
+                    color: white;
+                    background: linear-gradient(to bottom, #00cf2d 5%, #00b126 100%);
+                    background-color: #00b126;
                 }
-            
-              }
+            }
         }
     }
-
-    
 }
