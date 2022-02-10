@@ -14,9 +14,6 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   error: boolean = false;
   errormessage: string = "Email or password is not valid, please try again.";
-  emailError: string = 'Wrong Email pattern!';
-  passwordError: string = 'Password may not be empty!';
-  userError: string = 'User not found!';
   loginForm: any;
   user: any;
   hide = true;
@@ -42,7 +39,7 @@ export class LoginComponent implements OnInit {
   login(Email: string, Password: string) {
     //console.log(Email, Password);
     this.service.login(Email, Password).subscribe((response) => {
-      //console.log(response);
+      console.log(response);
       this.user = response;
 
       if (this.user != null) {
@@ -70,7 +67,12 @@ export class LoginComponent implements OnInit {
         //console.log("log on failed login:  ", this.user);
         this.DataService.changeLoginStatus(false);
         this.error = true;
-        this.errormessage;
+        setTimeout(() => {
+          this.errormessage;
+          this.error = false;
+        }, 3000);
+  
+
       }
 
     });
