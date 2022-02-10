@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   error: boolean = false;
+  loggingIn: boolean = false;
   errormessage: string = "Email or password is not valid, please try again.";
   loginForm: any;
   user: any;
@@ -37,46 +38,50 @@ export class LoginComponent implements OnInit {
   }
 
   login(Email: string, Password: string) {
-    //console.log(Email, Password);
-    this.service.login(Email, Password).subscribe((response) => {
-      console.log(response);
-      this.user = response;
+    this.loggingIn = true;
 
-      if (this.user != null) {
-        this.tokenService.enCryptKey('userToken', response)
-        this.DataService.changeLoginStatus(true);
-        this.user = this.tokenService.getUserToken();
-
-        if (this.user.role === 1) {
-          this.DataService.changeUserStatus(false);
-          this.DataService.changeAdminStatus(true);
-          //window.open('Admin', "_blank");
-          this.Router.navigate(['/Admin']);
+    setTimeout(() => {
+      this.service.login(Email, Password).subscribe((response) => {
+        //console.log(response);
+        this.user = response;
+  
+        if (this.user != null) {
+          this.tokenService.enCryptKey('userToken', response)
+          this.DataService.changeLoginStatus(true);
+          this.user = this.tokenService.getUserToken();
+  
+          if (this.user.role === 1) {
+            this.DataService.changeUserStatus(false);
+            this.DataService.changeAdminStatus(true);
+            //window.open('Admin', "_blank");
+            this.Router.navigate(['/Admin']);
+          }
+          else {
+            this.DataService.changeAdminStatus(false)
+            this.DataService.changeUserStatus(true);
+            this.Router.navigate(['/Home']);
+  
+  
+          };
+  
         }
-        else {
-          this.DataService.changeAdminStatus(false)
-          this.DataService.changeUserStatus(true);
-          this.Router.navigate(['/Home']);
+  
+        if (this.user === null) {
+          //console.log("log on failed login:  ", this.user);
+          this.DataService.changeLoginStatus(false);
+          this.error = true;
+          setTimeout(() => {
+            this.errormessage;
+            this.error = false;
+          }, 3000);
+  
+        }
+  
+      });
+      this.loggingIn = false;
 
-
-        };
-
-      }
-
-      if (this.user === null) {
-        //console.log("log on failed login:  ", this.user);
-        this.DataService.changeLoginStatus(false);
-        this.error = true;
-        setTimeout(() => {
-          this.errormessage;
-          this.error = false;
-        }, 3000);
-
-
-      }
-
-    });
-
+    }, 1500);
+    
   }
 
 
