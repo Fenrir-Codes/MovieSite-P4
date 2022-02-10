@@ -46,17 +46,16 @@ export class RegisterComponent implements OnInit {
   registerUser(body: any) {
     //console.log('log of body on register page: ',body);
     this.registerPressed = true;
+    this.service.createNewUser(body).subscribe(res => {
+    });
     setTimeout(() => {
-      this.service.createNewUser(body).subscribe(res => {
-        this.showMessage = true;
-        this.message = 'Registered successfully. Returning to Login page.';
-      });
-      
+      this.showMessage = true;
+      this.registerPressed = false;
+      this.message = 'Registered successfully. Returning to Login page.';
       this.registerForm.reset();
       this.Router.navigate(['/Login']);
-      this.registerPressed = false;
-
     }, 3000);
+
 
   }
 
