@@ -49,8 +49,18 @@ export class RegisterComponent implements OnInit {
     //run api call (Create method)
     this.service.createNewUser(body).subscribe(res => {
       this.result = res;
-      /* if the response is not null show message */
-      if (this.result != null){
+
+      //Error message
+      if (this.result === null){
+        setTimeout(() => {
+          this.registerPressed = false; //show buttoin again instead of the dual rung animation
+          this.showMessage = true;  //ahow message true
+          this.message = '\n something not good mate! XD'; //message
+          this.registerForm.reset();  // reset the form
+        }, 2000);
+      }
+      else{
+        /* if the response is not null */
         setTimeout(() => {
           this.registerPressed = false; //show buttoin again instead of the dual rung animation
           this.showMessage = true;  //ahow message true
