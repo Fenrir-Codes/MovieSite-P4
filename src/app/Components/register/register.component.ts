@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   registerForm: any;
   registerPressed: boolean = false;
   showMessage: boolean = false;
+  result: any;
   message: any;
 
   constructor(private fb: FormBuilder,
@@ -44,18 +45,28 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(body: any) {
-    //console.log('log of body on register page: ',body);
-    this.registerPressed = true;
+    this.registerPressed = true; //button pressed = yes
+    //run api call (Create method)
     this.service.createNewUser(body).subscribe(res => {
-    });
-    setTimeout(() => {
-      this.showMessage = true;
-      this.registerPressed = false;
-      this.message = 'Registered successfully. Returning to Login page.';
-      this.registerForm.reset();
-      this.Router.navigate(['/Login']);
-    }, 3000);
+      this.result = res;
+      /* if the response is not null show message */
+      if (this.result != null){
+        setTimeout(() => {
+          this.registerPressed = false; //show buttoin again instead of the dual rung animation
+          this.showMessage = true;  //ahow message true
+          this.message = '\n Registered successfully. Returning to Login page.'; //message
+          this.registerForm.reset();  // reset the form
 
+          setTimeout(() => {
+          this.Router.navigate(['/Login']);  // route to login page
+
+          }, 2000);
+
+        }, 1500);
+
+      }
+
+    });
 
   }
 
