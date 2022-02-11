@@ -53,7 +53,8 @@
                     <div class="form-field">
                         <mat-label>Duration</mat-label>
                         <select class="select" formControlName="Duration">
-                            <option *ngFor="let minute of durationList" [value]="minute">{{minute}}
+                            <option *ngFor="let display of durationList; let i = index" [value]="display.value" [selected]="i == 0">
+                                {{display.value}}
                             </option>
                         </select>
                     </div>
@@ -70,7 +71,16 @@
                 </div>
 
                 <!-- time boxes -->
-                <div class="timebox">
+                <div class="comboBox">
+
+                    <div class="form-field-rating">
+                        <mat-label>Rating</mat-label>
+                        <select class="select" formControlName="Rating">
+                            <option *ngFor="let display of ratings; let i = index" [value]="display.rating" [selected]="i==0">
+                                {{display.value}}
+                            </option>
+                        </select>
+                    </div>
 
                     <div class="form-field">
 
@@ -84,7 +94,7 @@
 
                     <div class="form-field">
                         <label>Release a date</label>
-                        <input [matDatepicker]="datepicker" formControlName="Releasedate" class="select">
+                        <input [matDatepicker]="datepicker" formControlName="Releasedate" class="dateSelect">
                         <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
                         <mat-datepicker #datepicker>
                             <mat-datepicker-actions>

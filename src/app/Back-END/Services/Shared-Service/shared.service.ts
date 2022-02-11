@@ -59,6 +59,11 @@ export class SharedService {
     );
   }
 
+  getAllDirectors(): Observable<IDirector[]> {
+    /* Getting all users*/
+    return this.http.get<IDirector[]>(this.ApiUrl + 'Directors');
+  }
+
   getDirectorByDirectorId(id: number): Observable<IDirector[]> {
     return this.http.get<IDirector[]>(
       this.ApiUrl + 'Directors/' + id,

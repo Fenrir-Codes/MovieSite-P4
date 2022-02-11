@@ -59,24 +59,26 @@ export class CreatemovieComponent implements OnInit {
     'XXX'
   ];
 
-  durationList: string[] = [
-    '15 min.',
-    '30 min.',
-    '45 min.',
-    '60 min.',
-    '75 min.',
-    '90 min.',
-    '105 min.',
-    '120 min',
-    '135 min.',
-    '150 min.',
-    '165 min.',
-    '180 min.',
-    '195 min.',
-    '210 min.'
+  durationList =[] = [
+    { selector: null, value: 'Select Duration' },
+    { selector: '15 min.', value: '15 min.' },
+    { selector: '30 min.', value: '30 min.' },
+    { selector: '45 min.', value: '45 min.' },
+    { selector: '60 min.', value: '60 min.' },
+    { selector: '75 min.', value: '75 min.' },
+    { selector: '90 min.', value: '90 min.' },
+    { selector: '105 min.', value: '105 min.' },
+    { selector: '120 min.', value: '120 min.' },
+    { selector: '135 min.', value: '135 min.' },
+    { selector: '150 min.', value: '150 min.' },
+    { selector: '165 min.', value: '165 min.' },
+    { selector: '180 min.', value: '180 min.' },
+    { selector: '195 min.', value: '195 min.' },
+    { selector: '210 min.', value: '210 min.' }
   ];
 
   directors = [] = [
+    { id: null, value: 'Select Director' },
     { id: 1, value: 'Steven Spielberg' },
     { id: 2, value: 'Cristopher Nolan' },
     { id: 3, value: 'Denis Villeneuve' },
@@ -93,12 +95,22 @@ export class CreatemovieComponent implements OnInit {
     { id: 14, value: 'Jon Watts' },
   ];
 
+  ratings = [] =[
+    {rating: null, value: "Rating"},
+    {rating: 1, value: "1"},
+    {rating: 2, value: "2"},
+    {rating: 3, value: "3"},
+    {rating: 4, value: "4"},
+    {rating: 5, value: "5"},
+    {rating: 6, value: "6"},
+    {rating: 7, value: "7"},
+    {rating: 8, value: "8"},
+    {rating: 9, value: "9"},
+    {rating: 10, value: "10"},
+
+  ]
+
   ngOnInit(): void {
-/*     rating?: number,
-    videoUrl?: string,
-    thumbImage?: string */
-
-
     this.movieForm = this.fb.group({
       DirectorsId: [null, Validators.required],
       Title: [null, Validators.required],
@@ -110,6 +122,7 @@ export class CreatemovieComponent implements OnInit {
       Language: [null, Validators.required],
       Releasedate: [new Date(), Validators.required],
       AddedDate: [new Date()],
+      Rating: [null, Validators.required],
       VideoURL: [null],
       ThumbImage: [null]
 
