@@ -9,6 +9,7 @@ export interface IMovie{
     duration?: Date,
     rating?: number,
     releaseDate?: Date,
+    addedDate?:Date,
     image?:string
     videoUrl?: string,
     thumbImage?: string

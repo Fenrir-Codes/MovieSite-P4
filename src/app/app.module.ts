@@ -42,6 +42,9 @@ import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.compo
 import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 
@@ -94,6 +97,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDividerModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    
 
   ],
   providers: [],

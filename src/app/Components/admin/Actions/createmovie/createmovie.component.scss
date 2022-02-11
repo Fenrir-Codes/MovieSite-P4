@@ -1,46 +1,139 @@
-/* :host is a pseudo-class selector that applies styles in the element that hosts the component. */
-:host {
-    /* Font */
-    --PrimaryFontColor: rgb(255, 255, 255);
-    --SecondaryFontColor: rgb(188, 32, 33);
-
-    /* Background */
-    --PrimaryBackgroundColor: #000000;
-    --SecondaryBackgroundColor: #d7e1ec;
-    --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
-
-    /* Menu */
-    --PrimaryMenuColor: #777;
-    --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
-
-    /* seach box */
-    --SearchBox-BGColor: rgba(37, 37, 37);
-    --SearchTextColor: rgba(144, 144, 144);
-}
-
 .container {
-    min-width: 100%;
+    padding: 0;
+    margin: 0;
     display: flex;
-    flex-direction: column;
+    align-items: center;
 
-    .title {
+    .card {
         width: 100%;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        color: white;
-        font-size: 28px;
+        height: 100%;
+        align-items: center;
+        border-radius: 0px 0px 10px 10px;
+        padding: 0;
         text-align: center;
-        background-color: var(--SecondaryFontColor);
-    }
-
-    .content {
-        margin-top: 10%;
-        p {
-            margin-right: 20px;
-        }
-    }
-
-
-
     
+        .title {
+            width: 100%;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            background-color: var(--SecondaryFontColor);
+        }
+    
+        .content {
+            padding: 0px;
+            display: flex;
+            margin: auto;
+            justify-content: center;
+
+            .form-field{
+                width: 200px;
+                height: 50px;
+                border-radius: 5px;
+                margin: 10px;
+
+                input[type="text"] {
+                    width: 85%;
+                    font-size: 16px;
+                    padding: 10px 15px;
+                    color: var(--SecondaryFontColor);
+                    border: 1px solid var(--SecondaryFontColor);
+                    border-radius: 5px;
+                    outline: none;
+                    margin-right: 30px;
+                    background-color: white;
+                }
+
+                .select{
+                    width: 100%;
+                    font-size: 16px;
+                    padding: 10px 15px;
+                    color: var(--SecondaryFontColor);
+                    border: 1px solid var(--SecondaryFontColor);
+                    border-radius: 5px;
+                    outline: none;
+                    background-color: white;
+                }
+            }
+        
+            p {
+                margin-right: 20px;
+            }
+
+            .topbox {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                margin-top: 30px;
+            }
+            
+            .middlebox {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 30px;
+
+
+            }
+            
+            .bottombox {
+                width: 100%;
+                display: block;
+                
+                .textarea {
+                    height: 150px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid var(--SecondaryFontColor);
+                }
+
+            }
+            
+            .timebox {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+
+                  input[type="file"] {
+                    display: none;
+                    margin: 10px;
+                }
+
+                .file-upload {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    width: 180px;
+                    height: 35px;
+                    border-radius: 5px;
+                    padding: 6px 12px;
+                    cursor: pointer;
+                    border: 1px solid var(--SecondaryFontColor);
+                    margin: 10px;
+                }
+
+
+            }
+            
+            .button-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 20px;
+            }
+            
+        }
+    
+    
+    }
+
+
+
 }
