@@ -101,7 +101,7 @@
                             <mat-icon>attach_file</mat-icon> Upload Cover
                         </label>
                         <!-- input type file -->
-                        <input type="file" id="file-upload" class="file-upload" #Image (change)="onChange($event)">
+                        <input type="file" id="file-upload" class="file-upload" #Image (change)="getFileName($event)">
 
                         <!-- input text fields needed to set string names to database from file input we just getting 
                             the filename from file input and setting

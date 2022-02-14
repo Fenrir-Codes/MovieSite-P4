@@ -132,7 +132,7 @@ export class CreatemovieComponent implements OnInit {
   }
 
   //setting the tumb image and Image value with this click event
-  onChange(event) {
+  getFileName(event) {
     //if file input length is not null
     if (event.target.files.length > 0) {
       //fileName variable set to null.
