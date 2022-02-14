@@ -15,7 +15,7 @@ export class TableofmoviesComponent implements OnInit{
   filter: string = '';
   message: any;
   movieList: IMovie[] = [];
-  columnsDisplayed: string[] = ['Id', 'Image', 'Title', 'Language', 'Country', 'Genre', 'Duration', 'Releasedate', 'Actions'];
+  columnsDisplayed: string[] = ['Id', 'Image', 'Title', 'Language', 'Country', 'Genre', 'Duration', 'Releasedate','AddedDate', 'Actions'];
 
   constructor(private service: SharedService, private spinner: NgxSpinnerService) { }
 

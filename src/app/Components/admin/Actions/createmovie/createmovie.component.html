@@ -18,6 +18,7 @@
                     <div class="form-field">
                         <label>Director</label>
                         <select class="select" formControlName="DirectorsId">
+                            <option [ngValue]="null" disabled>Choose Director</option>
                             <option *ngFor="let display of directors" [value]="display.id">{{display.value}}
                             </option>
                         </select>
@@ -26,6 +27,7 @@
                     <div class="form-field">
                         <label>Country</label>
                         <select class="select" formControlName="Country">
+                            <option [ngValue]="null" disabled>Choose Country</option>
                             <option *ngFor="let country of countryList" [value]="country">{{country}}
                             </option>
                         </select>
@@ -38,6 +40,7 @@
                     <div class="form-field">
                         <label>Genre</label>
                         <select class="select" formControlName="Genre">
+                            <option [ngValue]="null" disabled>Choose Genre</option>
                             <option *ngFor="let genre of genreList" [value]="genre">{{genre}}</option>
                         </select>
                     </div>
@@ -45,6 +48,7 @@
                     <div class="form-field">
                         <mat-label>Language</mat-label>
                         <select class="select" formControlName="Language">
+                            <option [ngValue]="null" disabled>Choose  Language</option>
                             <option *ngFor="let language of languageList" [value]="language">{{language}}
                             </option>
                         </select>
@@ -53,7 +57,8 @@
                     <div class="form-field">
                         <mat-label>Duration</mat-label>
                         <select class="select" formControlName="Duration">
-                            <option *ngFor="let display of durationList; let i = index" [value]="display.value" [selected]="i == 0">
+                            <option [ngValue]="null" disabled>Choose Duration</option>
+                            <option *ngFor="let display of durationList" [value]="display.value" >
                                 {{display.value}}
                             </option>
                         </select>
@@ -76,7 +81,8 @@
                     <div class="form-field-rating">
                         <mat-label>Rating</mat-label>
                         <select class="select" formControlName="Rating">
-                            <option *ngFor="let display of ratings; let i = index" [value]="display.rating" [selected]="i==0">
+                            <option [ngValue]="null" disabled>Choose Rating</option>
+                            <option *ngFor="let display of ratings" [value]="display.rating">
                                 {{display.value}}
                             </option>
                         </select>
