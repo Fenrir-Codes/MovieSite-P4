@@ -109,19 +109,19 @@ export class CreatemovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieForm = this.fb.group({
-      DirectorsId: [null, Validators.required],
-      Title: [null, Validators.required],
-      Description: [null, Validators.required],
-      Country: [null, Validators.required],
-      Genre: [null, Validators.required],
-      Image: [null, Validators.required],
-      Duration: [null, Validators.required],
-      Language: [null, Validators.required],
+      DirectorsId: ['', Validators.required],
+      Title: ['', Validators.required],
+      Description: ['', Validators.required],
+      Country: ['', Validators.required],
+      Genre: ['', Validators.required],
+      Image: ['', Validators.required],
+      Duration: ['', Validators.required],
+      Language: ['', Validators.required],
       Releasedate: [new Date(), Validators.required],
       AddedDate: [new Date()],
-      Rating: [null, Validators.required],
-      VideoURL: [null],
-      ThumbImage: [null]
+      Rating: ['', Validators.required],
+      VideoURL: [''],
+      ThumbImage: ['']
 
     });
 
@@ -133,6 +133,10 @@ export class CreatemovieComponent implements OnInit {
       console.log(this.movieForm);
 
     }); */
+
+    let imageValue = this.movieForm.get('Image').value;
+    console.log('Logging image value: ',imageValue);
+    
     console.log(body);
 
 

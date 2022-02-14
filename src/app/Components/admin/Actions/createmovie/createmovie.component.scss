@@ -118,18 +118,36 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
             }
 
             /* bottom box in the container */
             .bottombox {
                 width: 100%;
                 display: block;
+                margin: auto;
+
+                .urlInput{
+                    width: 96%;
+                    font-size: 18;
+                    border-radius: 5px;
+                    padding: 5px;
+                    resize: none;
+                    outline: none;
+                    color: var(--SecondaryFontColor);
+                    border: 1px solid var(--SecondaryFontColor);
+
+                }
 
                 .textarea {
                     height: 150px;
                     width: 96%;
+                    font-size: 18;
                     border-radius: 5px;
+                    resize: none;
+                    outline: none;
+                    overflow: auto;
+                    color: var(--SecondaryFontColor);
                     border: 1px solid var(--SecondaryFontColor);
                 }
             }
