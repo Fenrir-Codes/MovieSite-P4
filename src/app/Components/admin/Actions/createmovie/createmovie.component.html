@@ -19,7 +19,8 @@
                         <label>Director</label>
                         <select class="select" formControlName="DirectorId">
                             <option [ngValue]="null" disabled>Choose Director</option>
-                            <option *ngFor="let display of directors" [value]="display.id">{{display.value}}
+                            <option *ngFor="let display of directors" [value]="display.directorId">
+                                {{display.firstname}} {{display.lastname}}
                             </option>
                         </select>
                     </div>
@@ -102,7 +103,8 @@
                         <!-- input type file -->
                         <input type="file" id="file-upload" class="file-upload" #Image (change)="onChange($event)">
 
-                        <!-- input text fields needed to set string names to database from file input we just getting the filename from file input and setting
+                        <!-- input text fields needed to set string names to database from file input we just getting 
+                            the filename from file input and setting
                         the string into the text inputs Image and ThumbImage-->
                         <!-- input text display none -->
                         <input type="text" class="thumbimageInput" formControlName="Image" />
