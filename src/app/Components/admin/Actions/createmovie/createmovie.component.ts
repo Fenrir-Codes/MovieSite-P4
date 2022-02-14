@@ -9,8 +9,10 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 })
 export class CreatemovieComponent implements OnInit {
   movieForm: any;
+  directors = [];
 
   constructor(private fb: FormBuilder, private service: SharedService) { }
+
   /* list for select fields */
   languageList: string[] = [
     'English',
@@ -75,24 +77,6 @@ export class CreatemovieComponent implements OnInit {
     { value: '210 min.' }
   ];
 
-  directors = [] = [
-    { id: null, value: 'Choose Director' },
-    { id: 1, value: 'Steven Spielberg' },
-    { id: 2, value: 'Cristopher Nolan' },
-    { id: 3, value: 'Denis Villeneuve' },
-    { id: 4, value: 'Thomas Vinerberg' },
-    { id: 5, value: 'Zack Snyder' },
-    { id: 6, value: 'Jason Reitman' },
-    { id: 7, value: 'Anders Matthesen' },
-    { id: 8, value: 'Shawn Levy' },
-    { id: 9, value: 'Walter Becker' },
-    { id: 10, value: 'David Silverman' },
-    { id: 11, value: 'Anthony Ferrante' },
-    { id: 12, value: 'Daniel Espinosa' },
-    { id: 13, value: 'Chloé Zhao' },
-    { id: 14, value: 'Jon Watts' },
-  ];
-
   ratings = [] = [
     { rating: 1, value: 1 },
     { rating: 2, value: 2 },
@@ -124,6 +108,8 @@ export class CreatemovieComponent implements OnInit {
       ThumbImage: ['']
 
     });
+    this.getDirectorsToArray();
+
 
 
   }
@@ -132,10 +118,17 @@ export class CreatemovieComponent implements OnInit {
     //console.log(body);
     this.service.createMovie(body).subscribe(data => {
       console.log(data);
-      
+
     });
 
+  }
 
+  getDirectorsToArray(){
+    this.service.getAllDirectors().subscribe(data => {
+      this.directors = data;
+      console.log(this.directors);
+    
+    })
   }
 
   //setting the tumb image and Image value with this click event
@@ -149,12 +142,10 @@ export class CreatemovieComponent implements OnInit {
       //setting the value (fileName) to Image 
       this.movieForm.controls['Image'].setValue(fileName);
       //console.log(this.movieForm.get('Image').value);
-      
-      
-
       let thumbImageName = null;
       thumbImageName = event.target.files[0].name;
       this.movieForm.controls['ThumbImage'].setValue('./assets/' + thumbImageName);
+
     }
 
   }
