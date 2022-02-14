@@ -1,4 +1,3 @@
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControlName, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
@@ -77,6 +76,7 @@ export class CreatemovieComponent implements OnInit {
   ];
 
   directors = [] = [
+    { id: null, value: 'Choose Director' },
     { id: 1, value: 'Steven Spielberg' },
     { id: 2, value: 'Cristopher Nolan' },
     { id: 3, value: 'Denis Villeneuve' },
@@ -94,22 +94,22 @@ export class CreatemovieComponent implements OnInit {
   ];
 
   ratings = [] = [
-    { rating: 1, value: "1" },
-    { rating: 2, value: "2" },
-    { rating: 3, value: "3" },
-    { rating: 4, value: "4" },
-    { rating: 5, value: "5" },
-    { rating: 6, value: "6" },
-    { rating: 7, value: "7" },
-    { rating: 8, value: "8" },
-    { rating: 9, value: "9" },
-    { rating: 10, value: "10" },
+    { rating: 1, value: 1 },
+    { rating: 2, value: 2 },
+    { rating: 3, value: 3 },
+    { rating: 4, value: 4 },
+    { rating: 5, value: 5 },
+    { rating: 6, value: 6 },
+    { rating: 7, value: 7 },
+    { rating: 8, value: 8 },
+    { rating: 9, value: 9 },
+    { rating: 10, value: 10 },
 
   ]
 
   ngOnInit(): void {
     this.movieForm = this.fb.group({
-      DirectorsId: ['', Validators.required],
+      DirectorId: [, Validators.required],
       Title: ['', Validators.required],
       Description: ['', Validators.required],
       Country: ['', Validators.required],
@@ -119,27 +119,45 @@ export class CreatemovieComponent implements OnInit {
       Language: ['', Validators.required],
       Releasedate: [new Date(), Validators.required],
       AddedDate: [new Date()],
-      Rating: ['', Validators.required],
+      Rating: [0, Validators.required],
       VideoURL: [''],
       ThumbImage: ['']
 
     });
 
+
   }
 
   addMovie(body: any) {
-    /* this.service.createMovie(body).subscribe(data => {
+    //console.log(body);
+    this.service.createMovie(body).subscribe(data => {
       console.log(data);
-      console.log(this.movieForm);
-
-    }); */
-
-    let imageValue = this.movieForm.get('Image').value;
-    console.log('Logging image value: ',imageValue);
-    
-    console.log(body);
+      
+    });
 
 
   }
+
+  //setting the tumb image and Image value with this click event
+  onChange(event) {
+    //if file input length is not null
+    if (event.target.files.length > 0) {
+      //fileName variable set to null.
+      let fileName = null;
+      //this is equals to File type .name set to fileName
+      fileName = event.target.files[0].name;
+      //setting the value (fileName) to Image 
+      this.movieForm.controls['Image'].setValue(fileName);
+      //console.log(this.movieForm.get('Image').value);
+      
+      
+
+      let thumbImageName = null;
+      thumbImageName = event.target.files[0].name;
+      this.movieForm.controls['ThumbImage'].setValue('./assets/' + thumbImageName);
+    }
+
+  }
+
 
 }

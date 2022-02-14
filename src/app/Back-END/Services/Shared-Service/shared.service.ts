@@ -81,7 +81,7 @@ export class SharedService {
   }
 
   createMovie(body: any): Observable<IMovie[]>{
-    return this.http.post<IMovie[]>(this.ApiUrl + `Movies/`, body, httpOptions);
+    return this.http.post<IMovie[]>(this.ApiUrl + `Movies`, body, httpOptions);
   }
 
   //update function

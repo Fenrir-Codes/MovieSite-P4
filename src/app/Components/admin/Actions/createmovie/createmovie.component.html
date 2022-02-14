@@ -17,8 +17,8 @@
 
                     <div class="form-field">
                         <label>Director</label>
-                        <select class="select" formControlName="DirectorsId">
-                            <option [ngValue]="''" disabled>Choose Director</option>
+                        <select class="select" formControlName="DirectorId">
+                            <option [ngValue]="null" disabled>Choose Director</option>
                             <option *ngFor="let display of directors" [value]="display.id">{{display.value}}
                             </option>
                         </select>
@@ -67,12 +67,13 @@
                 </div>
                 <!-- bottom box -->
                 <div class="bottombox">
-
+                    <!-- URL input field, plain text -->
                     <div>
                         <input type="text" class="urlInput" matInput formControlName="VideoURL"
-                         placeholder="URL of the video, without 'http://'">
+                            placeholder="Ex.: //video.com/videolink.html ">
                     </div>
                     <br>
+                    <!-- text area (description) -->
                     <div>
                         <textarea class="textarea" matInput placeholder="Descripion of the movie..."
                             formControlName="Description"></textarea>
@@ -98,9 +99,15 @@
                         <label for="file-upload" class="file-upload">
                             <mat-icon>attach_file</mat-icon> Upload Cover
                         </label>
-                        <input type="file" id="file-upload" class="file-upload"
-                            onchange="console.log(event.target.files[0].name)" formControlName="Image">
+                        <!-- input type file -->
+                        <input type="file" id="file-upload" class="file-upload" #Image (change)="onChange($event)">
 
+                        <!-- input text fields needed to set string names to database from file input we just getting the filename from file input and setting
+                        the string into the text inputs Image and ThumbImage-->
+                        <!-- input text display none -->
+                        <input type="text" class="thumbimageInput" formControlName="Image" />
+                        <!-- input text display none -->
+                        <input type="text" class="thumbimageInput" formControlName="ThumbImage" />
                     </div>
 
                     <div class="form-field">
