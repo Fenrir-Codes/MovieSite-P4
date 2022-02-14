@@ -7,10 +7,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-tableofprofiles',
   templateUrl: './tableofprofiles.component.html',
-  styleUrls: ['./tableofprofiles.component.scss']
+  styleUrls: ['./tableofprofiles.component.scss'],
 })
 export class TableofprofilesComponent implements OnInit {
-  isLoaded:boolean = false;
+  isLoaded: boolean = false;
   filter: string = '';
   profileList: IProfile[] = [];
 
@@ -25,9 +25,13 @@ export class TableofprofilesComponent implements OnInit {
     'E-mail',
     'Update',
     'Delete',
-  ]
-  
-  constructor(private service: SharedService, private dialog: MatDialog, private spinner: NgxSpinnerService) { }
+  ];
+
+  constructor(
+    private service: SharedService,
+    private dialog: MatDialog,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
     this.spinner.show();
@@ -44,20 +48,16 @@ export class TableofprofilesComponent implements OnInit {
     });
   }
 
-  deleteUser(id: number){
+  deleteUser(id: number) {
     //console.log(id);
-     this.service.deleteUser(id).subscribe(res => {
+    this.service.deleteUser(id).subscribe((res) => {
       console.log(res);
-      this.ngOnInit();      
+      this.ngOnInit();
     });
-    
   }
 
-  
   applyFilter(event: any) {
     //console.log(event);
     this.filter = event;
-
   }
-
 }

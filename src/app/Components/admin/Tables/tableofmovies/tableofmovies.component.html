@@ -58,6 +58,11 @@
         <td mat-cell *matCellDef="let display"> {{display.releaseDate | date}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="AddedDate">
+        <th mat-header-cell *matHeaderCellDef> Added </th>
+        <td mat-cell *matCellDef="let display"> {{display.addedDate | date}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="Actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let display"> <button class="button" type="submit" class="button-delete"

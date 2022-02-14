@@ -1,9 +1,132 @@
 <div class="container">
 
-    <div class="title">Add new Movie</div>
+    <div class="card">
 
-    <div class="content">
-        <p>create movie content</p>
+        <div class="title">Add New Movie</div>
+
+        <div class="content">
+
+            <form [formGroup]="movieForm">
+                <!-- top box -->
+                <div class="topbox">
+
+                    <div class="form-field">
+                        <label>Title</label>
+                        <input type="text" matInput formControlName="Title" placeholder="Title">
+                    </div>
+
+                    <div class="form-field">
+                        <label>Director</label>
+                        <select class="select" formControlName="DirectorsId">
+                            <option [ngValue]="''" disabled>Choose Director</option>
+                            <option *ngFor="let display of directors" [value]="display.id">{{display.value}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Country</label>
+                        <select class="select" formControlName="Country">
+                            <option [ngValue]="''" disabled>Choose Country</option>
+                            <option *ngFor="let country of countryList" [value]="country">{{country}}
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+                <!-- middle box -->
+                <div class="middlebox">
+
+                    <div class="form-field">
+                        <label>Genre</label>
+                        <select class="select" formControlName="Genre">
+                            <option [ngValue]="''" disabled>Choose Genre</option>
+                            <option *ngFor="let genre of genreList" [value]="genre">{{genre}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <mat-label>Language</mat-label>
+                        <select class="select" formControlName="Language">
+                            <option [ngValue]="''" disabled>Choose Language</option>
+                            <option *ngFor="let language of languageList" [value]="language">{{language}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <mat-label>Duration</mat-label>
+                        <select class="select" formControlName="Duration">
+                            <option [ngValue]="''" disabled>Choose Duration</option>
+                            <option *ngFor="let display of durationList" [value]="display.value">
+                                {{display.value}}
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+                <!-- bottom box -->
+                <div class="bottombox">
+
+                    <div>
+                        <input type="text" class="urlInput" matInput formControlName="VideoURL"
+                         placeholder="URL of the video, without 'http://'">
+                    </div>
+                    <br>
+                    <div>
+                        <textarea class="textarea" matInput placeholder="Descripion of the movie..."
+                            formControlName="Description"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- time boxes -->
+                <div class="comboBox">
+
+                    <div class="form-field-rating">
+                        <mat-label>Rating</mat-label>
+                        <select class="select" formControlName="Rating">
+                            <option [ngValue]="''" disabled>Choose Rating</option>
+                            <option *ngFor="let display of ratings" [value]="display.rating">
+                                {{display.value}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+
+                        <label for="file-upload" class="file-upload">
+                            <mat-icon>attach_file</mat-icon> Upload Cover
+                        </label>
+                        <input type="file" id="file-upload" class="file-upload"
+                            onchange="console.log(event.target.files[0].name)" formControlName="Image">
+
+                    </div>
+
+                    <div class="form-field">
+                        <label>Release a date</label>
+                        <input [matDatepicker]="datepicker" formControlName="Releasedate" class="dateSelect">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </div>
+
+                </div>
+
+                <!-- button container box -->
+                <div class="button-container">
+                    <button class="button" type="submit" mat-raised-button [disabled]="!movieForm.valid"
+                        (click)="addMovie(movieForm.value)">Add
+                        new</button>
+                </div>
+
+            </form>
+
+        </div>
     </div>
 
 </div>

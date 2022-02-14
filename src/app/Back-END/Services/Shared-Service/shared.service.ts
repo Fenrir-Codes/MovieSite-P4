@@ -59,6 +59,11 @@ export class SharedService {
     );
   }
 
+  getAllDirectors(): Observable<IDirector[]> {
+    /* Getting all users*/
+    return this.http.get<IDirector[]>(this.ApiUrl + 'Directors');
+  }
+
   getDirectorByDirectorId(id: number): Observable<IDirector[]> {
     return this.http.get<IDirector[]>(
       this.ApiUrl + 'Directors/' + id,
@@ -73,6 +78,10 @@ export class SharedService {
       body,
       httpOptions
     );
+  }
+
+  createMovie(body: any): Observable<IMovie[]>{
+    return this.http.post<IMovie[]>(this.ApiUrl + `Movies/`, body, httpOptions);
   }
 
   //update function
