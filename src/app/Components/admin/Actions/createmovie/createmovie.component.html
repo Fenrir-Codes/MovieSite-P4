@@ -139,3 +139,14 @@
     </div>
 
 </div>
+
+
+<div class="success" *ngIf="success">
+    <p> <i class="fa fa-check"></i> {{message}}.</p>
+
+</div>
+
+<div class="error" *ngIf="error">
+    <p><i class="fa fa-times-circle"></i> {{errorMessage}} </p>
+   
+</div>

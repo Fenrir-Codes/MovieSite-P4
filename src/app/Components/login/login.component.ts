@@ -15,6 +15,9 @@ import { delay } from 'rxjs';
 export class LoginComponent implements OnInit {
   error: boolean = false;
   loggingIn: boolean = false;
+  success: boolean = false;
+  showButton: boolean = true;
+  message: string = 'Login success.';
   errormessage: string = "Email or password is not valid, please try again.";
   loginForm: any;
   user: any;
@@ -36,31 +39,45 @@ export class LoginComponent implements OnInit {
       Password: new FormControl(null, [Validators.required, Validators.minLength(1)]),
     })
 
+
   }
 
   login(Email: string, Password: string) {
     this.loggingIn = true;
+    this.showButton = false;
 
     setTimeout(() => {
       this.service.login(Email, Password).subscribe((response) => {
         this.user = response;
 
         if (this.user != null) {
-          this.tokenService.enCryptKey('userToken', response)
-          this.DataService.changeLoginStatus(true);
-          this.user = this.tokenService.getUserToken();
+          this.success = true;
+          this.showButton = false;
+          setTimeout(() => {
+            this.tokenService.enCryptKey('userToken', response)
+            this.DataService.changeLoginStatus(true);
+            this.user = this.tokenService.getUserToken();
+          }, 2000);
 
           if (this.user.role === 1) {
-            this.DataService.changeUserStatus(false);
-            this.DataService.changeAdminStatus(true);
-            //window.open('Admin', "_blank");
-            this.Router.navigate(['/Admin']);
+            this.success = true
+            this.showButton = false;
+            setTimeout(() => {
+              this.DataService.changeUserStatus(false);
+              this.DataService.changeAdminStatus(true);
+              //window.open('Admin', "_blank");
+              this.Router.navigate(['/Admin']);
+            }, 2000);
+
           }
           else {
-            this.DataService.changeAdminStatus(false)
-            this.DataService.changeUserStatus(true);
-            this.Router.navigate(['/Home']);
-
+            this.success = true
+            this.showButton = false;
+            setTimeout(() => {
+              this.DataService.changeAdminStatus(false)
+              this.DataService.changeUserStatus(true);
+              this.Router.navigate(['/Home']);
+            }, 2000);
 
           };
 
@@ -70,9 +87,11 @@ export class LoginComponent implements OnInit {
           //console.log("log on failed login:  ", this.user);
           this.DataService.changeLoginStatus(false);
           this.error = true;
+          this.showButton = false;
           setTimeout(() => {
             this.errormessage;
             this.error = false;
+            this.showButton = true;
           }, 3000);
 
         }
