@@ -60,17 +60,22 @@
                             8!</span>
                         <span *ngIf="registerForm.controls.Phone.errors?.pattern" class="error"> Use numbers please.
                         </span>
-                        <span class="message" *ngIf="showMessage"> {{message}}</span>
                     </div>
 
                 </div>
 
                 <!-- logging in animarion DualRing.gif showing up if registerPressed = true -->
-                <div class="loadinganim" *ngIf="registerPressed">
+                <div class="loadinganim" *ngIf="showAnimation">
                     <img class="dualRing" src="assets/DualRing.gif" alt="">
                 </div>
+                <div class="success" *ngIf="success">
+                    <p> <i class="fa fa-check"></i> {{message}}.</p>
+                  </div>
+                  <div class="errorMessage" *ngIf="error">
+                    <p><i class="fa fa-times-circle"></i> {{errormessage}} </p>
+                  </div>
 
-                <div class="button-container" *ngIf="!registerPressed">
+                <div class="button-container" *ngIf="showButton">
                     <button class="button" type="submit" mat-raised-button [disabled]="!registerForm.valid"
                         (click)="registerUser(registerForm.value)">Register</button>
                 </div>

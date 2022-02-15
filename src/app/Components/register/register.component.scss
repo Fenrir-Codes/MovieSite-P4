@@ -48,12 +48,40 @@
       color: var(--SecondaryFontColor);
     }
 
-    .message {
-      text-align: center;
-      padding: 5px 0px 5px 0px;
+    .success {
+      display: flex;
+      margin: auto;
+      width: 300px;
+      height: 50px;
+      background-color: #dff2bf;
+      border-radius: 5px;
+      margin-bottom: 30px;
+
+      p {
+        color: rgb(0, 160, 0);
+        margin: auto;
+        .fa {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .errorMessage {
+      display: flex;
+      margin: auto;
       width: 100%;
-      max-height: 50px;
-      color: rgb(0, 255, 0);
+      height: 50px;
+      background-color: #ffd2d2;
+      border-radius: 5px;
+      margin-bottom: 30px;
+
+      p {
+        color: #d8000c;
+        margin: auto;
+        .fa {
+          margin-right: 5px;
+        }
+      }
     }
 
     /* card content container */
@@ -107,6 +135,8 @@
       margin: auto;
       width: 50px;
       height: 50px;
+      margin-bottom: 20px;
+      
       .dualRing {
         max-width: 100%;
         max-height: 100%;
@@ -129,6 +159,7 @@
         width: 100%;
         color: white;
         background-color: var(--SecondaryFontColor);
+        margin-bottom: 10px;
 
         &:enabled {
           color: white;

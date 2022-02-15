@@ -11,10 +11,13 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 })
 export class RegisterComponent implements OnInit {
   registerForm: any;
-  registerPressed: boolean = false;
-  showMessage: boolean = false;
   result: any;
-  message: any;
+  error: boolean = false;
+  success: boolean = false;
+  showButton: boolean = true;
+  showAnimation: boolean = false;
+  message: string = 'Register success.';
+  errormessage: string = "Something went wrong, please try again.";
 
   constructor(private fb: FormBuilder,
     private service: SharedService,
@@ -42,33 +45,35 @@ export class RegisterComponent implements OnInit {
       Role: new FormControl(0),
     });
 
+
   }
 
   registerUser(body: any) {
-    this.registerPressed = true; //button pressed = yes
+    this.showButton = false; //hide button
+    this.showAnimation = true;
     //run api call (Create method)
     this.service.createNewUser(body).subscribe(res => {
       this.result = res;
 
       //Error message
-      if (this.result === null){
+      if (this.result === null) {
         setTimeout(() => {
-          this.registerPressed = false; //show buttoin again instead of the dual rung animation
-          this.showMessage = true;  //ahow message true
-          this.message = '\n something not good mate! XD'; //message
-          this.registerForm.reset();  // reset the form
+          this.showAnimation = false;
+          this.showButton = false; //hide button
+          this.error = true //show message true
+          this.registerForm.reset(); //reset the form
         }, 2000);
       }
-      else{
+      else {
         /* if the response is not null */
         setTimeout(() => {
-          this.registerPressed = false; //show buttoin again instead of the dual rung animation
-          this.showMessage = true;  //ahow message true
-          this.message = '\n Registered successfully. Returning to Login page.'; //message
+          this.showAnimation = false;
+          this.showButton = false; //hide button
+          this.success = true;  //show message true
           this.registerForm.reset();  // reset the form
 
           setTimeout(() => {
-          this.Router.navigate(['/Login']);  // route to login page
+            this.Router.navigate(['/Login']);  // route to login page
 
           }, 2000);
 
