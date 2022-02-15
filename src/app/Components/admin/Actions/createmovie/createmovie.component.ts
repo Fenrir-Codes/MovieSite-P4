@@ -126,7 +126,7 @@ export class CreatemovieComponent implements OnInit {
         this.success = true;
         setTimeout(() => {
           this.success = false;
-          this.movieForm.reset();
+          this.ngOnInit();
         }, 2000);
       }
       else {
