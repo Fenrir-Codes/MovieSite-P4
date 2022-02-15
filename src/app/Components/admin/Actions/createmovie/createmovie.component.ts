@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControlName, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 
 @Component({
@@ -9,6 +10,10 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 })
 export class CreatemovieComponent implements OnInit {
   movieForm: any;
+  success: boolean = false;
+  error: boolean = false;
+  message: string = 'Successfully added.';
+  errorMessage: any = 'Something went wrong!';
   directors = [];
 
   constructor(private fb: FormBuilder, private service: SharedService) { }
@@ -98,7 +103,7 @@ export class CreatemovieComponent implements OnInit {
       Description: ['', Validators.required],
       Country: ['', Validators.required],
       Genre: ['', Validators.required],
-      Image: ['', Validators.required],
+      Image: ['noimage.jpg', Validators.required],
       Duration: ['', Validators.required],
       Language: ['', Validators.required],
       Releasedate: [new Date(), Validators.required],
@@ -110,24 +115,40 @@ export class CreatemovieComponent implements OnInit {
     });
     this.getDirectorsToArray();
 
-
-
   }
 
   addMovie(body: any) {
     //console.log(body);
-    this.service.createMovie(body).subscribe(data => {
-      console.log(data);
+    this.service.createMovie(body).subscribe(res => {
+      console.log(res);
+
+      if (res != null) {
+        this.success = true;
+        setTimeout(() => {
+          this.success = false;
+          this.movieForm.reset();
+        }, 2000);
+      }
+      else {
+        this.error = true
+        this.errorMessage + res;
+        console.log(this.errorMessage);
+        setTimeout(() => {
+          this.error = false;
+        }, 3000);
+
+      }
+
 
     });
 
   }
 
-  getDirectorsToArray(){
+  getDirectorsToArray() {
     this.service.getAllDirectors().subscribe(data => {
       this.directors = data;
       console.log(this.directors);
-    
+
     })
   }
 
@@ -137,7 +158,7 @@ export class CreatemovieComponent implements OnInit {
     if (event.target.files.length > 0) {
       //fileName variable set to null.
       let fileName = null;
-      //this is equals to File type .name set to fileName
+      //adding event target file NAME to fileName variable
       fileName = event.target.files[0].name;
       //setting the value (fileName) to Image 
       this.movieForm.controls['Image'].setValue(fileName);
