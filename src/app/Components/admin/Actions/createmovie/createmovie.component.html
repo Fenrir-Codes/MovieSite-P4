@@ -88,7 +88,7 @@
                     <div class="form-field-rating">
                         <mat-label>Rating</mat-label>
                         <select class="select" formControlName="Rating">
-                            <option [ngValue]="''" disabled>Choose Rating</option>
+                            <option [ngValue]="0" disabled>Choose Rating</option>
                             <option *ngFor="let display of ratings" [value]="display.rating">
                                 {{display.value}}
                             </option>
@@ -140,7 +140,7 @@
 
 </div>
 
-
+<!-- messages -->
 <div class="success" *ngIf="success">
     <p> <i class="fa fa-check"></i> {{message}}.</p>
 
