@@ -10,12 +10,13 @@ import { IMovie } from 'src/app/Interfaces/IMovie';
   templateUrl: './tableofmovies.component.html',
   styleUrls: ['./tableofmovies.component.scss']
 })
-export class TableofmoviesComponent implements OnInit{
+export class TableofmoviesComponent implements OnInit {
   isLoaded: boolean = false;
   filter: string = '';
   message: any;
   movieList: IMovie[] = [];
-  columnsDisplayed: string[] = ['Id', 'Image', 'Title', 'Language', 'Country', 'Genre', 'Duration', 'Releasedate','AddedDate', 'Actions'];
+  columnsDisplayed: string[] = ['Id', 'Image', 'Title', 'Language',
+    'Country', 'Genre', 'Duration', 'Releasedate', 'AddedDate', 'Update', 'Delete'];
 
   constructor(private service: SharedService, private spinner: NgxSpinnerService) { }
 
@@ -30,7 +31,7 @@ export class TableofmoviesComponent implements OnInit{
       this.movieList = res;
       if (this.movieList != null) {
         this.isLoaded = true;
-        
+
       }
       //console.log(this.movieList);
 

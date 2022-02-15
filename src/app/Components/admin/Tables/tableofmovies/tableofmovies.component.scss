@@ -75,12 +75,28 @@ table {
     padding-left: 16px;
     max-width: 50px;
     height: 50px;
+    text-align: left;
 
+  }
+
+  .mat-column-Title{
+    width: 120px;
+    text-align: left;
+  }
+
+  .mat-column-Language{
+    text-align: center;
+  }
+
+  .mat-column-Country, .mat-column-Genre, .mat-column-Duration, 
+  .mat-column-ReleaseDate, .mat-column-Update,.mat-column-Delete{
+    text-align: center;
   }
 
   img {
     max-width: 50px;
     padding-top: 5px;
+
   }
 
   .button-update {
