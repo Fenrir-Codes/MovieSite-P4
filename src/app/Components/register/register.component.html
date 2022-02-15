@@ -68,12 +68,14 @@
                 <div class="loadinganim" *ngIf="showAnimation">
                     <img class="dualRing" src="assets/DualRing.gif" alt="">
                 </div>
+                
+                <!-- messages -->
                 <div class="success" *ngIf="success">
                     <p> <i class="fa fa-check"></i> {{message}}.</p>
-                  </div>
-                  <div class="errorMessage" *ngIf="error">
+                </div>
+                <div class="errorMessage" *ngIf="error">
                     <p><i class="fa fa-times-circle"></i> {{errormessage}} </p>
-                  </div>
+                </div>
 
                 <div class="button-container" *ngIf="showButton">
                     <button class="button" type="submit" mat-raised-button [disabled]="!registerForm.valid"
