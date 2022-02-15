@@ -63,8 +63,17 @@
         <td mat-cell *matCellDef="let display"> {{display.addedDate | date}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="Actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <ng-container matColumnDef="Update">
+        <th mat-header-cell *matHeaderCellDef> Update </th>
+        <td mat-cell *matCellDef="let display">
+          <button class="button-update" type="submit" mat-raised-button>
+            <mat-icon>edit</mat-icon>Update
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Delete">
+        <th mat-header-cell *matHeaderCellDef> Remove </th>
         <td mat-cell *matCellDef="let display"> <button class="button" type="submit" class="button-delete"
             mat-raised-button (click)="deleteMovie(display.movieId)">
             <mat-icon>delete_forever</mat-icon> Delete

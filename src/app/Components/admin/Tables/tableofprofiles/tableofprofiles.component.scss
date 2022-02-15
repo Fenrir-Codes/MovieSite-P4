@@ -63,7 +63,13 @@ table {
     font-size: 15px;
     font-weight: bold;
     background: black;
+    text-align: center;
     color: white;
+  }
+
+  .mat-column-Role, .mat-column-Avatar, .mat-column-Update, .mat-column-Delete, 
+  .mat-column-Firstname, .mat-column-Lastname, .mat-column-Address{
+    text-align: center;
   }
 
   .mat-column-Image {
@@ -76,6 +82,7 @@ table {
     max-width: 50px;
     border-radius: 50%;
     padding-top: 5px;
+    text-align: center;
   }
 
   .mat-column-Role {
