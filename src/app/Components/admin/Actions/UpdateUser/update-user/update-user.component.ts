@@ -54,8 +54,9 @@ export class UpdateUserComponent implements OnInit {
 
   /* update the user where id = user.profileId and data = body */
   updateUserData(id: number, body: any) {
-    this.service.updateUser(id, body).subscribe((res) => {
-      if (res === null) {
+    this.service.updateUser(id, body).subscribe(res => {
+      //console.log(res);  
+      if (res == null) {
         this.success = true;
         this.message = this.user.firstname + "'s profile successfully updated.";
         setTimeout(() => {
@@ -64,7 +65,7 @@ export class UpdateUserComponent implements OnInit {
 
         }, 2500);
 
-      }
+      }    
       else {
         this.error = true;
         this.errormessage += res;
