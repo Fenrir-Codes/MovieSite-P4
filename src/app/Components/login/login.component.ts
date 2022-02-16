@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
     setTimeout(() => {
       this.service.login(Email, Password).subscribe((response) => {
-        this.user = response;
+        this.user = response;    
 
         if (this.user != null) {
           this.success = true;
@@ -93,7 +93,7 @@ export class LoginComponent implements OnInit {
             this.errormessage;
             this.error = false;
             this.showButton = true;
-          }, 3000);
+          }, 2000);
 
         }
 
