@@ -10,14 +10,14 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 })
 export class CreateuserComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private service: SharedService,  public dialog: MatDialog) {}
+  constructor(private fb: FormBuilder, private service: SharedService, public dialog: MatDialog) { }
   createForm: any;
   message: any;
 
   roles = [] = [
-    {role: null, value: 'Select role'},
-    {role: 0, value: 'User'},
-    {role: 1, value: 'Admin'}
+    { role: null, value: 'Select role' },
+    { role: 0, value: 'User' },
+    { role: 1, value: 'Admin' }
   ];
 
   ngOnInit(): void {
@@ -38,17 +38,17 @@ export class CreateuserComponent implements OnInit {
         Validators.minLength(8),
         Validators.maxLength(8),
         Validators.pattern('[- +()0-9]+')]),
-      Image: new FormControl(null),
+      Image: new FormControl('profile.jpg'),
       Role: new FormControl(null, Validators.required)
     });
   }
 
-  createUser(body: any){
-   this.service.createNewUser(body).subscribe(res => {
-    console.log(res); 
-    /* if res != null should return a message user created */
-    
-   });
+  createUser(body: any) {
+    this.service.createNewUser(body).subscribe(res => {
+      console.log(res);
+      /* if res != null should return a message user created */
+
+    });
 
   }
 }

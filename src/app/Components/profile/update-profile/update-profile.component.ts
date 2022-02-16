@@ -20,6 +20,9 @@ export class UpdateProfileComponent implements OnInit {
   updateForm: FormGroup;
   message: any;
   user: any;
+  success: boolean = false;
+  error: boolean = false;
+  errormessage: string = 'Something went wrong';
 
   constructor(private fb: FormBuilder,
     private service: SharedService,
@@ -39,6 +42,8 @@ export class UpdateProfileComponent implements OnInit {
       Firstname: [this.user.firstname, Validators.required],
       Lastname: [this.user.lastname, Validators.required],
       Address: [this.user.address, Validators.required],
+      Image: [this.user.image],
+      selfIntro: [this.user.selfIntro],
       Phone: [this.user.phone, Validators.required],
       Role: [this.user.role, Validators.required],
     });
@@ -53,15 +58,22 @@ export class UpdateProfileComponent implements OnInit {
 
   updateUser(id: number, body: any) {
     this.service.updateUser(id, body).subscribe((res) => {
-      this.message = this.user.firstname + "'s profile successfully updated.";
-      setTimeout(() => {
-        document.getElementById('message').classList.add('hidden');
-        //this.DataService.setUpdateSuccess(true);
-        this.tokenService.removeUserUpdateToken();
-        this.dialogRef.closeAll();
 
-      }, 3000);
-      //console.log(this.message);
+      if (res === null) {
+        this.success = true;
+        this.message = "Your profile successfully updated.";
+        setTimeout(() => {
+          this.tokenService.removeUserUpdateToken();
+          this.dialogRef.closeAll();
+
+        }, 2500);
+
+      }
+      else {
+        this.error = true;
+        this.errormessage += res;
+      }
+
     });
   }
 

@@ -27,6 +27,19 @@
   align-items: center;
   width: auto;
   height: auto;
+
+  .textarea {
+    height: 100px;
+    width: 100%;
+    font-size: 18;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border-bottom: 1px solid black;
+    &:focus{
+      border-bottom: 1px solid blue;
+    }
+  }
 }
 
 .label {
@@ -40,6 +53,55 @@
   font-size: 20px;
   font-weight: bold;
   border-radius: 5px;
+
+  p {
+    margin: auto;
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
+}
+
+.label-success {
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  background-color: #dff2bf;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+
+  p {
+    color: rgb(0, 160, 0);
+    margin: auto;
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
+}
+
+.errorMessage {
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  background-color: #FFD2D2;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+
+  p {
+    color: #d8000c;
+    margin: auto;
+    .fa {
+      margin-right: 5px;
+    }
+  }
 }
 
 p {
@@ -117,12 +179,4 @@ p {
   }
 }
 
-#message {
-  text-align: center;
-  padding: 10px;
-  color: rgb(0, 0, 0);
-}
-.hidden {
-  display: none;
-  transition: 1s;
-}
+
