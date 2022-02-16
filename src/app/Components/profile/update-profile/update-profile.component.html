@@ -2,11 +2,16 @@
 
     <form [formGroup]="updateForm">
 
-        <div class="label">
-            Update Your Profile Data
+        <div class="label" *ngIf="!success">            
+            <p> Update {{user?.firstname}}'s Profile Data</p>
         </div>
-        <div id="message">
-            {{message}}
+
+        <div class="label-success" *ngIf="success">        
+            <p> <i class="fa fa-check"></i> {{message}}.</p>
+        </div>
+
+        <div class="errorMessage" *ngIf="error">
+            <p><i class="fa fa-times-circle"></i> {{errormessage}} </p>
         </div>
 
         <div class="topbox">
@@ -45,6 +50,12 @@
                     <input type="text" matInput placeholder="Phone" formControlName="Phone">
                 </mat-form-field>
             </p>
+        </div>
+
+        <!-- text area (self intro) -->
+        <div>
+            <label for="textarea">Self Intro:</label>
+            <textarea class="textarea" matInput placeholder="Write self into..." formControlName="selfIntro"></textarea>
         </div>
 
         <div class="button-container">

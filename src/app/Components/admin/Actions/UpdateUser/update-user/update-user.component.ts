@@ -16,6 +16,9 @@ export class UpdateUserComponent implements OnInit {
   message: any;
   userId: any;
   user: any;
+  success: boolean = false;
+  error: boolean = false;
+  errormessage: string = 'Something went wrong';
 
   constructor(private fb: FormBuilder,
     private service: SharedService,
@@ -47,21 +50,27 @@ export class UpdateUserComponent implements OnInit {
   /* get the userUpdateToken data back from session storage */
   getUserFullInfo() {
     this.user = this.tokenService.getUserUpdateToken();
-    console.log(this.user);
-    
-
+    //console.log(this.user);
   }
 
   /* update the user where id = user.profileId and data = body */
   updateUserData(id: number, body: any) {
     this.service.updateUser(id, body).subscribe((res) => {
-      this.message = this.user.firstname + "'s profile successfully updated.";
-      setTimeout(() => {
-        document.getElementById('message').classList.add('hidden');
-        this.tokenService.removeUserUpdateToken();
-        this.dialogRef.closeAll();
+      if (res === null) {
+        this.success = true;
+        this.message = this.user.firstname + "'s profile successfully updated.";
+        setTimeout(() => {
+          this.tokenService.removeUserUpdateToken();
+          this.dialogRef.closeAll();
 
-      }, 3000);
+        }, 2500);
+
+      }
+      else {
+        this.error = true;
+        this.errormessage += res;
+      }
+
 
     });
   }

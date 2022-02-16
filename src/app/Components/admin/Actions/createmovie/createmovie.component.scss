@@ -12,7 +12,7 @@
         align-items: center;
         border-radius: 0px 0px 10px 10px;
         padding: 0;
-        text-align: center;
+
 
         /* settings of the title on the top */
         .title {
@@ -106,6 +106,7 @@
             /* top box in the container */
             .topbox {
                 display: flex;
+                width: 100%;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
@@ -115,6 +116,7 @@
             /* middle box in the container */
             .middlebox {
                 display: flex;
+                width: 100%;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
@@ -123,12 +125,12 @@
 
             /* bottom box in the container */
             .bottombox {
-                width: 100%;
                 display: block;
-                margin: auto;
+                width: 100%;
+                margin: 10px;
 
                 .urlInput {
-                    width: 96%;
+                    width: 95%;
                     font-size: 18;
                     border-radius: 5px;
                     padding: 5px;
@@ -140,7 +142,7 @@
 
                 .textarea {
                     height: 150px;
-                    width: 96%;
+                    width: 95%;
                     font-size: 18;
                     border-radius: 5px;
                     resize: none;
