@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
+
 
 @Component({
   selector: 'app-update-user',
@@ -23,8 +22,8 @@ export class UpdateUserComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private service: SharedService,
     private tokenService: Tokenservice,
-    public dialogRef: MatDialog,
-    private Router: Router) { }
+    public dialogRef: MatDialog
+    ) { }
 
   ngOnInit(): void {
     /* on init get the userUpdateToken data from the session storage */
