@@ -1,0 +1,128 @@
+/* :host is a pseudo-class selector that applies styles in the element that hosts the component. */
+
+:host {
+  /* Font */
+  --PrimaryFontColor: rgb(255, 255, 255);
+  --SecondaryFontColor: rgb(188, 32, 33);
+  --GreenFontColor: green;
+  /* Background */
+  --PrimaryBackgroundColor: #000000;
+  --SecondaryBackgroundColor: white;
+  --GreenishBackgroundColor: #3a6073;
+  --PrimaryBackgroundImage: linear-gradient(to bottom, #191919 0, #000 100%);
+  --ProfileCardBGColor: rgb(223, 223, 223);
+  /* Menu */
+  --PrimaryMenuColor: #777;
+  --MenuOnHoverColor: linear-gradient(to bottom, #303030 0, #000 100%);
+  /* seach box */
+  --SearchBox-BGColor: rgba(37, 37, 37);
+  --SearchTextColor: rgba(144, 144, 144);
+  --NiceRedBlackGradientColors: rgb(188, 32, 33) linear-gradient(0deg, rgba(188, 32, 33, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+.label {
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  color: rgb(255, 255, 255);
+  background-color: var(--SecondaryFontColor);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+p {
+  margin-right: 20px;
+}
+
+.topbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.middlebox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.bottombox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.rolebox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.button-update {
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--SecondaryBackgroundColor);
+  box-shadow: 2px 2px 3px 0px #000000;
+  background: linear-gradient(to bottom, #858585 5%, #000000 100%);
+  transition: all 0.4s;
+
+  &:hover:enabled {
+    color: white;
+    background: linear-gradient(to bottom, #00cf2d 5%, #00b126 100%);
+    background-color: #00b126;
+  }
+}
+
+.button-cancel {
+  margin-right: 20px;
+  font-size: 18px;
+  color: var(--SecondaryBackgroundColor);
+  box-shadow: 2px 2px 3px 0px #000000;
+  background: linear-gradient(to bottom, #858585 5%, #000000 100%);
+  transition: all 0.4s;
+
+  &:hover:enabled {
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(to bottom, #e20000 5%, #b10000 100%);
+    background-color: #b10000;
+  }
+}
+
+#message {
+  text-align: center;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+}
+.hidden {
+  display: none;
+  transition: 1s;
+}

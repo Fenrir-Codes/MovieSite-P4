@@ -18,10 +18,6 @@ export class Tokenservice {
     return this.LocalService.setJsonValue(userToken, value);
   }
 
-  setUserUpdateToken(userUpdateToken: string, value: any) {
-    return this.LocalService.setJsonValue(userUpdateToken, value);
-  }
-
   removeUserUpdateToken(){
     return this.LocalService.removeItem('userUpdateToken')
   }
@@ -29,6 +25,10 @@ export class Tokenservice {
   // this can remove one token i use it to remove KEY userToken from storage
   removeUserToken(){
     return this.LocalService.removeItem('userToken')
+  }
+
+  getAdminToken() {
+    return this.LocalService.getJsonValue('adminToken');
   }
 
   getUserToken() {

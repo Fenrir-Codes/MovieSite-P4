@@ -1,0 +1,60 @@
+<div class="container">
+
+    <form [formGroup]="updateForm">
+
+        <div class="label">
+            Update Profile Data
+        </div>
+        <div id="message">
+            {{message}}
+        </div>
+
+        <div class="topbox">
+            <p>
+                <mat-form-field>
+                    <input type="Email" matInput placeholder="E-mail" formControlName="Email">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Password" formControlName="Password">
+                </mat-form-field>
+            </p>
+
+        </div>
+        <div class="middlebox">
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Firstname" formControlName="Firstname">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Lastname" formControlName="Lastname">
+                </mat-form-field>
+            </p>
+        </div>
+        <div class="bottombox">
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Address" formControlName="Address">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Phone" formControlName="Phone">
+                </mat-form-field>
+            </p>
+        </div>
+
+        <div class="button-container">
+            <mat-dialog-actions>
+                <button class="button-cancel" mat-raised-button mat-dialog-close (click)="cancel()">Cancel</button>
+                <button class="button-update" type="submit" mat-raised-button [disabled]="!updateForm.valid"
+                    (click)="updateUserData(user.profileId, updateForm.value)">Update</button>
+            </mat-dialog-actions>
+        </div>
+
+    </form>
+
+</div>

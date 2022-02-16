@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit {
             this.success = true
             this.showButton = false;
             setTimeout(() => {
+              this.tokenService.enCryptKey('userToken', response)
               this.DataService.changeUserStatus(false);
               this.DataService.changeAdminStatus(true);
               //window.open('Admin', "_blank");

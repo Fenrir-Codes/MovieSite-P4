@@ -1,37 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import {
-  FormBuilder,
-  FormControl,
-  Validators,
-  FormGroup,
-} from '@angular/forms';
+import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 
 @Component({
-  selector: 'app-update-profile',
-  templateUrl: './update-profile.component.html',
-  styleUrls: ['./update-profile.component.scss']
+  selector: 'app-update-user',
+  templateUrl: './update-user.component.html',
+  styleUrls: ['./update-user.component.scss']
 })
-export class UpdateProfileComponent implements OnInit {
+export class UpdateUserComponent implements OnInit {
   updateForm: FormGroup;
   message: any;
+  userId: any;
   user: any;
 
   constructor(private fb: FormBuilder,
     private service: SharedService,
-    private DataService: DataService,
     private tokenService: Tokenservice,
     public dialogRef: MatDialog,
-    private Router: Router
-  ) { }
+    private Router: Router) { }
 
   ngOnInit(): void {
+    /* on init get the userUpdateToken data from the session storage */
     this.getUserFullInfo();
 
+    /* initalize the form and data is set = userUpdateToken data */
     this.updateForm = this.fb.group({
       profileId: [this.user.profileId],
       Email: [this.user.email, Validators.required],
@@ -39,32 +35,38 @@ export class UpdateProfileComponent implements OnInit {
       Firstname: [this.user.firstname, Validators.required],
       Lastname: [this.user.lastname, Validators.required],
       Address: [this.user.address, Validators.required],
+      Image: [this.user.image],
+      selfIntro: [this.user.selfIntro],
       Phone: [this.user.phone, Validators.required],
       Role: [this.user.role, Validators.required],
+
     });
 
-    //console.log(this.userId);
-  }
 
+  }
+  /* get the userUpdateToken data back from session storage */
   getUserFullInfo() {
-    this.user = this.tokenService.getUserUpdateToken();// this one is getting the token from login token
+    this.user = this.tokenService.getUserUpdateToken();
+    console.log(this.user);
+    
 
   }
 
-  updateUser(id: number, body: any) {
+  /* update the user where id = user.profileId and data = body */
+  updateUserData(id: number, body: any) {
     this.service.updateUser(id, body).subscribe((res) => {
       this.message = this.user.firstname + "'s profile successfully updated.";
       setTimeout(() => {
         document.getElementById('message').classList.add('hidden');
-        //this.DataService.setUpdateSuccess(true);
         this.tokenService.removeUserUpdateToken();
         this.dialogRef.closeAll();
 
       }, 3000);
-      //console.log(this.message);
+
     });
   }
 
+  /* cancel function closes the dialog and removes the userUpdateToken from session storage */
   cancel() {
     this.tokenService.removeUserUpdateToken();
   }

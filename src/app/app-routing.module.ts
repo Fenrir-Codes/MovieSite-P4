@@ -13,6 +13,8 @@ import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.compo
 import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofiles/tableofprofiles.component';
 import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { UpdateUserComponent } from './Components/admin/Actions/UpdateUser/update-user/update-user.component';
+import { UpdateMovieComponent } from './Components/admin/Actions/UpdateMovie/update-movie/update-movie.component';
 
 /* {path: <base-path>, component: <component>, outlet: <target_outlet_name>}  alternative router outlet, not used yet*/
 
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'Movies', component: MoviesComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'Register', component: RegisterComponent },
+  { path: 'UpdateUser', component: UpdateUserComponent },
+  { path: 'UpdateUser', component: UpdateMovieComponent },
   { path: 'Admin', component: AdminComponent, 
     children: [
       { path: '', redirectTo: 'AdminHome', pathMatch: 'full' }, 
