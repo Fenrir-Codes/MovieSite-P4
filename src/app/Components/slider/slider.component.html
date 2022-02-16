@@ -1,8 +1,13 @@
+<div *ngIf="!isLoaded">
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#af0000" type="square-jelly-box" [fullScreen]="false">
+    <p style="color: white">Loading...</p>
+  </ngx-spinner>
+</div>
+
 <div class="slider-container" #container *ngIf="isLoaded">
   <div class="recent"><br>
     <p>Newly added movies:</p>
     <br>
-  </div>
 
   <div class="slider-ontop">
     <ng-image-slider class="slider" [images]="recentMovies" [imagePopup]="false" (imageClick)="clickOnThumbnail($event)"
@@ -10,9 +15,11 @@
       [showArrow]="false" [slideImage]="1"></ng-image-slider>
   </div>
 
-<!-- (imageClick)="clickOnThumbnail($event)" -->
+</div>
 
-<!--[imagePopup]=true/false -> no click event on images
+  <!-- (imageClick)="clickOnThumbnail($event)" -->
+
+  <!--[imagePopup]=true/false -> no click event on images 
     [imageSize]="{width: 250,height: 300, space:1}" -> sizing image
     [infinite]="true/false" -> loop images
     [manageImageRatio]="true/false" -> auto manage image sizes

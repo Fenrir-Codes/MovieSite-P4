@@ -66,6 +66,7 @@ export class AppComponent {
         this.loginStatus = true;
         this.isUser = true;
         this.isAdmin = false;
+        this.Router.navigate(['Home']);
       }
       /* if the person's role is 1 ,which means ADMIN */
       if (this.user.role == 1) {
@@ -85,7 +86,7 @@ export class AppComponent {
     /* set intervall to 30 minutes = 1800000 milliseconds,  3600000 = 1 hour
     this function removes the user token from session storage after 60 minutes, so the user have to log in again
     if the user just closing the browser the session storage will remove the key automatically.*/
-    this.removeKeyToken = interval(3600000).subscribe(() => {
+    this.removeKeyToken = interval(1800000).subscribe(() => {
       this.tokenService.removeUserToken(), (this.loginStatus = false);
       this.isAdmin = false;
       this.isUser = false;

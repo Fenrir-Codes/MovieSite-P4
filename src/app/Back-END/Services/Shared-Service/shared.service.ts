@@ -1,7 +1,4 @@
-import {
-  HttpClient,
-  HttpHeaders,
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProfile } from 'src/app/Interfaces/IProfile';
@@ -21,7 +18,7 @@ export class SharedService {
   /* home URL: */
   readonly ApiUrl = 'https://localhost:44371/api/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   /* login function */
   login(Email: string, Password: string): Observable<IProfile[]> {
@@ -44,29 +41,66 @@ export class SharedService {
 
   /* get by date function */
   getMovieByDate(): Observable<IMovie[]> {
-    return this.http.get<IMovie[]>(this.ApiUrl + 'Movies/mostRecentMovies', httpOptions);
+    return this.http.get<IMovie[]>(
+      this.ApiUrl + 'Movies/mostRecentMovies',
+      httpOptions
+    );
+  }
+
+  getAllUsers(): Observable<IProfile[]> {
+    /* Getting all users*/
+    return this.http.get<IProfile[]>(this.ApiUrl + 'Profiles');
   }
 
   getUserById(id: number): Observable<IProfile[]> {
-    return this.http.get<IProfile[]>(this.ApiUrl + 'Profiles/' + id, httpOptions);
+    return this.http.get<IProfile[]>(
+      this.ApiUrl + 'Profiles/' + id,
+      httpOptions
+    );
+  }
+
+  getAllDirectors(): Observable<IDirector[]> {
+    /* Getting all users*/
+    return this.http.get<IDirector[]>(this.ApiUrl + 'Directors');
   }
 
   getDirectorByDirectorId(id: number): Observable<IDirector[]> {
-    return this.http.get<IDirector[]>(this.ApiUrl + 'Directors/' + id, httpOptions);
+    return this.http.get<IDirector[]>(
+      this.ApiUrl + 'Directors/' + id,
+      httpOptions
+    );
+  }
+
+  //create funcrions
+  createNewUser(body: any): Observable<IProfile[]> {
+    return this.http.post<IProfile[]>(
+      this.ApiUrl + `Profiles/`,
+      body,
+      httpOptions
+    );
+  }
+
+  createMovie(body: any): Observable<IMovie[]>{
+    return this.http.post<IMovie[]>(this.ApiUrl + `Movies`, body, httpOptions);
   }
 
   //update function
   updateUser(id: number, body: any): Observable<IProfile[]> {
-    return this.http.put<IProfile[]>(this.ApiUrl + `Profiles/${id}`, body, httpOptions);
+    return this.http.put<IProfile[]>(
+      this.ApiUrl + `Profiles/${id}`,
+      body,
+      httpOptions
+    );
   }
 
   /* delete functions */
   deleteUser(id: number) {
-    return this.http.delete(
-      this.ApiUrl + `Profiles/${id}`);
+    return this.http.delete(this.ApiUrl + `Profiles/${id}`);
   }
 
+  deleteMovie(id: number) {
+    return this.http.delete(this.ApiUrl + `Movies/${id}`);
+  }
 
-
-
+  
 }

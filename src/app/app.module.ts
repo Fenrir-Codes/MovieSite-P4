@@ -34,7 +34,20 @@ import { SliderComponent } from './Components/slider/slider.component';
 import { MoviesComponent } from './Components/movies/movies.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
-import { CreateuserComponent } from './Components/admin/createuser/createuser.component';
+import { CreateuserComponent } from './Components/admin/Actions/createuser/createuser.component';
+import { CreatemovieComponent } from './Components/admin/Actions/createmovie/createmovie.component';
+import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofiles/tableofprofiles.component';
+import { MatTableModule } from '@angular/material/table';
+import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
+import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { UpdateUserComponent } from './Components/admin/Actions/UpdateUser/update-user/update-user.component';
+import { UpdateMovieComponent } from './Components/admin/Actions/UpdateMovie/update-movie/update-movie.component';
+
+
 
 
 
@@ -52,6 +65,13 @@ import { CreateuserComponent } from './Components/admin/createuser/createuser.co
      SliderComponent,
      MoviesComponent,
      CreateuserComponent,
+     CreatemovieComponent,
+     TableofprofilesComponent,
+     AdminhomeComponent,
+     TableofmoviesComponent,
+     RegisterComponent,
+     UpdateUserComponent,
+     UpdateMovieComponent,
     
     
     ],
@@ -80,6 +100,12 @@ import { CreateuserComponent } from './Components/admin/createuser/createuser.co
     NgImageSliderModule,
     MatTooltipModule,
     MatDividerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
+    
 
   ],
   providers: [],
