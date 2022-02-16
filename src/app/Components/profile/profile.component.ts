@@ -103,7 +103,7 @@ export class ProfileComponent implements OnInit {
         panelClass: 'custom-dialog-container',
       });
 
-      this.tokenService.setUserToken('userToken', this.user);
+      this.tokenService.enCryptKey('userUpdateToken', this.user);
     });
   }
 

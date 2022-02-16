@@ -3,6 +3,9 @@ import { IProfile } from 'src/app/Interfaces/IProfile';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { UpdateUserComponent } from '../../Actions/UpdateUser/update-user/update-user.component';
+import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
+import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 
 @Component({
   selector: 'app-tableofprofiles',
@@ -13,6 +16,8 @@ export class TableofprofilesComponent implements OnInit {
   isLoaded: boolean = false;
   filter: string = '';
   profileList: IProfile[] = [];
+  user: any;
+  userId: any;
 
   tableHeaderColumns: string[] = [
     'Id',
@@ -30,8 +35,10 @@ export class TableofprofilesComponent implements OnInit {
   constructor(
     private service: SharedService,
     private dialog: MatDialog,
-    private spinner: NgxSpinnerService
-  ) {}
+    private spinner: NgxSpinnerService,
+    private DataService: DataService,
+    private tokenService: Tokenservice,
+  ) { }
 
   ngOnInit(): void {
     this.spinner.show();
@@ -60,4 +67,21 @@ export class TableofprofilesComponent implements OnInit {
     //console.log(event);
     this.filter = event;
   }
+
+  //dialog for update user profile
+  openDialog(id: any) {
+    this.service.getUserById(id).subscribe((data) => {
+      this.user = data;     
+
+      this.dialog.open(UpdateUserComponent, {
+        disableClose: true,
+      });
+
+      this.tokenService.enCryptKey('userUpdateToken', this.user);
+    });
+  }
+
+
+
+
 }

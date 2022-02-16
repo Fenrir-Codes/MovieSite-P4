@@ -44,6 +44,8 @@ import { RegisterComponent } from './Components/register/register.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { UpdateUserComponent } from './Components/admin/Actions/UpdateUser/update-user/update-user.component';
+import { UpdateMovieComponent } from './Components/admin/Actions/UpdateMovie/update-movie/update-movie.component';
 
 
 
@@ -68,6 +70,8 @@ import { MatNativeDateModule } from '@angular/material/core';
      AdminhomeComponent,
      TableofmoviesComponent,
      RegisterComponent,
+     UpdateUserComponent,
+     UpdateMovieComponent,
     
     
     ],
