@@ -11,6 +11,7 @@ import { interval, Subscription } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  //#region  Local variables
   title = 'MovieSite'; // title of the page
   opened: boolean = false; //variable for opening and closing the sidenav (boolean)
   loginStatus: boolean = false;
@@ -21,7 +22,8 @@ export class AppComponent {
 
   searchForm: any;
   genreForm: any;
-  listOfGenres: string[] = ['Action', 'Adventure','Drama','Crime', 'Horror', 'Komedy', 'Sci-Fi', 'Family', 'Documentary','Cartoon','Anime','Animation'];
+  listOfGenres: string[] = ['Action', 'Adventure', 'Drama', 'Crime', 'Horror', 'Komedy', 'Sci-Fi', 'Family', 'Documentary', 'Cartoon', 'Anime', 'Animation'];
+  //#endregion
 
   constructor(
     private DataService: DataService,
@@ -32,26 +34,40 @@ export class AppComponent {
   private removeKeyToken: Subscription;
 
   ngOnInit(): void {
+    this.statusCheck();
+    this.checkLoginStatus();
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.tokenLifeSpan();
+  }
+
+  //#region Dataservice observables (dataflow between components)
+  statusCheck(){
+        /* this observable checking the loginstatus between components */
+        this.DataService.currentStatus.subscribe(
+          (status) => (this.loginStatus = status)
+        );
+    
+        //user status check
+        this.DataService.currentUserStatus.subscribe(
+          (status) => (this.isUser = status)
+        );
+    
+        //admin status check
+        this.DataService.currentadminStatus.subscribe(
+          (status) => (this.isAdmin = status)
+        );
+  }
+  //#endregion
+
+  //#region This function is preventing the routing if there is no valid admin role 
+  checkLoginStatus() {
     this.user = this.tokenService.getUserToken(); // looking for token in the session storage
 
-    /* this observable checking the loginstatus between components */
-    this.DataService.currentStatus.subscribe(
-      (status) => (this.loginStatus = status)
-    );
-
-    //user status check
-    this.DataService.currentUserStatus.subscribe(
-      (status) => (this.isUser = status)
-    );
-
-    //admin status check
-    this.DataService.currentadminStatus.subscribe(
-      (status) => (this.isAdmin = status)
-    );
-
-    /* this function is preventing the routing if there is no valid admin role */
-    if (
-      (this.tokenService.getUserToken() === null && this.user === undefined) || this.user === null) {
+    if ((this.tokenService.getUserToken() === null && this.user === undefined) || this.user === null) {
       this.loginStatus = false;
       this.isUser = false;
       this.isAdmin = false;
@@ -76,13 +92,11 @@ export class AppComponent {
       }
 
     }
-
   }
+  //#endregion
 
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-
+  //#region token Life Span
+  tokenLifeSpan() {
     /* set intervall to 30 minutes = 1800000 milliseconds,  3600000 = 1 hour
     this function removes the user token from session storage after 60 minutes, so the user have to log in again
     if the user just closing the browser the session storage will remove the key automatically.*/
@@ -92,11 +106,10 @@ export class AppComponent {
       this.isUser = false;
       this.Router.navigate(['/Home']);
     });
-
-
   }
+  //#endregion
 
-  /* log out function */
+  //#region Logout Function
   logOut() {
     this.tokenService.removeToken(); //remove token from session storage totally
     this.loginStatus = false; // login status set to false
@@ -104,13 +117,16 @@ export class AppComponent {
     this.DataService.changeAdminStatus(false); // admin status set to false
     this.Router.navigate(['/Home']); // navigate back to Home
   }
+  //#endregion
 
-  //passing text string to home component
+  //#region observable for search function passing value to home component
   searchMovie(event: any) {
     //console.log(event);
     this.DataService.setSearchString(event);
 
   }
+
+  //#endregion
 
 
 }

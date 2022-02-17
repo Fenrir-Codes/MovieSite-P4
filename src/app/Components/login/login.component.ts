@@ -4,7 +4,6 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs';
 
 
 @Component({
@@ -13,6 +12,8 @@ import { delay } from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  //#region Local Variables
   error: boolean = false;
   loggingIn: boolean = false;
   success: boolean = false;
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   loginForm: any;
   user: any;
   hide = true;
+  //#endregion
 
   constructor(private fb: FormBuilder,
     private service: SharedService,
@@ -30,6 +32,12 @@ export class LoginComponent implements OnInit {
     private DataService: DataService) { }
 
   ngOnInit(): void {
+    this.initLoginForm();
+
+  }
+
+  //#region  initalize the login form
+  initLoginForm(){
     this.loginForm = new FormGroup({
       Email: new FormControl(null, [Validators.required,
       Validators.required,
@@ -38,10 +46,12 @@ export class LoginComponent implements OnInit {
       ]),
       Password: new FormControl(null, [Validators.required, Validators.minLength(1)]),
     })
-
-
   }
 
+  //#endregion
+
+
+  //#region Login function
   login(Email: string, Password: string) {
     this.loggingIn = true;
     this.showButton = false;
@@ -103,6 +113,7 @@ export class LoginComponent implements OnInit {
     }, 1500);
 
   }
+  //#endregion
 
 
 
