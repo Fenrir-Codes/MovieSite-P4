@@ -71,8 +71,9 @@ export class TableofprofilesComponent implements OnInit {
   //dialog for update user profile
   openDialog(id: any) {
     this.service.getUserById(id).subscribe((data) => {
-      this.user = data;     
-
+      this.user = data;
+      console.log(this.user);
+           
       this.dialog.open(UpdateUserComponent, {
         disableClose: true,
       });

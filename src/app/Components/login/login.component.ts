@@ -4,7 +4,6 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
 import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs';
 
 
 @Component({
@@ -13,6 +12,8 @@ import { delay } from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  //#region Local Variables
   error: boolean = false;
   loggingIn: boolean = false;
   success: boolean = false;
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   loginForm: any;
   user: any;
   hide = true;
+  //#endregion
 
   constructor(private fb: FormBuilder,
     private service: SharedService,
@@ -30,6 +32,12 @@ export class LoginComponent implements OnInit {
     private DataService: DataService) { }
 
   ngOnInit(): void {
+    this.initLoginForm();
+
+  }
+
+  //#region  initalize the login form
+  initLoginForm(){
     this.loginForm = new FormGroup({
       Email: new FormControl(null, [Validators.required,
       Validators.required,
@@ -38,35 +46,33 @@ export class LoginComponent implements OnInit {
       ]),
       Password: new FormControl(null, [Validators.required, Validators.minLength(1)]),
     })
-
-
   }
 
+  //#endregion
+
+  //#region Login function
   login(Email: string, Password: string) {
     this.loggingIn = true;
     this.showButton = false;
 
     setTimeout(() => {
       this.service.login(Email, Password).subscribe((response) => {
-        this.user = response;
+        this.user = response;    
 
         if (this.user != null) {
           this.success = true;
           this.showButton = false;
           setTimeout(() => {
-            this.tokenService.enCryptKey('userToken', response)
+            this.getUserDetailed(this.user.profileId);
             this.DataService.changeLoginStatus(true);
-            this.user = this.tokenService.getUserToken();
           }, 2000);
 
           if (this.user.role === 1) {
-            this.success = true
-            this.showButton = false;
+
             setTimeout(() => {
-              this.tokenService.enCryptKey('userToken', response)
+              this.getUserDetailed(this.user.profileId);
               this.DataService.changeUserStatus(false);
               this.DataService.changeAdminStatus(true);
-              //window.open('Admin', "_blank");
               this.Router.navigate(['/Admin']);
             }, 2000);
 
@@ -93,7 +99,7 @@ export class LoginComponent implements OnInit {
             this.errormessage;
             this.error = false;
             this.showButton = true;
-          }, 3000);
+          }, 2000);
 
         }
 
@@ -103,8 +109,18 @@ export class LoginComponent implements OnInit {
     }, 1500);
 
   }
+  //#endregion
 
+  //#region getting the users all detailed info, included orders etc...
+  getUserDetailed(id:number){
+    this.service.getUserById(id).subscribe(res => {
+      //console.log(res);
+      this.tokenService.enCryptKey('userToken', res)
+      
+    })
 
+  }
+  //#endregion
 
 }
 

@@ -14,12 +14,14 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
+  //#region Local variables
   user: any;
   userId: any;
   updateForm: any;
   message: string = '';
   showMessage: boolean = false;
   checked: boolean = false;
+  //#endregion
 
   constructor(
     private fb: FormBuilder,
@@ -31,9 +33,21 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.readUserDataFromToken();
+    this.initForm();
+    this.getUserFullInfo();
+
+  }
+
+  //#region Reading the data from token placed in the session storage
+  readUserDataFromToken() {
     this.user = this.tokenService.getUserToken(); //getting the profileId from token
     this.userId = this.user.profileId; // setting the id
+  }
+  //#endregion
 
+  //#region initalitze new formGroup
+  initForm() {
     //make a new form with user values
     this.updateForm = this.fb.group({
       profileId: [this.user.profileId],
@@ -44,23 +58,20 @@ export class ProfileComponent implements OnInit {
       Address: [this.user.address, Validators.required],
       Phone: [this.user.phone, Validators.required],
     });
-
-    this.getUserFullInfo();
-
   }
+  //#endregion
 
+  //#region Getting the uder full info included orders
   getUserFullInfo() {
-    //console.log('Action tab user info: ', this.user);
-
     //receiving the full user detail with det by id call
     this.service.getUserById(this.userId).subscribe((data) => {
       this.user = data;
-      console.log(this.user);
-
+      //console.log(this.user);
     });
   }
+  //#endregion
 
-  //update profile
+  //#region update profile function
   update(id: number, body: any) {
     this.showMessage = true;
     this.service.updateUser(id, body).subscribe((res) => {
@@ -71,8 +82,9 @@ export class ProfileComponent implements OnInit {
       //console.log(this.message);
     });
   }
+  //#endregion
 
-  //delete the profile
+  //#region delete the profile function
   deleteProfile(id: any) {
     this.showMessage = true;
     this.service.deleteUser(id).subscribe((res) => {
@@ -86,14 +98,16 @@ export class ProfileComponent implements OnInit {
     //console.log(id);
 
   }
+  //#endregion
 
-  //checkbox for delete button
+  //#region checkbox for delete button
   checkOK(event: any) {
     this.checked = event;
     //console.log(this.checked);
   }
+  //#endregion
 
-  //dialog for update user profile
+  //#region Open dialog window for update user profile
   openDialog(id: any) {
     this.service.getUserById(id).subscribe((data) => {
       this.user = data;
@@ -106,5 +120,6 @@ export class ProfileComponent implements OnInit {
       this.tokenService.enCryptKey('userUpdateToken', this.user);
     });
   }
+  //#endregion
 
 }
