@@ -11,13 +11,14 @@ import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenSe
   styleUrls: ['./update-user.component.scss']
 })
 export class UpdateUserComponent implements OnInit {
+  //#region Local variables
   updateForm: FormGroup;
   message: any;
-  userId: any;
   user: any;
   success: boolean = false;
   error: boolean = false;
   errormessage: string = 'Something went wrong';
+  //#endregion
 
   constructor(private fb: FormBuilder,
     private service: SharedService,
@@ -26,10 +27,13 @@ export class UpdateUserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    /* on init get the userUpdateToken data from the session storage */
     this.getUserFullInfo();
+    this.initForm();
 
-    /* initalize the form and data is set = userUpdateToken data */
+  }
+
+  //#region initalize the form and data is set = userUpdateToken data
+  initForm(){
     this.updateForm = this.fb.group({
       profileId: [this.user.profileId],
       Email: [this.user.email, Validators.required],
@@ -43,16 +47,18 @@ export class UpdateUserComponent implements OnInit {
       Role: [this.user.role, Validators.required],
 
     });
-
-
   }
-  /* get the userUpdateToken data back from session storage */
+  //#endregion
+
+  //#region Get user Data from token
   getUserFullInfo() {
+    /* get the userUpdateToken data back from session storage */
     this.user = this.tokenService.getUserUpdateToken();
-    //console.log(this.user);
-  }
 
-  /* update the user where id = user.profileId and data = body */
+  }
+  //#endregion
+
+  //#region update the user where id = user.profileId and data = body
   updateUserData(id: number, body: any) {
     this.service.updateUser(id, body).subscribe(res => {
       //console.log(res);  
@@ -71,13 +77,14 @@ export class UpdateUserComponent implements OnInit {
         this.errormessage += res;
       }
 
-
     });
   }
+  //#endregion
 
-  /* cancel function closes the dialog and removes the userUpdateToken from session storage */
+  //#region cancel function closes the dialog and removes the userUpdateToken from session storage
   cancel() {
     this.tokenService.removeUserUpdateToken();
   }
+  //#endregion
 
 }

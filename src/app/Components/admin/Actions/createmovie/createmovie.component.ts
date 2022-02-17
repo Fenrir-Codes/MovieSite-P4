@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControlName, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 
 @Component({
@@ -9,26 +8,44 @@ import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.s
   styleUrls: ['./createmovie.component.scss']
 })
 export class CreatemovieComponent implements OnInit {
+  //#region Local variables
   movieForm: any;
   success: boolean = false;
   error: boolean = false;
   message: string = 'Successfully added.';
   errorMessage: any = 'Something went wrong!';
   directors = [];
+  //#endregion
 
   constructor(private fb: FormBuilder, private service: SharedService) { }
 
-  /* list for select fields */
+  //#region Language list Hardcoded Array
   languageList: string[] = [
-    'English',
+    'Arabic',
+    'Bengali',
+    'Czech',
     'Danish',
+    'Dutch',
+    'English',
+    'Egyptian Arabic',
+    'French',
+    'German',
+    'Greek',
+    'Hindi',
+    'Italian',
     'Hungarian',
-    'Swedish',
+    'Japanese',
+    'Norwegian',
     'Russian',
+    'Slovak',
     'Spanish',
-    'Norwegian'
-  ];
+    'Swedish',
+    'Urdu'
 
+  ];
+  //#endregion
+
+  //#region Country list Hardcoded Array
   countryList: string[] = [
     'USA',
     'Denmark',
@@ -48,7 +65,9 @@ export class CreatemovieComponent implements OnInit {
     'Japan',
     'China'
   ];
+  //#endregion
 
+  //#region Genre list Hardcoded
   genreList: string[] = [
     'Action',
     'Adventure',
@@ -64,7 +83,9 @@ export class CreatemovieComponent implements OnInit {
     'Animation',
     'XXX'
   ];
+  //#endregion
 
+  //#region Duration array Hardcoded
   durationList = [] = [
     { value: '15 min.' },
     { value: '30 min.' },
@@ -81,7 +102,9 @@ export class CreatemovieComponent implements OnInit {
     { value: '195 min.' },
     { value: '210 min.' }
   ];
+  //#endregion
 
+  //#region Rating array Hardcoded
   ratings = [] = [
     { rating: 1, value: 1 },
     { rating: 2, value: 2 },
@@ -95,8 +118,16 @@ export class CreatemovieComponent implements OnInit {
     { rating: 10, value: 10 },
 
   ]
+  //#endregion
 
   ngOnInit(): void {
+    this.initMovieForm();
+    this.getDirectorsToArray();
+
+  }
+
+  //#region Initalize the movie Form
+  initMovieForm(){
     this.movieForm = this.fb.group({
       DirectorId: [, Validators.required],
       Title: ['', Validators.required],
@@ -113,10 +144,10 @@ export class CreatemovieComponent implements OnInit {
       ThumbImage: ['']
 
     });
-    this.getDirectorsToArray();
-
   }
+  //#endregion
 
+  //#region Add movie Function
   addMovie(body: any) {
     //console.log(body);
     this.service.createMovie(body).subscribe(res => {
@@ -139,20 +170,23 @@ export class CreatemovieComponent implements OnInit {
 
       }
 
-
     });
 
   }
+  //#endregion
 
+  //#region Get all directors to Array
   getDirectorsToArray() {
     this.service.getAllDirectors().subscribe(data => {
       this.directors = data;
-      console.log(this.directors);
+      //console.log(this.directors);
 
     })
   }
+  //#endregion
 
-  //setting the tumb image and Image value with this click event
+  //#region Function for getting the image name and extension to string
+  //setting the thumb image and Image value with this click event
   getFileName(event) {
     //if file input length is not null
     if (event.target.files.length > 0) {
@@ -170,6 +204,7 @@ export class CreatemovieComponent implements OnInit {
     }
 
   }
+  //#endregion
 
 
 }

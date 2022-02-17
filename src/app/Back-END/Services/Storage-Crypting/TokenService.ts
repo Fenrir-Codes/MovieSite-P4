@@ -39,6 +39,14 @@ export class Tokenservice {
     return this.LocalService.getJsonValue('userUpdateToken');
   }
 
+  getMovieUpdateToken() {
+    return this.LocalService.getJsonValue('movieUpdateToken');
+  }
+
+  removeMovieUpdateToken(){
+    return this.LocalService.removeItem('movieUpdateToken')
+  }
+
   /*this function read the 'token' value from the session storage  */
   deCryptKey() {
     return this.LocalService.getJsonValue('token');

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-movie-details',
@@ -9,15 +8,16 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
+  //#region Local Variables
   currentMovie: any;
   directorData = [];
   movieId: any;
   isPaid: boolean = false;
+  //#endregion
 
   constructor(
     private service: SharedService, /* shared API service call */
     private DataService: DataService, /* this is the dataservice call */
-    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {

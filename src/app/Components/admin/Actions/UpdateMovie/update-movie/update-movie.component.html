@@ -1,1 +1,146 @@
-<p>update-movie works!</p>
+<div class="container">
+
+    <div class="card">
+
+        <div class="title">Update {{movie[0].title}} Data</div>
+
+        <div class="content">
+
+            <form [formGroup]="updateMovieForm">
+                <!-- top box -->
+                <div class="topbox">
+
+                    <div class="form-field">
+                        <label>Title</label>
+                        <input type="text" matInput formControlName="Title" placeholder="Title">
+                    </div>
+
+                    <div class="form-field">
+                        <label>Director</label>
+                        <select class="select" formControlName="DirectorId">
+                            <option *ngFor="let display of directors" [value]="display.directorId">
+                                {{display.firstname}} {{display.lastname}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Country</label>
+                        <select class="select" formControlName="Country">
+                            <option *ngFor="let country of countryList" [value]="country">{{country}}
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+                <!-- middle box -->
+                <div class="middlebox">
+
+                    <div class="form-field">
+                        <label>Genre</label>
+                        <select class="select" formControlName="Genre">
+                            <option *ngFor="let genre of genreList" [value]="genre">{{genre}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <mat-label>Language</mat-label>
+                        <select class="select" formControlName="Language">
+                            <option *ngFor="let language of languageList" [value]="language">{{language}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <mat-label>Duration</mat-label>
+                        <select class="select" formControlName="Duration">
+                            <option *ngFor="let display of durationList" [value]="display.value">
+                                {{display.value}}
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+                <!-- bottom box -->
+                <div class="bottombox">
+                    <!-- URL input field, plain text -->
+                    <div>
+                        <input type="text" class="urlInput" matInput formControlName="VideoURL"
+                            placeholder="Ex.: //video.com/videolink.html ">
+                    </div>
+                    <br>
+                    <!-- text area (description) -->
+                    <div>
+                        <textarea class="textarea" matInput placeholder="Descripion of the movie..."
+                            formControlName="Description"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- time boxes -->
+                <div class="comboBox">
+
+                    <div class="form-field-rating">
+                        <mat-label>Rating</mat-label>
+                        <select class="select" formControlName="Rating">
+                            <option *ngFor="let display of ratings" [value]="display.rating">
+                                {{display.value}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+
+                        <label for="file-upload" class="file-upload">
+                            <mat-icon>attach_file</mat-icon> Upload Cover
+                        </label>
+                        <!-- input type file -->
+                        <input type="file" id="file-upload" class="file-upload" #Image (change)="getFileName($event)">
+
+                        <!-- input text fields needed to set string names to database from file input we just getting 
+                            the filename from file input and setting
+                        the string into the text inputs Image and ThumbImage-->
+                        <!-- input text display none -->
+                        <input type="text" class="thumbimageInput" formControlName="Image" />
+                        <!-- input text display none -->
+                        <input type="text" class="thumbimageInput" formControlName="ThumbImage" />
+                    </div>
+
+                    <div class="form-field">
+                        <label>Release a date</label>
+                        <input [matDatepicker]="datepicker" formControlName="Releasedate" class="dateSelect">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </div>
+
+                </div>
+
+                <!-- button container box -->
+                <div class="button-container">
+                    <button class="button-cancel" mat-raised-button mat-dialog-close (click)="cancel()">Cancel</button>
+                    <button class="button" type="submit" mat-raised-button [disabled]="!updateMovieForm.valid"
+                        (click)="updateMovie(this.movie[0].movieId, updateMovieForm.value)">Update</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- messages -->
+<div class="success" *ngIf="success">
+    <p> <i class="fa fa-check"></i> {{message}}.</p>
+
+</div>
+
+<div class="error" *ngIf="error">
+    <p><i class="fa fa-times-circle"></i> {{errorMessage}} </p>
+
+</div>
