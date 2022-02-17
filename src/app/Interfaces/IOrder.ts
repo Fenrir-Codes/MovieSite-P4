@@ -1,4 +1,6 @@
-export interface IOrder{
+import { IProfile } from "./IProfile";
+
+export interface IOrder extends IProfile{
     orderId?:number,
     profileId?: number,
     paymentId?: number,

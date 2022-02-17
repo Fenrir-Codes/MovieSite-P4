@@ -23,7 +23,7 @@ export class UpdateUserComponent implements OnInit {
     private service: SharedService,
     private tokenService: Tokenservice,
     public dialogRef: MatDialog
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     /* on init get the userUpdateToken data from the session storage */
@@ -65,7 +65,7 @@ export class UpdateUserComponent implements OnInit {
 
         }, 2500);
 
-      }    
+      }
       else {
         this.error = true;
         this.errormessage += res;

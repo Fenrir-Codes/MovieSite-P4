@@ -1,4 +1,6 @@
-export interface IPaymentDetails {
+import { IProfile } from "./IProfile";
+
+export interface IPaymentDetails extends IProfile{
     paymentDetailsId?: number,
     orederId?: number,
     transactionId?: number,

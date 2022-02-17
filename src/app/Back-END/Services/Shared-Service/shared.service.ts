@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IProfile } from 'src/app/Interfaces/IProfile';
 import { IMovie } from 'src/app/Interfaces/IMovie';
 import { IDirector } from 'src/app/Interfaces/IDirector';
+import { IOrder } from 'src/app/Interfaces/IOrder';
 
 const httpOptions = {
   headers: new HttpHeaders({
