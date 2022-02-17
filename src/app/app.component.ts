@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
@@ -10,7 +10,7 @@ import { interval, Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent{
   //#region  Local variables
   title = 'MovieSite'; // title of the page
   opened: boolean = false; //variable for opening and closing the sidenav (boolean)
@@ -44,22 +44,28 @@ export class AppComponent {
     this.tokenLifeSpan();
   }
 
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.removeKeyToken.unsubscribe();
+  }
+
   //#region Dataservice observables (dataflow between components)
-  statusCheck(){
-        /* this observable checking the loginstatus between components */
-        this.DataService.currentStatus.subscribe(
-          (status) => (this.loginStatus = status)
-        );
-    
-        //user status check
-        this.DataService.currentUserStatus.subscribe(
-          (status) => (this.isUser = status)
-        );
-    
-        //admin status check
-        this.DataService.currentadminStatus.subscribe(
-          (status) => (this.isAdmin = status)
-        );
+  statusCheck() {
+    /* this observable checking the loginstatus between components */
+    this.DataService.currentStatus.subscribe(
+      (status) => (this.loginStatus = status)
+    );
+
+    //user status check
+    this.DataService.currentUserStatus.subscribe(
+      (status) => (this.isUser = status)
+    );
+
+    //admin status check
+    this.DataService.currentadminStatus.subscribe(
+      (status) => (this.isAdmin = status)
+    );
   }
   //#endregion
 

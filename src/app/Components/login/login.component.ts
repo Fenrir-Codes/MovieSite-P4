@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
 
   //#endregion
 
-
   //#region Login function
   login(Email: string, Password: string) {
     this.loggingIn = true;
@@ -64,19 +63,16 @@ export class LoginComponent implements OnInit {
           this.success = true;
           this.showButton = false;
           setTimeout(() => {
-            this.tokenService.enCryptKey('userToken', response)
+            this.getUserDetailed(this.user.profileId);
             this.DataService.changeLoginStatus(true);
-            this.user = this.tokenService.getUserToken();
           }, 2000);
 
           if (this.user.role === 1) {
-            this.success = true
-            this.showButton = false;
+
             setTimeout(() => {
-              this.tokenService.enCryptKey('userToken', response)
+              this.getUserDetailed(this.user.profileId);
               this.DataService.changeUserStatus(false);
               this.DataService.changeAdminStatus(true);
-              //window.open('Admin', "_blank");
               this.Router.navigate(['/Admin']);
             }, 2000);
 
@@ -115,7 +111,16 @@ export class LoginComponent implements OnInit {
   }
   //#endregion
 
+  //#region getting the users all detailed info, included orders etc...
+  getUserDetailed(id:number){
+    this.service.getUserById(id).subscribe(res => {
+      //console.log(res);
+      this.tokenService.enCryptKey('userToken', res)
+      
+    })
 
+  }
+  //#endregion
 
 }
 
