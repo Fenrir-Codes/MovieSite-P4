@@ -21,17 +21,15 @@ export class MovieDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    this.isPaid = true; // ----> test boolean for video container
+    this.isPaid = false; // ----> test boolean for video container
     /* setting the movieId same as id we passing between components via data service */
     this.DataService.currentId.subscribe((id) => (this.movieId = id));
-
     /* then calling the get movie by id function */
     this.getMovieDetails();
 
   }
 
-  /* get the movie by its id */
+  //#region  get the movie by its id 
   getMovieDetails() {
     this.service.getMovieById(this.movieId).subscribe(result => {
       this.currentMovie = result;
@@ -51,12 +49,14 @@ export class MovieDetailsComponent implements OnInit {
       }
     })
 
-
   };
+  //#endregion
 
+  //#region opening new window
   openWindow() {
     window.open(this.currentMovie[0].videoUrl)
   }
+  //#endregion
 
 }
 

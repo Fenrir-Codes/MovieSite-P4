@@ -19,15 +19,18 @@ export class SharedService {
   /* home URL: */
   readonly ApiUrl = 'https://localhost:44371/api/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  /* login function */
+  //#region login function 
   login(Email: string, Password: string): Observable<IProfile[]> {
     return this.http.post<IProfile[]>(
       `${this.ApiUrl}Profiles/Login?Email=${Email}&Password=${Password}`,
       httpOptions
     );
   }
+  //#endregion
+
+  //#region Get API Calls
 
   /* get all the movies from the database listed */
   getAllMoviesListed(): Observable<IMovie[]> {
@@ -60,6 +63,14 @@ export class SharedService {
     );
   }
 
+  getAllOrders(): Observable<IOrder[]> {
+    return this.http.get<IOrder[]>(this.ApiUrl + 'Orders');
+  }
+
+  getOrderById(id: number): Observable<IOrder[]> {
+    return this.http.get<IOrder[]>(this.ApiUrl + 'Orders' + id);
+  }
+
   getAllDirectors(): Observable<IDirector[]> {
     /* Getting all users*/
     return this.http.get<IDirector[]>(this.ApiUrl + 'Directors');
@@ -72,7 +83,10 @@ export class SharedService {
     );
   }
 
-  //create funcrions
+  //#endregion
+
+  //#region Create API calls
+
   createNewUser(body: any): Observable<IProfile[]> {
     return this.http.post<IProfile[]>(
       this.ApiUrl + `Profiles/`,
@@ -81,11 +95,14 @@ export class SharedService {
     );
   }
 
-  createMovie(body: any): Observable<IMovie[]>{
+  createMovie(body: any): Observable<IMovie[]> {
     return this.http.post<IMovie[]>(this.ApiUrl + `Movies`, body, httpOptions);
   }
 
-  //update function
+  //#endregion
+
+  //#region Update API calls
+
   updateUser(id: number, body: any): Observable<IProfile[]> {
     return this.http.put<IProfile[]>(
       this.ApiUrl + `Profiles/${id}`,
@@ -94,7 +111,10 @@ export class SharedService {
     );
   }
 
-  /* delete functions */
+  //#endregion
+
+  //#region Delete API calls 
+
   deleteUser(id: number) {
     return this.http.delete(this.ApiUrl + `Profiles/${id}`);
   }
@@ -103,5 +123,7 @@ export class SharedService {
     return this.http.delete(this.ApiUrl + `Movies/${id}`);
   }
 
-  
+  //#endregion
+
+
 }
