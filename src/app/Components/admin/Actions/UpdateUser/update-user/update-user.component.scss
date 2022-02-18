@@ -36,7 +36,7 @@
     outline: none;
     overflow: auto;
     border-bottom: 1px solid black;
-    &:focus{
+    &:focus {
       border-bottom: 1px solid blue;
     }
   }
@@ -90,7 +90,7 @@
   width: 100%;
   padding-top: 18px;
   padding-bottom: 18px;
-  background-color: #FFD2D2;
+  background-color: #ffd2d2;
   font-size: 20px;
   font-weight: bold;
   border-radius: 5px;
@@ -152,9 +152,8 @@ p {
   cursor: pointer;
   font-size: 18px;
   color: var(--SecondaryBackgroundColor);
-  box-shadow: 2px 2px 3px 0px #000000;
   background: linear-gradient(to bottom, #858585 5%, #000000 100%);
-  transition: all 0.4s;
+
 
   &:hover:enabled {
     color: white;
@@ -167,9 +166,8 @@ p {
   margin-right: 20px;
   font-size: 18px;
   color: var(--SecondaryBackgroundColor);
-  box-shadow: 2px 2px 3px 0px #000000;
   background: linear-gradient(to bottom, #858585 5%, #000000 100%);
-  transition: all 0.4s;
+
 
   &:hover:enabled {
     cursor: pointer;
@@ -178,5 +176,3 @@ p {
     background-color: #b10000;
   }
 }
-
-
