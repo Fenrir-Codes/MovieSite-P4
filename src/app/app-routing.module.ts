@@ -15,6 +15,7 @@ import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/
 import { RegisterComponent } from './Components/register/register.component';
 import { UpdateUserComponent } from './Components/admin/Actions/UpdateUser/update-user/update-user.component';
 import { UpdateMovieComponent } from './Components/admin/Actions/UpdateMovie/update-movie/update-movie.component';
+import { PlansComponent } from './Components/plans/plans.component';
 
 /* {path: <base-path>, component: <component>, outlet: <target_outlet_name>}  alternative router outlet, not used yet*/
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'Movies', component: MoviesComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'Register', component: RegisterComponent },
+  { path: 'BuyPlan', component: PlansComponent },
   { path: 'UpdateUser', component: UpdateUserComponent },
   { path: 'UpdateUser', component: UpdateMovieComponent },
   { path: 'Admin', component: AdminComponent, 

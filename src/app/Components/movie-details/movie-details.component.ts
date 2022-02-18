@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
+import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 
 @Component({
   selector: 'app-movie-details',
@@ -12,22 +13,42 @@ export class MovieDetailsComponent implements OnInit {
   currentMovie: any;
   directorData = [];
   movieId: any;
-  isPaid: boolean = false;
+  isActive: boolean = false;
+  user: any;
   //#endregion
 
   constructor(
     private service: SharedService, /* shared API service call */
-    private DataService: DataService, /* this is the dataservice call */
+    private DataService: DataService,
+    private tokenService: Tokenservice
   ) { }
 
   ngOnInit(): void {
-    this.isPaid = false; // ----> test boolean for video container
     /* setting the movieId same as id we passing between components via data service */
     this.DataService.currentId.subscribe((id) => (this.movieId = id));
     /* then calling the get movie by id function */
     this.getMovieDetails();
+    this.getSubscriptionStatus();
 
   }
+
+  //#region get User subscription status
+  getSubscriptionStatus() {
+    this.user = this.tokenService.getUserToken();
+
+    if (this.user === null) {
+      this.isActive;
+    }
+    if (this.user != null && this.user.mySubscription.length > 0) {
+      this.isActive = this.user.mySubscription[0].isActive;
+    }
+    else {
+      this.isActive;
+    }
+    //console.log(this.user);
+
+  }
+  //#endregion
 
   //#region  get the movie by its id 
   getMovieDetails() {
