@@ -35,13 +35,18 @@ export class SharedService {
   /* get all the movies from the database listed */
   getAllMoviesListed(): Observable<IMovie[]> {
     /* Getting all movies to show on home */
-    return this.http.get<IMovie[]>(this.ApiUrl + 'Movies');
+    return this.http.get<IMovie[]>(this.ApiUrl + 'Movies', httpOptions);
   }
 
   /* get by id function */
   getMovieById(id: number): Observable<IMovie[]> {
     return this.http.get<IMovie[]>(this.ApiUrl + 'Movies/' + id, httpOptions);
   }
+
+  getMovieByIdForUpdate(id: number): Observable<IMovie[]> {
+    return this.http.get<IMovie[]>(this.ApiUrl + 'Movies/getMovieById/' + id, httpOptions);
+  }
+
 
   /* get by date function */
   getMovieByDate(): Observable<IMovie[]> {
@@ -53,7 +58,7 @@ export class SharedService {
 
   getAllUsers(): Observable<IProfile[]> {
     /* Getting all users*/
-    return this.http.get<IProfile[]>(this.ApiUrl + 'Profiles');
+    return this.http.get<IProfile[]>(this.ApiUrl + 'Profiles' , httpOptions);
   }
 
   getUserById(id: number): Observable<IProfile[]> {
@@ -64,16 +69,16 @@ export class SharedService {
   }
 
   getAllOrders(): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>(this.ApiUrl + 'Orders');
+    return this.http.get<IOrder[]>(this.ApiUrl + 'Orders', httpOptions);
   }
 
   getOrderById(id: number): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>(this.ApiUrl + 'Orders' + id);
+    return this.http.get<IOrder[]>(this.ApiUrl + 'Orders' + id, httpOptions);
   }
 
   getAllDirectors(): Observable<IDirector[]> {
     /* Getting all users*/
-    return this.http.get<IDirector[]>(this.ApiUrl + 'Directors');
+    return this.http.get<IDirector[]>(this.ApiUrl + 'Directors', httpOptions);
   }
 
   getDirectorByDirectorId(id: number): Observable<IDirector[]> {
