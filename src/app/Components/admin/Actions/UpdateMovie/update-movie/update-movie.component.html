@@ -123,8 +123,8 @@
                 <!-- button container box -->
                 <div class="button-container">
                     <button class="button-cancel" mat-raised-button mat-dialog-close (click)="cancel()">Cancel</button>
-                    <button class="button" type="submit" mat-raised-button [disabled]="!updateMovieForm.valid"
-                        (click)="updateMovie(this.movie[0].movieId, updateMovieForm.value)">Update</button>
+                    <button class="button-update" type="submit" mat-raised-button [disabled]="!updateMovieForm.valid"
+                        (click)="updateMovie(this.movie.movieId, updateMovieForm.value)">Update</button>
                 </div>
 
             </form>
@@ -141,6 +141,6 @@
 </div>
 
 <div class="error" *ngIf="error">
-    <p><i class="fa fa-times-circle"></i> {{errorMessage}} </p>
+    <p><i class="fa fa-times-circle"></i> {{errormessage}} </p>
 
 </div>

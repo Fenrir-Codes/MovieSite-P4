@@ -1,5 +1,7 @@
+import { ListKeyManager } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenService';
 
@@ -16,13 +18,14 @@ export class UpdateMovieComponent implements OnInit {
   message: any;
   success: boolean = false;
   error: boolean = false;
-  errorMessage: string = 'Something went wrong';
+  errormessage: string = 'Something went wrong';
   //#endregion
 
   constructor(
     private tokenService: Tokenservice,
     private fb: FormBuilder,
-    private service: SharedService) { }
+    private service: SharedService,
+    public dialogRef: MatDialog) { }
 
   ngOnInit(): void {
     this.getMovieData();
@@ -138,6 +141,7 @@ export class UpdateMovieComponent implements OnInit {
   //#region Initalize the Update Form
   initForm() {
     this.updateMovieForm = this.fb.group({
+      movieId: [this.movie.movieId, Validators.required],
       DirectorId: [this.movie.directorId, Validators.required],
       Title: [this.movie.title],
       Description: [this.movie.description],
@@ -176,7 +180,26 @@ export class UpdateMovieComponent implements OnInit {
 
   //#region Update function
   updateMovie(id: number, body: any) {
+    console.log(id);
+    
+    this.service.updateMovie(id, body).subscribe(res => {
+      //console.log(res);  
+      if (res == null) {
+        this.success = true;
+        this.message = this.movie.title + " successfully updated.";
+        setTimeout(() => {
+          this.tokenService.removeUserUpdateToken();
+          this.dialogRef.closeAll();
 
+        }, 2500);
+
+      }
+      else {
+        this.error = true;
+        this.errormessage += res;
+      }
+
+    });
   }
   //#endregion
 

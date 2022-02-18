@@ -47,7 +47,6 @@ export class SharedService {
     return this.http.get<IMovie[]>(this.ApiUrl + 'Movies/getMovieById/' + id, httpOptions);
   }
 
-
   /* get by date function */
   getMovieByDate(): Observable<IMovie[]> {
     return this.http.get<IMovie[]>(
@@ -111,6 +110,14 @@ export class SharedService {
   updateUser(id: number, body: any): Observable<IProfile[]> {
     return this.http.put<IProfile[]>(
       this.ApiUrl + `Profiles/${id}`,
+      body,
+      httpOptions
+    );
+  }
+
+  updateMovie(id: number, body: any): Observable<IMovie[]> {
+    return this.http.put<IMovie[]>(
+      this.ApiUrl + `Movies/${id}`,
       body,
       httpOptions
     );
