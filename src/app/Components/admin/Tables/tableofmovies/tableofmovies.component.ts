@@ -73,7 +73,7 @@ export class TableofmoviesComponent implements OnInit {
   openDialog(id: any) {
     this.service.getMovieByIdForUpdate(id).subscribe(data => {
       this.movie = data;
-      console.log(this.movie);
+      //console.log(this.movie);
 
       this.dialog.open(UpdateMovieComponent, {
         disableClose: true,

@@ -180,7 +180,7 @@ export class UpdateMovieComponent implements OnInit {
 
   //#region Update function
   updateMovie(id: number, body: any) {
-    console.log(id);
+    //console.log(id);
     
     this.service.updateMovie(id, body).subscribe(res => {
       //console.log(res);  
