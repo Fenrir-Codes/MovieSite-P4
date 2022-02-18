@@ -16,8 +16,7 @@
         </div>
 
         <div class="video-container">
-            <button mat-raised-button class="button-watch" *ngIf="isPaid" (click)="openWindow()">Watch Online</button>
-            <button mat-raised-button class="button-watch" *ngIf="!isPaid">Buy Movie</button>
+            <button mat-raised-button class="button-watch" *ngIf="isActive" (click)="openWindow()">Watch Online</button>
         </div>
 
     </div>
