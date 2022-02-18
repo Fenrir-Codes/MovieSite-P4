@@ -71,9 +71,9 @@ export class TableofmoviesComponent implements OnInit {
   //#region Open dialog function
   //dialog for update user profile
   openDialog(id: any) {
-    this.service.getMovieById(id).subscribe(data => {
+    this.service.getMovieByIdForUpdate(id).subscribe(data => {
       this.movie = data;
-      console.log(this.movie);
+      //console.log(this.movie);
 
       this.dialog.open(UpdateMovieComponent, {
         disableClose: true,

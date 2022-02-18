@@ -89,6 +89,7 @@ export class UpdateMovieComponent implements OnInit {
     'Komedy',
     'Sci-Fi',
     'Family',
+    'Fantasy',
     'Documentary',
     'Cartoon',
     'Anime',
@@ -98,7 +99,7 @@ export class UpdateMovieComponent implements OnInit {
   //#endregion
 
   //#region Duration array Hardcoded
-  durationList = [] = [
+  durationList = [
     { value: '15 min.' },
     { value: '30 min.' },
     { value: '45 min.' },
@@ -137,19 +138,19 @@ export class UpdateMovieComponent implements OnInit {
   //#region Initalize the Update Form
   initForm() {
     this.updateMovieForm = this.fb.group({
-      DirectorId: [this.movie[0].directorId, Validators.required],
-      Title: [this.movie[0].title],
-      Description: [this.movie[0].description],
-      Country: [this.movie[0].country],
-      Genre: [this.movie[0].genre],
-      Image: [this.movie[0].image,],
-      Duration: [this.movie[0].duration],
-      Language: [this.movie[0].language],
-      Releasedate: [this.movie[0].releaseDate],
-      AddedDate: [this.movie[0].addedDate],
-      Rating: [this.movie[0].rating],
-      VideoURL: [this.movie[0].videoUrl],
-      ThumbImage: [this.movie[0].thumbImage]
+      DirectorId: [this.movie.directorId, Validators.required],
+      Title: [this.movie.title],
+      Description: [this.movie.description],
+      Country: [this.movie.country],
+      Genre: [this.movie.genre],
+      Image: [this.movie.image,],
+      Duration: [this.movie.duration],
+      Language: [this.movie.language],
+      Releasedate: [this.movie.releaseDate],
+      AddedDate: [this.movie.addedDate],
+      Rating: [this.movie.rating],
+      VideoURL: [this.movie.videoUrl],
+      ThumbImage: [this.movie.thumbImage]
 
     });
     //console.log(this.updateMovieForm);

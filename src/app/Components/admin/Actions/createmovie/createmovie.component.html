@@ -58,7 +58,6 @@
                     <div class="form-field">
                         <mat-label>Duration</mat-label>
                         <select class="select" formControlName="Duration">
-                            <option [ngValue]="''" disabled>Choose Duration</option>
                             <option *ngFor="let display of durationList" [value]="display.value">
                                 {{display.value}}
                             </option>
