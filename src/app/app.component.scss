@@ -216,8 +216,7 @@ mat-toolbar {
 mat-sidenav-container {
   height: calc(100% - 50px); // -50px because the top toolbar har 50px height
   width: calc(100%);
-  background-color: var(--PrimaryBackgroundColor);
-  background-image: var(--PrimaryBackgroundImage);
+  background-image: url('../assets/MovieBGHD.jpg');
 
   /* The nav on the side */
   mat-sidenav {
@@ -270,7 +269,7 @@ mat-sidenav-container {
       bottom: 0;
       width: 100%;
       height: 70px;
-      background: rgba(119, 119, 119, 0.15);
+      background: rgba(0, 0, 0,.8);
 
       ul {
         margin-top: 20px;
