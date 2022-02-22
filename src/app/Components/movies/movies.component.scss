@@ -32,17 +32,16 @@
       position: relative;
       overflow: hidden;
       border-radius: 5px;
-      border: 1px solid red;
-      border-bottom: 1px solid black;
       margin: 10px 10px 10px 10px;
       min-height: 420px;
       max-height: 420px;
       width: 250px;
       max-width: 400px;
       transition: all 0.2s;
-      background-color: black;
-      box-shadow: 10px 10px 10px -5px var(--SecondaryFontColor);
       cursor: pointer;
+      background: rgba(255,255,255,.1);
+      box-shadow: 0 25px 45px rgba(216, 216, 216, 0.1);
+      border: 1px solid rgba(255,255,255,.3);
   
       .movieImage {
         height: 412px;
@@ -52,6 +51,7 @@
   
       &:hover {
         transform: scale(1.04);
+
   
         .movieImage {
           opacity: 1;
@@ -80,6 +80,7 @@
         transition: transform 0.3s ease-in;
         background: linear-gradient(to right top, rgba(0, 0, 0, 1), rgba(26, 26, 26, 0.5));
         justify-content: center;
+
   
         &:hover {
           transform: translate(0);
@@ -87,6 +88,7 @@
   
         mat-card-subtitle {
           color: white;
+
         }
   
         .overviewTopLine {
@@ -100,6 +102,7 @@
         }
         .overviewPanel {
           padding: 0px 10px 0px 10px;
+
         }
   
         .icon-description {
@@ -113,3 +116,11 @@
     } */
   }
   
+  @keyframes animate {
+    0%{
+      filter:sepia(0)
+    }
+    100%{
+      filter: sepia(100%);
+    }
+  }

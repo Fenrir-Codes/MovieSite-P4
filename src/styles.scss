@@ -25,3 +25,14 @@
 
 html, body { height: 100%; font-family: var(--GuarmonFontStyle); }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-family: var(--GuarmonFontStyle); scroll-behavior: smooth;}
+
+
+@keyframes animate {
+0%{
+  filter: hue-rotate(0deg);
+}
+100%{
+  filter: hue-rotate(360deg);
+}
+
+}
