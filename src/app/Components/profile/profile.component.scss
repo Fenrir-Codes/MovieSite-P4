@@ -43,7 +43,7 @@
         width: 100%;
         height: calc(100% - 55px);
         border-radius: 0px 0px 0px 0px;
-        background-color: var(--SecondaryFontColor);
+        background: #303030;
 
         /* content box in the card */
         .content {
@@ -55,24 +55,26 @@
                 height: 100%;
                 justify-content: center;
                 margin: 10px;
+                min-width: 300px;
                 border-radius: 10px;
-                background-color: var(--SecondaryBackgroundColor);
-                box-shadow: 10px 10px 10px -5px black;
-                border: 1px solid var(--SecondaryFontColor);
+                background-color: rgba(255, 255, 255, 0.2);
+                box-shadow: 10px 10px 10px -5px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.3);
 
                 /* profile picture box */
                 .profilePicture {
                     max-width: 300px;
                     margin: 10px;
+                    display: flex;
+                    justify-content: center;
                     //border: 1px solid red; //just for see the borders if we need to see it uder development
                     //border-right: 1px solid red; //just for see the borders if we need to see it uder development
-                    border-radius: 5px;
                     border-radius: 50%;
 
                     /* settings of the image in the profile box */
                     .avatar {
                         margin: 20px;
-                        max-width: 300px;
+                        max-width: 150px;
                         border-radius: 50%;
                         border-right: 1px solid red;
                     }
@@ -81,10 +83,11 @@
                 .infobox {
                     max-width: auto;
                     min-width: 30%;
+                    color: white;
                     //border: 1px solid red; //just for see the borders if we need to see it uder development
                     border-radius: 5px;
                     margin: 10px;
-                    font-weight: bold;
+
                     font-size: 18px;
 
                     p {
@@ -104,7 +107,6 @@
                         cursor: pointer;
                         font-size: 18px;
                         color: var(--SecondaryBackgroundColor);
-                        box-shadow: 2px 2px 3px 0px #000000;
                         background: linear-gradient(to bottom, #858585 5%, #000000 100%);
                         transition: all 0.4s;
 
@@ -119,7 +121,6 @@
                     .button-delete {
                         font-size: 18px;
                         color: var(--SecondaryBackgroundColor);
-                        box-shadow: 2px 2px 3px 0px #000000;
                         background: linear-gradient(to bottom, #858585 5%, #000000 100%);
                         transition: all 0.4s;
 
@@ -147,11 +148,12 @@
                     min-width: 30%;
                     max-width: 98%;
                     max-height: 100%;
-                    background-color: var(--SecondaryBackgroundColor);
-                    box-shadow: 10px 10px 10px -5px black;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    box-shadow: 10px 10px 10px -5px rgba(0, 0, 0, 0.5);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
                     margin: 10px;
-                    border: 1px solid var(--SecondaryFontColor);
                     border-radius: 10px;
+                    color: white;
 
                     p {
                         margin: 10px;
