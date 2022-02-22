@@ -8,10 +8,11 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { MatDialog } from '@angular/material/dialog';
 
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
   //#region Local variables
@@ -29,14 +30,13 @@ export class ProfileComponent implements OnInit {
     private Router: Router,
     private DataService: DataService,
     private tokenService: Tokenservice,
-    public dialog: MatDialog,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
     this.readUserDataFromToken();
     this.initForm();
     this.getUserFullInfo();
-
   }
 
   //#region Reading the data from token placed in the session storage
@@ -113,8 +113,8 @@ export class ProfileComponent implements OnInit {
       this.user = data;
 
       this.dialog.open(UpdateProfileComponent, {
-        disableClose: true,
-        panelClass: 'custom-dialog-container',
+        disableClose: true
+        
       });
 
       this.tokenService.enCryptKey('userUpdateToken', this.user);
