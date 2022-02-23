@@ -1,8 +1,8 @@
 .container {
     width: 100%;
     height: calc(100% - 70px);
-    display: flex;
-    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
 
     .card {
         width: 200px;
@@ -65,9 +65,16 @@
                 left: 0;
                 border-radius: 10px;
                 display: flex;
-                justify-content: center;
                 flex-direction: column;
+                justify-content: center;
                 transform: rotateY(180deg);
+
+                .clear {
+                    position: absolute;
+                    margin: 5px;
+                    top: 0;
+                    right: 0;
+                }
 
                 h2 {
                     font-size: 20px;
@@ -88,7 +95,7 @@
                     border-radius: 10px;
                     outline: none;
                     border: none;
-                    margin: 80px auto 0;
+                    margin: 100px auto 0;
                     padding: 5px 50px;
 
                     &:hover {
@@ -112,3 +119,4 @@
         height: auto;
     }
 }
+

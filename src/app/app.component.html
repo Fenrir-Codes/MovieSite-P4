@@ -14,31 +14,36 @@
     </mat-icon>
   </button>
   <!-- home button -->
-  <button id="homeButton" class="toolbar-Button" routerLink="Home">
+  <button id="homeButton" class="toolbar-Button" routerLink="/Home">
     <mat-icon class="icon">home</mat-icon>Home
   </button>
   <!-- movie button -->
-  <button id="movieButton" class="toolbar-Button" routerLink="Movies">
+  <button id="movieButton" class="toolbar-Button" routerLink="/Movies">
     <mat-icon class="icon">movie</mat-icon>Movies
   </button>
-  <!-- watch button -->
-  <button id="watchButton" class="toolbar-Button" routerLink="BuyPlan">
+  <!-- Plans button -->
+  <button id="watchButton" class="toolbar-Button" routerLink="/BuyPlan">
     <mat-icon class="icon">subscriptions
     </mat-icon>Buy Plan
   </button>
+  <!-- Cart -->
+  <button id="watchButton" class="toolbar-Button" routerLink="/Cart">
+    <mat-icon class="icon">shopping_cart
+    </mat-icon>Cart
+  </button>
 
   <!-- settings buttons ADminj router or user route -->
-  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isAdmin" routerLink="Admin">
+  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isAdmin" routerLink="/Admin">
     <!-- if admin -->
     <mat-icon class="settings-icon">dashboard</mat-icon>Dashboard
   </button>
-  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isUser" routerLink="Profile">
+  <button id="settingsButton" class="toolbar-Button-Settings" *ngIf="isUser" routerLink="/Profile">
     <!-- if user -->
     <mat-icon class="settings-icon">person</mat-icon>Profile
   </button>
 
   <!-- login button -->
-  <button id="loginButton" class="toolbar-Button-Login" routerLink="Login" *ngIf="!loginStatus">
+  <button id="loginButton" class="toolbar-Button-Login" routerLink="/Login" *ngIf="!loginStatus">
     <mat-icon id="login-icon" class="icon">power_settings_new</mat-icon>Login
   </button>
   <!-- logout button -->
@@ -69,11 +74,11 @@
 <mat-sidenav-container>
   <!-- sidenav START -->
   <mat-sidenav mode="side" [(opened)]="opened">
-    <button class="sidenav-Button" routerLink="Home">Home</button>
-    <button class="sidenav-Button" routerLink="Movies">Movies</button>
-    <button class="sidenav-Button">Menu 3</button>
-    <button class="sidenav-Button">Settings</button>
-    <button class="sidenav-Button" routerLink="Login" *ngIf="!loginStatus">Login</button>
+    <button class="sidenav-Button" routerLink="/Home">Home</button>
+    <button class="sidenav-Button" routerLink="/Movies">Movies</button>
+    <button class="sidenav-Button" routerLink="/BuyPlan">Buy Plan</button>
+    <button class="sidenav-Button" routerLink="/Cart">Cart</button>
+    <button class="sidenav-Button" routerLink="/Login" *ngIf="!loginStatus">Login</button>
     <button class="sidenav-Button" *ngIf="loginStatus" (click)="logOut()">Logout
     </button>
 

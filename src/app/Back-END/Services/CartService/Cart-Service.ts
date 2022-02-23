@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { IProduct } from 'src/app/Interfaces/IProduct';
 
 @Injectable({
   providedIn: 'root',
@@ -7,16 +8,22 @@ import { Subject } from 'rxjs';
 
 export class CartService {
   cartSubject = new Subject();
+  product: IProduct[] = [];
 
   constructor() {}
 
-  sendMsg(product){
-    this.cartSubject.next(product); // Triggering an event
+  addToCart(item: IProduct) {
+    this.product.push(item);
+
   }
 
-  getMsg(){
-    //Anyone calls the getMsg function ,can subscribe to whatever is triggered
-    return this.cartSubject.asObservable();
+  getItems() {
+    return this.product;
+  }
+
+  clearCart() {
+    this.product = [];
+    return this.product;
   }
 
 }

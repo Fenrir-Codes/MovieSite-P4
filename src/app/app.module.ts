@@ -47,6 +47,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { UpdateUserComponent } from './Components/admin/Actions/UpdateUser/update-user/update-user.component';
 import { UpdateMovieComponent } from './Components/admin/Actions/UpdateMovie/update-movie/update-movie.component';
 import { PlansComponent } from './Components/plans/plans.component';
+import { CartComponent } from './Components/cart/cart.component';
 
 
 
@@ -74,6 +75,7 @@ import { PlansComponent } from './Components/plans/plans.component';
      UpdateUserComponent,
      UpdateMovieComponent,
      PlansComponent,
+     CartComponent,
     
     
     ],

@@ -13,7 +13,8 @@
             <div class="back-face">
                 <h2>{{display.productName}}</h2>
                 <p>{{display.description}}</p>
-                <button mat-button class="btn">Buy plan</button>
+                <p>Price: {{display.price}} €</p>
+                <button mat-button class="btn" (click)="addToCart(display)">Buy plan</button>
             </div>
            
         </div>

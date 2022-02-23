@@ -47,6 +47,10 @@ export class Tokenservice {
     return this.LocalService.removeItem('movieUpdateToken')
   }
 
+  removeCartToken(){
+    return this.LocalService.removeItem('productItem')
+  }
+
   /*this function read the 'token' value from the session storage  */
   deCryptKey() {
     return this.LocalService.getJsonValue('token');
