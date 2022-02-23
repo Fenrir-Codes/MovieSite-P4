@@ -23,8 +23,11 @@
   font-family: var(--GuarmonFontStyle); scroll-behavior: smooth;
 }
 
-html, body { height: 100%; font-family: var(--GuarmonFontStyle); }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-family: var(--GuarmonFontStyle); scroll-behavior: smooth;}
+
+html, body { width:100%; height: 100%; font-family: var(--GuarmonFontStyle);}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    scroll-behavior: smooth;
+  }
 
 
 @keyframes animate {

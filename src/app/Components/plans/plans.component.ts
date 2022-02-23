@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 
 @Component({
   selector: 'app-plans',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlansComponent implements OnInit {
 
-  constructor() { }
+  //#region Local Variables
+    products:any;
+
+  //#endregion
+
+  constructor( private service: SharedService,) { }
 
   ngOnInit(): void {
+    this.listAllProducts();
+
   }
+  
+  //#region getting all products function
+  listAllProducts(){
+    this.service.getProducts().subscribe(res => {
+      this.products = res;
+      //console.log(this.products);
+      
+    })
+  }
+  //#endregion
+
 
 }
