@@ -1,37 +1,26 @@
 <div class="container" id="container">
 
-    <div class="title">{{user?.firstname}} {{user?.lastname}}'s profile</div>
-
     <div class="card">
 
-        <div class="content" id="content">
+        <div class="card-inner">
 
-            <div class="topbox" id="topbox">
+            <div class="front-face">
+                <h2>{{user?.firstname}} {{user?.lastname}}'s profile</h2>
+                <img class="avatar" id="avatar" src="./assets/{{user?.image}}" alt="">
 
-                <div class="profilePicture" id="profilePicture">
-                    <img class="avatar" id="avatar" src="./assets/{{user?.image}}" alt="">
-                </div>
+            </div>
 
-                <div class="infobox" id="infobox">
-                    <p>
-                        Password: {{user?.password}}
-                    </p>
-                    <p>
-                        Address: {{user?.address}}
-                    </p>
-                    <p>
-                        E-Mail: {{user?.email}}
-                    </p>
-                    <p>
-                        Phone: {{user?.phone}}
-                    </p>
-                </div>
+            <div class="back-face">
+                <p> Password: {{user?.password}}</p>
+                <p> Address: {{user?.address}}</p>
+                <p> Email: {{user?.email}} </p>
+                <p> Phone: {{user?.phone}} </p>
 
                 <div class="button-container">
-                    <button class="button-update" type="submit" mat-raised-button
+                    <button class="btn" type="submit" mat-button
                         (click)="openDialog(user?.profileId)">Update Profile</button>
 
-                    <button class="button-delete" type="submit" mat-raised-button
+                    <button class="btn-delete" type="submit" mat-button
                         (click)="deleteProfile(user.profileId)" [disabled]="!checked">Delete
                         Profile</button>
                 </div>
@@ -39,19 +28,24 @@
                 <mat-checkbox class="checkbox" (change)="checkOK($event.checked)">I want to delete my account.
                 </mat-checkbox>
 
-
             </div>
 
-            <div class="bottom-box" id="bottombox">
+        </div>
+    </div>
 
-                <div class="desc-box" id="desc-box">
-                    <p>
-                        {{user?.selfIntro}}
-                    </p>
-                </div>
 
-            </div>
+
+    <div class="bottom-box" id="bottombox">
+
+        <div class="desc-box" id="desc-box">
+
+            <p>
+                {{user?.selfIntro}}
+            </p>
 
         </div>
 
     </div>
+
+
+</div>

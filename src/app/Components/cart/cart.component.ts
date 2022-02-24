@@ -9,7 +9,7 @@ import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenSe
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  items: any;
+  item:any;
   isRemoved:boolean = true;
 
   constructor(private cartService: CartService,
@@ -17,8 +17,18 @@ export class CartComponent implements OnInit {
     private dialog: MatDialog,) { }
 
   ngOnInit(): void {
-    this.items = this.cartService.getItems();
+    this.getItems();
   
+  }
+
+  getItems(){
+    this.item = this.tokenService.getCartToken();
+
+    if (this.item != null) {
+      this.isRemoved = false;
+    }
+    console.log(this.item);
+    
   }
 
   removeItem(){

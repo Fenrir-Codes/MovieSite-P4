@@ -38,14 +38,19 @@ export class PlansComponent implements OnInit {
   }
   //#endregion
 
-
-
+  //#region Add to cart function
   addToCart(product: IProduct) {
+    //putting the item to array
     this.cartService.addToCart(product);
-    this.tokenService.enCryptKey('productItem', product);
+    //console.log(product);
+
     this.dialog.open(CartComponent, {
       disableClose: true,
     });
+
+    this.tokenService.enCryptKey('productInCart', product);
+
   }
+  //#endregion
 
 }

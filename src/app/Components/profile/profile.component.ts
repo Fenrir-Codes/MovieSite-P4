@@ -103,7 +103,7 @@ export class ProfileComponent implements OnInit {
   //#region checkbox for delete button
   checkOK(event: any) {
     this.checked = event;
-    //console.log(this.checked);
+    console.log(this.checked);
   }
   //#endregion
 

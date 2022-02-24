@@ -1,26 +1,23 @@
-<div class="container" id="container">
-    <h3>Shopping Cart</h3>
-    <div class="card">
+ <div class="container" id="container">
+    <h3>Your Cart item:</h3>
+    <div class="card" *ngIf="!isRemoved">
 
-        <div class="card-inner" *ngFor="let displayCartItem of items">
-
-            <div class="front-face">
-                <img src="assets/blue.jpg">
-                <h2>{{displayCartItem.productName}}</h2>
-                <p>{{displayCartItem.description}}</p>
-            </div>
+        <div class="card-inner">
 
             <div class="back-face">
-                <mat-icon class="clear" (click)="removeItem()">highlight_off</mat-icon>
-                <h2>{{displayCartItem.productName}}</h2>
-                <p>{{displayCartItem.description}}</p>
+                <mat-icon class="clear" (click)="removeItem()"
+                matTooltip="Remove Cart Item" matTooltipClass="tooltip-color"
+                [matTooltipPosition]="'right'"
+                >highlight_off</mat-icon>
+
+                <h2>{{ item?.productName }}</h2>
+                <p>{{ item?.description }}</p>
+                <p>Price: {{ item?.price }} €</p>
                 <button mat-button class="btn">Check Out</button>
+
             </div>
 
         </div>
 
     </div>
-    
 </div>
-
-
