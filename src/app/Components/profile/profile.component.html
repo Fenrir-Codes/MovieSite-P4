@@ -7,7 +7,7 @@
             <div class="front-face">
                 <h2>{{user?.firstname}} {{user?.lastname}}'s profile</h2>
                 <img class="avatar" id="avatar" src="./assets/{{user?.image}}" alt="">
-
+                  <mat-icon>360</mat-icon>
             </div>
 
             <div class="back-face">
@@ -28,6 +28,7 @@
                 <mat-checkbox class="checkbox" (change)="checkOK($event.checked)">I want to delete my account.
                 </mat-checkbox>
 
+
             </div>
 
         </div>
@@ -35,7 +36,7 @@
 
 
 
-    <div class="bottom-box" id="bottombox">
+    <div class="side-box" id="sidebox">
 
         <div class="desc-box" id="desc-box">
 

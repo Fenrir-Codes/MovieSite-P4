@@ -24,10 +24,13 @@ export class CartComponent implements OnInit {
   getItems(){
     this.item = this.tokenService.getCartToken();
 
-    if (this.item != null) {
+    if (this.item == null) {
+      this.isRemoved = true;
+    }
+    else {
       this.isRemoved = false;
     }
-    console.log(this.item);
+    //console.log(this.item);
     
   }
 
@@ -35,7 +38,7 @@ export class CartComponent implements OnInit {
     this.cartService.clearCart();
     this.tokenService.removeCartToken();
     this.ngOnInit();
-    this.dialog.closeAll();
+    //this.dialog.closeAll();
     
   }
 

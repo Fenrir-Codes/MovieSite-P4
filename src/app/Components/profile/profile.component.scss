@@ -35,7 +35,6 @@
     margin: auto;
     //border: 1px solid red;  // for testing purposes
 
-
     /* card inner */
     .card-inner {
       //border: 1px solid blue;  // for testing purposes
@@ -67,7 +66,7 @@
           border-radius: 50%;
         }
 
-        mat-icon{
+        mat-icon {
           color: white;
           width: 50px;
           height: 50px;
@@ -130,9 +129,9 @@
         }
 
         .btn {
+          width: 75%;
           color: rgb(0, 0, 0);
           font-size: 18px;
-          text-decoration: none;
           background: white;
           border-radius: 10px;
           outline: none;
@@ -145,40 +144,46 @@
             color: rgb(0, 160, 0);
             background: #dff2bf;
           }
+
         }
 
         .btn-delete {
+          width: 75%;
           color: rgb(0, 0, 0);
           font-size: 18px;
-          text-decoration: none;
           background: white;
           border-radius: 10px;
           outline: none;
           border: none;
-          margin: 80px auto 0;
+          margin: 10px auto 0;
           padding: 5px 50px;
 
           &:hover:enabled {
             cursor: pointer;
             color: rgb(255, 0, 0);
-            background: #b9b9b9;
+            background: #530000;
           }
         }
-
       }
     }
     &:hover .card-inner {
       transform: rotateY(-180deg);
     }
+
+    .checkbox {
+      margin: 10px auto 0;
+    }
+
   }
 
-  .bottom-box {
+  .side-box {
     width: 75%;
     height: 90%;
     margin: auto;
 
     /* description box in the content box */
     .desc-box {
+      background-color:rgba(255, 255, 255, 0.1);
       height: 100%;
       min-width: 30%;
       max-height: 100%;

@@ -22,12 +22,12 @@
     <mat-icon class="icon">movie</mat-icon>Movies
   </button>
   <!-- Plans button -->
-  <button id="watchButton" class="toolbar-Button" routerLink="/BuyPlan">
+  <button id="watchButton" class="toolbar-Button" *ngIf="loginStatus" routerLink="/BuyPlan">
     <mat-icon class="icon">subscriptions
     </mat-icon>Buy Plan
   </button>
   <!-- Cart -->
-  <button id="watchButton" class="toolbar-Button" routerLink="/Cart">
+  <button id="watchButton" class="toolbar-Button" *ngIf="loginStatus" routerLink="/Cart">
     <mat-icon class="icon">shopping_cart
     </mat-icon>Cart
   </button> 
@@ -76,8 +76,8 @@
   <mat-sidenav mode="side" [(opened)]="opened">
     <button class="sidenav-Button" routerLink="/Home">Home</button>
     <button class="sidenav-Button" routerLink="/Movies">Movies</button>
-    <button class="sidenav-Button" routerLink="/BuyPlan">Buy Plan</button>
-    <button class="sidenav-Button" routerLink="/Cart">Cart</button>
+    <button class="sidenav-Button" routerLink="/BuyPlan" *ngIf="loginStatus">Buy Plan</button>
+    <button class="sidenav-Button" routerLink="/Cart" *ngIf="loginStatus">Cart</button>
     <button class="sidenav-Button" routerLink="/Login" *ngIf="!loginStatus">Login</button>
     <button class="sidenav-Button" *ngIf="loginStatus" (click)="logOut()">Logout
     </button>
