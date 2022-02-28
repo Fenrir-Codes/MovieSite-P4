@@ -1,0 +1,23 @@
+ <div class="container" id="container">
+    <h3>Your Cart item:</h3>
+    <div class="card" *ngIf="!isRemoved">
+
+        <div class="card-inner">
+
+            <div class="back-face">
+                <mat-icon class="clear" (click)="removeItem()"
+                matTooltip="Remove Cart Item" matTooltipClass="tooltip-color"
+                [matTooltipPosition]="'right'"
+                >highlight_off</mat-icon>
+
+                <h2>{{ item?.productName }}</h2>
+                <p>{{ item?.description }}</p>
+                <p>Price: {{ item?.price }} €</p>
+                <button mat-button class="btn">Check Out</button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -6,7 +6,7 @@ import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenSe
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
-  styleUrls: ['./movie-details.component.scss']
+  styleUrls: ['./movie-details.component.scss'],
 })
 export class MovieDetailsComponent implements OnInit {
   //#region Local Variables
@@ -18,10 +18,10 @@ export class MovieDetailsComponent implements OnInit {
   //#endregion
 
   constructor(
-    private service: SharedService, /* shared API service call */
+    private service: SharedService,
     private DataService: DataService,
     private tokenService: Tokenservice
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     /* setting the movieId same as id we passing between components via data service */
@@ -29,7 +29,6 @@ export class MovieDetailsComponent implements OnInit {
     /* then calling the get movie by id function */
     this.getMovieDetails();
     this.getSubscriptionStatus();
-
   }
 
   //#region get User subscription status
@@ -41,44 +40,39 @@ export class MovieDetailsComponent implements OnInit {
     }
     if (this.user != null && this.user.mySubscription.length > 0) {
       this.isActive = this.user.mySubscription[0].isActive;
-    }
-    else {
+    } else {
       this.isActive;
     }
     //console.log(this.user);
-
   }
   //#endregion
 
-  //#region  get the movie by its id 
+  //#region  get the movie by its id
   getMovieDetails() {
-    this.service.getMovieById(this.movieId).subscribe(result => {
+    this.service.getMovieById(this.movieId).subscribe((result) => {
       this.currentMovie = result;
       //console.log(this.currentMovie);
 
       /* if currentMovie not null */
       if (this.currentMovie != null) {
         /* call getDirectorByDirectorId function to get the director for the movie from director table */
-        this.service.getDirectorByDirectorId(this.currentMovie[0].directorId).subscribe(dirResult => {
-          /* filling up the directorData array with results of dirResult data */
-          for (let i = 0; i < dirResult.length; i++) {
-            this.directorData.push(dirResult[i])
-            //console.log(this.directorData);         
-          }
-
-        });
+        this.service
+          .getDirectorByDirectorId(this.currentMovie[0].directorId)
+          .subscribe((dirResult) => {
+            /* filling up the directorData array with results of dirResult data */
+            for (let i = 0; i < dirResult.length; i++) {
+              this.directorData.push(dirResult[i]);
+              //console.log(this.directorData);
+            }
+          });
       }
-    })
-
-  };
+    });
+  }
   //#endregion
 
   //#region opening new window
   openWindow() {
-    window.open(this.currentMovie[0].videoUrl)
+    window.open(this.currentMovie[0].videoUrl);
   }
   //#endregion
-
 }
-
-

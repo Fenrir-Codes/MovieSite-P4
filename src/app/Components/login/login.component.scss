@@ -18,7 +18,6 @@
   --SearchTextColor: rgba(144, 144, 144);
 }
 
-/* default  container */
 .container {
   display: flex;
   height: calc(100% - 90px);
@@ -27,109 +26,130 @@
   justify-content: center;
   align-items: center;
 
-
-  /* the card settings */
-  .card {
+  .form-box {
     animation: animatezoom 0.5s;
     width: 400px;
-    height: 320px;
-    align-items: center;
-    border-radius: 10px 10px 10px 10px;
-    background: rgba(255,255,255,.1);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 25px 45px rgba(216, 216, 216, 0.1);
-    border: 1px solid rgba(255,255,255,.3);
+    height: 100%;
+    position: relative;
+    margin: 6% auto;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #242424 74%);
+    //border: 1px solid red;
 
-    /* card content container */
-    .content {
-      width: 300px;
-
-      /* form field contains the input field (Email) */
-      .form-field-Email {
-        margin: 0px 0px 20px 0px;
-        height: 50px;
-        width: 300px;
-
-        /* input field email */
-        input[type="Email"] {
-          width: 90%;
-          font-size: 16px;
-          padding: 8px 15px;
-          color: white;
-          outline: none;
-          border:none;
-          border-radius: 5px;
-          background-color: rgba(255,255,255,.2);
-          box-shadow: 0 5px 15px rgba(0,0,0,.05);
-
-          &::placeholder{
-            color: white;
-          }
-
-        }
-      }
-
-      /* form field contains the input field (Email) */
-      .form-field-Password {
-        margin: 0px 0px 20px 0px;
-        height: 50px;
-        width: 300px;
-
-        /* input field password */
-        input[type="Password"] {
-          width: 90%;
-          font-size: 16px;
-          padding: 8px 15px;
-          color: white;
-          outline: none;
-          border:none;
-          border-radius: 5px;
-          background-color: rgba(255,255,255,.2);
-          box-shadow: 0 5px 15px rgba(0,0,0,.05);
-
-          &::placeholder{
-            color: white;
-          }
-        }
-      }
+    #login {
+      top: 40%;
+      left: 50px;
     }
 
-    /* card's title  (Login) */
-    .title {
-      width: 100%;
-      font-size: 25px;
-      text-align: center;
-      padding-top: 18px;
-      border-radius: 10px 10px 0px 0px;
-      padding-bottom: 18px;
-      color: var(--SecondaryFontColor);
+    #register {
+      top: 20%;
+      left: 450px;
     }
 
-    /* card content container */
-    .content,
-    p {
-      padding: 0px;
-      width: 100%;
-      display: flex;
+    .button-box {
+      width: 200px;
       margin: auto;
-      justify-content: center;
-      color: var(--SecondaryFontColor);
+      margin-top: 30px;
+      position: relative;
+      box-shadow: 0 0 8px 3px #434343;
+      border-radius: 5px;
 
-      /* Link on card (Register one) */
-      .link {
-        text-decoration: none;
-        margin-left: 10px;
-        color: #009908;
+      .toggle-btn {
+        padding: 10px 30px;
+        cursor: pointer;
+        max-width: 100px;
+        min-width: 100px;
+        background: transparent;
+        border: 0;
+        outline: none;
+        position: relative;
+        color: white;
+        font-size: 12px;
+      }
 
-        &:visited {
-          text-decoration: none;
-          color: #009908;
-        }
+      #btn {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 45%;
+        height: 100%;
+        color: white;
+        background-color: #000000;
+        background: linear-gradient(315deg, #3f0d12 0%, rgb(188, 32, 33) 74%);
+        border-radius: 5px;
+        transition: 0.5s;
+      }
+    }
 
-        &:hover {
-          color: #00ff0d;
+    /* imput groups */
+    .input-group {
+      top: 100px;
+      position: absolute;
+      width: 300px;
+      transition: 0.5s;
+      height: 50px;
+
+      .form-field {
+        height: 65px;
+      }
+
+      /* input fields */
+      .input-field {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px 10px;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: black;
+        border-radius: 5px;
+        outline: none;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.4);
         }
       }
+
+      /* button container */
+      .button-container {
+        padding: 8px 2px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+
+        /* submit buttons */
+        .submit-btn {
+          width: 85%;
+          padding: 5px;
+          display: block;
+          margin: auto;
+          color: white;
+          background: linear-gradient(315deg, #3f0d12 0%, rgb(188, 32, 33) 74%);
+          border: 0;
+          outline: none;
+          font-size: 18px;
+          color: white;
+
+          &:enabled {
+            color: white;
+            cursor: pointer;
+            background: green;
+          }
+          &:hover:enabled {
+            color: white;
+            background: rgb(0, 201, 0);
+          }
+        }
+      }
+    }
+
+    .error {
+      color: red;
+      margin-left: 5px;
     }
 
     /* Error message container */
@@ -154,130 +174,49 @@
       }
     }
 
-    .success{
+    .success {
       display: flex;
       margin: auto;
       width: 300px;
       height: 50px;
-      background-color: #DFF2BF;
+      background-color: #dff2bf;
       border-radius: 5px;
-  
-      p{    
+
+      p {
         color: rgb(0, 160, 0);
-        margin: auto;    
-        .fa{
+        margin: auto;
+        .fa {
           margin-right: 5px;
         }
-
       }
-
     }
 
-    .errorMessage{
+    .errorMessage {
       display: flex;
       margin: auto;
       width: 100%;
       height: 50px;
-      background-color: #FFD2D2;
+      background-color: #ffd2d2;
       border-radius: 5px;
-  
-      p{
-        color: #D8000C;
+
+      p {
+        color: #d8000c;
         margin: auto;
-        .fa{
+        .fa {
           margin-right: 5px;
         }
-
-
-      }
-
-    }
-
-    /* button container (Login button) */
-    .button-container {
-      padding: 8px 2px;
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      margin-top: 10px;
-
-      /* Login button settings */
-      .button {
-        box-sizing: border-box;
-        cursor: pointer;
-        font-size: 18px;
-        width: 100%;
-        background-color: var(--SecondaryFontColor);
-        color: white;
-
-        &:enabled {
-          color: white;
-          background-color: green;
-        }
-        &:hover:enabled {
-          color: white;
-          background-color: rgb(0, 201, 0);
-        }
-      }
-    }
-
-    /* zoom animation */
-    @keyframes animatezoom {
-      from {
-        transform: scale(0);
-      }
-
-      to {
-        transform: scale(1);
       }
     }
   }
 }
 
-/* if the screen size is less than 600px do not show the search input and category select on top toolbar */
-@media only screen and (max-width: 600px) {
-  .container {
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-
-    .card {
-      animation: animatezoom 0.5s;
-      width: 100%;
-      padding: 20px;
-
-      .content {
-        display: block;
-        width: auto;
-
-        .form {
-          width: 200px;
-        }
-      }
-
-      .form-field-Email,
-      .form-field-Password {
-        margin: 10px 0px 10px 0px;
-        width: 200px;
-      }
-      .button-container {
-        width: 200px;
-      }
-      p {
-        width: 200px;
-      }
-    }
+/* zoom animation */
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
   }
-}
 
-
-@keyframes animate {
-  0%{
-    filter: hue-rotate(0deg);
-  }
-  100%{
-    filter: hue-rotate(360deg);
+  to {
+    transform: scale(1);
   }
 }

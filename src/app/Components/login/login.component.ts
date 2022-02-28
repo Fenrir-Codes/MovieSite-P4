@@ -21,8 +21,13 @@ export class LoginComponent implements OnInit {
   message: string = 'Login success.';
   errormessage: string = "Email or password is not valid, please try again.";
   loginForm: any;
+  registerForm: any;
   user: any;
   hide = true;
+  result: any;
+  showAnimation: boolean = false;
+  regMessage: string = 'Register success.';
+  regErrormessage: string = "Something went wrong, please try again.";
   //#endregion
 
   constructor(private fb: FormBuilder,
@@ -33,11 +38,64 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.initLoginForm();
+    this.initRegisterForm();
 
   }
 
+  //#region switch to register panel function
+  switchToRegisterPanel() {
+    var login = document.getElementById("login");
+    var reg = document.getElementById("register");
+    var btn = document.getElementById("btn");
+
+    login.style.left = "-400px";
+    reg.style.left = "50px";
+    btn.style.left = "110px";
+
+  }
+  //#endregion
+
+  //#region switch to login panel function
+  switchToLoginPanel() {
+    var login = document.getElementById("login");
+    var reg = document.getElementById("register");
+    var btn = document.getElementById("btn");
+
+    login.style.left = "50px";
+    reg.style.left = "500px";
+    btn.style.left = "0px";
+
+  }
+  //#endregion
+
+  //#region initalize registering form
+  initRegisterForm() {
+    this.registerForm = this.fb.group({
+      Email: new FormControl(null,
+        [Validators.required,
+        Validators.email,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+      Password: new FormControl(null,
+        [Validators.required, Validators.minLength(4)]),
+      Firstname: new FormControl(null,
+        [Validators.required, Validators.minLength(1)]),
+      Lastname: new FormControl(null,
+        [Validators.required, Validators.minLength(1)]),
+      Address: new FormControl(null, Validators.required),
+      Phone: new FormControl(null,
+        [Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(8),
+        Validators.pattern('[- +()0-9]+')]),
+      Image: new FormControl('profile.jpg'),
+      Role: new FormControl(0),
+    });
+  }
+
+  //#endregion
+
   //#region  initalize the login form
-  initLoginForm(){
+  initLoginForm() {
     this.loginForm = new FormGroup({
       Email: new FormControl(null, [Validators.required,
       Validators.required,
@@ -57,7 +115,7 @@ export class LoginComponent implements OnInit {
 
     setTimeout(() => {
       this.service.login(Email, Password).subscribe((response) => {
-        this.user = response;    
+        this.user = response;
 
         if (this.user != null) {
           this.success = true;
@@ -112,15 +170,59 @@ export class LoginComponent implements OnInit {
   //#endregion
 
   //#region getting the users all detailed info, included orders etc...
-  getUserDetailed(id:number){
+  getUserDetailed(id: number) {
     this.service.getUserById(id).subscribe(res => {
       //console.log(res);
       this.tokenService.enCryptKey('userToken', res)
-      
+
     })
 
   }
   //#endregion
+
+  //#region register function
+  registerUser(body: any) {
+    this.showButton = false; //hide button
+    this.showAnimation = true;
+    //run api call (Create method)
+    this.service.createNewUser(body).subscribe(res => {
+      this.result = res;
+
+      //Error message
+      if (this.result === null) {
+        setTimeout(() => {
+          this.showAnimation = false;
+          this.showButton = false; //hide button
+          this.error = true //show message true
+          this.registerForm.reset(); //reset the form
+        }, 2000);
+      }
+      else {
+        /* if the response is not null */
+        setTimeout(() => {
+          this.showAnimation = false;
+          this.showButton = false; //hide button
+          this.success = true;  //show message true
+
+          setTimeout(() => {
+            this.registerForm.reset();  // reset the form
+            this.switchToLoginPanel();
+            this.showButton = true;
+            this.success = false;
+            this.error = false;
+
+          }, 2000);
+
+        }, 1500);
+
+      }
+
+    });
+
+  }
+
+  //#endregion
+
 
 }
 

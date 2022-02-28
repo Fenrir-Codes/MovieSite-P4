@@ -1,32 +1,114 @@
-.container{
+.container {
     width: 100%;
     height: calc(100% - 70px);
+    display: flex;
+    flex-wrap: wrap;
 
-    .content{
-        display: flex;
+    .card {
+        width: 200px;
+        height: 300px;
+        perspective: 1000px;
+        margin: 20px 10px 10px 10px;
+        //border: 1px solid red;  // for testing purposes
 
-        .card{
-            width: auto;
-            height: auto;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: black;
+        .card-inner {
+            position: relative;
+            max-width: 100%;
+            max-height: 100%;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
 
-            img{
-                width: 220px;
-                height: 300px;
-                border-radius: 5px 5px 0px 0px;
+            .front-face {
+                width: 100%;
+                height: 100%;
+                color: rgb(0, 0, 0);
+                backface-visibility: hidden;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+
+                h2 {
+                    position: absolute;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    font-size: 16px;
+                    margin-top: 200px;
+                    font-weight: 600;
+                }
+
+                p {
+                    position: absolute;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    font-size: 16px;
+                    font-weight: 300;
+                    margin-top: 250px;
+                }
+
+                img {
+                    width: 100%;
+                    border-radius: 10px;
+                }
             }
-            .card-content{
-                width: auto;
-                height: auto;
+
+            .back-face {
+                backface-visibility: hidden;
+                background: rgb(188, 32, 33);
+                color: white;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                transform: rotateY(180deg);
+
+                h2 {
+                    font-size: 20px;
+                    margin-top: 10px;
+                    font-weight: 600;
+                }
+
+                p {
+                    font-size: 16px;
+                    font-weight: 300;
+                }
+
+                .btn {
+                    color: rgb(0, 0, 0);
+                    font-size: 18px;
+                    text-decoration: none;
+                    background: white;
+                    border-radius: 10px;
+                    outline: none;
+                    border: none;
+                    margin: 80px auto 0;
+                    padding: 5px 50px;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: rgb(0, 160, 0);
+                        background: #dff2bf;
+                    }
+                }
             }
         }
-
+        &:hover .card-inner {
+            transform: rotateY(-180deg);
+        }
     }
 }
 
-.mat-icon{
-    min-width: 300px;
-    min-height: 300px;
+@media only screen and (max-width: 750px) {
+    #container {
+        display: flex;
+        justify-content: center;
+        height: auto;
+    }
 }

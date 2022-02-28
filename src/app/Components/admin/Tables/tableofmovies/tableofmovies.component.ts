@@ -9,7 +9,7 @@ import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenSe
 @Component({
   selector: 'app-tableofmovies',
   templateUrl: './tableofmovies.component.html',
-  styleUrls: ['./tableofmovies.component.scss']
+  styleUrls: ['./tableofmovies.component.scss'],
 })
 export class TableofmoviesComponent implements OnInit {
   //#region Local variables
@@ -18,45 +18,53 @@ export class TableofmoviesComponent implements OnInit {
   message: any;
   movie: any;
   movieList: IMovie[] = [];
-  columnsDisplayed: string[] = ['Id', 'Image', 'Title', 'Language',
-    'Country', 'Genre', 'Duration', 'Releasedate', 'AddedDate', 'Update', 'Delete'];
+  columnsDisplayed: string[] = [
+    'Id',
+    'Image',
+    'Title',
+    'Language',
+    'Country',
+    'Genre',
+    'Duration',
+    'Releasedate',
+    'AddedDate',
+    'Update',
+    'Delete',
+  ];
 
   //#endregion
 
-  constructor(private service: SharedService,
+  constructor(
+    private service: SharedService,
     private spinner: NgxSpinnerService,
     private dialog: MatDialog,
-    private tokenService: Tokenservice) { }
+    private tokenService: Tokenservice
+  ) {}
 
   ngOnInit(): void {
     this.spinner.show();
     this.getAllMovies();
-
   }
 
   //#region Get all movies function
   getAllMovies() {
-    this.service.getAllMoviesListed().subscribe(res => {
+    this.service.getAllMoviesListed().subscribe((res) => {
       this.movieList = res;
       if (this.movieList != null) {
         this.isLoaded = true;
-
       }
       //console.log(this.movieList);
-
-
     });
   }
   //#endregion
 
   //#region Delete movie by id function
   deleteMovie(id: any) {
-    this.service.deleteMovie(id).subscribe(res => {
+    this.service.deleteMovie(id).subscribe((res) => {
       this.message = res;
       /* if res == null should show success message */
       console.log(this.message);
       this.ngOnInit(); // refreshing the list calling oninit again.
-
     });
   }
   //#endregion
@@ -71,7 +79,7 @@ export class TableofmoviesComponent implements OnInit {
   //#region Open dialog function
   //dialog for update user profile
   openDialog(id: any) {
-    this.service.getMovieByIdForUpdate(id).subscribe(data => {
+    this.service.getMovieByIdForUpdate(id).subscribe((data) => {
       this.movie = data;
       //console.log(this.movie);
 
@@ -83,5 +91,4 @@ export class TableofmoviesComponent implements OnInit {
     });
   }
   //#endregion
-
 }

@@ -1,59 +1,136 @@
 <!-- container Start -->
 <div class="container">
 
-  <!-- card Start -->
-  <div class="card">
-    <!-- title on the card -->
-    <div class="title"> Login </div>
+  <div class="form-box">
 
-    <!-- content container in the card START -->
-    <div class="content">
+    <div class="button-box">
 
-      <!-- form START -->
-      <form class="form" [formGroup]="loginForm">
-
-        <!-- email input field -->
-        <div class="form-field-Email">
-          <input type="Email" placeholder="E-mail" formControlName="Email">
-          <span *ngIf="loginForm.controls.Email.errors?.required" class="error">E-Mail required!</span>
-          <span *ngIf="loginForm.controls.Email.errors?.pattern" class="error">Wrong Email pattern!</span>
-        </div>
-
-        <!-- password input field -->
-        <div class="form-field-Password">
-          <input type="Password" placeholder="Password" formControlName="Password">
-          <span *ngIf="loginForm.controls.Password.errors?.required" class="error">Password required!</span>
-          <span *ngIf="loginForm.controls.Password.errors?.minlength" class="error">Password required!</span>
-        </div>
-
-        <!-- logging in animarion DualRing.gif showing up if loggingIn = true -->
-        <div class="loadinganim" *ngIf="loggingIn">
-          <img class="dualRing" src="assets/DualRing.gif" alt="">
-        </div>
-        
-        <div class="success" *ngIf="success">
-          <p> <i class="fa fa-check"></i> {{message}}.</p>
-        </div>
-        <div class="errorMessage" *ngIf="error">
-          <p><i class="fa fa-times-circle"></i> {{errormessage}} </p>
-        </div>
-
-        <!-- button container in the card  showing up if loggingIn = false -->
-        <div class="button-container" *ngIf="showButton">
-          <button class="button" type="submit" mat-raised-button [disabled]="!loginForm.valid"
-            (click)="login(loginForm.get('Email').value, loginForm.get('Password').value)">Login</button>
-        </div><br>
-
-        <!-- link -->
-        <p>Har du ikke en konto? <a class="link" routerLink="/Register">Register one</a>.</p>
-
-      </form>
-      <!-- form END -->
+      <div id="btn"></div>
+      <button type="button" class="toggle-btn" (click)="switchToLoginPanel()">Login</button>
+      <button type="button" class="toggle-btn" (click)="switchToRegisterPanel()">Register</button>
 
     </div>
-    <!-- content container in the card END -->
+
+    <form id="login" class="input-group" [formGroup]="loginForm">
+
+      <!-- email input field -->
+      <div class="form-field">
+        <input type="Email" class="input-field" id="input-field" placeholder="E-mail" formControlName="Email">
+        <span *ngIf="loginForm.controls.Email.errors?.pattern" class="error">Wrong Email pattern!</span>
+      </div>
+
+      <!-- password input field -->
+      <div class="form-field">
+        <input type="Password" class="input-field" id="input-field" placeholder="Password" formControlName="Password">
+        <span *ngIf="loginForm.controls.Password.errors?.required" class="error">Password required!</span>
+        <span *ngIf="loginForm.controls.Password.errors?.minlength" class="error">Password required!</span>
+      </div>
+
+      <!-- logging in animarion DualRing.gif showing up if loggingIn = true -->
+      <div class="loadinganim" *ngIf="loggingIn">
+        <img class="dualRing" src="assets/DualRing.gif" alt="">
+      </div>
+
+      <div class="success" *ngIf="success">
+        <p> <i class="fa fa-check"></i> {{message}}.</p>
+      </div>
+      <div class="errorMessage" *ngIf="error">
+        <p><i class="fa fa-times-circle"></i> {{errormessage}} </p>
+      </div>
+
+      <!-- button container in the card  showing up if loggingIn = false -->
+      <div class="button-container" *ngIf="showButton">
+        <button class="submit-btn" type="submit" mat-button [disabled]="!loginForm.valid"
+          (click)="login(loginForm.get('Email').value, loginForm.get('Password').value)">Login</button>
+      </div><br>
+
+    </form>
+
+    <form id="register" class="input-group" [formGroup]="registerForm">
+
+      <div class="topbox">
+
+        <div class="form-field">
+          <input type="text" class="input-field" id="input-field" matInput placeholder="E-mail" formControlName="Email">
+          <span *ngIf="registerForm.controls.Email.errors?.required" class="error">E-Mail required!</span>
+          <span *ngIf="registerForm.controls.Email.errors?.pattern" class="error">Wrong Email
+            pattern!</span>
+        </div>
+
+        <div class="form-field">
+          <input type="password" class="input-field" id="input-field" matInput placeholder="Password"
+            formControlName="Password">
+          <span *ngIf="registerForm.controls.Password.errors?.required" class="error">Password
+            required!</span>
+          <span *ngIf="registerForm.controls.Password.errors?.minlength" class="error">Min. length is
+            4.</span>
+        </div>
+
+      </div>
+
+      <div class="middlebox">
+
+        <div class="form-field">
+          <input type="text" class="input-field" id="input-field" matInput placeholder="Firstname"
+            formControlName="Firstname">
+          <span *ngIf="registerForm.controls.Firstname.errors?.required" class="error">Firstname
+            required!</span>
+        </div>
+
+        <div class="form-field">
+          <input type="text" class="input-field" id="input-field" matInput placeholder="Lastname"
+            formControlName="Lastname">
+          <span *ngIf="registerForm.controls.Lastname.errors?.required" class="error">Lastname
+            required!</span>
+        </div>
+
+      </div>
+
+      <div class="bottombox">
+
+        <div class="form-field">
+          <input type="text" class="input-field" id="input-field" matInput placeholder="Address"
+            formControlName="Address">
+          <span *ngIf="registerForm.controls.Address.errors?.required" class="error">Address
+            required!</span>
+        </div>
+
+        <div class="form-field">
+          <input type="text" class="input-field" id="input-field" matInput placeholder="Phone" formControlName="Phone">
+          <span *ngIf="registerForm.controls.Phone.errors?.required" class="error"> Phone required!</span>
+          <span *ngIf="registerForm.controls.Phone.errors?.minlength" class="error"> Min. Length is
+            8!</span>
+          <span *ngIf="registerForm.controls.Phone.errors?.maxlength" class="error"> Max. Length is
+            8!</span>
+          <span *ngIf="registerForm.controls.Phone.errors?.pattern" class="error"> Use numbers please.
+          </span>
+        </div>
+
+      </div>
+
+      <!-- logging in animarion DualRing.gif showing up if registerPressed = true -->
+      <div class="loadinganim" *ngIf="showAnimation">
+        <img class="dualRing" src="assets/DualRing.gif" alt="">
+      </div>
+
+      <!-- messages -->
+      <div class="success" *ngIf="success">
+        <p> <i class="fa fa-check"></i> {{regMessage}}.</p>
+      </div>
+      <div class="errorMessage" *ngIf="error">
+        <p><i class="fa fa-times-circle"></i> {{regErrormessage}} </p>
+      </div>
+
+      <div class="button-container" *ngIf="showButton">
+        <button class="submit-btn" type="submit" mat-button [disabled]="!registerForm.valid"
+          (click)="registerUser(registerForm.value)">Register</button>
+      </div>
+
+    </form>
+
+
+
 
   </div>
-  <!-- card END -->
 </div>
 <!-- container END -->

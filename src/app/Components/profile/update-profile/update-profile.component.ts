@@ -3,6 +3,7 @@ import { Tokenservice } from 'src/app/Back-END/Services/Storage-Crypting/TokenSe
 import { DataService } from 'src/app/Back-END/Services/DataService/data.service';
 import { SharedService } from 'src/app/Back-END/Services/Shared-Service/shared.service';
 import { MatDialog } from '@angular/material/dialog';
+import {ViewEncapsulation} from '@angular/core';
 import { Router } from '@angular/router';
 import {
   FormBuilder,

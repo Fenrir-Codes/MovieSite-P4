@@ -206,6 +206,7 @@ export class UpdateMovieComponent implements OnInit {
   //#region cancel function closes the dialog and removes the userUpdateToken from session storage
   cancel() {
     this.tokenService.removeMovieUpdateToken();
+    this.dialogRef.closeAll();
   }
   //#endregion
 

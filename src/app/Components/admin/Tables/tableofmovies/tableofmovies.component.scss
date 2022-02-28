@@ -25,10 +25,10 @@
   display: flex;
   flex-direction: column;
 
-  .filter{
+  .filter {
     width: 100%;
 
-    .filterInput{
+    .filterInput {
       padding: 8px 8px;
       width: 100%;
       outline: none;
@@ -79,17 +79,21 @@ table {
 
   }
 
-  .mat-column-Title{
+  .mat-column-Title {
     width: 120px;
     text-align: left;
   }
 
-  .mat-column-Language{
+  .mat-column-Language {
     text-align: center;
   }
 
-  .mat-column-Country, .mat-column-Genre, .mat-column-Duration, 
-  .mat-column-ReleaseDate, .mat-column-Update,.mat-column-Delete{
+  .mat-column-Country,
+  .mat-column-Genre,
+  .mat-column-Duration,
+  .mat-column-ReleaseDate,
+  .mat-column-Update,
+  .mat-column-Delete {
     text-align: center;
   }
 

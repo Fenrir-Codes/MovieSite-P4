@@ -150,7 +150,6 @@ mat-toolbar {
       color: var(--MenuOnHoverColor);
       background-color: var(--PrimaryBackgroundColor);
       background-image: var(--MenuOnHoverColor);
-
     }
 
     &:active {
@@ -216,7 +215,6 @@ mat-toolbar {
 mat-sidenav-container {
   height: calc(100% - 50px); // -50px because the top toolbar har 50px height
   width: calc(100%);
-  background-color: var(--PrimaryBackgroundColor);
   background-image: var(--PrimaryBackgroundImage);
 
   /* The nav on the side */
@@ -260,6 +258,13 @@ mat-sidenav-container {
     justify-content: center;
     margin: auto;
 
+/*     .back-video {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+    } */
+
     .router-content {
       width: 75%;
     }
@@ -270,7 +275,7 @@ mat-sidenav-container {
       bottom: 0;
       width: 100%;
       height: 70px;
-      background: rgba(119, 119, 119, 0.15);
+      background: rgba(0, 0, 0, 0.8);
 
       ul {
         margin-top: 20px;
@@ -297,9 +302,7 @@ mat-sidenav-container {
             color: #fff;
             text-decoration: none;
           }
-
         }
-
       }
     }
   }
@@ -309,14 +312,11 @@ mat-sidenav-container {
 @media only screen and (min-width: 750px) {
   .toggleMenuButton {
     display: none;
-
   }
-
 }
 
 /* if the screen size is less than 790px do not show the menu button on top toolbar*/
 @media only screen and (max-width: 750px) {
-
   #homeButton,
   #movieButton,
   #watchButton,
@@ -355,11 +355,21 @@ mat-sidenav-container {
 
       .CopyR {
         display: none;
-
       }
-
     }
-
   }
+}
 
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .back-video {
+    width: auto;
+    height: 100%;
+  }
 }

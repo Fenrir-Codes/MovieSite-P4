@@ -8,15 +8,6 @@ export class Tokenservice {
 
   constructor(private LocalService: LocalService) {}
 
-  
-  /* this function sets the encrypted json values to session storage */
-  enCryptKey(token: string, value: any) {
-    return this.LocalService.setJsonValue(token, value);
-  }
-
-  setUserToken(userToken: string, value: any) {
-    return this.LocalService.setJsonValue(userToken, value);
-  }
 
   removeUserUpdateToken(){
     return this.LocalService.removeItem('userUpdateToken')
@@ -35,6 +26,10 @@ export class Tokenservice {
     return this.LocalService.getJsonValue('userToken');
   }
 
+  getCartToken() {
+    return this.LocalService.getJsonValue('productInCart');
+  }
+
   getUserUpdateToken() {
     return this.LocalService.getJsonValue('userUpdateToken');
   }
@@ -47,6 +42,10 @@ export class Tokenservice {
     return this.LocalService.removeItem('movieUpdateToken')
   }
 
+  removeCartToken(){
+    return this.LocalService.removeItem('productInCart')
+  }
+
   /*this function read the 'token' value from the session storage  */
   deCryptKey() {
     return this.LocalService.getJsonValue('token');
@@ -57,4 +56,22 @@ export class Tokenservice {
     return this.LocalService.clearToken();
   }
 
+  //#region setter's
+
+  enCryptKey(token: string, value: any) {
+    return this.LocalService.setJsonValue(token, value);
+  }
+
+  setUserToken(userToken: string, value: any) {
+    return this.LocalService.setJsonValue(userToken, value);
+  }
+
+
+
+
+
+
+
+
+  //#endregion
 }

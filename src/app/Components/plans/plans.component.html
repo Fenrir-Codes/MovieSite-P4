@@ -1,16 +1,24 @@
-<div class="container">
-    <br>
-    <div class="content">
+<div class="container" id="container">
 
-        <div class="card">
-            <img src="assets/monthlySub.JPG" alt="Testcard-Alt">
+    <div class="card" *ngFor="let display of products">
 
-            <div class="card-content">
-                <p>1 Month subscription</p>
+        <div class="card-inner">
+
+            <div class="front-face">
+                <img src="assets/blue.jpg">
+                <h2>{{ display.productName }}</h2>
+                <p>{{ display.description }}</p>
             </div>
 
+            <div class="back-face">
+                <h2>{{ display.productName }}</h2>
+                <p>{{ display.description }}</p>
+                <p>Price: {{ display.price }} €</p>
+                <button mat-button class="btn" (click)="addToCart(display)">Buy plan</button>
+            </div>
+           
         </div>
-
     </div>
-
 </div>
+
+<!-- <mat-icon>add_shopping_cart</mat-icon> -->

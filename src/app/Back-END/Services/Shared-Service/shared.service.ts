@@ -5,6 +5,7 @@ import { IProfile } from 'src/app/Interfaces/IProfile';
 import { IMovie } from 'src/app/Interfaces/IMovie';
 import { IDirector } from 'src/app/Interfaces/IDirector';
 import { IOrder } from 'src/app/Interfaces/IOrder';
+import { IProduct } from 'src/app/Interfaces/IProduct';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -85,6 +86,11 @@ export class SharedService {
       this.ApiUrl + 'Directors/' + id,
       httpOptions
     );
+  }
+
+  getProducts(): Observable<IProduct[]> {
+    /* Getting all movies to show on home */
+    return this.http.get<IProduct[]>(this.ApiUrl + 'Products', httpOptions);
   }
 
   //#endregion

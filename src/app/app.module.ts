@@ -40,13 +40,13 @@ import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofi
 import { MatTableModule } from '@angular/material/table';
 import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
 import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
-import { RegisterComponent } from './Components/register/register.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UpdateUserComponent } from './Components/admin/Actions/UpdateUser/update-user/update-user.component';
 import { UpdateMovieComponent } from './Components/admin/Actions/UpdateMovie/update-movie/update-movie.component';
 import { PlansComponent } from './Components/plans/plans.component';
+import { CartComponent } from './Components/cart/cart.component';
 
 
 
@@ -70,10 +70,10 @@ import { PlansComponent } from './Components/plans/plans.component';
      TableofprofilesComponent,
      AdminhomeComponent,
      TableofmoviesComponent,
-     RegisterComponent,
      UpdateUserComponent,
      UpdateMovieComponent,
      PlansComponent,
+     CartComponent,
     
     
     ],
