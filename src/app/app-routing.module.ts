@@ -12,7 +12,6 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
 import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofiles/tableofprofiles.component';
 import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
-import { RegisterComponent } from './Components/register/register.component';
 import { UpdateUserComponent } from './Components/admin/Actions/UpdateUser/update-user/update-user.component';
 import { UpdateMovieComponent } from './Components/admin/Actions/UpdateMovie/update-movie/update-movie.component';
 import { PlansComponent } from './Components/plans/plans.component';
@@ -28,7 +27,6 @@ const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Movies', component: MoviesComponent },
   { path: 'Login', component: LoginComponent },
-  { path: 'Register', component: RegisterComponent },
   { path: 'BuyPlan', component: PlansComponent },
   { path: 'Cart', component: CartComponent },
   { path: 'UpdateUser', component: UpdateUserComponent },

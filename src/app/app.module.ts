@@ -40,7 +40,6 @@ import { TableofprofilesComponent } from './Components/admin/Tables/tableofprofi
 import { MatTableModule } from '@angular/material/table';
 import { AdminhomeComponent } from './Components/admin/adminhome/adminhome.component';
 import { TableofmoviesComponent } from './Components/admin/Tables/tableofmovies/tableofmovies.component';
-import { RegisterComponent } from './Components/register/register.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -71,7 +70,6 @@ import { CartComponent } from './Components/cart/cart.component';
      TableofprofilesComponent,
      AdminhomeComponent,
      TableofmoviesComponent,
-     RegisterComponent,
      UpdateUserComponent,
      UpdateMovieComponent,
      PlansComponent,
