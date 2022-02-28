@@ -45,10 +45,12 @@ export class LoginComponent implements OnInit {
   //#region switch to register panel function
   switchToRegisterPanel() {
     var login = document.getElementById("login");
+    var formBox = document.getElementById("form-box")
     var reg = document.getElementById("register");
     var btn = document.getElementById("btn");
 
     login.style.left = "-400px";
+    formBox.style.height = "80%";
     reg.style.left = "50px";
     btn.style.left = "110px";
 
@@ -58,10 +60,12 @@ export class LoginComponent implements OnInit {
   //#region switch to login panel function
   switchToLoginPanel() {
     var login = document.getElementById("login");
+    var formBox = document.getElementById("form-box")
     var reg = document.getElementById("register");
     var btn = document.getElementById("btn");
 
     login.style.left = "50px";
+    formBox.style.height = "50%";
     reg.style.left = "500px";
     btn.style.left = "0px";
 
