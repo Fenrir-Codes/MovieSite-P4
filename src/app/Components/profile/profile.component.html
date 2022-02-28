@@ -7,7 +7,7 @@
             <div class="front-face">
                 <h2>{{user?.firstname}} {{user?.lastname}}'s profile</h2>
                 <img class="avatar" id="avatar" src="./assets/{{user?.image}}" alt="">
-                  <mat-icon>360</mat-icon>
+                <mat-icon>360</mat-icon>
             </div>
 
             <div class="back-face">
@@ -17,11 +17,11 @@
                 <p> Phone: {{user?.phone}} </p>
 
                 <div class="button-container">
-                    <button class="btn" type="submit" mat-button
-                        (click)="openDialog(user?.profileId)">Update Profile</button>
+                    <button class="btn" type="submit" mat-button (click)="openDialog(user?.profileId)">Update
+                        Profile</button>
 
-                    <button class="btn-delete" type="submit" mat-button
-                        (click)="deleteProfile(user.profileId)" [disabled]="!checked">Delete
+                    <button class="btn-delete" type="submit" mat-button (click)="deleteProfile(user.profileId)"
+                        [disabled]="!checked">Delete
                         Profile</button>
                 </div>
 

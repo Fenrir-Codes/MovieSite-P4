@@ -21,8 +21,13 @@ export class LoginComponent implements OnInit {
   message: string = 'Login success.';
   errormessage: string = "Email or password is not valid, please try again.";
   loginForm: any;
+  registerForm: any;
   user: any;
   hide = true;
+  result: any;
+  showAnimation: boolean = false;
+  regMessage: string = 'Register success.';
+  regErrormessage: string = "Something went wrong, please try again.";
   //#endregion
 
   constructor(private fb: FormBuilder,
@@ -33,8 +38,57 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.initLoginForm();
+    this.initRegisterForm();
 
   }
+
+  switchPanel(){
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    x.style.left = "-400px";
+    y.style.left = "50px";
+    z.style.left = "110px";
+
+  }
+
+  switchToLoginPanel(){
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    x.style.left = "50px";
+    y.style.left = "500px";
+    z.style.left = "0px";
+
+  }
+
+  //#region initalizer registering form
+  initRegisterForm(){
+    this.registerForm = this.fb.group({
+      Email: new FormControl(null,
+        [Validators.required,
+        Validators.email,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+      Password: new FormControl(null,
+        [Validators.required, Validators.minLength(4)]),
+      Firstname: new FormControl(null,
+        [Validators.required, Validators.minLength(1)]),
+      Lastname: new FormControl(null,
+        [Validators.required, Validators.minLength(1)]),
+      Address: new FormControl(null, Validators.required),
+      Phone: new FormControl(null,
+        [Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(8),
+        Validators.pattern('[- +()0-9]+')]),
+      Image: new FormControl('profile.jpg'),
+      Role: new FormControl(0),
+    });
+  }
+
+  //#endregion
 
   //#region  initalize the login form
   initLoginForm(){
@@ -122,6 +176,46 @@ export class LoginComponent implements OnInit {
   }
   //#endregion
 
+
+  registerUser(body: any) {
+    this.showButton = false; //hide button
+    this.showAnimation = true;
+    //run api call (Create method)
+    this.service.createNewUser(body).subscribe(res => {
+      this.result = res;
+
+      //Error message
+      if (this.result === null) {
+        setTimeout(() => {
+          this.showAnimation = false;
+          this.showButton = false; //hide button
+          this.error = true //show message true
+          this.registerForm.reset(); //reset the form
+        }, 2000);
+      }
+      else {
+        /* if the response is not null */
+        setTimeout(() => {
+          this.showAnimation = false;
+          this.showButton = false; //hide button
+          this.success = true;  //show message true
+
+          setTimeout(() => {
+            this.registerForm.reset();  // reset the form
+            this.switchToLoginPanel();
+            this.showButton = true;
+            this.success = false;
+            this.error = false;
+
+          }, 2000);
+
+        }, 1500);
+
+      }
+
+    });
+
+  }
 }
 
 
