@@ -42,30 +42,34 @@ export class LoginComponent implements OnInit {
 
   }
 
-  switchPanel(){
-    var x = document.getElementById("login");
-    var y = document.getElementById("register");
-    var z = document.getElementById("btn");
+  //#region switch to register panel function
+  switchToRegisterPanel() {
+    var login = document.getElementById("login");
+    var reg = document.getElementById("register");
+    var btn = document.getElementById("btn");
 
-    x.style.left = "-400px";
-    y.style.left = "50px";
-    z.style.left = "110px";
-
-  }
-
-  switchToLoginPanel(){
-    var x = document.getElementById("login");
-    var y = document.getElementById("register");
-    var z = document.getElementById("btn");
-
-    x.style.left = "50px";
-    y.style.left = "500px";
-    z.style.left = "0px";
+    login.style.left = "-400px";
+    reg.style.left = "50px";
+    btn.style.left = "110px";
 
   }
+  //#endregion
 
-  //#region initalizer registering form
-  initRegisterForm(){
+  //#region switch to login panel function
+  switchToLoginPanel() {
+    var login = document.getElementById("login");
+    var reg = document.getElementById("register");
+    var btn = document.getElementById("btn");
+
+    login.style.left = "50px";
+    reg.style.left = "500px";
+    btn.style.left = "0px";
+
+  }
+  //#endregion
+
+  //#region initalize registering form
+  initRegisterForm() {
     this.registerForm = this.fb.group({
       Email: new FormControl(null,
         [Validators.required,
@@ -91,7 +95,7 @@ export class LoginComponent implements OnInit {
   //#endregion
 
   //#region  initalize the login form
-  initLoginForm(){
+  initLoginForm() {
     this.loginForm = new FormGroup({
       Email: new FormControl(null, [Validators.required,
       Validators.required,
@@ -111,7 +115,7 @@ export class LoginComponent implements OnInit {
 
     setTimeout(() => {
       this.service.login(Email, Password).subscribe((response) => {
-        this.user = response;    
+        this.user = response;
 
         if (this.user != null) {
           this.success = true;
@@ -166,17 +170,17 @@ export class LoginComponent implements OnInit {
   //#endregion
 
   //#region getting the users all detailed info, included orders etc...
-  getUserDetailed(id:number){
+  getUserDetailed(id: number) {
     this.service.getUserById(id).subscribe(res => {
       //console.log(res);
       this.tokenService.enCryptKey('userToken', res)
-      
+
     })
 
   }
   //#endregion
 
-
+  //#region register function
   registerUser(body: any) {
     this.showButton = false; //hide button
     this.showAnimation = true;
@@ -216,6 +220,10 @@ export class LoginComponent implements OnInit {
     });
 
   }
+
+  //#endregion
+
+
 }
 
 

@@ -7,21 +7,20 @@
 
       <div id="btn"></div>
       <button type="button" class="toggle-btn" (click)="switchToLoginPanel()">Login</button>
-      <button type="button" class="toggle-btn" (click)="switchPanel()">Register</button>
+      <button type="button" class="toggle-btn" (click)="switchToRegisterPanel()">Register</button>
 
     </div>
 
     <form id="login" class="input-group" [formGroup]="loginForm">
 
       <!-- email input field -->
-      <div class="form-field-Email">
+      <div class="form-field">
         <input type="Email" class="input-field" id="input-field" placeholder="E-mail" formControlName="Email">
-        <span *ngIf="loginForm.controls.Email.errors?.required" class="error">E-Mail required!</span>
         <span *ngIf="loginForm.controls.Email.errors?.pattern" class="error">Wrong Email pattern!</span>
       </div>
 
       <!-- password input field -->
-      <div class="form-field-Password">
+      <div class="form-field">
         <input type="Password" class="input-field" id="input-field" placeholder="Password" formControlName="Password">
         <span *ngIf="loginForm.controls.Password.errors?.required" class="error">Password required!</span>
         <span *ngIf="loginForm.controls.Password.errors?.minlength" class="error">Password required!</span>
