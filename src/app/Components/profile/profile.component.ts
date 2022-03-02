@@ -22,6 +22,8 @@ export class ProfileComponent implements OnInit {
   message: string = '';
   showMessage: boolean = false;
   checked: boolean = false;
+  isActive:boolean = false;
+  expDate: any;
   //#endregion
 
   constructor(
@@ -66,7 +68,9 @@ export class ProfileComponent implements OnInit {
     //receiving the full user detail with det by id call
     this.service.getUserById(this.userId).subscribe((data) => {
       this.user = data;
-      //console.log(this.user);
+      this.isActive = this.user.mySubscription[0].isActive;
+      this.expDate = this.user.mySubscription[0].expDate;
+      console.log(this.user);
     });
   }
   //#endregion

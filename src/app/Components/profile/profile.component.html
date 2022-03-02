@@ -15,6 +15,9 @@
                 <p> Address: {{user?.address}}</p>
                 <p> Email: {{user?.email}} </p>
                 <p> Phone: {{user?.phone}} </p>
+                <p *ngIf="!isActive"> Subscription: Not subscribed</p> 
+                <p *ngIf="isActive"> Subscription: <br>
+                   <span> Active until: {{expDate | date}}</span></p> 
 
                 <div class="button-container">
                     <button class="btn" type="submit" mat-button (click)="openDialog(user?.profileId)">Update
