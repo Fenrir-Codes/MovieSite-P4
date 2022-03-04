@@ -34,16 +34,16 @@ export class MovieDetailsComponent implements OnInit {
   //#region get User subscription status
   getSubscriptionStatus() {
     this.user = this.tokenService.getUserToken();
+    //console.log(this.user);
 
     if (this.user === null) {
       this.isActive;
     }
-    if (this.user != null && this.user.mySubscription.length > 0) {
-      this.isActive = this.user.mySubscription[0].isActive;
+    if (this.user != null && this.user.subscription.length > 0) {
+      this.isActive = this.user.subscription[0].isActive;
     } else {
       this.isActive;
     }
-    //console.log(this.user);
   }
   //#endregion
 

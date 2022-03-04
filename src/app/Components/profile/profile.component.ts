@@ -6,13 +6,12 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { MatDialog } from '@angular/material/dialog';
-
-
+import { dateInputsHaveChanged } from '@angular/material/datepicker/datepicker-input-base';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
   //#region Local variables
@@ -22,7 +21,7 @@ export class ProfileComponent implements OnInit {
   message: string = '';
   showMessage: boolean = false;
   checked: boolean = false;
-  isActive:boolean = false;
+  isActive: boolean = false;
   expDate: any;
   //#endregion
 
@@ -33,7 +32,7 @@ export class ProfileComponent implements OnInit {
     private DataService: DataService,
     private tokenService: Tokenservice,
     public dialog: MatDialog
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.readUserDataFromToken();
@@ -68,9 +67,9 @@ export class ProfileComponent implements OnInit {
     //receiving the full user detail with det by id call
     this.service.getUserById(this.userId).subscribe((data) => {
       this.user = data;
-      this.isActive = this.user.mySubscription[0].isActive;
-      this.expDate = this.user.mySubscription[0].expDate;
-      console.log(this.user);
+      this.isActive = this.user.subscription[0].isActive;
+      this.expDate = this.user.subscription[0].expDate;
+      //console.log(this.user);
     });
   }
   //#endregion
@@ -100,7 +99,6 @@ export class ProfileComponent implements OnInit {
       }, 3000);
     });
     //console.log(id);
-
   }
   //#endregion
 
@@ -117,13 +115,11 @@ export class ProfileComponent implements OnInit {
       this.user = data;
 
       this.dialog.open(UpdateProfileComponent, {
-        disableClose: true
-        
+        disableClose: true,
       });
 
       this.tokenService.enCryptKey('userUpdateToken', this.user);
     });
   }
   //#endregion
-
 }
