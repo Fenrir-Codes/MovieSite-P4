@@ -29,6 +29,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     scroll-behavior: smooth;
   }
 
+.custom-dialog >  mat-dialog-container {
+  background: transparent;
+  border-radius: none;
+}
+
 
 @keyframes animate {
 0%{

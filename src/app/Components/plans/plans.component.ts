@@ -44,8 +44,9 @@ export class PlansComponent implements OnInit {
     this.cartService.addToCart(product);
     //console.log(product);
 
-     this.dialog.open(CartComponent, {
+    this.dialog.open(CartComponent, {
       disableClose: true,
+      panelClass: 'custom-dialog'  //set in global: styles.scss
     });
 
     this.tokenService.enCryptKey('productInCart', product);

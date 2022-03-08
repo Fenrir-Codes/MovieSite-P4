@@ -5,36 +5,96 @@
     margin: 0;
 
     .card {
-        width: 200px;
-        height: 300px;
+        width: 960px;
+        height: 100%;
+        margin: auto;
+        background: white;
+        position: center;
+        align-self: center;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
 
-        .back-face {
+        .leftside {
             background: rgb(188, 32, 33);
             color: white;
             position: relative;
-            height: 300px;
-            width: 200px;
-            border-radius: 10px;
+            width: 380px;
+            border-radius: 10px 0px 0px 10px;
             display: flex;
             flex-direction: column;
             justify-content: center;
 
-            .clear {
+            .cart-h1{
                 position: absolute;
-                margin: 5px;
-                top: 0;
-                right: 0;
+                top:50px;
+                left: 100px;
+
             }
 
-            h2 {
-                font-size: 20px;
-                margin-top: 10px;
-                font-weight: 600;
+            .product-card {
+                background: rgb(188, 32, 33);
+                color: white;
+                position: relative;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                h2 {
+                    font-size: 20px;
+                    margin-top: 10px;
+                    font-weight: 600;
+                }
+
+                p {
+                    font-size: 18px;
+                    font-weight: 300;
+                }
+
             }
 
-            p {
-                font-size: 16px;
-                font-weight: 300;
+        }
+
+        .rightside {
+
+            .clearButton {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            background-color: #ffffff;
+            width: 560px;
+            border-radius: 10px;
+            padding: 16px 32px 48px 48px;
+
+            .inputbox {
+                color: #030303;
+                width: 100%;
+                padding: 8px;
+                border: none;
+                border-bottom: 1.5px solid #ccc;
+                margin-bottom: 16px;
+                border-radius: 5px;
+                color: #615a5a;
+                font-size: 18px;
+                font-weight: 500;
+                outline: none;
+            }
+
+            .expcvv {
+                display: flex;
+                justify-content: space-between;
+                padding-top: 10px;
+                font-size: 18px;
+
+                .expcvv_text {
+                    padding-right: 12px;
+                }
+                .expcvv_text2 {
+                    padding: 0 10px;
+                }
+
             }
 
             .btn {
@@ -47,7 +107,6 @@
                 border: none;
                 margin: 100px auto 0;
                 padding: 5px 50px;
-
                 &:hover {
                     cursor: pointer;
                     color: rgb(0, 160, 0);
@@ -61,7 +120,6 @@
 //tooltip color
 ::ng-deep .tooltip-color {
     background: var(--SecondaryFontColor);
-    
 }
 
 @media only screen and (max-width: 750px) {
