@@ -15,13 +15,13 @@
 
       <!-- email input field -->
       <div class="form-field">
-        <input type="Email" class="input-field" id="input-field" placeholder="E-mail" formControlName="Email">
+        <input type="Email" class="input-field" placeholder="E-mail" formControlName="Email">
         <span *ngIf="loginForm.controls.Email.errors?.pattern" class="error">Wrong Email pattern!</span>
       </div>
 
       <!-- password input field -->
       <div class="form-field">
-        <input type="Password" class="input-field" id="input-field" placeholder="Password" formControlName="Password">
+        <input type="Password" class="input-field" placeholder="Password" formControlName="Password">
         <span *ngIf="loginForm.controls.Password.errors?.required" class="error">Password required!</span>
         <span *ngIf="loginForm.controls.Password.errors?.minlength" class="error">Password required!</span>
       </div>
@@ -51,14 +51,14 @@
       <div class="topbox">
 
         <div class="form-field">
-          <input type="text" class="input-field" id="input-field" matInput placeholder="E-mail" formControlName="Email">
+          <input type="text" class="input-field" matInput placeholder="E-mail" formControlName="Email">
           <span *ngIf="registerForm.controls.Email.errors?.required" class="error">E-Mail required!</span>
           <span *ngIf="registerForm.controls.Email.errors?.pattern" class="error">Wrong Email
             pattern!</span>
         </div>
 
         <div class="form-field">
-          <input type="password" class="input-field" id="input-field" matInput placeholder="Password"
+          <input type="password" class="input-field" matInput placeholder="Password"
             formControlName="Password">
           <span *ngIf="registerForm.controls.Password.errors?.required" class="error">Password
             required!</span>
@@ -71,14 +71,14 @@
       <div class="middlebox">
 
         <div class="form-field">
-          <input type="text" class="input-field" id="input-field" matInput placeholder="Firstname"
+          <input type="text" class="input-field" matInput placeholder="Firstname"
             formControlName="Firstname">
           <span *ngIf="registerForm.controls.Firstname.errors?.required" class="error">Firstname
             required!</span>
         </div>
 
         <div class="form-field">
-          <input type="text" class="input-field" id="input-field" matInput placeholder="Lastname"
+          <input type="text" class="input-field" matInput placeholder="Lastname"
             formControlName="Lastname">
           <span *ngIf="registerForm.controls.Lastname.errors?.required" class="error">Lastname
             required!</span>
@@ -89,14 +89,14 @@
       <div class="bottombox">
 
         <div class="form-field">
-          <input type="text" class="input-field" id="input-field" matInput placeholder="Address"
+          <input type="text" class="input-field" matInput placeholder="Address"
             formControlName="Address">
           <span *ngIf="registerForm.controls.Address.errors?.required" class="error">Address
             required!</span>
         </div>
 
         <div class="form-field">
-          <input type="text" class="input-field" id="input-field" matInput placeholder="Phone" formControlName="Phone">
+          <input type="text" class="input-field" matInput placeholder="Phone" formControlName="Phone">
           <span *ngIf="registerForm.controls.Phone.errors?.required" class="error"> Phone required!</span>
           <span *ngIf="registerForm.controls.Phone.errors?.minlength" class="error"> Min. Length is
             8!</span>

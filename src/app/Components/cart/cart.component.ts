@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
     this.cartService.clearCart();
     this.tokenService.removeCartToken();
     this.ngOnInit();
-    //this.dialog.closeAll();
+    this.dialog.closeAll();
     
   }
 
