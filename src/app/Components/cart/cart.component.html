@@ -1,14 +1,12 @@
 <div class="container">
-    <div class="card">
-        <div class="leftside">
+    <div class="card" id="card">
+        <div class="leftside" id="leftside">
             <h1 class="cart-h1">Your Cart item:</h1>
-            <div class="product-card">
                 <h2>{{ item?.productName }}</h2>
                 <p>{{ item?.description }}</p>
                 <p>Total: {{ item?.price }} €</p>
-            </div>
         </div>
-        <div class="rightside">
+        <div class="rightside" id="rightside">
             <div class="clearButton">
                 <mat-icon class="clear" (click)="removeItem()" matTooltip="Remove Cart Item"
                     matTooltipClass="tooltip-color" [matTooltipPosition]="'right'">highlight_off</mat-icon>
@@ -37,8 +35,10 @@
                 </div>
 
                 <p></p>
-                <button type="submit" class="btn">CheckOut</button>
             </form>
+            <div class="button-container">
+                <button type="submit" class="btn">CheckOut</button>
+            </div>
         </div>
     </div>
 </div>

@@ -45,7 +45,7 @@ export class PlansComponent implements OnInit {
     //console.log(product);
 
     this.dialog.open(CartComponent, {
-      disableClose: true,
+      disableClose: true,   
       panelClass: 'custom-dialog'  //set in global: styles.scss
     });
 
