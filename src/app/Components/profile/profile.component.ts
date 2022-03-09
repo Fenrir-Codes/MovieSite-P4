@@ -22,7 +22,9 @@ export class ProfileComponent implements OnInit {
   showMessage: boolean = false;
   checked: boolean = false;
   isActive: boolean = false;
-  expDate: any;
+  expDate:Date;
+  today:Date;
+  daysLeft:any
   //#endregion
 
   constructor(
@@ -71,6 +73,17 @@ export class ProfileComponent implements OnInit {
       this.expDate = this.user.subscription[0].expDate;
       //console.log(this.user);
     });
+    this.getExpirationDate();
+  }
+  //#endregion
+
+  //#region expDate
+  getExpirationDate(){
+    let date = new Date();
+    this.today = date;  
+    this.expDate = new Date(this.user.subscription[0].expDate);
+    this.daysLeft = this.expDate.getDate() - this.today.getDate();
+    
   }
   //#endregion
 

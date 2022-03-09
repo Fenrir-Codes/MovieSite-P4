@@ -5,13 +5,14 @@
                 <h2>{{ item?.productName }}</h2>
                 <p>{{ item?.description }}</p>
                 <p>Total: {{ item?.price }} €</p>
+<!--                 <p>You have  {{ daysLeft }} left, until your subscription expires. </p> -->
         </div>
         <div class="rightside" id="rightside">
             <div class="clearButton">
                 <mat-icon class="clear" (click)="removeItem()" matTooltip="Remove Cart Item"
                     matTooltipClass="tooltip-color" [matTooltipPosition]="'right'">highlight_off</mat-icon>
             </div>
-            <form class="checkout-form">
+            <form class="checkout-form" id="checkout-form">
                 <h1>CheckOut</h1>
                 <h2>Payment Information</h2>
                 <p>Cardholder Name</p>

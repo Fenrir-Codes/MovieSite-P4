@@ -142,18 +142,14 @@
 
     }
     #card{
-        width: 300px;
+        width: 750px;
         height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
 
         #leftside{
             width: auto;
-            padding: 10px;
             display: flex;
-            justify-content: center;
-            border-radius: 10px 10px 0px 0px;
+
+
 
             .product-card{
                 width: auto;
@@ -168,12 +164,12 @@
 
             h2{
                 width: auto;
-                margin: auto 20px;
+                margin:0 20px;
                 margin-top: 50px;
             }
             p{
                 width: auto;
-                margin: auto;
+                margin: 0 auto;
             }
         }
 
@@ -181,7 +177,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: auto;
+            width: 100%;
             height: auto;
             padding: 10px;
 
@@ -203,10 +199,6 @@
                 justify-content: center;
             }
 
-            .expcvv{
-                display: block;
-            }
-
             #button-container{
                 width: auto;
                 margin: 0;
@@ -220,3 +212,93 @@
     }
  
 }
+
+@media only screen and (max-width: 950px) {
+    #container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+    }
+    #card{
+        width: 550px;
+        height: auto;
+
+        .expcvv{
+            display: block;
+        }
+
+    }
+ 
+}
+
+@media only screen and (max-width: 650px) {
+    #container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+    }
+    #card{
+        width: 350px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        #leftside{
+            width: auto;
+            height: auto;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        #rightside{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: auto;
+            height: auto;
+            padding: 10px;
+
+            .inputbox{
+                width: auto;
+                margin: 0;
+                padding: 0;
+            }
+            p{
+                width: auto;
+            }
+            .inputbox{
+                width: auto;
+            }
+
+            .clearButton{
+                display: block;
+                margin: auto;
+                width:auto;
+            }
+
+            .checkout-form{
+                width: auto;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            #button-container{
+                width: auto;
+                margin: 0;
+
+                .btn{
+                    width: auto;
+                }
+
+            }
+        }
+    }  
+ 
+}
+

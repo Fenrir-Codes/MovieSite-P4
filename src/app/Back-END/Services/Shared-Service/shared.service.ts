@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpClientJsonpModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProfile } from 'src/app/Interfaces/IProfile';
@@ -6,6 +6,7 @@ import { IMovie } from 'src/app/Interfaces/IMovie';
 import { IDirector } from 'src/app/Interfaces/IDirector';
 import { IOrder } from 'src/app/Interfaces/IOrder';
 import { IProduct } from 'src/app/Interfaces/IProduct';
+import { ISubscription } from 'src/app/Interfaces/ISubscription';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -89,7 +90,6 @@ export class SharedService {
   }
 
   getProducts(): Observable<IProduct[]> {
-    /* Getting all movies to show on home */
     return this.http.get<IProduct[]>(this.ApiUrl + 'Products', httpOptions);
   }
 
@@ -124,6 +124,14 @@ export class SharedService {
   updateMovie(id: number, body: any): Observable<IMovie[]> {
     return this.http.put<IMovie[]>(
       this.ApiUrl + `Movies/${id}`,
+      body,
+      httpOptions
+    );
+  }
+
+  updateSubscription(id: any, body:any): Observable<ISubscription[]>{
+    return this.http.put<ISubscription[]>(
+      this.ApiUrl + `Subscription/${id}`,
       body,
       httpOptions
     );
