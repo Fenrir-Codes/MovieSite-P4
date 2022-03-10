@@ -73,7 +73,7 @@ export class ProfileComponent implements OnInit {
         this.isActive = this.user.subscription[0].isActive;
         this.expDate = this.user.subscription[0].expDate;
 
-        this.getExpirationDate();
+        this.checkExpirationDate();
       }
       //console.log(this.user);
     });
@@ -81,7 +81,7 @@ export class ProfileComponent implements OnInit {
   //#endregion
 
   //#region expDate
-  getExpirationDate() {
+  checkExpirationDate() {
     this.today = new Date();
     this.expDate = new Date(this.user.subscription[0].expDate);
 
@@ -97,8 +97,9 @@ export class ProfileComponent implements OnInit {
 
   //#region check days difference
   diffDays(exp, now){
-    //Calculate days difference from expiry date and todays date
+    //Calculate difference in days from expiry date and todays date
     return Math.ceil(Math.abs(exp - now) / (1000 * 60 * 60 * 24));
+                                          //  ms * s  * min * hour 
   }
   //#endregion
 
