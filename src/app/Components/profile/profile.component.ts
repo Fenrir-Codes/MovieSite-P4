@@ -22,9 +22,9 @@ export class ProfileComponent implements OnInit {
   showMessage: boolean = false;
   checked: boolean = false;
   isActive: boolean = false;
-  expDate:Date;
-  today:Date;
-  daysLeft:any
+  expDate: Date;
+  today: Date;
+  daysLeft: any;
   //#endregion
 
   constructor(
@@ -69,21 +69,36 @@ export class ProfileComponent implements OnInit {
     //receiving the full user detail with det by id call
     this.service.getUserById(this.userId).subscribe((data) => {
       this.user = data;
-      this.isActive = this.user.subscription[0].isActive;
-      this.expDate = this.user.subscription[0].expDate;
+      if (this.user.subscription[0] != null) {
+        this.isActive = this.user.subscription[0].isActive;
+        this.expDate = this.user.subscription[0].expDate;
+
+        this.getExpirationDate();
+      }
       //console.log(this.user);
     });
-    this.getExpirationDate();
   }
   //#endregion
 
   //#region expDate
-  getExpirationDate(){
-    let date = new Date();
-    this.today = date;  
+  getExpirationDate() {
+    this.today = new Date();
     this.expDate = new Date(this.user.subscription[0].expDate);
-    this.daysLeft = this.expDate.getDate() - this.today.getDate();
-    
+
+    //calling day difference calculator and set daysLeft equal to difference.
+    this.daysLeft = this.diffDays(new Date(this.expDate), new Date(this.today));
+
+    if (this.daysLeft <= 0) {
+      this.isActive = false;
+    }
+
+  }
+  //#endregion
+
+  //#region check days difference
+  diffDays(exp, now){
+    //Calculate days difference from expiry date and todays date
+    return Math.ceil(Math.abs(exp - now) / (1000 * 60 * 60 * 24));
   }
   //#endregion
 

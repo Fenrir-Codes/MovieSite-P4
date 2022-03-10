@@ -24,8 +24,10 @@ export class LoginComponent implements OnInit {
   loginForm: any;
   registerForm: any;
   user: any;
-  hide = true;
   result: any;
+  expDate: Date;
+  today: Date;
+  daysLeft: any
   showAnimation: boolean = false;
   regMessage: string = 'Register success.';
   regErrormessage: string = "Something went wrong, please try again.";
@@ -143,7 +145,7 @@ export class LoginComponent implements OnInit {
           else {
             this.success = true
             this.showButton = false;
-            setTimeout(() => {         
+            setTimeout(() => {
               this.DataService.changeAdminStatus(false)
               this.DataService.changeUserStatus(true);
               this.Router.navigate(['/Home']);
@@ -177,8 +179,8 @@ export class LoginComponent implements OnInit {
   //#region getting the users all detailed info, included orders etc...
   getUserDetailed(id: number) {
     this.service.getUserById(id).subscribe(res => {
-      //console.log(res);
       this.tokenService.enCryptKey('userToken', res)
+      //console.log(res);
 
     })
 

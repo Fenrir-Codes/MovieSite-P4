@@ -90,7 +90,22 @@ export class SharedService {
   }
 
   getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.ApiUrl + 'Products', httpOptions);
+    return this.http.get<IProduct[]>
+    (this.ApiUrl + 'Products', 
+    httpOptions);
+  }
+
+  getSubscription(): Observable<ISubscription[]> {
+    return this.http.get<ISubscription[]>(
+    this.ApiUrl + 'Subscriptions',
+    httpOptions);
+  }
+
+  getSubscriptionById(id: number): Observable<ISubscription[]> {
+    return this.http.get<ISubscription[]>(
+    this.ApiUrl + 'Subscriptions/' + id,
+    httpOptions
+    );
   }
 
   //#endregion
@@ -131,7 +146,7 @@ export class SharedService {
 
   updateSubscription(id: any, body:any): Observable<ISubscription[]>{
     return this.http.put<ISubscription[]>(
-      this.ApiUrl + `Subscription/${id}`,
+      this.ApiUrl + `Subscriptions/${id}`,
       body,
       httpOptions
     );
@@ -147,6 +162,10 @@ export class SharedService {
 
   deleteMovie(id: number) {
     return this.http.delete(this.ApiUrl + `Movies/${id}`);
+  }
+
+  deleteSubscription(id: number) {
+    return this.http.delete(this.ApiUrl + `Subscriptions/${id}`);
   }
 
   //#endregion

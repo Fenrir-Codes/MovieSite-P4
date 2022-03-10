@@ -1,56 +1,51 @@
 <div class="container" id="container">
-
   <div class="card">
-
     <div class="card-inner">
-
       <div class="front-face">
-        <h2>{{user?.firstname}} {{user?.lastname}}'s profile</h2>
-        <img class="avatar" id="avatar" src="./assets/{{user?.image}}" alt="">
+        <h2>{{ user?.firstname }} {{ user?.lastname }}'s profile</h2>
+        <img class="avatar" id="avatar" src="./assets/{{ user?.image }}" alt="" />
         <mat-icon>360</mat-icon>
       </div>
 
       <div class="back-face">
-        <p> Password: {{user?.password}}</p>
-        <p> Address: {{user?.address}}</p>
-        <p> Email: {{user?.email}} </p>
-        <p> Phone: {{user?.phone}} </p>
-        <p *ngIf="!isActive"> Subscription: Not subscribed</p>
-        <p *ngIf="isActive"> Subscription: <br><br>
-          <span> Active until: <br> {{expDate | date}}</span><br>
-          <span>Expires in {{ daysLeft }} days. </span></p>
+        <p>Password: {{ user?.password }}</p>
+        <p>Address: {{ user?.address }}</p>
+        <p>Email: {{ user?.email }}</p>
+        <p>Phone: {{ user?.phone }}</p>
+        <p *ngIf="!isActive">
+          Subscription:<br /><br />
+          Not subscribed.
+        </p>
+        <p *ngIf="isActive">
+          Subscription: <br /><br />
+          <span>
+            Active until: <br />
+            {{ expDate | date }}</span><br />
+          <span>Expires in {{ daysLeft }} days. </span>
+        </p>
 
         <div class="button-container">
-          <button class="btn" type="submit" mat-button (click)="openDialog(user?.profileId)">Update
-            Profile</button>
+          <button class="btn" type="submit" mat-button (click)="openDialog(user?.profileId)">
+            Update Profile
+          </button>
 
           <button class="btn-delete" type="submit" mat-button (click)="deleteProfile(user.profileId)"
-            [disabled]="!checked">Delete
-            Profile</button>
+            [disabled]="!checked">
+            Delete Profile
+          </button>
         </div>
 
         <mat-checkbox class="checkbox" (change)="checkOK($event.checked)">I want to delete my account.
         </mat-checkbox>
-
-
       </div>
-
     </div>
   </div>
-
-
 
   <div class="side-box" id="sidebox">
-
     <div class="desc-box" id="desc-box">
-
       <p>
-        {{user?.selfIntro}}
+        {{ user?.selfIntro }}
       </p>
-
     </div>
-
   </div>
-
-
 </div>
